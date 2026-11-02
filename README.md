@@ -15,7 +15,7 @@ I build factor research end to end — A-share data engineering → IC screening
 | 03 | **Tariff counterfactual** (working paper) | SCM (cvxpy) / CausalImpact (BSTS) / event study / mediation | Counterfactual gap ranges **−6.73% to +7.72%** across donors and methods → the contribution is the sensitivity boundary | [`03_tariff_paper/`](03_tariff_paper/) |
 | 04 | **Optiver realized volatility** | LightGBM + NN, market clock, loss alignment | naive RMSPE **0.3414 → 0.235** (medal zone ≈ 0.21–0.23) | [`04_optiver_rv/`](04_optiver_rv/) |
 | 05 | **Falsification studies** (A-share) | Capital flow / ETF rotation / quality score | Four popular signals, all rejected on point-in-time-corrected data | [`05_falsification/`](05_falsification/) |
-| 06 | **Equity research** (18 names) | One five-step framework, uniformly applied | 18 companies × 5 sectors × HK/A/US, each with a stated valuation range and a falsifiable trigger | [`06_stock_research/`](06_stock_research/) |
+| 06 | **Equity research** (21 reports / 22 companies) | One five-step framework, uniformly applied | 22 companies × 5 sectors × HK/A/US/Europe, each with a stated valuation range and a falsifiable trigger; 5 core names price-refreshed to 2026-11-02 | [`06_stock_research/`](06_stock_research/) |
 
 ---
 
@@ -27,7 +27,7 @@ I build factor research end to end — A-share data engineering → IC screening
 03_tariff_paper/       causal-inference working paper (LaTeX + notebooks)
 04_optiver_rv/         Kaggle competition reproduction: order book → volatility
 05_falsification/      four negative results, documented
-06_stock_research/     18 one-page theses, five-step framework
+06_stock_research/     21 one-page notes (22 companies), five-step framework
 ```
 
 Each folder has its own README with: the question, the data, the method, the result, and what would make the result wrong.
