@@ -1,0 +1,4 @@
+,Accuracy,Precision,Recall,F1,Cohen kappa
+Dictionary (2011),0.556,0.259,1.0,0.412,0.219
+TF-IDF + LR (trained),0.844,0.5,0.143,0.222,0.164
+FinBERT (2023),0.889,0.625,0.714,0.667,0.6

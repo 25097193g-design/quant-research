@@ -1,0 +1,12 @@
+{
+ "n": 150,
+ "n_pos": 24,
+ "train_n": 105,
+ "test_n": 45,
+ "cv_f1_train": 0.124,
+ "dict_precision_all": 0.267,
+ "dict_recall_all": 1.0,
+ "finbert_fp": 16,
+ "finbert_fn": 6,
+ "agree_dict_finbert": 0.6
+}
