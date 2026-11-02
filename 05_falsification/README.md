@@ -41,9 +41,11 @@ Momentum rotation across sector ETFs, tested across the parameter grid.
 
 ## 4. Quality score — a filter, not alpha
 
-An 8-dimension fundamental score applied to the entire A-share universe (4,885 stocks, v1→v4 iterations with multi-year trend and growth dimensions).
+An 8-dimension fundamental score applied to the A-share universe — 7,478 names in the v1 screen (including BSE and pre-IPO coaching names), narrowed to 4,885 in v4 after adding multi-year trend and growth dimensions.
 
-**Finding.** Over 2020–24 the score has **negative** predictive power for forward returns. It works as a *screening* layer — removing red-flag names — but it does not generate alpha, and using it as a ranking signal loses money.
+**Finding.** As a ranking signal the score has **IC ≈ 0** over 2023–26 on monthly cross-sections. It is neither a market-cap proxy (ρ = 0.18 with size) nor a negative-carry factor — it is simply uninformative. The *red-flag veto* (three consecutive years of ROE < 8%, or two years of negative operating cash flow) does retain some loss-avoidance value: red-flagged names returned −6.9% against −2.1% for the rest over the validation window.
+
+So the score is a **screening layer, not alpha**. Using it to rank stocks earns nothing.
 
 That is why the multi-factor strategies in `01_factor_framework/` use quality as a *pool filter* and take their alpha from price-volume factors, not from the score itself.
 

@@ -1,242 +1,51 @@
-# A 股全市场打分项目
+# Quality Score — A Fundamental Screen That Failed as a Factor
 
-> 时间：2026-05-21 ~ 2026-05-22
-> 目标：从 A 股全市场筛选出"财务上还算行"的公司
-
-## 🎯 项目目标
-
-从 A 股全市场（含北交所、IPO 辅导期企业）共 **7478 只**中，按统一标准打分，
-筛选出**约 2000 家财务上"还算行"的公司**（70 分以上），供后续投资决策参考。
+> 中文版：[README.zh.md](README.zh.md) · Reports: `评分报告_v1.md`, `v4因子证伪复盘_2023-2026.md`, `弱环修复报告_v2.md`
 
 ---
 
-## 📂 文件夹结构
+## What it is
 
-```
-a股打分项目/
-├── README.md                          ← 你正在看的这个
-│
-├── scripts/                           ← 流水线脚本（7 步）
-│   ├── 01_download_list.py            下载股票列表（含代码、名称、交易所）
-│   ├── 02_download_industry.py        下载申万/同花顺/东财行业分类
-│   ├── 03_download_industry_finance.py 下载行业成分股 + 财务数据
-│   ├── 04_classify_industries.py      把股票映射到统一行业分类
-│   ├── 05_download_financials.py      下载 5 年年度财务数据
-│   ├── 06_download_main_finance.py    下载主要财务指标
-│   ├── 07_scoring_engine_v2.py        7 维打分引擎（最终版）
-│   └── run_v3.py                      一键执行入口
-│
-├── scoring_results/                   ← 打分结果（36 个文件）
-│   ├── all_stocks_scores_v2.csv      ⭐ 7478 只全市场评分
-│   ├── sector_summary_v2.csv         ⭐ 34 个大板块汇总
-│   ├── top20_v2_*.csv                34 个行业的 top20（34 个文件）
-│
-└── reports/
-    └── 评分报告_v1.md                 ⭐ 完整分析报告
-```
+An 8-dimension fundamental score over the A-share universe, iterated v1 → v4:
 
----
+profitability · moat · cash generation · growth · leverage · operations · safety · valuation
 
-## 🔧 7 步流水线详解
+plus a **red-flag veto** (three consecutive years of ROE < 8%, or two consecutive years of negative operating cash flow).
 
-### Step 1：下载股票列表
-**脚本**：`01_download_list.py`
-**数据源**：akshare（东方财富、新浪接口）
-**输出**：`data/raw/stock_list.csv`
+| Version | Universe |
+|---|---|
+| v1 | 7,478 names (incl. BSE and pre-IPO coaching names) |
+| v4 | 4,885 names — adds multi-year trend and a growth dimension |
 
-下载全部 A 股的代码、名称、交易所信息。
-沪市（600/601/603/605/688）+ 深市（000/002/300）+ 北交所（920）。
+## What it turned out to be
 
-### Step 2：下载行业分类
-**脚本**：`02_download_industry.py`
-**数据源**：东方财富 API（http://push2.eastmoney.com/）
-**输出**：`data/raw/stock_industry_map.csv`
+**A screen, not a factor.**
 
-调用东财行业成分股接口，遍历 80+ 个行业，把每只股票映射到所属行业。
+- **As a ranking signal: IC ≈ 0** over 2023–26 monthly cross-sections. It is not a market-cap proxy (ρ = 0.18 with size) and not a negative-carry signal — it is uninformative.
+- **As a red-flag veto: some value.** Red-flagged names returned **−6.9%** against **−2.1%** for the rest over the validation window, i.e. the flag avoids some losses even though the score cannot rank.
 
-### Step 3：下载行业成分股 + 财务数据
-**脚本**：`03_download_industry_finance.py`
-**输出**：`data/raw/stock_industry_finance.csv`
+That distinction is why `01_factor_framework/` uses quality as a **pool filter** and takes its alpha from price-volume factors instead.
 
-把 Step 2 的股票-行业对应关系再交叉验证一次，得到最终对齐的列表。
+## The falsification process (the actually useful part)
 
-### Step 4：行业统一分类
-**脚本**：`04_classify_industries.py`
-**输出**：`data/raw/industry_map_v3.csv`
+`v4因子证伪复盘_2023-2026.md` records five stages of "hypothesis → test → conclusion", where the conclusion was overturned more than once:
 
-把股票归到 34 个统一大板块（银行/煤炭/医药/半导体/新能源/房地产...）。
-`scripts/classify_map.py` 里定义了板块对照表。
+1. **Endpoint bug** — a month-start anchor missed 2026-06, inflating medians by 14–18pp (from −7% to +11%). Fixed by switching to month-end.
+2. **Look-ahead is small** — removing look-ahead changes quantile spreads by < 0.5%, because quality is a slow-moving variable and 2024/2025 scores are highly correlated.
+3. **The real culprit was the validation regime** — moving the validation start from 2025-06 to 2025-01 flips the conclusion entirely.
+4. **Direct test** — monthly IC with and without market-cap neutralisation ⇒ ≈ 0.
+5. **Final ruling** — invalid as a factor.
 
-### Step 5：下载 5 年财务数据
-**脚本**：`05_download_financials.py`
-**数据源**：akshare 财务数据接口
-**输出**：`data/raw/yearly_reports.csv`
+`弱环修复报告_v2.md` documents the clean-up of the weak links in the scoring system (data coverage, industry classification, score distribution).
 
-每只股票拉 2020-2025 年的：
-- ROE（扣非加权）
-- 毛利率
-- 营业收入 / 净利润
-- 经营现金流
-- 总资产 / 资产负债率
-- 营运资本周转
+## Files
 
-### Step 6：下载主要财务指标
-**脚本**：`06_download_main_finance.py`
-**输出**：`data/raw/main_finance_data_partial.csv`
+| File | Content |
+|---|---|
+| `评分报告_v1.md` | v1 scoring report (universe, dimensions, distribution) |
+| `v4因子证伪复盘_2023-2026.md` | The five-stage falsification review |
+| `弱环修复报告_v2.md` | Weak-link repair report |
 
-补充主要财务指标（每股净资产、PE、PB、PEG 等）。
+## Data
 
-### Step 7：打分引擎 ⭐
-**脚本**：`07_scoring_engine_v2.py`
-**输出**：`scoring_results/all_stocks_scores_v2.csv`
-
-按 7 个维度打分（总分 100）：
-
-| 维度 | 满分 | 说明 |
-|---|---|---|
-| 1. 盈利基因 | 20 | ROE 连续多年≥8% |
-| 2. 护城河 | 15 | 毛利率连续多年高且稳定 |
-| 3. 现金含量 | 20 | 经营现金流匹配净利润 |
-| 4. 资产质量 | 15 | 资产负债率合理 |
-| 5. 营运效率 | 10 | 营运周期短、周转快 |
-| 6. 安全边际 | 10 | 高股息/低估值 |
-| 7. 估值匹配 | 10 | PEG 合理 |
-
-**关键特性**：
-- 🟢 行业定制（`SECTOR_CONFIG`）：银行/地产/半导体/医药各有不同参数
-- 🔴 红牌机制：触发一票否决条件直接淘汰
-- ⚪ 数据不足处理：5 年数据不足按比例打折
-
----
-
-## 📊 打分结果（最终版 v2）
-
-### 评级分布
-
-| 评级 | 数量 | 占比 | 说明 |
-|---|---|---|---|
-| ⭐ 核心资产 | 17 | 0.2% | 85 分以上，行业龙头/隐形冠军 |
-| 🟢 优质白马 | 694 | 9.3% | 70-84 分，财务稳健 |
-| 🟡 平庸公司 | 1264 | 16.9% | 60-69 分，缺乏核心壁垒 |
-| 🔴 垃圾标的 | 2741 | 36.6% | 60 分以下，财务风险高 |
-| ❌ 红牌淘汰 | 2762 | 36.9% | 触发一票否决 |
-
-**70 分以上（含优质白马和核心资产）= 711 只 ≈ 9.5%**
-
-### 大板块 TOP 5（按平均得分率）
-
-| 板块 | 股票数 | 平均得分率 | 红牌数 |
-|---|---|---|---|
-| 煤炭 | 25 | 67.56% | 5 |
-| 家用电器 | 103 | 62.13% | 38 |
-| 食品饮料 | 128 | 61.19% | 51 |
-| 银行 | 42 | 60.06% | 9 |
-| 交通运输 | 128 | 59.37% | 63 |
-
-### 核心资产 Top 8（85 分以上）
-
-| 代码 | 名称 | 板块 | 得分 |
-|---|---|---|---|
-| 605098 | 行动教育 | 社会服务 | 93% |
-| 688615 | 合合信息 | 计算机与IT | 90% |
-| 300033 | 同花顺 | 计算机与IT | 90% |
-| 920160 | 北矿检测 | 社会服务 | 88% |
-| 601083 | 锦江航运 | 交通运输 | 88% |
-| 603392 | 万泰生物 | 医药生物 | 87% |
-| 002030 | 达安基因 | 医药生物 | 86% |
-| 601156 | 东航物流 | 交通运输 | 85% |
-
-### 知名公司得分
-
-| 公司 | 得分 | 评级 |
-|---|---|---|
-| 五粮液 | 82% | 🟢 |
-| 海天味业 | 82% | 🟢 |
-| 宁德时代 | 82% | 🟢 |
-| 海康威视 | 77% | 🟢 |
-| 贵州茅台 | 74% | 🟢 |
-| 格力电器 | 73% | 🟢 |
-| 美的集团 | 72% | 🟢 |
-| 中国平安 | 61% | 🟡 |
-| 招商银行 | 61% | 🟡 |
-| 牧原股份 | 47% | 🔴 |
-
----
-
-## 🔍 关键发现
-
-### 行业差异巨大
-
-- **传统稳健派**（煤炭、家电、食品饮料、银行）平均得分率高
-- **新经济**（半导体、新能源、计算机）评分中位以下，红牌率高
-- **周期行业**（化工、钢铁、有色）波动大，红牌率高
-
-### 7000+ 只的真相
-
-实际打分时发现：
-- 已上市 A 股：约 5479 只
-- IPO 辅导期（A 开头）：1694 只（**未上市，但被错误拉入**）
-- 北交所：319 只
-- 老北交所代码（8/4 开头）：3 只
-
-→ 总共 7478 只 ≈ "akshare 给的数"（含未上市的）
-
-### 已知问题
-
-1. **银行/地产指标不适用**（已部分修正）
-2. **A 开头代码混进未上市公司**（噪音）
-3. **akshare 限流**（需重试机制）
-4. **东方财富 API 被封**（已切到新浪 API）
-
----
-
-## 🚀 如何复跑
-
-### 准备
-```bash
-pip install akshare pandas numpy
-```
-
-### 执行
-```bash
-cd a股打分项目/scripts
-python 01_download_list.py
-python 02_download_industry.py
-python 03_download_industry_finance.py
-python 04_classify_industries.py
-python 05_download_financials.py
-python 06_download_main_finance.py
-python 07_scoring_engine_v2.py
-```
-
-**预计耗时**：每个脚本 30 分钟-2 小时（akshare 限流），总共约 8 小时。
-
----
-
-## 📌 后续 TODO
-
-- [ ] 过滤掉 A 开头的未上市公司
-- [ ] 加入 PE/PB 历史分位指标
-- [ ] 引入 Z-score 标准化，让不同行业可比
-- [ ] 接入米筐数据源（更稳定）
-- [ ] 用打分结果做组合回测（量化选股）
-
----
-
-_最后更新：2026-06-27_
-
----
-
-## 数据复现(求职展示)
-
-`data/`(全A 财务/价格 parquet, 86M)未纳入仓库(gitignore)。重生成:
-1. `scripts/01-06` 下载全A 列表+行业+财务(akshare/rqdatac)
-2. `scripts/11_download_fundamentals_全A.py` 历史财务
-3. `scripts/14_v4_score_trend.py` 生成 v4 打分
-
-打分结果已纳入: `筛选交付_2025/全A_v4_scores_2025.csv`(4885 只全A)。
-
-## 项目结构
-- `scripts/` 14 脚本(下载→分类→财务→打分→PIT回测完整 pipeline)
-- `筛选交付_2025/` v4 打分 + 优质池/核心资产 csv
-- `scoring_results/` 分位数回测, `reports/` 分析
+`akshare` + `rqdatac` fundamentals, point-in-time. Not redistributable, so only the reports are published here.
