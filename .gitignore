@@ -6,3 +6,4 @@ __pycache__/
 *.pkl
 *.log
 data/
+05_falsification/block_trade/block_trade_seat.csv
