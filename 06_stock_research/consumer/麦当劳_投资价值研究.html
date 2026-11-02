@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>麦当劳投资价值研究 · 五步框架</title>
+<style>
+:root{--background:#f6f6f7;--foreground:#18181b;--card:#ffffff;--card-foreground:#18181b;
+--muted:#f0f0f2;--muted-foreground:#6f6f78;--border:#e4e4e7;
+--green:#15803d;--red:#dc2626;--yellow:#b45309;--blue:#1d4ed8;
+--viz-series-1:#1d4ed8;--viz-series-2:#7c3aed;--gold:#b8860b}
+@media (prefers-color-scheme: dark){
+:root{--background:#131316;--foreground:#ececf1;--card:#1c1c21;--card-foreground:#ececf1;
+--muted:#232329;--muted-foreground:#9d9da8;--border:#2c2c33;
+--green:#4ade80;--red:#f87171;--yellow:#facc15;--blue:#60a5fa;
+--viz-series-1:#60a5fa;--viz-series-2:#c084fc;--gold:#eab308}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--background);color:var(--foreground);
+font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Segoe UI",sans-serif;
+line-height:1.65;font-size:15px}
+.page{max-width:980px;margin:0 auto;padding:28px 22px 48px}
+h2{font-size:1.45rem;margin:6px 0 6px;font-weight:600}
+h3{font-size:1.12rem;margin:24px 0 6px;font-weight:600}
+h4{font-size:.95rem;margin:14px 0 4px;font-weight:500}
+hr{border:none;border-top:1px solid var(--border);margin:18px 0}
+.card{background:var(--card);color:var(--card-foreground);border:1px solid var(--border);
+border-radius:12px;padding:13px 16px;margin:10px 0}
+.viz-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px;margin:12px 0}
+.viz-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:6px 0}
+.viz-stat-value{font-size:1.28rem;font-weight:600;margin:2px 0}
+.text-small{font-size:.82rem}
+.text-muted{color:var(--muted-foreground)}
+.text-end{text-align:right}
+.tabular-nums{font-variant-numeric:tabular-nums}
+.table{width:100%;border-collapse:collapse;margin:10px 0}
+.table th,.table td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
+.table thead th{color:var(--muted-foreground);font-weight:500;font-size:.8rem}
+.table-sm th,.table-sm td{padding:5px 8px}
+b{font-weight:600}
+#mc-iv .chk { font-weight:500; white-space:nowrap; }
+#mc-iv .chk-pass { color:var(--green); }
+#mc-iv .chk-warn { color:var(--yellow); }
+#mc-iv .chk-fail { color:var(--red); }
+#mc-iv svg text { fill:var(--foreground); font-size:12px; }
+#mc-iv svg .axis { stroke:var(--border); stroke-width:1; }
+#mc-iv svg .muted-lab { fill:var(--muted-foreground); }
+#mc-iv .thesis-tag { font-weight:500; }
+#mc-iv .thesis-thesis .thesis-tag { color:var(--green); }
+#mc-iv .thesis-anti .thesis-tag { color:var(--red); }
+#mc-iv .thesis-trigger .thesis-tag { color:var(--blue); }
+#mc-iv h3 { margin-bottom:6px; }
+</style>
+</head>
+<body>
+<div class="page">
+<div id="mc-iv">
+
+  <h2>麦当劳投资价值研究 · 生意 × 价格 × 风险</h2>
+  <div class="viz-row text-small">
+    <span>MCD.N 242.50美元（10-15收盘 <b class="chk chk-fail">-19.1% YTD</b>，道指并列最差）· 市值1,716亿美元 ≈ 1.34万亿港元</span>
+    <span>· 数据截至 2026-10-15</span>
+    <span>· 基于 FY2025年报（2-11 8-K）+ 2026 Q1/Q2业绩（5-7 / 8-4）+ Wind行情财务 + SEC/公司公告/主流财经媒体核验</span>
+  </div>
+
+  <div class="card" style="border-left:4px solid var(--yellow)">
+    <div class="text-small text-muted">ⓘ 研究时点快照 — 一只「Dividend King」被按十年最低估值定价</div>
+    <div class="text-small">
+      麦当劳2026年从高点335.18回撤约28%、年内-19.1%（与耐克并列道指最差），直接诱因链条清晰：<b>Q4'25美国同店+6.8%冲顶 → 2026年美国低收入客流失速 → 3月推3美元超值菜单自救 → Q2'26全球同店+1.3%、美国+0.8%且客流为负，CEO承认价值策略是"bad trade"、CFO直言"行业客流停滞、抢的是不增长的蛋糕" → 9月投资者日复兴计划被解读为"更多折扣"，股价创四年新低</b>。Seeking Alpha（10-5）：当前PE约19x是<b>除2020年3月疫情闪崩外的十年最低估值</b>。研究要回答的问题只有一个：<b>这是质量股的黄金坑，还是美国快餐需求的结构性拐点？</b>
+    </div>
+  </div>
+
+  <div class="viz-grid">
+    <div class="card"><div class="text-small text-muted">生意好不好</div><div class="viz-stat-value">全球最强收租机器之一</div><div class="text-small">45,000店、95%特许经营；对1,390亿美元系统流水抽租抽成，FY25经营利润率46%；ROIC≈20–26%（两口径）对资金成本~7.5%超额3倍，<span class="chk chk-pass">满足连续5-10年硬标准</span>；商业模式一眼能看懂</div></div>
+    <div class="card"><div class="text-small text-muted">价格便不便宜</div><div class="viz-stat-value">绝对不便宜，相对十年最便宜</div><div class="text-small">PE(TTM)19.5x仅比YUM贵5%——历史溢价20-30%已归零；股息率3.2%为金融危机以来最高区间。现价隐含永续增长仅~3%，<b>低于门店管道机械贡献的~4-5%</b>：市场把"客流停滞"定价成了永久</div></div>
+    <div class="card"><div class="text-small text-muted">风险拿得住</div><div class="viz-stat-value">拿得住，但要接受它是防御仓</div><div class="text-small">2026年最大回撤~30%而FY25利润+4%——杀估值不杀业绩；净债务392亿美元×高利率是真实拖累（利息覆盖8x仍安全）。空头论点全部可观测、可证伪；<b>仓位按"压舱石"定（≤5-8%），不按弹性仓定</b></div></div>
+  </div>
+
+  <h3>① 生意质量 — 收入结构与利润引擎</h3>
+  <div class="viz-grid">
+    <div class="card"><div class="text-small text-muted">收入结构（FY2025：268.9亿美元 +4%）</div><div class="viz-stat-value">特许经营 61.6% · 自营 36.0% · 其他 2.4%</div><div class="text-small">特许经营收入165.5亿（+5%）＝<b>房租约104亿 + 品牌使用费约60亿</b>（10-K口径拆分）；自营门店销售96.9亿（-1%）；其他6.5亿（+53%，含对加盟商的技术服务费）</div></div>
+    <div class="card"><div class="text-small text-muted">利润引擎</div><div class="viz-stat-value">特许经营段贡献经营利润的~85%</div><div class="text-small">特许经营段利润率<b>约82%</b>（房租+抽成几乎零边际成本）→ 该段经营利润约137亿美元，扣掉总部费用后仍是全公司123.9亿经营利润的主体；自营段利润率仅~17%。全球系统销售额<b>1,390亿美元</b>（+7%，固定汇率+5%），公司截流约19%</div></div>
+    <div class="card"><div class="text-small text-muted">数字飞轮在转</div><div class="viz-stat-value">90天活跃会员2.2亿</div><div class="text-small">忠诚度会员TTM销售约400亿美元（+20%，占总流水~29%）；会员数据反哺菜单与定价——这是新挖的第三条护城河（流量→数据→精准促销→频次）</div></div>
+  </div>
+
+  <svg viewBox="0 0 760 190" role="img" aria-label="麦当劳收入结构与利润贡献对比：特许经营占收入61.6%但贡献约85%经营利润" style="width:100%; max-width:760px; height:auto">
+    <title>收入占比 vs 利润贡献（FY2025）</title>
+    <text x="14" y="18" class="muted-lab">上：收入占比　下：经营利润贡献占比 —— 收租与卖汉堡是两门生意</text>
+    <line x1="14" y1="52" x2="746" y2="52" class="axis"/>
+    <rect x="30"  y="30" width="440" height="22" rx="3" fill="var(--viz-series-1)"/>
+    <rect x="470" y="30" width="258" height="22" rx="3" fill="var(--muted)" stroke="var(--border)"/>
+    <rect x="728" y="30" width="18"  height="22" rx="3" fill="var(--gold)" opacity="0.6"/>
+    <text x="250" y="46" fill="#fff" text-anchor="middle">特许经营 61.6%</text>
+    <text x="599" y="46" class="muted-lab" text-anchor="middle">自营 36.0%</text>
+    <line x1="14" y1="130" x2="746" y2="130" class="axis"/>
+    <rect x="30"  y="86" width="607" height="22" rx="3" fill="var(--viz-series-1)" opacity="0.85"/>
+    <rect x="637" y="86" width="109" height="22" rx="3" fill="var(--muted)" stroke="var(--border)"/>
+    <text x="333" y="102" fill="#fff" text-anchor="middle">特许经营段 ≈85%</text>
+    <text x="691" y="102" class="muted-lab" text-anchor="middle">≈15%</text>
+    <text x="30" y="160" class="muted-lab">特许经营段利润率~82% vs 自营~17%；叠加地产：麦当劳约55%门店土地、80%建筑物为自有（并表市场口径）</text>
+    <text x="30" y="178" class="muted-lab">本质 = 对1,390亿美元餐饮流水收4-5%过路费 + 全球最大餐饮房东收租</text>
+  </svg>
+
+  <table class="table table-sm">
+    <thead><tr><th>护城河维度</th><th>判定</th><th>证据（数字）</th></tr></thead>
+    <tbody>
+      <tr><td>提价能力</td><td><span class="chk chk-pass">✓ 有，但分层</span></td><td>美国客单价长期年提2-3%且客群未流失（Q4'25美国同店+6.8%主要靠价与混搭）；特许权使用费按流水百分比抽成——通胀自动传导。边界在低收入客群：2026年被迫回撤到3美元菜单，说明提价权有天花板</td></tr>
+      <tr><td>市占率</td><td class="chk chk-pass">✓ 压倒性</td><td>全球45,000+店、100+国；系统流水1,390亿≈YUM两倍、Wendy's九倍；美国汉堡品类第一。规模摊薄全球广告与供应链成本，小玩家无法复制</td></tr>
+      <tr><td>转换成本</td><td class="chk chk-warn">△ 消费者低 / 加盟商极高</td><td>单客转换成本≈0（这是快餐的宿命）；但加盟商签长约、设备沉没、<b>土地店面握在麦当劳手里</b>——3万加盟商被锁在体系内；数字化（2.2亿会员）在筑消费端摩擦</td></tr>
+      <tr><td>ROIC vs 资金成本</td><td class="chk chk-pass">✓ 三倍超额，十年如此</td><td>FY25：NOPAT≈99亿美元 ÷ 投入资本374亿（净债务392−负权益18）≈ <b>26%</b>；加回经营租赁~130亿后≈<b>20%</b>。WACC≈7.5%（β≈0.7）。两种口径都≥2.5倍资金成本，2009年以来持续——<b>通过硬标准</b></td></tr>
+    </tbody>
+  </table>
+  <div class="text-small text-muted">
+    商业模式判定：看得懂，不触发放弃条款。一句话——<b>麦当劳不是餐饮公司，是「品牌税+地产租」的收费站</b>；自营店(36%收入)本质是维持品牌体验与测试场的成本中心。
+  </div>
+
+  <h3>② 财务体检 — 三表交叉验证</h3>
+  <div class="table-responsive">
+  <table class="table table-sm tabular-nums">
+    <thead><tr><th>亿美元</th><th>FY21</th><th>FY22</th><th>FY23</th><th>FY24</th><th>FY25</th><th>判定</th></tr></thead>
+    <tbody>
+      <tr><td>营业收入</td><td>232.2</td><td>231.8</td><td>254.9</td><td>259.2</td><td>268.9</td><td class="text-muted">5年CAGR≈3.7%</td></tr>
+      <tr><td>净利润</td><td>75.5</td><td>61.8</td><td>84.7</td><td>82.2</td><td>85.6</td><td class="text-muted">FY22低点系退出俄罗斯一次性损失~13亿</td></tr>
+      <tr><td>经营现金流</td><td>91.4</td><td>73.9</td><td>96.1</td><td>94.5</td><td>105.5</td><td class="chk chk-pass">✓ 现金流持续大于利润</td></tr>
+      <tr><td>资本开支</td><td>20.4</td><td>19.0</td><td>23.6</td><td>27.8</td><td>33.7</td><td class="text-muted">开店提速：45,000店后仍净增~4%/年</td></tr>
+      <tr><td>自由现金流</td><td>71.0</td><td>54.9</td><td>72.5</td><td>66.7</td><td>71.9</td><td class="chk chk-pass">✓ FCF/净利≈84%，真金白银</td></tr>
+      <tr><td>OCF ÷ 净利</td><td>1.21</td><td>1.20</td><td>1.14</td><td>1.15</td><td>1.23</td><td class="chk chk-pass">✓ 五年均值1.19，无利润化妆</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <svg viewBox="0 0 760 230" role="img" aria-label="2021-2025经营现金流、净利润、自由现金流柱状对比，OCF始终高于净利" style="width:100%; max-width:760px; height:auto">
+    <title>OCF vs 净利 vs FCF（FY21-FY25，亿美元）</title>
+    <text x="30" y="16" class="muted-lab">蓝=经营现金流　灰=净利润　金=自由现金流；虚线=OCF=净利基准</text>
+    <line x1="30" y1="200" x2="740" y2="200" class="axis"/>
+    <g class="tabular-nums">
+      <g><rect x="55"  y="42"  width="26" height="158" rx="2" fill="var(--viz-series-1)"/><rect x="85"  y="76"  width="26" height="124" rx="2" fill="var(--muted)" stroke="var(--border)"/><rect x="115" y="68"  width="26" height="132" rx="2" fill="var(--gold)" opacity="0.75"/>
+         <text x="98" y="34" text-anchor="middle">FY21</text><text x="98" y="218" text-anchor="middle" class="muted-lab">91/75/71</text></g>
+      <g><rect x="190" y="75"  width="26" height="125" rx="2" fill="var(--viz-series-1)"/><rect x="220" y="103" width="26" height="97"  rx="2" fill="var(--muted)" stroke="var(--border)"/><rect x="250" y="99"  width="26" height="101" rx="2" fill="var(--gold)" opacity="0.75"/>
+         <text x="233" y="67" text-anchor="middle">FY22</text><text x="233" y="218" text-anchor="middle" class="muted-lab">74/62/55</text></g>
+      <g><rect x="325" y="38"  width="26" height="162" rx="2" fill="var(--viz-series-1)"/><rect x="355" y="59"  width="26" height="141" rx="2" fill="var(--muted)" stroke="var(--border)"/><rect x="385" y="66"  width="26" height="134" rx="2" fill="var(--gold)" opacity="0.75"/>
+         <text x="368" y="30" text-anchor="middle">FY23</text><text x="368" y="218" text-anchor="middle" class="muted-lab">96/85/73</text></g>
+      <g><rect x="460" y="42"  width="26" height="158" rx="2" fill="var(--viz-series-1)"/><rect x="490" y="63"  width="26" height="137" rx="2" fill="var(--muted)" stroke="var(--border)"/><rect x="520" y="70"  width="26" height="130" rx="2" fill="var(--gold)" opacity="0.75"/>
+         <text x="503" y="34" text-anchor="middle">FY24</text><text x="503" y="218" text-anchor="middle" class="muted-lab">95/82/67</text></g>
+      <g><rect x="595" y="26"  width="26" height="174" rx="2" fill="var(--viz-series-1)"/><rect x="625" y="61"  width="26" height="139" rx="2" fill="var(--muted)" stroke="var(--border)"/><rect x="655" y="68"  width="26" height="132" rx="2" fill="var(--gold)" opacity="0.75"/>
+         <text x="638" y="18" text-anchor="middle">FY25</text><text x="638" y="218" text-anchor="middle" class="muted-lab">106/86/72</text></g>
+    </g>
+  </svg>
+
+  <div class="viz-grid">
+    <div class="card"><div class="text-small text-muted">利润化妆检查（应计利润率）</div><div class="viz-stat-value">未化妆</div><div class="text-small">五年(净利−OCF)/收入均为负（约-6~-8%）：现金持续好于账面。<b>投资浮盈：无</b>（无阿里式公允价值搅局）；SBC≈2亿美元/年、占净利~2%轻微；一次性项目FY25仅重组费2.29亿税前（$0.25/股，GAAP与调整后EPS差2%）；FY22净利-18%系退俄一次性损失，已在FY23收复</div></div>
+    <div class="card"><div class="text-small text-muted">有息负债与负权益</div><div class="viz-stat-value">净债务392亿 · 权益-18亿</div><div class="text-small">长期债务399.7亿、现金仅7.7亿；净债务/EBITDA≈2.7x，经营利润/利息≈8x，标普A-投资级。<b>负权益是激进回购的会计结果</b>（分红+回购>利润留存），不是资不抵债——判据看利息覆盖与评级。真实拖累：FOMC已加至3.75-4%，展期利息上行会逐年蚕食利润</div></div>
+    <div class="card"><div class="text-small text-muted">商誉 / 应收 / 存货</div><div class="viz-stat-value">全部干净</div><div class="text-small">商誉≈35亿、占总资产~6%，无减值历史；应收≈20亿级（主要是加盟商租金与使用费，与165亿特许收入匹配、无账龄恶化披露）；存货极小（仅自营店食材）——收租生意天然轻运营资产</div></div>
+    <div class="card"><div class="text-small text-muted">股东回报机器（FY25）</div><div class="viz-stat-value">FCF返还率≈100%</div><div class="text-small">分红51.2亿 + 回购20.6亿 = 71.7亿 ≈ FCF 71.9亿。连续增息<b>50年</b>（2026-09-17刚宣布第50次上调：季度息$1.86→$1.93，年化$7.72）——正式封王「Dividend King」</div></div>
+  </div>
+
+  <h3>③ 估值 — 绝对不便宜，相对十年最便宜</h3>
+  <table class="table table-sm tabular-nums">
+    <thead><tr><th>公司</th><th>价格$</th><th>市值$亿</th><th>PE(TTM)</th><th>股息率</th><th>YTD</th><th>备注</th></tr></thead>
+    <tbody>
+      <tr><td><b>麦当劳 MCD</b></td><td>242.50</td><td>1,716</td><td><b>19.5x</b></td><td>3.2%</td><td class="chk chk-fail">-19.1%</td><td>十年最低估值带（除2020闪崩）</td></tr>
+      <tr><td>百胜 YUM</td><td>150.83</td><td>412</td><td>18.6x</td><td>2.0%</td><td class="chk chk-pass">+1.2%</td><td>肯德基/塔可钟，特许占比~98%</td></tr>
+      <tr><td>RBI QSR</td><td>74.11</td><td>258</td><td>20.3x</td><td>3.4%</td><td class="chk chk-pass">+11.6%</td><td>汉堡王/ Popeyes，加拿大税务架构</td></tr>
+      <tr><td>星巴克 SBUX</td><td>96.88</td><td>1,104</td><td>55.7x*</td><td>2.6%</td><td class="chk chk-pass">+17.1%</td><td>*转型期盈利低谷致PE失真</td></tr>
+      <tr><td>温迪 WEN</td><td>6.70</td><td>13</td><td>10.1x</td><td>7.3%</td><td class="chk chk-fail">-17.4%</td><td>价值陷阱对照组：没有增长</td></tr>
+    </tbody>
+  </table>
+  <div class="text-small text-muted">同业口径：Wind全球行情快照 2026-10-15。核心事实：麦当劳历史上对YUM/QSR保持20-30%质量溢价，<b>当前溢价归零</b>（19.5x vs 18.6/20.3x）——要么市场对了（质量差距收敛），要么白送了十年的品牌与地产护城河。</div>
+
+  <svg viewBox="0 0 760 225" role="img" aria-label="PE锚点对比：2020极端底17x、当前19.5x、同业、十年均值24.5x、2025年末高点28x" style="width:100%; max-width:760px; height:auto">
+    <title>PE锚点地图</title>
+    <text x="30" y="16" class="muted-lab">PE锚点：黄带=历史常态区22-28x；当前19.5x在带外下方</text>
+    <rect x="30" y="70" width="690" height="42" fill="var(--yellow)" opacity="0.12"/>
+    <text x="716" y="66" text-anchor="end" class="muted-lab">十年常态区 22-28x</text>
+    <line x1="30" y1="180" x2="740" y2="180" class="axis"/>
+    <g class="tabular-nums" text-anchor="middle">
+      <rect x="55"  y="141.7" width="34" height="38.3" rx="2" fill="var(--muted)" stroke="var(--border)"/><text x="72"  y="136">17x</text><text x="72"  y="196" class="muted-lab">2020.3闪崩底</text>
+      <rect x="175" y="136.6" width="34" height="43.4" rx="2" fill="var(--muted)" stroke="var(--border)"/><text x="192" y="131">18.6x</text><text x="192" y="196" class="muted-lab">YUM现价</text>
+      <rect x="295" y="132.4" width="40" height="47.6" rx="2" fill="var(--viz-series-1)"/><text x="315" y="127" style="fill:var(--viz-series-1)">19.5x</text><text x="315" y="196" class="muted-lab">MCD现价</text>
+      <rect x="415" y="128.3" width="34" height="51.7" rx="2" fill="var(--muted)" stroke="var(--border)"/><text x="432" y="123">20.3x</text><text x="432" y="196" class="muted-lab">QSR现价</text>
+      <rect x="535" y="84"   width="34" height="96"  rx="2" fill="var(--yellow)" opacity="0.7"/><text x="552" y="79">24.5x</text><text x="552" y="196" class="muted-lab">十年均值</text>
+      <rect x="655" y="56"   width="34" height="124" rx="2" fill="var(--viz-series-2)" opacity="0.8"/><text x="672" y="51">28x</text><text x="672" y="196" class="muted-lab">2025年末高点</text>
+    </g>
+  </svg>
+
+  <div class="viz-grid">
+    <div class="card" style="border-left:4px solid var(--red)"><div class="text-small text-muted">悲观档</div><div class="viz-stat-value tabular-nums">≈ $203（-16%）</div><div class="text-small">2027E EPS≈$12.7（零增长：美国客流永续为负、GLP-1侵蚀、回购让位派息）× 16x（回到2015/2020式绝对恐慌底）。股息3.2%提供两年~6%垫</div></div>
+    <div class="card" style="border-left:4px solid var(--blue)"><div class="text-small text-muted">中性档</div><div class="viz-stat-value tabular-nums">≈ $297（+22%）</div><div class="text-small">2027E EPS≈$13.5（+6%/年：净开店2.5%+菜单定价3%+回购2%−汇率）× 22x（常态区下沿）。与卖方保守口径一致：37位分析师均值$296（区间230-390，20位买入）</div></div>
+    <div class="card" style="border-left:4px solid var(--green)"><div class="text-small text-muted">乐观档</div><div class="viz-stat-value tabular-nums">≈ $350（+44%）</div><div class="text-small">2027E EPS≈$14.0（+10%：客流回正+价值执行修复+数字广告等新收入放量）× 25x（历史常态）。贴近52周高335；部分激进目标390</div></div>
+  </div>
+
+  <div class="card">
+    <div class="text-small text-muted">反推现价隐含假设 — 当前242.5美元在定价什么</div>
+    <div class="text-small">
+      FCF/股≈$10.16 → 现价FCF收益率<b>4.2%</b>；以要求回报7.5%倒推，市场只给<b>永续增长≈3%</b>。而机械事实是：净开店~4%/年贡献系统销售~2.5% + 菜单定价2-3% + 回购缩股~2%——<b>即使客流十年零增长，EPS增速底线也有~4-5%</b>。也就是说现价隐含「美国客流永续负增长并拖垮全球」，比CFO最悲观的"行业停滞"口径更悲观。<span class="chk chk-warn">△ 但要诚实：19.5x对YUM只有5%溢价，便宜的是"质量差距"，不是绝对数字</span>——它的兑现依赖"客流不再恶化"这一个变量，不依赖繁荣。
+    </div>
+  </div>
+
+  <h3>④ 风险与证伪 — 每条空头论点配可观测信号</h3>
+  <table class="table table-sm">
+    <thead><tr><th>空头论点</th><th>事实基础</th><th>可观测信号（触发器）</th><th>动作</th></tr></thead>
+    <tbody>
+      <tr><td><b>1. 行业蛋糕不再增长</b></td><td>CFO原话："多个主要市场QSR客流持平或负增长，公司在争夺一块不增长的蛋糕"；Q2'26美国同店+0.8%全靠客单价、客流为负</td><td>美国同店连续两季&lt;0，或客流降幅环比扩大</td><td class="chk chk-fail">减半</td></tr>
+      <tr><td><b>2. GLP-1结构性侵蚀需求</b></td><td>美国~1/8成人在用，用户卡路里摄入-21%、食品支出显著下降；公司口径"84%的GLP-1家庭仍到店"——但到店≠消费额不缩</td><td>管理层从"无可测量影响"改口承认结构性拖累；高蛋白小份菜单成为增长主依赖；美国客单价与客流裂口持续扩大</td><td class="chk chk-fail">论点降级/离场</td></tr>
+      <tr><td><b>3. 价值战自伤+加盟商挤压</b></td><td>3月推3美元菜单、CEO承认"bad trade"；9月投资者日复兴计划被指"更多折扣会更糟"——折扣压缩加盟商EBITDA→其资本开支意愿下降→门店老化→客流进一步流失（死亡螺旋风险）</td><td>加盟商现金流调查（NBOD口径）显著恶化；2027年净开店/重塑指引下调</td><td class="chk chk-fail">减半</td></tr>
+      <tr><td><b>4. 392亿净债务×高利率</b></td><td>FOMC已加至3.75-4%；现金仅7.7亿，每年到期债务以更高利率展期</td><td>利息费用增速&gt;利润增速连续两年；评级展望转负面（现标普A-）</td><td class="chk chk-warn">盯+不加仓</td></tr>
+      <tr><td><b>5. 成本端：牛肉周期+工资</b></td><td>牛周期推高牛肉价；加州FAST法案式最低工资蔓延</td><td>加盟商食品纸品成本占销售比突破历史区间</td><td class="chk chk-warn">盯</td></tr>
+      <tr><td><b>6. 价值陷阱情形</b></td><td>若EPS增速连续两年&lt;3%且PE停在18x，年回报只剩3.2%息——跑输机会成本</td><td>2027年报验证：adj EPS增速&lt;3%即证伪</td><td class="chk chk-fail">机会成本离场</td></tr>
+    </tbody>
+  </table>
+
+  <div class="viz-grid">
+    <div class="card"><div class="text-small text-muted">供给日历（成熟蓝筹：无解禁/无可转债/无大股东减持）</div><div class="text-small">
+      <b class="tabular-nums">2026-11-04前后</b>：Q3'26财报——<b>审判日</b>：美国9月季度客流方向 + 复兴计划首份成绩单<br>
+      <b class="tabular-nums">2026-12-01 / 12-15</b>：除息日 / 派息$1.93每股<br>
+      <b class="tabular-nums">2026-12月中</b>：年度投资者更新（2027开店与资本开支指引）<br>
+      <b>持续</b>：季度回购节奏（FY25回购20.6亿，低价区间回购是隐形买盘）· FOMC 10/28-29、12月议息<br>
+      <b>侧证</b>：中国同店Q2'26为负但门店扩张提速——中国故事在门店数不在客单</div></div>
+    <div class="card"><div class="text-small text-muted">本轮下跌的归因（杀什么）</div><div class="text-small">
+      杀估值、不杀业绩：最大回撤~30%期间，FY25净利+4%、Q1'26 EPS +6%、Q2'26 +6%。被定价的是「增长故事的久期」，不是「盈利的真实性」。<br>
+      同期QSR +11.6%、SBUX +17.1%、YUM +1.2%——<b>是个股逻辑（美国客流+价值执行）而非行业β</b>。这既是机会（公司可控变量多），也是警示（管理层连续两季误判消费者）</div></div>
+  </div>
+
+  <h3>⑤ 价格纪律 — 分档买入与出场条件（先写好再进场）</h3>
+  <table class="table table-sm tabular-nums">
+    <thead><tr><th>档位</th><th>区间$</th><th>对应估值</th><th>仓位</th><th>逻辑</th></tr></thead>
+    <tbody>
+      <tr><td><b>第一档</b></td><td>238-245（现价区）</td><td>PE(TTM)≈19x · 息率3.2%</td><td>1/3</td><td>十年估值带下沿+50年增息的保护垫已足够厚</td></tr>
+      <tr><td><b>第二档</b></td><td>225-230</td><td>≈18x · 息率3.4%</td><td>1/3</td><td>52周低点229.2一线；对应"客流停滞永久化但盈利不崩"</td></tr>
+      <tr><td><b>第三档</b></td><td>205-210</td><td>≈16.5x · 息率3.7%</td><td>1/3</td><td>2015/2020式绝对恐慌价；除非空头论点1/2兑现，历史不给你这个价</td></tr>
+    </tbody>
+  </table>
+  <div class="viz-grid">
+    <div class="card" style="border-left:4px solid var(--red)"><div class="text-small text-muted">证伪线（基本面，优先级最高）</div><div class="text-small">美国同店<b>连续两季为负</b> 或 管理层<b>公开改口GLP-1构成结构性拖累</b> 或 加盟商资本开支指引下调——三者任一成立，无论价格，论点失效离场。不与叙事谈恋爱</div></div>
+    <div class="card" style="border-left:4px solid var(--yellow)"><div class="text-small text-muted">价格线（周收盘判定）</div><div class="text-small">跌破200（≈16x 2026E）时区分两种情形：<b>无公司利空</b>=宏观/流动性冲击，属加仓区（防御股破位历史上是大礼）；<b>伴随证伪信号</b>=清仓。不设机械止损，设条件止损</div></div>
+    <div class="card" style="border-left:4px solid var(--green)"><div class="text-small text-muted">兑现线（反向出场）</div><div class="text-small">≥300（≈23x）且美国客流<b>未回正</b>→纯估值修复兑现，减半；≥335（前高）且客流回正→持有让利润跑；期间每年白拿3.2%息等催化剂</div></div>
+  </div>
+  <div class="text-small text-muted">仓位上限：组合5-8%。理由：这是一台年化~9%（息3.2%+增长6%）的复利机器，角色是压舱石与币种分散（美元资产对冲港股组合），不是弹性仓——组合弹性已由腾讯/阿里/智谱提供。机会成本自觉：若两年内证伪线未触发也未能兑现，3.2%息跑不赢机会成本，按空头论点6离场。</div>
+
+  <h3>一页纸投资论点</h3>
+  <div class="viz-grid" style="grid-template-columns:1fr">
+    <div class="card thesis-thesis">
+      <div class="thesis-tag">论点（为什么买）</div>
+      <div class="text-small">
+      麦当劳是「品牌税+地产租」收费站：45,000店、95%特许经营、对1,390亿美元流水抽成，FY25经营利润率46%、ROIC 20-26%对资金成本超额三倍、OCF/净利五年均值1.19、FCF 100%返还、连续50年增息。2026年-19%杀的是估值与预期，不是盈利（FY25净利+4%、H1'26 EPS +6%）。现价19.5x处十年最低估值带、对同业历史溢价归零、股息率3.2%为危机后最高，<b>而现价只要求~3%永续增长——低于门店管道机械给出的4-5%底线</b>。买的是「最被验证的复利机器遇上最悲观的定价」，且不依赖宏观繁荣，只依赖「美国客流不再恶化」一个变量。
+      </div>
+    </div>
+    <div class="card thesis-anti">
+      <div class="thesis-tag">反论点（为什么可能是错的）</div>
+      <div class="text-small">
+      ① 行业蛋糕不增长：CFO承认多市场客流停滞，Q2'26美国+0.8%全靠提价、客流为负；② GLP-1：1/8美国成人用药、用户-21%卡路里，"84%仍到店"挡不住客单缩水；③ 管理层连续误判：价值策略"bad trade"+3美元菜单+复兴计划被指越救越糟，若压垮加盟商EBITDA则触发开店-老化-客流的死亡螺旋；④ 392亿净债务在高利率下逐年加税；⑤ 若增长故事证伪，19.5x不是底，温迪10x+7.3%息才是没有增长的下场。最实质的一条：<b>这轮下跌是个股逻辑而非行业β（QSR +11.6%/SBUX +17.1%同期上涨），错在公司自己的可能性不低</b>。
+      </div>
+    </div>
+    <div class="card thesis-trigger">
+      <div class="thesis-tag">触发器（什么时候验证/离场）</div>
+      <div class="text-small">
+      <b>近期</b>：11-04前后Q3'26财报——美国客流方向+复兴计划首考，这是本论点的下一个裁决日；12月中年度指引给2027开店数。<br>
+      <b>买入</b>：238-245（1/3）→ 225-230（1/3）→ 205-210（1/3），仓位上限组合5-8%。<br>
+      <b>证伪即走</b>：美国同店连续两季负 / 管理层改口GLP-1结构性拖累 / 加盟商资本开支指引下调——任一成立无条件离场。<br>
+      <b>价格辅助</b>：周收破200需分辨宏观冲击（加仓区）vs 基本证伪（清仓）；≥300且客流未回正减半兑现；每年3.2%息是等待的报酬。
+      </div>
+    </div>
+  </div>
+
+  <hr>
+  <div class="text-small text-muted">
+    数据与信源：FY2025业绩 <a href="https://www.sec.gov/Archives/edgar/data/63908/000006390826000032/exhibit991-12312025.htm">8-K Exhibit 99.1（SEC，2026-02-11）</a>；
+    <a href="https://corporate.mcdonalds.com/content/mcdonalds/corpmcd/our-stories/article/Q2-2026-results.html">Q2'26业绩（公司，2026-08-04）</a>；
+    <a href="https://www.cnbc.com/2026/08/04/mcdonalds-mcd-q2-2026-earnings.html">CNBC Q2'26（美国客流下滑）</a>；
+    <a href="https://www.tikr.com/blog/mcdonalds-q2-earnings-the-ceo-admits-a-bad-trade">TIKR（CEO"bad trade"）</a>；
+    <a href="https://corporate.mcdonalds.com/content/mcdonalds/corpmcd/our-stories/article/Q1-2026-results.html">Q1'26业绩（公司，2026-05-07）</a>；
+    <a href="https://www.prnewswire.com/news-releases/mcdonalds-marks-50-consecutive-years-of-dividend-increases-joining-the-ranks-of-dividend-kings-302882422.html">PR Newswire（50年连续增息，2026-09-17）</a>；
+    <a href="https://seekingalpha.com/article/4952067-unpacking-mcdonalds-30-percent-drop-noise-vs-fundamentals">Seeking Alpha（十年最低估值，2026-10-05）</a>；
+    <a href="https://www.forbes.com/sites/jimosman/2026/09/25/mcdonalds-stock-fell-29-its-turnaround-plan-could-make-things-worse">Forbes（复兴计划质疑，2026-09-25）</a>；
+    <a href="https://www.cnbc.com/2026/03/21/glp-1-diets-restaurants-protein-fiber-weight-loss-drugs.html">CNBC GLP-1饮食影响</a>；
+    <a href="https://news.cornell.edu/stories/2025/12/ozempic-changing-foods-americans-buy">Cornell（GLP-1家庭食品支出-5.3%）</a>；
+    <a href="https://www.marketbeat.com/stocks/NYSE/MCD/forecast">MarketBeat（分析师目标）</a>；行情/财务/同业：Wind（2026-10-15收盘）。<br>
+    免责声明：个人研究笔记，非投资建议。估值档位为简化情景推演，非精确DCF；ROIC与利息费用为基于年报披露的估算值。
+  </div>
+
+</div>
+</div>
+</body>
+</html>

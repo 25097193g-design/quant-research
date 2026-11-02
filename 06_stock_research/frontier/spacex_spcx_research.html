@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SpaceX（NASDAQ: SPCX）五步投资研究 | 2026-10-29</title>
+<style>
+  :root{
+    --ink:#1a2332; --sub:#5a6a7e; --line:#dde4ec; --bg:#f5f7fa; --card:#ffffff;
+    --red:#c0392b; --green:#1e7d4f; --amber:#b26a00; --blue:#1f5fa8; --gold:#8a6d1a;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:-apple-system,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+       background:var(--bg);color:var(--ink);line-height:1.65;font-size:14.5px;}
+  .wrap{max-width:1020px;margin:0 auto;padding:28px 20px 60px;}
+  .hdr{background:linear-gradient(135deg,#16233a 0%,#24405f 100%);color:#fff;border-radius:12px;
+       padding:26px 30px;margin-bottom:20px;}
+  .hdr .tick{display:flex;flex-wrap:wrap;align-items:baseline;gap:12px;}
+  .hdr h1{font-size:26px;font-weight:700;letter-spacing:.5px;}
+  .hdr .muted{color:#a9bcd4;}
+  .hdr .verdict{margin-top:12px;background:rgba(255,255,255,.10);border-left:4px solid #e8c35a;
+                padding:10px 14px;border-radius:0 8px 8px 0;font-size:15px;}
+  .quotegrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-top:16px;}
+  .qitem{background:rgba(255,255,255,.08);border-radius:8px;padding:8px 12px;}
+  .qitem .k{font-size:11.5px;color:#a9bcd4;}
+  .qitem .v{font-size:16.5px;font-weight:700;color:#fff;}
+  .qitem .v.red{color:#ff9d94;} .qitem .v.grn{color:#8fe3b0;} .qitem .v.amb{color:#f4c86a;}
+  .scores{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:20px;}
+  .score{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;}
+  .score h3{font-size:13px;color:var(--sub);font-weight:600;margin-bottom:6px;}
+  .score .grade{font-size:26px;font-weight:800;}
+  .score p{font-size:12.5px;color:var(--sub);margin-top:4px;}
+  .gA{color:var(--green);} .gB{color:var(--blue);} .gC{color:var(--amber);} .gD{color:var(--red);}
+  section{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px 26px;margin-bottom:20px;}
+  h2{font-size:18.5px;font-weight:700;padding-bottom:10px;border-bottom:2px solid var(--line);margin-bottom:14px;}
+  h2 .step{display:inline-block;background:#16233a;color:#fff;font-size:12px;border-radius:5px;
+           padding:2px 8px;margin-right:8px;vertical-align:2px;font-weight:600;}
+  h3{font-size:15px;font-weight:700;margin:16px 0 8px;color:#16233a;}
+  p{margin:8px 0;}
+  ul,ol{margin:6px 0 6px 22px;}
+  li{margin:4px 0;}
+  table{width:100%;border-collapse:collapse;margin:10px 0;font-size:13px;}
+  th{background:#eef2f7;text-align:left;padding:7px 9px;font-weight:600;border:1px solid var(--line);white-space:nowrap;}
+  td{padding:6px 9px;border:1px solid var(--line);vertical-align:top;}
+  tr:nth-child(even) td{background:#fafbfd;}
+  .num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;}
+  .pos{color:var(--green);font-weight:600;} .neg{color:var(--red);font-weight:600;} .warnc{color:var(--amber);font-weight:600;}
+  .note{font-size:12px;color:var(--sub);}
+  .callout{border-radius:8px;padding:12px 14px;margin:12px 0;font-size:13.5px;}
+  .co-red{background:#fdf0ee;border-left:4px solid var(--red);}
+  .co-grn{background:#eef7f1;border-left:4px solid var(--green);}
+  .co-amb{background:#fdf6e9;border-left:4px solid var(--amber);}
+  .co-blu{background:#eef3fa;border-left:4px solid var(--blue);}
+  .tag{display:inline-block;font-size:11px;border-radius:4px;padding:1px 7px;margin-right:5px;font-weight:600;vertical-align:1px;}
+  .t-red{background:#fdecea;color:var(--red);} .t-grn{background:#e9f5ee;color:var(--green);}
+  .t-amb{background:#fdf3e3;color:var(--amber);} .t-blu{background:#eaf1fa;color:var(--blue);}
+  .ladder{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin:12px 0;}
+  .rung{border:1px solid var(--line);border-radius:10px;padding:12px 14px;background:#fafbfd;}
+  .rung .p{font-size:20px;font-weight:800;}
+  .rung .d{font-size:12px;color:var(--sub);margin-top:4px;}
+  .onepager{border:2px solid #16233a;background:#fffdf5;border-radius:12px;padding:24px 28px;}
+  .onepager h2{border-bottom:2px solid #16233a;}
+  .op-block{margin-bottom:14px;}
+  .op-block h3{margin:0 0 6px;font-size:15px;}
+  .op-thesis{color:var(--green);} .op-anti{color:var(--red);} .op-trig{color:var(--blue);}
+  .op-block ul{margin-left:20px;}
+  footer{font-size:12px;color:var(--sub);margin-top:26px;line-height:1.8;}
+  footer a{color:var(--blue);text-decoration:none;word-break:break-all;}
+  @media print{ body{background:#fff;} section,.hdr{box-shadow:none;} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- ================= HEADER ================= -->
+<div class="hdr">
+  <div class="tick">
+    <h1>SpaceX（NASDAQ: SPCX）</h1>
+    <span class="muted">五步投资研究 · 生意好不好 × 价格便不便宜 × 风险拿得住</span>
+  </div>
+  <div class="muted" style="margin-top:4px;font-size:13px;">数据截至 2026-10-29 · 2026-06-11 IPO（$135/股，募资 $750 亿，史上最大）· 2026-02 并购 xAI（$250 亿作价并入，合并体 $1.25 万亿）</div>
+  <div class="verdict">
+    <b>一句话：</b>全球罕见的双护城河公司——发射（成本领先+国安认证）+ Starlink（规模+独占频谱），Starlink 分部经营利润率 39% 是真引擎；但当前市值 ~$1.9 万亿 = 2025 年收入的 <b>~100 倍</b>，价格已经把「Starlink 赢下全球 + Starship 成功 + xAI 进 AI 前二」<b>三件事全部算成已发生</b>。Q1'26 净亏 $43 亿、自由现金流未披露，是一台「EBITDA 很亮、现金是黑箱」的机器。<b>结论：优质资产 × 透支价格 = 观察清单第一位，等待 $90 以下分档区，11/3 中期选举与 12/8 锁定期全解之前不进场。</b>
+  </div>
+  <div class="quotegrid">
+    <div class="qitem"><div class="k">现价（10/27 收）</div><div class="v">$148.58</div></div>
+    <div class="qitem"><div class="k">市值（约 13B 股）</div><div class="v">~$1.93 万亿</div></div>
+    <div class="qitem"><div class="k">IPO 价 / 开盘 / 高</div><div class="v">$135 / $150 / $176</div></div>
+    <div class="qitem"><div class="k">2025 收入（S-1）</div><div class="v grn">$18.7B（+33%）</div></div>
+    <div class="qitem"><div class="k">P/S（2025 收入）</div><div class="v red">~103x</div></div>
+    <div class="qitem"><div class="k">Adj EBITDA（2025）</div><div class="v">$7.2B → EV/EBITDA ~260x</div></div>
+    <div class="qitem"><div class="k">Q1'26 净利</div><div class="v red">−$4.3B</div></div>
+    <div class="qitem"><div class="k">Starlink 用户</div><div class="v">9.2–10.3M</div></div>
+  </div>
+</div>
+
+<!-- ================= SCORES ================= -->
+<div class="scores">
+  <div class="score"><h3>① 生意质量</h3><div class="grade gA">A−</div>
+    <p>发射成本领先全球一个身位 + Starlink 规模/频谱双壁垒，Starlink 分部经营利润率 39%；xAI 并入让生意复杂度跳档，「太空 AI」看不懂的部分当期权处理。</p></div>
+  <div class="score"><h3>② 财务健康</h3><div class="grade gC">C+</div>
+    <p>Adjusted EBITDA $7.2B 是真的，但 Q1'26 GAAP 净亏 $4.3B、FCF 从未披露；卫星 5 年折旧 = 折旧即经常性资本开支，EBITDA 系统性高估自由现金流。</p></div>
+  <div class="score"><h3>③ 价格</h3><div class="grade gD">D+</div>
+    <p>~103x P/S / ~260x EV/EBITDA，比史上任何超大盘 IPO 都贵；SOTP 中性锚 $75–95，现价 $148 已透支到乐观档——买它等于赌三件事同时成功。</p></div>
+  <div class="score"><h3>④⑤ 风险可控 × 纪律</h3><div class="grade gC">C</div>
+    <p>关键人 × 政治风险正在定价（11/3 中期选举、沃伦报告、Tesla 合并传闻）；锁定期阶梯解到 12/8（约 40% 股本）；二元事件密集，必须分档+预写出场。</p></div>
+</div>
+
+<!-- ================= STEP 1 ================= -->
+<section>
+<h2><span class="step">STEP 1</span>生意质量：一个真垄断 + 一个准电信 + 一个看不懂的 AI 期权</h2>
+
+<h3>收入结构（S-1 口径 FY2025，含 xAI 备考，分部合计 = $18.7B ✓）</h3>
+<table>
+<tr><th>分部</th><th class="num">收入</th><th class="num">占比</th><th class="num">同比</th><th class="num">经营利润</th><th>角色定位</th></tr>
+<tr><td><b>Starlink（连接）</b></td><td class="num">$11.4B</td><td class="num">61%</td><td class="num pos">+73%</td><td class="num pos">+$4.4B（39% margin）</td><td><b>利润引擎</b>：9.2–10.3M 订阅用户，经常性收入；2024 年仅 $6.6B，一年长出 73%</td></tr>
+<tr><td><b>发射（猎鹰+国安）</b></td><td class="num">$4.1B</td><td class="num">22%</td><td class="num">~+15–20%</td><td class="num pos">盈利（WSJ）</td><td>现金牛+护城河本体：复用火箭成本全球最低，美国入轨发射绝对主导</td></tr>
+<tr><td><b>xAI（Grok/算力）</b></td><td class="num">$3.2B</td><td class="num">17%</td><td class="num">—</td><td class="num neg">亏损（Q1'26 公司净亏 $4.3B 主因）</td><td>2026-02 并入（$250B 作价）；「太空 AI 数据中心」叙事，看不懂 → 只当期权</td></tr>
+</table>
+
+<h3>护城河逐项打分</h3>
+<table>
+<tr><th>维度</th><th>证据</th><th>强度</th></tr>
+<tr><td><b>成本领先（发射）</b></td><td>复用猎鹰一级助推器，每公斤入轨成本较一次性火箭低数倍；竞争对手（Amazon Leo）发自己的卫星还要向 SpaceX 买发射——这是成本优势最讽刺的注脚</td><td class="pos">极强</td></tr>
+<tr><td><b>转换成本（政府）</b></td><td>NSSL 国安发射认证流程以年计；SpaceX 手握 >$7B 国防部合同（沃伦报告口径）；Flight 14（9/28）Starship 已入轨并部署星链卫星，2027-06 无人登月（HLS）在路线图上</td><td class="pos">强</td></tr>
+<tr><td><b>规模 + 频谱（Starlink）</b></td><td>在轨卫星数千颗级，领先 Amazon Leo（规划 3,232 颗，2026-04 才宣布 $115.7 亿投资）一个身位；2026-05 已完成 EchoStar $17B 频谱收购（AWS-4 + H-block，FCC 5/12 批准、含 $2.4B 托管条件）→ direct-to-cell 手机直连的美国频谱基础独占</td><td class="pos">强</td></tr>
+<tr><td><b>提价能力</b></td><td><b>未验证</b>——消费端电信史就是价格战史；Starlink 至今是「降价换规模」阶段。频谱独占给了未来的提价期权，但还没行使过</td><td class="warnc">弱/待证</td></tr>
+</table>
+
+<div class="callout co-amb">
+<b>框架硬性要求核验：ROIC 连续 5–10 年 > 资金成本 —— 无法完成。</b>SpaceX 上市前是私企，无公开三表；这也是本次研究最大的信息折扣。上市后验证点：自由现金流（不是 EBITDA）能否转正、卫星更新周期的再投资强度。在拿到两份 10-Q 之前，本项按「未验证」记，不给满分。
+</div>
+
+<h3>商业模式看得懂吗？</h3>
+<p>发射 = 航天运输业（成本曲线生意），Starlink = 电信业（资本密集 + 规模生意），两者都看得懂；<b>xAI 的「AI 数据中心上天」看不懂</b>——散热、维护、辐射加固的成本曲线没人算得清。按框架处理：看不懂的部分不付大钱，估值里 xAI 按并表价折让处理（见 STEP 3）。</p>
+</section>
+
+<!-- ================= STEP 2 ================= -->
+<section>
+<h2><span class="step">STEP 2</span>财务体检：EBITDA 是真的，现金是黑箱</h2>
+
+<h3>已知财务拼图（上市首年，无历史序列）</h3>
+<table>
+<tr><th>期间</th><th class="num">收入</th><th class="num">Adj EBITDA</th><th class="num">GAAP 净利</th><th>备注</th></tr>
+<tr><td>FY2024</td><td class="num">~$13–14B</td><td class="num">$3.8B</td><td class="num">未披露</td><td>私有最后整年；Starlink 收入 $6.6B</td></tr>
+<tr><td>FY2025</td><td class="num">$18.7B（+33%）</td><td class="num">$7.2B</td><td class="num">未完整披露</td><td>S-1 首次公开；NASA 合同 ~$1.1B</td></tr>
+<tr><td>Q1 2026</td><td class="num">未完整披露</td><td class="num">—</td><td class="num neg">−$4.3B</td><td>并表 xAI 后首季；Starlink 分部经营利润 +$1.2B 仍强劲</td></tr>
+<tr><td>FY2026E</td><td class="num">$26–28B（推算）</td><td class="num">—</td><td class="num">?</td><td>Starlink 指向 $18–20B（~+60%）+ 发射 + xAI</td></tr>
+</table>
+
+<h3>三表交叉验证做不了历史版，做结构版——四个警觉点</h3>
+<ol>
+<li><b>利润化妆的头号嫌疑：Adjusted EBITDA vs GAAP 净利的缺口。</b>2025 年 Adj EBITDA $7.2B vs Q1'26 单季净亏 $4.3B（年化 −$17B）。缺口来自 xAI 经营亏损 + 合并股权激励（SBC）+ AI 资本开支折旧。SBC 在科技公司并购后第一年最凶——<b>应计利润率无从计算，但缺口本身就是信号</b>：adjusted 口径与股东真实利润之间隔着一整个 xAI。</li>
+<li><b>卫星折旧 = 经常性资本开支，EBITDA 系统性高估经济利润。</b>星链卫星设计寿命约 5 年，折旧是「已花的钱」，不是「不会再花的钱」。星座要维持就得持续补网发射。<b>终极检验 FCF = 经营现金流 − 资本开支，S-1 摘要未披露，首份 10-Q 的现金流量表是裁决文件</b>；经验阈值：经营现金流 / Adj EBITDA 长期 < 0.5 → 这门生意在给未来埋单，利润是会计幻觉。</li>
+<li><b>资本承诺堆叠：</b>EchoStar 频谱 $17B（2026-05 已交割）+ xAI 数据中心开支 + Starship 研发 + 星座补网，四线同时烧钱。有息负债规模待 10-Q 确认（频谱对价现金+承债结构未详）。</li>
+<li><b>利润结构依赖单一分部：</b>Starlink 贡献几乎全部经营利润（发射微利、xAI 亏损）。Starlink 用户净增一旦失速，全公司利润表同步失速——收入多元化是表象，利润引擎是单点。</li>
+</ol>
+
+<div class="callout co-grn"><b>体检里唯一的真亮点：</b>Starlink 分部 2025 经营利润率 39%（$4.4B / $11.4B），Q1'26 维持 $1.2B/季——这不是烧钱换收入的补贴生意，是真实的规模经济在兑现（垂直整合：自己发射自己造星，单位服务成本随用户数摊薄）。<b>前提：</b>分部口径没有把共用成本（发射、研发）全部塞给别的分部——同样要等 10-Q 分部附注验证。</div>
+</section>
+
+<!-- ================= STEP 3 ================= -->
+<section>
+<h2><span class="step">STEP 3</span>估值：现价 $148 在乐观档里，中性锚 $75–95</h2>
+
+<h3>估值轨迹：六年 40 倍，最后八个月翻倍再翻倍</h3>
+<table>
+<tr><th>时点</th><th class="num">估值</th><th>事件</th></tr>
+<tr><td>2020</td><td class="num">$46B</td><td>私募轮</td></tr>
+<tr><td>2021-10</td><td class="num">$100B</td><td>私募轮</td></tr>
+<tr><td>2023-01</td><td class="num">$137B</td><td>tender</td></tr>
+<tr><td>2024-06 / 2024-12</td><td class="num">$210B / $350B</td><td>tender / tender</td></tr>
+<tr><td>2025-12</td><td class="num">~$400B → tender ~$800B（$421/股，合并前股本）</td><td>IPO 前流动性事件</td></tr>
+<tr><td>2026-02</td><td class="num">$1.25T（SpaceX ~$1T + xAI $250B）</td><td>全股票并购 xAI，史上最大合并</td></tr>
+<tr><td>2026-06-11</td><td class="num">$1.75T（$135/股 × ~13B 股）</td><td><b>IPO：$135 定价、募 $75B、开盘 $150、最高 $176</b></td></tr>
+<tr><td>2026-07</td><td class="num">跌破 $135</td><td>Starship 发射中止触发抛售</td></tr>
+<tr><td>2026-10-27</td><td class="num"><b>~$1.93T（$148.58）</b></td><td>10/9 曾摸 $166，IPO 后区间约 $128–176</td></tr>
+</table>
+
+<h3>反推：当前价格隐含了什么</h3>
+<p>~$1.93 万亿市值、按 10% 折现的永续框架，意味着市场要求公司远期稳定产生 <b>~$1,900 亿/年的自由现金流</b>——超过 AT&T + Verizon + Comcast 三家美国运营商 FCF 的总和。拆开看只有一条路径成立：Starlink 变成全球级运营商（direct-to-cell 吃下手机直连）+ Starship 把单位载荷成本再砍到 1/4 打开轨道经济 + xAI 挤进 AI 前二。三件事<b>每件单独都有失败先例</b>（电信价格战 / 重型火箭跳票 / AI 烧钱无底），当前价格把它们<b>全部按成功定价</b>。</p>
+
+<h3>SOTP 三档（2030E 分部 + 折现，股本 ~13B）</h3>
+<table>
+<tr><th>分部</th><th class="num">悲观</th><th class="num">中性</th><th class="num">乐观</th><th>关键假设差异</th></tr>
+<tr><td>Starlink 2030E 收入</td><td class="num">$25B</td><td class="num">$38B</td><td class="num">$55B+</td><td>悲观=Leo+中国星座夹击、ARPU 战；乐观=direct-to-cell 起量</td></tr>
+<tr><td>Starlink 估值（margin × exit multiple）</td><td class="num">$70B（32%×9x）</td><td class="num">$210B（40%×14x）</td><td class="num">$450B（45%×18x）</td><td>倍数参照：电信运营商 6–8x / 塔类基建 ~20x / 成长资产居中</td></tr>
+<tr><td>发射+国安</td><td class="num">$35B</td><td class="num">$60B</td><td class="num">$90B</td><td>现金牛，倍数 10–14x EBITDA</td></tr>
+<tr><td>Starship 期权</td><td class="num">~$10B</td><td class="num">$150B</td><td class="num">$400B</td><td>悲观=2029 年后仍不成、接近归零；乐观=轨道制造+国防载荷经济打开</td></tr>
+<tr><td>xAI（并表价 $250B 折让）</td><td class="num">$60B</td><td class="num">$180B</td><td class="num">$500B</td><td>按框架「看不懂不给全价」：中性 0.7x 并表价，乐观=AI 前二</td></tr>
+<tr><td><b>合计（扣净债务前）</b></td><td class="num"><b>~$175B</b></td><td class="num"><b>~$600B</b></td><td class="num"><b>~$1,490B</b></td><td>净债务（频谱+AI capex）未披露，10-Q 前按 $50–100B 记</td></tr>
+<tr><td><b>叙事锚（市场实际定价方式）</b></td><td class="num"><b>$400–580B</b><br>（$31–45/股）</td><td class="num"><b>$1.0–1.25T</b><br>（$77–96/股）</td><td class="num"><b>$1.6–2.1T</b><br>（$123–160/股）</td><td>分部 SOTP 是下限（悲观失真时市场按叙事定价，如私募锚 $350–800B）；叙事锚含流动性溢价</td></tr>
+</table>
+
+<div class="callout co-red">
+<b>结论：现价 $148.58 落在乐观档（$123–160）内部、比中性锚高 55–90%。</b>历史分位法不可用（上市仅 4 个月），跨公司对比更直观：$1.93 万亿 ÷ 2025 收入 = <b>~103x P/S</b>，作为对照，阿里 2014 年 IPO ~20x、Meta 2012 年 ~12x——SPCX 是史上最贵的超大盘 IPO，没有之一。这不是「贵一点」，这是<b>把三重胜利当确定性</b>的定价。
+</div>
+</section>
+
+<!-- ================= STEP 4 ================= -->
+<section>
+<h2><span class="step">STEP 4</span>风险与证伪：每条空头论点配一个可观测信号</h2>
+
+<table>
+<tr><th>#</th><th>空头论点</th><th>可观测信号</th><th>触发器 → 动作</th></tr>
+<tr><td>1</td><td><b>Starship 执行风险</b>：7 月一次中止就把股价打穿发行价，证明市场对它多么敏感</td><td>Flight 15+ 成功率；2026 年内是否完成轨道加注演示（内部目标曾为年中，截至 10 月末未见完成报道）</td><td>连续两次失利 或 加注推迟过 2027H2 → Starship 期权价值清零重估，估值直接下修至中性锚以下</td></tr>
+<tr><td>2</td><td><b>竞争夹击</b>：Amazon Leo（原 Kuiper）2026-04 追加 $115.7 亿、规划 3,232 颗；中国千帆/国网星座在射</td><td>Leo 用户数；Starlink 季度净增与 ARPU</td><td>Leo 用户破 5M，或 Starlink 净增连续两季 <100 万 → Starlink 估值从成长资产降为公用事业，中枢砍半</td></tr>
+<tr><td>3</td><td><b>关键人 × 政治风险（当下进行时）</b>：马斯克为 2026 中期选举投 $4.42 亿；沃伦报告指 DOGE 任内干预五角大楼合同（SpaceX 手 >$7B DoD 订单）；民主党放话夺权后调查；Reuters 10/22 报道 SpaceX–Tesla 合并传闻遭政治审视</td><td><b>11/3 中期选举结果</b>；众议院听证/传票；DoD 合同复审</td><td>民主党夺众院 + 对 DoD 合同立案 → 政治贴水 10–20%，减仓；SpaceX–Tesla 合并若推进 = 治理风险升级，论点重写</td></tr>
+<tr><td>4</td><td><b>财务黑箱</b>：Q1'26 净亏 $4.3B；FCF、有息负债、SBC 规模全部未明；$17B 频谱 + xAI capex 堆叠</td><td><b>首份 10-Q 现金流量表与分部附注</b></td><td>经营现金流 / Adj EBITDA < 0.4，或卫星折旧年限被拉长 → 利润化妆实锤，按悲观档处理</td></tr>
+<tr><td>5</td><td><b>供给冲击</b>：锁定期阶梯式解锁——每 ~15 天一小批（Day 70/90/105/120=10/9/135=10/24 已放），<b>~11/9 财报挂钩批 ~13 亿股（大于 8/6 首批的 9.115 亿，可能是最大单批）</b>，12/8–9 剩余部分到期（第三方口径 7.98 亿 vs ~20 亿股，待 10-Q 核实）；部分批次带股价触发条款（某 ~4.56 亿股批因股价未达触发价而未释放）；马斯克本人锁到 2027-06-13。<b>自家前例 8/6</b>：解禁前从 $135 预期杀到 ~$104.8，解禁当日不跌反涨（配 Q2 财报+Argus 上调 $160），一个月后 +27%——「预期杀在前、事件日被吸收」的教科书走法</td><td>11/9 与 12/8 前后大宗交易与成交量；跌破 $128（上市以来低位）</td><td>放量跌破 $128 → 流动性踩踏，禁止逆势加仓档</td></tr>
+<tr><td>6</td><td><b>xAI 并表黑洞</b>：收入 $3.2B 的分部拖出 $4.3B 单季净亏，「太空数据中心」资本开支无底</td><td>xAI 分部亏损与 capex 披露</td><td>xAI 年化亏损 >$8B 且无收敛指引 → 合并在毁价值，估值中 xAI 归零处理</td></tr>
+</table>
+
+<h3>供给日历（未来 14 个月）</h3>
+<table>
+<tr><th>日期</th><th>事件</th><th>性质</th></tr>
+<tr><td><b>2026-11-03</b></td><td>美国中期选举（马斯克 $4.42 亿献金的清算日）</td><td class="neg">政治二元</td></tr>
+<tr><td><b>~2026-11-09</b></td><td><b>三合一事件周</b>：Q3 财报 + 首份 10-Q（FCF/负债/SBC 黑箱揭晓）+ 财报挂钩解禁批 ~13 亿股（约占公司 7%、180 天锁定块的 28%，比 8/6 首批 9.115 亿股还大）</td><td class="neg">信息×供给双击</td></tr>
+<tr><td>持续（每 ~15 天）</td><td>阶梯解禁小批（10/9、10/24 已放）；部分批次带股价触发条款（未达触发价不释放，某 ~4.56 亿股批已因此暂缓）</td><td class="warnc">供给渗漏</td></tr>
+<tr><td><b>2026-12-08/09</b></td><td><b>180 天主悬崖：员工锁定块剩余部分全部到期</b>。⚠️ 第三方口径打架：一说剩余仅 ~7.976 亿股（小于 11/9 批次），另一说按锁定块 4.56B 股推算剩余约 20 亿股；累计流通升至 ~35–40% 无争议</td><td class="neg">供给主峰</td></tr>
+<tr><td>2027-06-13</td><td>马斯克本人锁定期到期（此前他不卖，悬崖期压力来自员工+早期基金）</td><td class="warnc">终极供给</td></tr>
+<tr><td>2027-06</td><td>Starship HLS 无人登月（NASA 路线图）</td><td class="warnc">技术里程碑</td></tr>
+<tr><td>持续</td><td>EchoStar 交易 $2.4B 托管条件履行</td><td class="note">合规</td></tr>
+</table>
+</section>
+
+<!-- ================= STEP 5 ================= -->
+<section>
+<h2><span class="step">STEP 5</span>价格纪律：先写出场，再谈进场</h2>
+
+<div class="callout co-red"><b>现状裁定：$148.58 高于乐观档中枢，不买。</b>优质资产 + 透支价格 = 观察清单第一位。以下分档计划在<b>论点未被证伪</b>（STEP 4 触发器无一命中）前提下才启用。</div>
+
+<h3>分档买入（美股账户可交易 SPCX）</h3>
+<div class="ladder">
+  <div class="rung"><div class="p" style="color:var(--blue)">档① $90–100</div><div class="d">中性锚区（$77–96 上部）。前提：首份 10-Q 现金流不暴雷。仓位 1%</div></div>
+  <div class="rung"><div class="p" style="color:var(--blue)">档② $75–85</div><div class="d">中性锚中枢。政治/锁定期冲击砸出来的坑。+1%</div></div>
+  <div class="rung"><div class="p" style="color:var(--green)">档③ ~$60</div><div class="d">中性偏悲观。仅当悲观触发器未兑现 + 10-Q 澄清 FCF 缺口。+1%，总仓 ≤3%</div></div>
+  <div class="rung"><div class="p" style="color:var(--red)">$128 禁加仓线</div><div class="d">若因 12/8 解禁放量跌破 $128 = 流动性踩踏，只能等不能接</div></div>
+</div>
+
+<h3>出场条件（进场前写死）</h3>
+<table>
+<tr><th>级别</th><th>条件</th><th>动作</th></tr>
+<tr><td><b>论点级（无条件全出）</b></td><td>① Starlink 用户净增连续两季为负；② Starship 连续两次失利（或加注演示推迟过 2027H2）；③ 10-Q 实锤经营现金流/Adj EBITDA < 0.4 或折旧年限拉长；④ xAI 年化亏损 >$8B 无收敛</td><td>任一命中 → 论点已破，清仓不摊薄</td></tr>
+<tr><td><b>价格级</b></td><td>建仓后跌破 $45（悲观锚上沿）且无新信息解释</td><td>承认估值框架错，止损出场</td></tr>
+<tr><td><b>事件级</b></td><td>民主党夺两院 + DoD 合同立案调查；或 SpaceX–Tesla 合并官宣</td><td>先减半仓，听证结果明朗前不回补</td></tr>
+</table>
+
+<h3>IPO 新股的通用纪律（本案适用条款）</h3>
+<ul>
+<li>上市未满一年 + 无历史分位 + 无完整年报 = <b>信息黑箱期不加仓</b>，首份 10-Q 与首个年报出来前只用最小仓位试错。</li>
+<li>破发不是买入理由：「IPO 破发便宜」是锚定效应，锚是投行定的价，不是价值。</li>
+<li>锁定期全解（12/8）前后 10 个交易日，历史上是新股波动放大窗口——<b>不在这个窗口执行任何加仓动作</b>。</li>
+</ul>
+</section>
+
+<!-- ================= ONE-PAGER ================= -->
+<section class="onepager">
+<h2>一页纸投资论点：SPCX @ $148.58（2026-10-29）</h2>
+
+<div class="op-block op-thesis">
+<h3>论点（为什么值得拥有——如果价格对）</h3>
+<ul>
+<li>双护城河被 2025 年数字验证：发射成本全球无人接近（竞品星座还要买它的火箭）；Starlink $11.4B 收入、39% 经营利润率、9–10M 用户——规模经济已在利润表兑现，不是故事。</li>
+<li>频谱独占落地（EchoStar $17B 交割）+ Flight 14 首次入轨（9/28）：direct-to-cell 与 Starship 两大期权都在往实走。</li>
+<li>2026E 收入 ~$27B（Starlink 冲 $18–20B），引擎还在 +60% 增速上。</li>
+<li>触发买点的不是新闻，是价格回到 $90 以下（中性锚）且 STEP 4 触发器无一命中。</li>
+</ul>
+</div>
+
+<div class="op-block op-anti">
+<h3>反论点（为什么现在不是买点）</h3>
+<ul>
+<li>~103x P/S / ~260x EV/EBITDA：现价高于三档 SOTP 的乐观档中枢，三重胜利（Starlink 全球化 + Starship + xAI 前二）全部按已成功定价，任何一环失速即双杀。</li>
+<li>利润是单点的、现金是黑箱的：全部经营利润来自 Starlink 一个分部；Q1'26 净亏 $4.3B，FCF 与有息负债未披露；卫星 5 年折旧意味着 EBITDA 长期高估真实可分配现金。</li>
+<li>关键人政治敞口正在定价：11/3 中期选举 $4.42 亿献金、沃伦报告、Tesla 合并传闻——11 月起连续三个二元事件（选举→10-Q→12/8 解禁 40% 股本）。</li>
+</ul>
+</div>
+
+<div class="op-block op-trig">
+<h3>触发器（何时重估 / 何时动手）</h3>
+<ul>
+<li><b>11/3 选举</b>：民主党夺众院 → 政治贴水重估；<b>11 月中 10-Q</b>：经营现金流/Adj EBITDA ≥ 0.6 = 黑箱证伪利好，&lt; 0.4 = 清仓条件预演。</li>
+<li><b>12/8 锁定期全解</b>：放量破 $128 = 踩踏禁加仓；缩量稳住 = 供给消化完毕，分档计划激活。</li>
+<li><b>价格</b>：$90–100 档①（1%）/ $75–85 档②（+1%）/ ~$60 档③（+1%）；论点级触发器（Starlink 净增两季负 / Starship 连败 / 现金流实锤 &lt;0.4 / xAI 亏损失控）任一命中 = 无条件出场；跌破 $45 无新信息 = 框架认错。</li>
+<li><b>技术里程碑</b>：2026 年内轨道加注未完成 → 乐观档作废；2027-06 HLS 登月成败 → Starship 期权重定价。</li>
+</ul>
+</div>
+</section>
+
+<footer>
+<p><b>数据与来源（检索于 2026-10-29）：</b>
+IPO 定价/募资/破发：Reuters、Bloomberg（经 <a href="https://www.satnews.com/2025/12/10/spacex-targeting-1-5-trillion-valuation-ahead-of-potential-2026-ipo">SatNews</a>、<a href="https://fortune.com/2025/12/16/spacex-ipo-elon-musk-headache">Fortune</a> 交叉）；S-1 财务（2025 收入 $18.7B、分部、Q1'26 亏损）：<a href="https://www.wsj.com/livecoverage/stock-market-today-dow-sp-500-nasdaq-05-20-2026/card/VPPLvPQ4hRrZ5Dr7v7Yy">WSJ</a>、<a href="https://content.spacex.com/cms-assets/FINAL_Documents%20and%20Updates/SpaceX%20IPO_Factsheet.pdf">SpaceX IPO Factsheet</a>；xAI 合并：<a href="https://www.reuters.com/business/media-telecom/us-space-stocks-rise-after-musks-spacex-merges-with-xai-125-trillion-valuation-2026-02-03">Reuters</a>、<a href="https://www.cnbc.com/2026/02/03/musk-xai-spacex-biggest-merger-ever.html">CNBC</a>；Flight 14：<a href="https://www.space.com/news/live/spacex-starship-flight-14-live-updates-sept-28-2026-starship-first-orbital-launch-attempt">Space.com</a>；EchoStar 频谱：<a href="https://www.reuters.com/business/media-telecom/fcc-approves-echostar-sales-65-megahertz-spectrum-spacex-50-megahertz-att-2026-05-12">Reuters</a>、<a href="https://spacenews.com/fcc-approves-spacex-spectrum-deal-with-2-4-billion-escrow-condition">SpaceNews</a>；政治风险：<a href="https://www.cnbc.com/2026/10/22/elon-musk-midterm-election-spacex-tesla.html">CNBC</a>、<a href="https://www.warren.senate.gov/wp-content/uploads/media/doc/130_days_of_elon_musk_report.pdf">Warren 参议院报告</a>、<a href="https://www.reuters.com/legal/transactional/musks-political-baggage-clouds-prospects-spacex-tesla-deal-2026-10-22">Reuters</a>；锁定期：CNBC / MarketWatch / Morningstar（经检索摘要）；股价：<a href="https://www.nasdaq.com/market-activity/stocks/spcx">Nasdaq</a>（10/27 收 $148.58）。</p>
+<p><b>口径注意：</b>① 2025 tender $800B（$421/股）为 xAI 合并前股本，与 IPO 后 ~13B 股（$135/股）不可直接换算比较；② S-1 的 FY2025 分部收入含 xAI 备考（$11.4B+$4.1B+$3.2B=$18.7B 自洽）；③ 不同媒体对 S-1 提交时点（4 月 vs 5 月）表述不一；④ 竞品（Amazon Leo $115.7 亿）为投资计划而非已实现收入。</p>
+<p><b>免责声明：</b>本研究为个人投资研究练习，非投资建议。SOTP 三档为框架化推演，参数敏感性高；作者不持有 SPCX 头寸。</p>
+</footer>
+
+</div>
+</body>
+</html>

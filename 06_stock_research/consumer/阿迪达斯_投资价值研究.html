@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>阿迪达斯投资价值研究 · 五步框架</title>
+<style>
+:root{--background:#f6f6f7;--foreground:#18181b;--card:#ffffff;--card-foreground:#18181b;
+--muted:#f0f0f2;--muted-foreground:#6f6f78;--border:#e4e4e7;
+--green:#15803d;--red:#dc2626;--yellow:#b45309;--blue:#1d4ed8;
+--viz-series-1:#1d4ed8;--viz-series-2:#7c3aed;--gold:#b8860b}
+@media (prefers-color-scheme: dark){
+:root{--background:#131316;--foreground:#ececf1;--card:#1c1c21;--card-foreground:#ececf1;
+--muted:#232329;--muted-foreground:#9d9da8;--border:#2c2c33;
+--green:#4ade80;--red:#f87171;--yellow:#facc15;--blue:#60a5fa;
+--viz-series-1:#60a5fa;--viz-series-2:#c084fc;--gold:#eab308}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--background);color:var(--foreground);
+font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Segoe UI",sans-serif;
+line-height:1.65;font-size:15px}
+.page{max-width:980px;margin:0 auto;padding:28px 22px 48px}
+h2{font-size:1.45rem;margin:6px 0 6px;font-weight:600}
+h3{font-size:1.12rem;margin:24px 0 6px;font-weight:600}
+h4{font-size:.95rem;margin:14px 0 4px;font-weight:500}
+hr{border:none;border-top:1px solid var(--border);margin:18px 0}
+.card{background:var(--card);color:var(--card-foreground);border:1px solid var(--border);
+border-radius:12px;padding:13px 16px;margin:10px 0}
+.viz-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px;margin:12px 0}
+.viz-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:6px 0}
+.viz-stat-value{font-size:1.28rem;font-weight:600;margin:2px 0}
+.text-small{font-size:.82rem}
+.text-muted{color:var(--muted-foreground)}
+.text-end{text-align:right}
+.tabular-nums{font-variant-numeric:tabular-nums}
+.table{width:100%;border-collapse:collapse;margin:10px 0}
+.table th,.table td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
+.table thead th{color:var(--muted-foreground);font-weight:500;font-size:.8rem}
+.table-sm th,.table-sm td{padding:5px 8px}
+b{font-weight:600}
+#ad-iv .chk { font-weight:500; white-space:nowrap; }
+#ad-iv .chk-pass { color:var(--green); }
+#ad-iv .chk-warn { color:var(--yellow); }
+#ad-iv .chk-fail { color:var(--red); }
+#ad-iv svg text { fill:var(--foreground); font-size:12px; }
+#ad-iv svg .axis { stroke:var(--border); stroke-width:1; }
+#ad-iv svg .muted-lab { fill:var(--muted-foreground); }
+#ad-iv .thesis-tag { font-weight:500; }
+#ad-iv .thesis-thesis .thesis-tag { color:var(--green); }
+#ad-iv .thesis-anti .thesis-tag { color:var(--red); }
+#ad-iv .thesis-trigger .thesis-tag { color:var(--blue); }
+#ad-iv h3 { margin-bottom:6px; }
+</style>
+</head>
+<body>
+<div class="page">
+<div id="ad-iv">
+
+  <h2>阿迪达斯投资价值研究 · 生意 × 价格 × 风险</h2>
+  <div class="viz-row text-small">
+    <span>ADS.XETRA 157.65欧元（10-15收盘，当日+2.1%；<b class="chk chk-warn">YTD -9.4%</b>，在LULU -52%/NKE -40%的赛道里最抗跌）· 市值约284亿欧元 ≈ 307亿美元</span>
+    <span>· 数据截至 2026-10-15</span>
+    <span>· 基于 FY2025年报（3-4发布）+ Q2/H1 2026业绩（7-30发布，公司公告原文经FT镜像核验）+ Yahoo/Bloomberg行情 + 公司/路透/每经报道</span>
+  </div>
+
+  <div class="card" style="border-left:4px solid var(--yellow)">
+    <div class="text-small text-muted">ⓘ 研究时点快照 — 增长创纪录的一天，股价跌了19%</div>
+    <div class="text-small">
+      7月30日Q2财报：收入67.4亿欧元（货币中性+14%）<b>单季历史新高</b>、全年收入指引上调至+9-10%、DTC+25%、大中华区13连增——然后股价<b>暴跌19%，近十年最大单日跌幅</b>。市场的三重不满：①经营利润5.74亿欧元miss预期（世界杯营销同比多砸2.12亿）；②<b>鞋类收入只+1%</b>（服饰+35%）——Samba/Gazelle复古周期退坡的直接证据；③收入上调而利润指引不动（~23亿欧元）= 增量收入零利润率。CEO古尔登（Bjørn Gulden）电话会原话「我看不懂市场的误解在哪里」。现在10月28日Q3财报在即——世界杯后第一个"裸奔"季度。研究要回答：<b>这是一台被世界杯一次性道具污染了报表的增长机器，还是复古红利到头、只剩足球一柱擎天的品牌？</b>
+    </div>
+  </div>
+
+  <div class="viz-grid">
+    <div class="card"><div class="text-small text-muted">生意好不好</div><div class="viz-stat-value">转型已验证的全球第二</div><div class="text-small">Gulden三年把经营利润率从1.3%（2023）修到9.6%（H1'26），收入创纪录、跑步从耐克手里抢下「最快」标签（柏林/芝加哥马拉松横扫领奖台）、大中华13季连增。<span class="chk chk-warn">但ROIC~10%刚爬回资金成本线上方——2022-24曾跌破线，连续性标准与耐克同样不满足</span>，只是方向相反</div></div>
+    <div class="card"><div class="text-small text-muted">价格便不便宜</div><div class="viz-stat-value">十年估值带下半区</div><div class="text-small">PE(TTM)~20x vs 十年中位~30x（低约40%）；现价对应隐含2027增速~5%，而管理层数字是「strong growth over next years」。中性档€195与街道均值€199一致。<b>不是极值便宜（那是耐克/露露），是有增长里的合理偏便宜</b></div></div>
+    <div class="card"><div class="text-small text-muted">风险拿得住</div><div class="viz-stat-value">拿得住，但要盯三件事</div><div class="text-small">净债务52亿欧元/EBITDA 1.6x可控、€10亿回购正在执行（与耐克停摆相反）、无解禁无CB。<b>核心风险是2027年世界杯基数悬崖+鞋类失速</b>——都可观测：10-28 Q3的鞋类增速与H2隐含+6%的兑现度是最近的裁决</div></div>
+  </div>
+
+  <h3>① 生意质量 — 收入结构与利润引擎</h3>
+  <div class="viz-grid">
+    <div class="card"><div class="text-small text-muted">收入结构（FY2025：248亿欧元创纪录，+10%固定汇率）</div><div class="viz-stat-value">足球/跑步引擎 + 中国本土化</div><div class="text-small">Q2'26拆解：运动表现+39%（足球、跑步双两位数）vs <b>运动时尚仅+2%</b>；品类：鞋类+1%/服饰+35%/配饰+20%；渠道：DTC+25%（电商+27%）vs 批发+6%。世界杯：赞助14队居首、球衣卖了<b>1,800万件=上届4倍</b>、赛事相关销售超15亿欧元</div></div>
+    <div class="card"><div class="text-small text-muted">利润引擎：利润率修复曲线</div><div class="viz-stat-value">1.3% → 5.6% → 8.3% → 9.6%</div><div class="text-small">2023清Yeezy与库存→2024重建批发→2025利润+54%→H1'26经营利润12.79亿（+11%）、毛利率52.5%（+0.8pp，比耐克核心~41%高出一截）。中期目标双位数经营利润率。<b>多花的2.12亿营销买的是品牌热度，不是费用黑洞</b>——90亿次曝光、球衣破圈成时尚单品</div></div>
+    <div class="card"><div class="text-small text-muted">护城河的新证据：跑步换旗</div><div class="viz-stat-value">Adizero Adios Pro Evo 3</div><div class="text-small">2026-10-11芝加哥马拉松：男女冠军+男子1-2名（领奖台6席占3）；此前柏林马拉松男女前六全包。「最快跑鞋」光环自Vaporfly易主——<b>这是十年一遇的品牌资产转移事件</b>，且正从竞速向大众跑者下沉。中国：13季连增（FY25收入36.2亿+13%）、65%产品上海创意中心自研、25%反向输出海外——放权式本土化在跨国公司里独一档</div></div>
+  </div>
+
+  <svg viewBox="0 0 760 240" role="img" aria-label="阿迪达斯经营利润率2021至H1'26的U型修复：9.4%跌至1.3%后回升至9.6%，目标双位数" style="width:100%; max-width:760px; height:auto">
+    <title>阿迪达斯经营利润率 U型修复（Gulden 2023起）</title>
+    <text x="30" y="16" class="muted-lab">经营利润率：2021峰值→Yeezy危机谷底1.3%→Gulden修复→双位数目标；虚线=10%目标线</text>
+    <line x1="30" y1="70" x2="740" y2="70" stroke="var(--green)" stroke-width="1" stroke-dasharray="4,4" opacity="0.6"/>
+    <text x="736" y="64" text-anchor="end" class="muted-lab">双位数目标 10%</text>
+    <line x1="30" y1="200" x2="740" y2="200" class="axis"/>
+    <g class="tabular-nums" text-anchor="middle">
+      <g><rect x="55"  y="113" width="60" height="87"  rx="2" fill="var(--muted)" stroke="var(--border)"/><text x="85"  y="107">9.4%</text><text x="85"  y="218" class="muted-lab">2021</text></g>
+      <g><rect x="170" y="172" width="60" height="28"  rx="2" fill="var(--red)" opacity="0.75"/><text x="200" y="166">3.0%</text><text x="200" y="218" class="muted-lab">2022</text></g>
+      <g><rect x="285" y="186" width="60" height="14"  rx="2" fill="var(--red)" opacity="0.75"/><text x="315" y="180">1.3%</text><text x="315" y="218" class="muted-lab">2023谷底</text></g>
+      <g><rect x="400" y="149" width="60" height="51"  rx="2" fill="var(--viz-series-1)"/><text x="430" y="143">5.6%</text><text x="430" y="218" class="muted-lab">2024</text></g>
+      <g><rect x="515" y="122" width="60" height="78"  rx="2" fill="var(--viz-series-1)"/><text x="545" y="116">8.3%</text><text x="545" y="218" class="muted-lab">2025</text></g>
+      <g><rect x="630" y="111" width="60" height="89"  rx="2" fill="var(--viz-series-2)"/><text x="660" y="105">9.6%</text><text x="660" y="218" class="muted-lab">H1'26</text></g>
+    </g>
+    <text x="30" y="238" class="muted-lab">背景：2022-24三年ROIC跌破资金成本（Yeezy终止+清库存），2025年重新站回~10%——「刚爬回线上」而非「长期在线」</text>
+  </svg>
+
+  <table class="table table-sm">
+    <thead><tr><th>护城河维度</th><th>判定</th><th>证据（数字）</th></tr></thead>
+    <tbody>
+      <tr><td>提价能力</td><td><span class="chk chk-pass">✓ 中等且在增强</span></td><td>毛利率52.5%（+0.8pp）为三家大型运动品牌最高（耐克核心~41%）；世界杯正价球衣1,800万件不打折卖爆。边界：运动时尚+2%说明复古款定价权已到周期尾部</td></tr>
+      <tr><td>市占率</td><td class="chk chk-pass">✓ #2且在抢份额</td><td>收入248亿→2026E~270亿欧元；与#1耐克的差距从2倍以上收窄到~1.6倍（耐克FY26 Brand 452亿美元 vs 阿迪~270亿欧元）；世界杯月国家队球衣份额58%行业第一；跑鞋大赛领奖台份额反超。风险脚注：鞋类Q2仅+1%，On/Hoka在跑鞋零售端的侵蚀未解</td></tr>
+      <tr><td>转换成本</td><td class="chk chk-warn">△ 同耐克：消费者低、渠道中度</td><td>批发关系在Gulden手里重建（Q2批发+6%）；DTC+25%与电商+27%显示直客粘性；足球文化破圈（球衣=时尚单品）是当前独有的"情感资产"</td></tr>
+      <tr><td>ROIC vs 资金成本</td><td class="chk chk-warn">△ 刚爬回线上</td><td>FY25 NOPAT≈14.4亿欧元（经营利润20.56亿×~70%）÷ 投入资本≈151亿（权益~99亿+净借款52亿）≈ <b>10%</b>；2026E约10.5-11% vs WACC~8%。<b>2022-24三年低于线，连续性标准不满足</b>——但斜率向上（与耐克镜像），双位数利润率达成后ROIC才到15%+</td></tr>
+    </tbody>
+  </table>
+  <div class="text-small text-muted">
+    商业模式判定：看得懂——与耐克同构（设计-营销-代工-全渠道），差异在执行阶段：耐克在拆自己2020年代DTC失误的雷，阿迪2022-23已经拆过一遍（Yeezy终止、库存减值、批发重建）。<b>阿迪达斯是耐克多空论点里「修复后长什么样」的活样本</b>——这也是本报告与其前两案（麦当劳/耐克）的核心联动。
+  </div>
+
+  <h3>② 财务体检 — 三表交叉验证</h3>
+  <div class="table-responsive">
+  <table class="table table-sm tabular-nums">
+    <thead><tr><th>亿欧元</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th><th>H1'26</th><th>判定</th></tr></thead>
+    <tbody>
+      <tr><td>营业收入</td><td>212.3</td><td>225.1</td><td>214.3</td><td>236.8</td><td>248.0</td><td>133.0</td><td class="text-muted">2026指引+9-10%</td></tr>
+      <tr><td>经营利润</td><td>19.9</td><td>6.7</td><td>2.7</td><td>13.4</td><td>20.6</td><td>12.8</td><td class="chk chk-pass">✓ 利润率9.4%→1.3%→9.6%完整周期</td></tr>
+      <tr><td>净利润</td><td>~21</td><td>~2.5</td><td>-0.7</td><td>8.2</td><td>13.4</td><td>8.8</td><td class="text-muted">2023亏损系Yeezy/减值；2025 +75%</td></tr>
+      <tr><td>毛利率</td><td>~50%</td><td>~48%</td><td>~47%</td><td>50.8%</td><td>~51%</td><td>52.5%</td><td class="chk chk-pass">✓ 三年来持续抬升</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="text-small text-muted">注：2021-22净利润与毛利率为年报口径约数；2023净亏包含Yeezy库存处置与一次性减值；2025起Yeezy因素完全出清。H1'26净利为持续经营口径（+9%）。</div>
+
+  <div class="viz-grid">
+    <div class="card"><div class="text-small text-muted">利润化妆检查</div><div class="viz-stat-value">基本干净，一处期权</div><div class="text-small">2023年亏损已如实计提（Yeezy+减值，不藏在别处）；2025-26利润是经营性的。反向「化妆」：<b>指引未计入约2.5-3亿美元美国关税退税</b>（最高法院裁定IEEPA非法的连带红利）≈ 经营利润指引的10%+，属于隐藏上行期权。SBC量级~1.5-2亿欧元/年，占净利~12%，中规中矩</div></div>
+    <div class="card"><div class="text-small text-muted">资产负债表（2026-06-30）</div><div class="viz-stat-value">净债务52亿 · 1.6x EBITDA</div><div class="text-small">调整后净借款51.9亿欧元（同比略增），净债务/EBITDA 1.6x（上年1.7x）；现金11.6亿（+51%）；2026-5发行5亿欧元债券提前再融资10月到期的4亿——<b>杠杆可控但不是净现金</b>（与耐克的净现金11亿美元形成对照）。存货59.7亿（+13%），与收入+14%基本同步、以当季/未来季产品为主——健康，但需盯连续两季超收入增速</div></div>
+    <div class="card"><div class="text-small text-muted">股东回报：与耐克镜像</div><div class="viz-stat-value">回购10亿执行中</div><div class="text-small">FY25股息€2.80/股（+40%，payout 36%），现价息率~1.8%；2026-2启动€10亿回购（约占市值3.5%），第一档€5亿上半年已完成、第二档执行中——<b>H1已返还股东约10.2亿欧元（股息4.91亿+回购5.25亿）</b>。同一赛道：耐克回购停摆、阿迪加速</div></div>
+    <div class="card"><div class="text-small text-muted">现金流交叉验证</div><div class="viz-stat-value">利润可信</div><div class="text-small">H1'26经营现金流增加，被营运资本+18%（66.6亿，支持增长的战略性备货）与10.2亿股东返还吸收——利润增长有现金背书；2025年净利+75%同年分红+40%+启动回购，分配行为与盈利同向（不是纸面利润）</div></div>
+  </div>
+
+  <h3>③ 估值 — 有增长里的合理偏便宜</h3>
+  <table class="table table-sm tabular-nums">
+    <thead><tr><th>公司</th><th>价格</th><th>市值</th><th>PE(TTM)</th><th>YTD</th><th>备注</th></tr></thead>
+    <tbody>
+      <tr><td><b>阿迪达斯 ADS</b></td><td>€157.65</td><td>€284亿</td><td><b>~20.3x</b></td><td class="chk chk-warn">-9.4%</td><td>TTM EPS €7.77；指引+9-10%增长</td></tr>
+      <tr><td>耐克 NKE</td><td>$37.14</td><td>$551亿</td><td>17.8x<br><span class="text-muted">(核心~23.6x)</span></td><td class="chk chk-fail">-40.2%</td><td>指引-高个位数；含关税返还要素</td></tr>
+      <tr><td>露露乐蒙 LULU</td><td>$99.09</td><td>$105亿</td><td>7.4x</td><td class="chk chk-fail">-52.3%</td><td>增长崩塌型</td></tr>
+      <tr><td>Deckers DECK</td><td>$86.58</td><td>$118亿</td><td>11.6x</td><td class="chk chk-warn">-16.5%</td><td>Hoka/UGG</td></tr>
+      <tr><td>昂跑 ONON</td><td>$35.19</td><td>$117亿</td><td>23.9x</td><td class="chk chk-warn">-24.3%</td><td>高增长溢价</td></tr>
+      <tr><td>彪马 PUM</td><td>~€23</td><td>€33亿</td><td class="chk chk-fail">亏损</td><td class="text-muted">—</td><td>TTM亏损、PS 0.47；2026指引下滑——第三品牌的下场</td></tr>
+    </tbody>
+  </table>
+  <div class="text-small text-muted">阿迪达斯行情：Yahoo/Bloomberg（10-15，XETRA）；同业美股为Wind（10-15收盘）；彪马为Yahoo口径。<b>运动品牌光谱</b>：彪马（品牌资产耗尽、亏损）← 耐克（品牌巨大、执行断裂）→ 阿迪达斯（品牌+执行都在兑现）→ 昂跑（新贵、高倍数）。阿迪是唯一「收入增长两位数+估值低于中位」的组合。</div>
+
+  <svg viewBox="0 0 760 225" role="img" aria-label="PE对比：LULU 7.4x、DECK 11.6x、阿迪20.3x、耐克核心23.6x、ONON 23.9x、阿迪十年中位30x" style="width:100%; max-width:760px; height:auto">
+    <title>运动赛道PE地图</title>
+    <text x="30" y="16" class="muted-lab">PE(TTM)对比：金=阿迪十年中位30x；当前20.3x低于中位约33%</text>
+    <line x1="30" y1="180" x2="740" y2="180" class="axis"/>
+    <g class="tabular-nums" text-anchor="middle">
+      <rect x="55"  y="156.5" width="36" height="23.5" rx="2" fill="var(--muted)" stroke="var(--border)"/><text x="73"  y="151">7.4x</text><text x="73"  y="196" class="muted-lab">LULU</text>
+      <rect x="175" y="142.5" width="36" height="37.5" rx="2" fill="var(--muted)" stroke="var(--border)"/><text x="193" y="137">11.6x</text><text x="193" y="196" class="muted-lab">DECK</text>
+      <rect x="295" y="109.5" width="40" height="70.5" rx="2" fill="var(--viz-series-1)"/><text x="315" y="104" style="fill:var(--viz-series-1)">20.3x</text><text x="315" y="196" class="muted-lab">阿迪现价</text>
+      <rect x="415" y="101.5" width="36" height="78.5" rx="2" fill="var(--viz-series-2)"/><text x="433" y="96" style="fill:var(--viz-series-2)">23.6x</text><text x="433" y="196" class="muted-lab">NKE核心</text>
+      <rect x="535" y="101"   width="36" height="79"  rx="2" fill="var(--muted)" stroke="var(--border)"/><text x="553" y="96">23.9x</text><text x="553" y="196" class="muted-lab">ONON</text>
+      <rect x="655" y="83"    width="36" height="97"  rx="2" fill="var(--yellow)" opacity="0.7"/><text x="673" y="78">30x</text><text x="673" y="196" class="muted-lab">阿迪十年中位</text>
+    </g>
+    <text x="30" y="222" class="muted-lab">另：卖方一致目标均值€199（+26%）、Morningstar公允价值€185（+17%）；股息+回购合计年返还≈市值5.3%</text>
+  </svg>
+
+  <div class="viz-grid">
+    <div class="card" style="border-left:4px solid var(--red)"><div class="text-small text-muted">悲观档</div><div class="viz-stat-value tabular-nums">≈ €105（-33%）</div><div class="text-small">2027世界杯基数悬崖+复古退坡无接棒：收入-2%、鞋类持续失速、利润率停在9%，EPS~€7.5×14x（落入「无增长品牌」定价带）；营销继续高投入不产出</div></div>
+    <div class="card" style="border-left:4px solid var(--blue)"><div class="text-small text-muted">中性档</div><div class="viz-stat-value tabular-nums">≈ €195（+24%）</div><div class="text-small">2027收入+4%（跑步下沉+中国+足球文化存续对冲WC缺口）、利润率爬向双位数、EPS~€9.7×20x。与街道均值€199/Morningstar €185互证；关税退税是免费加成</div></div>
+    <div class="card" style="border-left:4px solid var(--green)"><div class="text-small text-muted">乐观档</div><div class="viz-stat-value tabular-nums">≈ €255（+62%）</div><div class="text-small">品牌势能跨年：2027收入+8%、经营利润~30亿欧元（10.7%）、EPS~€10.8×24x（仍低于十年中位30x）。跑鞋光环大众化+中国持续双位数是主引擎</div></div>
+  </div>
+
+  <div class="card">
+    <div class="text-small text-muted">反推现价隐含假设 — €157.65在定价什么</div>
+    <div class="text-small">
+      以2026E EPS~€8.2计约19x，以2027E中性€9.7计约16x——市场给一台「指引+9-10%收入增长、利润率上行、10亿回购」的机器按<b>低于自身十年中位三分之一的倍数</b>定价，隐含判断是：<b>2027年失去世界杯后增长将归零甚至转负</b>（H2'26隐含+6%被外推成常态）。这个假设要成立，需要同时无视：跑步产品力换旗（柏林/芝加哥领奖台横扫）、中国13季连增的结构性、DTC+25%的直客资产、以及2.5-3亿美元关税退税期权。<span class="chk chk-warn">△ 但要诚实：7-30的-19%并非全无道理——鞋类+1%如果延续到Q3/Q4，「增长引擎单腿化」就是真的；这是10-28要裁决的第一变量</span>。
+    </div>
+  </div>
+
+  <h3>④ 风险与证伪 — 每条空头论点配可观测信号</h3>
+  <table class="table table-sm">
+    <thead><tr><th>空头论点</th><th>事实基础</th><th>可观测信号（触发器）</th><th>动作</th></tr></thead>
+    <tbody>
+      <tr><td><b>1. 世界杯是一次性道具</b></td><td>赞助14队/1,800万球衣=上届4倍/赛事销售15亿+欧元，且出货从2025Q4横跨三季——2027年基数悬崖明摆着</td><td>Q3/Q4'26与2027年各季收入增速逐级下台阶幅度超预期（H2隐含+6%被跌破）；2027-3年报的FY27指引&lt;+3%</td><td class="chk chk-fail">减半</td></tr>
+      <tr><td><b>2. 鞋类/复古退坡</b></td><td>Q2鞋类仅+1%而服饰+35%——收入引擎单腿化；Samba/Gazelle周期已过，On/Hoka在跑鞋零售端持续侵蚀</td><td><b>10-28 Q3鞋类增速</b>：连续两季≤+2%即坐实；Adizero大众款增速转负</td><td class="chk chk-fail">减半</td></tr>
+      <tr><td><b>3. 营销投资失控</b></td><td>Q2营销费+30%（多花2.12亿）直接打穿利润预期；Gulden哲学「品牌优先于短期利润」，管理层明说ROI无法精确计算</td><td>营销费增速连续两季&gt;25%而经营利润率环比不升；双位数利润率目标推迟</td><td class="chk chk-fail">减半</td></tr>
+      <tr><td><b>4. 关键人风险</b></td><td>整个修复曲线是Gulden一个人的作品（2023上任，前彪马CEO）；中国放权模式也系于他与中国区萧家乐的互信</td><td>Gulden或中国区管理层变动、合同续约风波</td><td class="chk chk-fail">清仓式重估</td></tr>
+      <tr><td><b>5. 库存与营运资本</b></td><td>存货59.7亿（+13%）、营运资本66.6亿（+18%）——为增长的战略备货，但2022年的教训就在眼前</td><td>存货增速连续两季超收入增速+2pp以上；出现减值/折价清货表述</td><td class="chk chk-warn">盯+不加仓</td></tr>
+      <tr><td><b>6. 汇率与欧元区折价</b></td><td>欧元报表：美元/人民币走强会削报告收入；欧洲上市存在流动性与估值折价（美元资金进不来ADR）</td><td>报告口径与固定汇率口径裂口持续&gt;3pp</td><td class="chk chk-warn">盯</td></tr>
+      <tr><td><b>7. 价值陷阱情形</b></td><td>若2027增长归零，20x不算便宜——参照彪马：热度走了就是PS 0.47、TTM亏损</td><td>2027年半年报收入增速&lt;+3%且利润率无提升</td><td class="chk chk-fail">机会成本离场</td></tr>
+    </tbody>
+  </table>
+
+  <div class="viz-grid">
+    <div class="card"><div class="text-small text-muted">供给日历（无解禁/无CB；下一个事件很近）</div><div class="text-small">
+      <b class="tabular-nums">2026-10-28前后</b>：<b>Q3'26财报——世界杯后第一个"裸奔"季度</b>：鞋类增速、H2+6%隐含指引的兑现、9月马拉松季的品牌读数，一案三裁决<br>
+      <b class="tabular-nums">持续</b>：€10亿回购第二档执行中（每季~2.5亿欧元的机械买盘）· 关税退税2.5-3亿美元若入指引=免费上修<br>
+      <b class="tabular-nums">2027-03-04前后</b>：FY26年报+<b>FY27指引（世界杯后第一年，本案最重要的单一数字）</b>+股息提案<br>
+      <b class="tabular-nums">2027-05</b>：AGM+派息（FY25为€2.80）· 自由流通~90%，无大股东减持结构</div></div>
+    <div class="card"><div class="text-small text-muted">本轮下跌归因（杀什么）</div><div class="text-small">
+      杀「增长质量」不杀增长：YTD -9.4%是三案中最抗跌（麦当劳-19%、耐克-40%），7-30单日-19%跌的是利润率信誉（营销失控担忧）与2027可见度。<b>资产负债表没杀（1.6x）、增长没杀（指引还上调了）</b>——所以它的修复不需要「预期反转」，只需要「一次性因素出清后增速保持在5%+」。这是与耐克最本质的差别</div></div>
+  </div>
+
+  <h3>⑤ 价格纪律 — 分档买入与出场条件（先写好再进场）</h3>
+  <table class="table table-sm tabular-nums">
+    <thead><tr><th>档位</th><th>区间€</th><th>对应估值</th><th>仓位</th><th>逻辑</th></tr></thead>
+    <tbody>
+      <tr><td><b>第一档</b></td><td>150-158（现价区）</td><td>PE(TTM)~20x / 2027E~16x</td><td>1/3</td><td>低于十年中位1/3+指引两位数增长+回购3.5%：增长仓的合理起手价</td></tr>
+      <tr><td><b>第二档</b></td><td>135-142</td><td>2027E~14x · 息+回购≈6%</td><td>1/3</td><td>7-30跳水中枢（-19%那天的成交区）；若因宏观补跌到这里，赔率显著改善</td></tr>
+      <tr><td><b>第三档</b></td><td>125-132</td><td>52周低129.95 · 2027E~13x</td><td>1/3</td><td>恐慌极值区；除非Q3证伪信号出现，历史不轻易给</td></tr>
+    </tbody>
+  </table>
+  <div class="viz-grid">
+    <div class="card" style="border-left:4px solid var(--red)"><div class="text-small text-muted">证伪线（基本面优先）</div><div class="text-small"><b>鞋类连续两季≤+2%</b>（增长引擎单腿化坐实）、或<b>FY27指引（2027-3）收入&lt;+3%/利润率无提升</b>、或<b>Gulden/中国区管理层变动</b>——任一成立，论点失效离场。次级（营销失控、库存失控、中国连增断）各对应减半/不加仓</div></div>
+    <div class="card" style="border-left:4px solid var(--yellow)"><div class="text-small text-muted">价格线（周收盘判定）</div><div class="text-small">跌破€130（52周低）且<b>无公司利空</b>=宏观冲击加仓区（赛道贝塔补跌）；跌破€130且伴随证伪信号=清仓。欧元计价提醒：港元/美元仓位需考虑EURFX敞口，必要时以ADR(ADDYY)替代</div></div>
+    <div class="card" style="border-left:4px solid var(--green)"><div class="text-small text-muted">兑现线（反向出场）</div><div class="text-small">≥€195-200（中性档/街道均值）而鞋类未回稳→修复计价完成，减半；≥€240（乐观档）且双位数利润率兑现→持有让利润跑。持有期年化~5.3%现金返还（息1.8%+回购3.5%）是等待的底薪</div></div>
+  </div>
+  <div class="text-small text-muted">仓位上限：组合4-6%。框架纪律：ROIC连续性标准形式上不满足（2022-24断过三年），仓位上限自动降档——高于耐克（3-5%，方向向下）是因为斜率向上、低于麦当劳（5-8%，长期在线）是因为底子还不厚。三案在组合里互斥又互补：麦当劳=美元防御收息，耐克=事件驱动期权，阿迪达斯=欧元成长仓。</div>
+
+  <h3>三案对比 — 麦当劳 × 耐克 × 阿迪达斯（同框架下的光谱）</h3>
+  <table class="table table-sm tabular-nums">
+    <thead><tr><th></th><th>麦当劳 MCD</th><th>耐克 NKE</th><th>阿迪达斯 ADS</th></tr></thead>
+    <tbody>
+      <tr><td><b>生意定性</b></td><td>收租机器（品牌税+地产租）</td><td>品牌深谷（王座被侵蚀）</td><td>转型兑现中（第4年爬坡）</td></tr>
+      <tr><td><b>ROIC连续性</b></td><td class="chk chk-pass">✓ 20-26%长期在线</td><td class="chk chk-fail">✗ 峰值后跌近线</td><td class="chk chk-warn">△ ~10%刚爬回线上（斜率↑）</td></tr>
+      <tr><td><b>收入增长</b></td><td>~4-5%机械底线</td><td class="chk chk-fail">FY27指引-高个位数</td><td class="chk chk-pass">FY26指引+9-10%</td></tr>
+      <tr><td><b>估值锚</b></td><td>19.5x=十年最低带</td><td>价格极值但盈利谷底（核心23.6x）</td><td>20x vs 十年中位30x</td></tr>
+      <tr><td><b>现金返还</b></td><td>息3.2%+FCF全返</td><td>息4.4%但回购停摆（payout&gt;100%）</td><td>息1.8%+回购3.5%（€10亿执行中）</td></tr>
+      <tr><td><b>最近裁决日</b></td><td>11-04 Q3'26财报</td><td>11月投资者日+股息决议</td><td><b>10-28 Q3'26财报（最近）</b></td></tr>
+      <tr><td><b>证伪核心变量</b></td><td>美国客流是否再恶化</td><td>修复是否存在</td><td>世界杯后增速中枢</td></tr>
+      <tr><td><b>仓位上限</b></td><td>5-8%（压舱石）</td><td>3-5%（事件驱动）</td><td>4-6%（成长仓）</td></tr>
+    </tbody>
+  </table>
+
+  <h3>一页纸投资论点</h3>
+  <div class="viz-grid" style="grid-template-columns:1fr">
+    <div class="card thesis-thesis">
+      <div class="thesis-tag">论点（为什么买）</div>
+      <div class="text-small">
+      阿迪达斯是2026年运动赛道屠杀里唯一「增长没死」的大型股（YTD -9.4% vs 耐克-40%/露露-52%）：FY25收入248亿欧元创纪录（+10%）、经营利润+54%、利润率修复曲线1.3%→9.6%还在爬向双位数；Q2'26收入又+14%创单季新高、全年指引上调。引擎多元且真实：世界杯14队赞助+球衣销量×4证明足球王座、Adizero在柏林/芝加哥马拉松横扫领奖台（「最快跑鞋」十年一遇换旗）、大中华区13季连增+本土放权。现价~20x TTM低于十年中位30x三分之一、2027E约16x，€10亿回购执行中（年返还≈市值5.3%），且指引外还压着2.5-3亿美元关税退税期权。7-30单日-19%跌掉的是「世界杯透支」的预期——为一次性因素付永久折价，是本案的赔率来源。
+      </div>
+    </div>
+    <div class="card thesis-anti">
+      <div class="thesis-tag">反论点（为什么可能是错的）</div>
+      <div class="text-small">
+      ① 世界杯是一次性道具：出货横跨三季、1,800万件球衣的基数，2027年就是悬崖，H2'26隐含增速已降到+6%；② <b>鞋类Q2只+1%</b>（服饰+35%撑场面）——Samba/Gazelle复古周期退坡是结构性的，On/Hoka在跑鞋零售端继续蚕食，增长引擎单腿化的证据已经摆在桌上；③ 营销费+30%打穿利润预期，Gulden「品牌优先、ROI不算」的哲学在增长放缓时会从美德变成罪状；④ 整条修复曲线系于Gulden一人（前彪马CEO），关键人风险真实；⑤ ROIC~10%只是刚爬回线上，2022-24曾跌破——底子不如报表曲线那么牢；⑥ 若2027增长归零，20x不便宜，彪马（亏损、PS 0.47）就是终局画像。
+      </div>
+    </div>
+    <div class="card thesis-trigger">
+      <div class="thesis-tag">触发器（什么时候验证/离场）</div>
+      <div class="text-small">
+      <b>近期</b>：<b>10-28前后Q3'26财报</b>——一案三裁决（鞋类增速、H2隐含+6%兑现度、9月马拉松季品牌读数）；关税退税是否入指引。<br>
+      <b>买入</b>：150-158（1/3）→ 135-142（1/3）→ 125-132（1/3）；仓位上限组合4-6%（欧元成长仓，注意EURFX敞口）。<br>
+      <b>证伪即走</b>：鞋类连续两季≤+2%、或2027-3的FY27指引收入&lt;+3%、或Gulden/中国区管理层变动——任一成立无条件离场；营销/库存/中国连增的次级信号各对应减半。<br>
+      <b>兑现</b>：€195-200而鞋类未回稳→减半；≥€240且双位数利润率兑现→持有。年化~5.3%现金返还是等待的底薪。
+      </div>
+    </div>
+  </div>
+
+  <hr>
+  <div class="text-small text-muted">
+    数据与信源：<a href="https://www.adidas-group.com/en/media/press-releases/adidas-grows-top-line-14percent-and-achieves-record-sales-in-q2">阿迪达斯Q2/H1 2026公告（7-30）</a>（经<a href="https://markets.ft.com/data/announce/detail?dockey=600-202607300128DGAP____ADHOC____adhoc_2373944_en-1">FT公告镜像</a>核验资产负债表与指引原文）；
+    <a href="https://www.adidas-group.com/en/media/press-releases/adidas-reports-record-revenues-for-2025-and-expects-strong-sales-and-profit-growth-to-continue-over-the-next-years">FY2025年报新闻稿（3-4）</a>；
+    <a href="https://www.reuters.com/business/retail-consumer/adidas-raises-2026-sales-outlook-2026-07-30">Reuters（7-30暴跌与指引）</a>；
+    <a href="https://www.nbd.com.cn/articles/2026-07-31/4528381.html">每经（CEO电话会「看不懂市场误解」）</a>；
+    <a href="https://m.epaper.zqrb.cn/html/2026-07/31/content_1262347.htm?div=-1">证券日报（中国市场细节）</a>；
+    <a href="https://www.jiemian.com/article/15188300.html">界面（马拉松与品类拆分）</a>；
+    行情：<a href="https://finance.yahoo.com/quote/ADS.DE">Yahoo Finance ADS.DE</a>（10-15）；估值分位：<a href="https://www.gurufocus.com/term/pettm/ADDYY">GuruFocus</a>/<a href="https://www.macrotrends.net/stocks/charts/ADDYY/adidas-ag/pe-ratio">Macrotrends</a>；<a href="https://www.morningstar.com/en-nd/stocks/adidas-earnings-strong-2026-start-provides-confidence-long-range-plan-shares-attractive">Morningstar公允价值</a>；彪马：<a href="https://finance.yahoo.com/quote/PUM.DE">Yahoo PUM.DE</a>。<br>
+    免责声明：个人研究笔记，非投资建议。2021-22年净利/毛利率为年报约数；ROIC与投入资本为估算；三档目标价为简化情景推演。欧元计价资产，汇率敞口自担。
+  </div>
+
+</div>
+</div>
+</body>
+</html>

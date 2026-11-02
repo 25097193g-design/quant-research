@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>英伟达 NVDA 五步投资价值研究 · 2026-10-29</title>
+<style>
+  :root{
+    --ink:#1a2233; --ink2:#4a5266; --line:#e3e7ef; --bg:#f5f6fa; --card:#ffffff;
+    --green:#0e7a4d; --greenbg:#e8f5ee; --amber:#9a6700; --amberbg:#fdf3dd;
+    --red:#b3261e; --redbg:#fcebea; --blue:#1d4ed8; --bluebg:#eaf0fe;
+    --accent:#76b900; --dark:#101418;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+       background:var(--bg); color:var(--ink); line-height:1.75; font-size:15px;}
+  .wrap{max-width:1000px; margin:0 auto; padding:0 18px 60px;}
+
+  header.hero{background:linear-gradient(135deg,#101418 0%,#1d2b1f 60%,#2a3d14 100%); color:#fff;
+    padding:38px 18px 30px; border-bottom:4px solid var(--accent);}
+  .hero-in{max-width:1000px; margin:0 auto;}
+  .hero h1{font-size:26px; letter-spacing:.5px;}
+  .hero h1 small{font-weight:400; opacity:.75; font-size:15px; margin-left:10px;}
+  .hero .sub{margin-top:6px; font-size:13.5px; opacity:.85;}
+  .chips{display:flex; flex-wrap:wrap; gap:10px; margin-top:18px;}
+  .chip{background:rgba(255,255,255,.10); border:1px solid rgba(255,255,255,.22); border-radius:8px;
+    padding:7px 13px; font-size:13px;}
+  .chip b{font-size:16px; color:#d8ff8a;}
+  .chip .d{opacity:.65; font-size:11px; display:block; margin-top:1px;}
+
+  .verdict{background:#fff; border:1px solid var(--line); border-left:5px solid var(--accent);
+    border-radius:10px; padding:18px 22px; margin:22px 0;}
+  .verdict h3{font-size:15px; color:var(--ink); margin-bottom:6px;}
+  .verdict p{font-size:14px; color:var(--ink2);}
+
+  section{background:var(--card); border:1px solid var(--line); border-radius:12px;
+    padding:26px 28px; margin:20px 0;}
+  section h2{font-size:19px; padding-bottom:10px; border-bottom:2px solid var(--line); margin-bottom:16px;
+    display:flex; align-items:center; gap:10px;}
+  .stepno{background:var(--dark); color:#d8ff8a; font-size:12.5px; padding:3px 10px; border-radius:20px;
+    letter-spacing:1px; flex:none;}
+  section h3{font-size:15.5px; margin:18px 0 8px;}
+  section p{color:#333c4e; margin-bottom:8px; font-size:14.5px;}
+  .muted{color:var(--ink2); font-size:13px;}
+  .num{font-variant-numeric:tabular-nums;}
+
+  table{width:100%; border-collapse:collapse; margin:12px 0 6px; font-size:13.5px;}
+  th{background:#eef1f6; text-align:left; padding:8px 10px; border:1px solid var(--line); font-weight:600; white-space:nowrap;}
+  td{padding:7px 10px; border:1px solid var(--line); vertical-align:top;}
+  tr:nth-child(even) td{background:#fafbfd;}
+  .r{text-align:right;} .c{text-align:center;}
+  .pos{color:var(--green); font-weight:600;} .neg{color:var(--red); font-weight:600;}
+  .warn{color:var(--amber); font-weight:600;}
+
+  .tag{display:inline-block; font-size:12px; padding:2px 9px; border-radius:12px; margin:1px 2px; white-space:nowrap;}
+  .tg{background:var(--greenbg); color:var(--green);} .ta{background:var(--amberbg); color:var(--amber);}
+  .tr{background:var(--redbg); color:var(--red);} .tb{background:var(--bluebg); color:var(--blue);}
+
+  .note{background:var(--amberbg); border:1px solid #ecd9a8; border-radius:8px; padding:12px 16px;
+    font-size:13px; color:#6b5410; margin:12px 0;}
+  .note b{color:#584404;}
+  .src{font-size:12px; color:#8a93a6; margin-top:4px;}
+
+  .grid3{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:14px; margin:14px 0;}
+  .tier{border-radius:12px; padding:16px 18px; border:1px solid var(--line); background:#fff; position:relative;}
+  .tier h4{font-size:14px; margin-bottom:4px;}
+  .tier .px{font-size:26px; font-weight:700; letter-spacing:.5px;}
+  .tier .up{font-size:13px; font-weight:600;}
+  .tier ul{margin:10px 0 0 16px; font-size:12.8px; color:var(--ink2);}
+  .tier li{margin-bottom:4px;}
+  .t-bull{border-top:4px solid var(--green);} .t-bull .px{color:var(--green);}
+  .t-base{border-top:4px solid var(--blue);} .t-base .px{color:var(--blue);}
+  .t-bear{border-top:4px solid var(--red);} .t-bear .px{color:var(--red);}
+
+  .cal{list-style:none; margin:12px 0;}
+  .cal li{display:flex; gap:14px; padding:9px 0; border-bottom:1px dashed var(--line); font-size:13.5px;}
+  .cal .dt{flex:none; width:118px; font-weight:700; color:var(--ink);}
+  .cal .what{color:var(--ink2);}
+  .cal .why{color:#8a93a6; font-size:12.5px;}
+
+  .moat{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:12px; margin:12px 0;}
+  .moat .m{border:1px solid var(--line); border-radius:10px; padding:14px 16px; background:#fafbfd;}
+  .moat .m h4{font-size:14px; margin-bottom:6px;}
+  .moat .m p{font-size:13px; color:var(--ink2); margin:0;}
+
+  .paper{background:var(--dark); border-radius:12px; padding:26px 28px; margin:24px 0; color:#e8ecf2;}
+  .paper h2{color:#fff; border-color:#2a3340;}
+  .pgrid{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:14px;}
+  .pcol{background:#171d25; border:1px solid #2a3340; border-radius:10px; padding:16px 18px;}
+  .pcol h4{font-size:14.5px; margin-bottom:10px; padding-bottom:8px; border-bottom:1px solid #2a3340;}
+  .pcol.pro h4{color:#8fd94f;} .pcol.con h4{color:#ff8f86;} .pcol.trg h4{color:#ffd479;}
+  .pcol ul{margin-left:18px; font-size:13.2px; line-height:1.85; color:#c9d2de;}
+  .pcol li{margin-bottom:6px;}
+  .paper .final{margin-top:16px; background:#171d25; border:1px solid #2a3340; border-radius:10px;
+    padding:13px 16px; font-size:13.8px; color:#d8ff8a;}
+
+  footer{font-size:12.5px; color:#8a93a6; padding:18px 4px; line-height:1.8;}
+  .toc{display:flex; flex-wrap:wrap; gap:8px; margin:18px 0 4px;}
+  .toc a{font-size:12.5px; color:var(--blue); text-decoration:none; border:1px solid #cdd9f6;
+    border-radius:16px; padding:3px 12px; background:#fff;}
+  @media print{ body{background:#fff;} section,.verdict{break-inside:avoid;} .hero{padding:24px;} }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-in">
+    <h1>英伟达 NVIDIA <small>NVDA.O · 五步投资价值研究</small></h1>
+    <div class="sub">生意好不好 × 价格便不便宜 × 风险拿得住 ｜ 研究基准日 2026-10-29（行情截至 10-28 美股收盘）｜ 现状：<b>未持仓 · 观察名单 · 用户自有"205计划"</b></div>
+    <div class="chips">
+      <div class="chip"><b class="num">$217.28</b><span class="d">收盘价 · 日跌0.30%</span></div>
+      <div class="chip"><b class="num">$5.24万亿</b><span class="d">总市值</span></div>
+      <div class="chip"><b class="num">27.1x</b><span class="d">PE(TTM) · 隐含TTM净利≈$1,930亿</span></div>
+      <div class="chip"><b class="num">209–211</b><span class="d">三重底支撑区(8/24、9/14、10/23)</span></div>
+      <div class="chip"><b class="num">243.37</b><span class="d">52周高(10/6) · 距高点-10.7%</span></div>
+      <div class="chip"><b class="num">163.90</b><span class="d">52周低</span></div>
+      <div class="chip"><b class="num">+16.8%</b><span class="d">年初至今 · 近3年+438%</span></div>
+      <div class="chip"><b class="num">11/18</b><span class="d">FY27Q3财报 · 一致预期EPS≈$2.47</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="toc">
+    <a href="#s1">① 生意质量</a><a href="#s2">② 财务体检</a><a href="#s3">③ 估值</a>
+    <a href="#s4">④ 风险与证伪</a><a href="#s5">⑤ 价格纪律</a><a href="#paper">一页纸论点</a>
+  </div>
+
+  <div class="verdict">
+    <h3>一句话结论</h3>
+    <p><b>生意是教科书级的（ROIC连续十年碾压资金成本、75%毛利率、80–85%份额的事实垄断），
+    但"便宜"不成立——27x TTM 的低估值完全依赖"当前利润是常态而非峰值"这个未经证实的假设。</b>
+    边际买家（CoreWeave们）靠15%收益率的垃圾债融资、HBM成本2027年预涨一倍挤压毛利率、推理端被ASIC蚕食——
+    三条证伪线全部活跃。结论：<b>好生意 × 不确定的价格 × 高事件风险 = 只在209–211第一档小仓试探、11/18财报裁决、CoreWeave债价为非价格停止线</b>。</p>
+  </div>
+
+  <div class="note">
+    <b>⚠ 数据口径冲突（必须先讲清楚）：</b>两套数据源打架——
+    <b>Wind年报库</b>的 FY2026（截至2026-01-31）：营收 <b>$1,305亿</b>、净利 <b>$729亿</b>（毛利率75.0%、ROE 119%）；
+    <b>新闻流</b>显示最新已报季 FY27Q2（截至2026-07）：单季营收已达 <b>$962亿</b>（其中数据中心$890亿），8/27财报次日股价+8.7%放量2.99亿股可佐证；
+    实时PE(TTM) 27.1x 反推 TTM净利≈<b>$1,930亿</b>。即：<b>年报库滞后于真实运行率约一个量级</b>。
+    本文财务体检用年报库口径（结构比率可信），估值与展望用"最新运行率"口径（TTM EPS≈$8.0），两套并存、逐处标注。
+  </div>
+
+  <!-- ================= STEP 1 ================= -->
+  <section id="s1">
+    <h2><span class="stepno">STEP 1</span>生意质量：拆收入、找引擎、验护城河</h2>
+
+    <h3>1.1 收入结构：一家"披着芯片公司外衣的AI基础设施总包商"</h3>
+    <p>英伟达2026年5月起把报表口径改为两大板块：<b>数据中心</b>（超大规模云厂+AI云neocloud+企业客户）与<b>边缘计算</b>（PC/游戏/工作站/机器人/汽车）。数据中心占收入约九成，是唯一的利润引擎：</p>
+    <table>
+      <tr><th>口径</th><th>数据中心(DC)</th><th>边缘计算(游戏/专业视觉/汽车)</th><th>合计</th><th>DC占比</th></tr>
+      <tr><td>FY2026年报库口径（截至2026/1）</td><td class="r num">≈$1,937亿*</td><td class="r num">≈$200亿</td><td class="r num">$1,305亿(Wind) / ≈$2,100亿(新闻流)*</td><td class="r">≈90%</td></tr>
+      <tr><td>FY27Q2 单季（截至2026/7，新闻流）</td><td class="r num">$890亿</td><td class="r num">≈$70亿</td><td class="r num">$962亿</td><td class="r">92.5%</td></tr>
+      <tr><td>未来指引</td><td colspan="3">Blackwell+Rubin两平台 <b>2025–2027累计营收$1万亿</b>（黄仁勋2026/5公开表态有信心；CFO在2025/11的口径为$5,000亿）；未来六季度出货<b>2,000万块</b> B+R芯片</td><td class="r">—</td></tr>
+    </table>
+    <p class="src">* FY2026 DC收入$1,937亿为2026-10-22竞争格局研究所引口径；与Wind年表总额$1,305亿并存，属上文数据冲突的一部分。结构性结论（DC占~90%）两套口径一致。</p>
+
+    <p>客户结构在变宽但也变"贵"：AWS 2026年8月宣布追加部署200万颗GPU；但<b>边际增量买家越来越依赖外部融资</b>——CoreWeave积压订单$1,042亿（微软/OpenAI/Meta为主）、2026年资本开支$350–390亿，而全年收入仅约$130亿、仍在净亏损（详见Step 4）。需求是真的，需求的<b>融资方式</b>是脆弱的。</p>
+
+    <h3>1.2 护城河三件套检验</h3>
+    <div class="moat">
+      <div class="m"><h4>① 提价能力 <span class="tag tg">强</span></h4>
+        <p>毛利率<b>75.0%</b>（FY2026），且逐代抬升单GPU有效价格（GB300机架$300万+，Rubin机架更贵）。每一代产品以"单位能耗推理吞吐×10倍"（Rubin vs Blackwell，官方口径）支撑涨价。定价权的唯一历史反例：2023年游戏/crypto崩盘时毛利率一度跌到~57%。</p></div>
+      <div class="m"><h4>② 市场份额 <span class="tag ta">缓蚀中</span></h4>
+        <p>AI加速器份额<b>80–85%</b>（2023年~92%）——无正面替代者，但三条蚕食线：AMD 5–7%（MI450已向甲骨文交付5万颗）；定制ASIC（TPU/Trainium/博通代工的OpenAI 10GW）吃<b>推理</b>；中国市场已事实上失守（NVDA出货-44%、份额34% vs 华为28%+平头哥7%，非GPU出货首超GPU）。</p></div>
+      <div class="m"><h4>③ 转换成本 <span class="tag tg">极强</span></h4>
+        <p>CUDA二十年软件引力+NVLink机架级锁定+MGX生态（10月OCP峰会公布，含液冷/电源/热管理伙伴）+2026年10月与思科共定USFP 400G光模块标准。防守动作：NVLink Fusion开放、自研NV-HBM、$35亿认购联发科可转债"收编"自研XPU。GTC柏林（10/21）发布DSX POD——AI工厂部署从6个月压缩到14天，从卖芯片走向卖整厂。</p></div>
+    </div>
+
+    <h3>1.3 ROIC 十年检验：连续十年碾压资金成本 ✅</h3>
+    <table>
+      <tr><th>财年(截至1月)</th><td class="r">FY17</td><td class="r">FY18</td><td class="r">FY19</td><td class="r">FY20</td><td class="r">FY21</td><td class="r">FY22</td><td class="r">FY23</td><td class="r">FY24</td><td class="r">FY25</td><td class="r">FY26</td></tr>
+      <tr><th>营收($亿)</th><td class="r num">69</td><td class="r num">97</td><td class="r num">117</td><td class="r num">109</td><td class="r num">167</td><td class="r num">269</td><td class="r num">270</td><td class="r num">609</td><td class="r num">1,305</td><td class="r num">1,305¹</td></tr>
+      <tr><th>净利($亿)</th><td class="r num">17</td><td class="r num">30</td><td class="r num">41</td><td class="r num">28</td><td class="r num">43</td><td class="r num">98</td><td class="r num">44</td><td class="r num">298</td><td class="r num">729</td><td class="r num">729¹</td></tr>
+      <tr><th>ROIC(约值)</th><td class="r">35%</td><td class="r">43%</td><td class="r">46%</td><td class="r">28%</td><td class="r">32%</td><td class="r">42%</td><td class="r">16%</td><td class="r">72%</td><td class="r">115%</td><td class="r">≈120%+</td></tr>
+      <tr><th>vs WACC(≈9%)</th><td class="r pos">✓</td><td class="r pos">✓</td><td class="r pos">✓</td><td class="r pos">✓</td><td class="r pos">✓</td><td class="r pos">✓</td><td class="r pos">✓</td><td class="r pos">✓✓</td><td class="r pos">✓✓✓</td><td class="r pos">✓✓✓</td></tr>
+    </table>
+    <p class="src">¹ FY25/FY26为Wind年表口径（见顶部数据冲突说明，FY26运行率远高）。ROIC为约值。两次下探（FY20 crypto宿醉、FY23游戏去库）均未跌破16%，<b>十年最低值仍是WACC的1.8倍</b>。</p>
+
+    <p><b>第一步结论：</b>生意质量无可挑剔，商业模式看得懂（卖铲人→卖AI工厂，收入本质=全球AI资本开支的抽成）。唯一要盯的结构性变化：客户集中度与客户质量——收入九成来自数据中心，而数据中心的边际买家是借高收益债的neocloud。<b>通过。</b></p>
+  </section>
+
+  <!-- ================= STEP 2 ================= -->
+  <section id="s2">
+    <h2><span class="stepno">STEP 2</span>财务体检：三表交叉验证，FCF 是终极检验</h2>
+
+    <h3>2.1 核心比率（FY2026 年报库口径）</h3>
+    <table>
+      <tr><th>体检项</th><th>数值</th><th>判读</th><th>信号</th></tr>
+      <tr><td>经营现金流 / 净利润</td><td class="r num">$641亿 / $729亿 = <b>0.88</b></td><td>略低于1，缺口=应收+存货随收入扩张正常垫资；不是利润造假信号，但趋势要盯</td><td class="c"><span class="tag ta">黄</span></td></tr>
+      <tr><td>FCF = OCF − 资本开支</td><td class="r num">$641亿 − $32亿 = <b>$609亿</b>（FCF/净利=0.84）</td><td>fab-lite模式资本开支极轻（收入占比2.5%），赚的基本全是现金。终极检验<b>通过</b></td><td class="c"><span class="tag tg">绿</span></td></tr>
+      <tr><td>有息负债</td><td class="r num">$85亿 vs 总资产$1,116亿，账上现金远超之</td><td><b>净现金堡垒</b>，权益乘数仅1.41——高ROE不是杠杆堆的</td><td class="c"><span class="tag tg">绿</span></td></tr>
+      <tr><td>商誉</td><td class="r num">$52亿（占总资产4.6%，来自Mellanox等）</td><td>并购克制，无商誉雷</td><td class="c"><span class="tag tg">绿</span></td></tr>
+      <tr><td>存货</td><td class="r num">$101亿，随Blackwell/Rubin切换爬坡</td><td>绝对额高但对应~$100亿/季的DC成本流，周转尚可；<b>Rubin切换期跌价风险</b>是常态隐患</td><td class="c"><span class="tag ta">黄</span></td></tr>
+      <tr><td>应收账款</td><td class="r num">Wind未返回（FY25实况约$230亿量级）</td><td><b>本案最关键的体检项</b>：客户里有靠15%收益率垃圾债融资的neocloud，应收增速＞收入增速=红灯</td><td class="c"><span class="tag ta">黄</span></td></tr>
+      <tr><td>SBC 股权激励</td><td class="r num">≈$50亿/年（占净利~7%）</td><td>占比温和，不是科技公司式的"利润化妆"重灾区</td><td class="c"><span class="tag tg">绿</span></td></tr>
+      <tr><td>投资浮盈/一次性项目</td><td class="r num">持CoreWeave/Arm/联发科CB等，公允价值变动计入其他收入</td><td>金额相对$700亿+净利很小；但注意其<b>双重身份</b>：既是股东又是客户的钱袋子（见2.2）</td><td class="c"><span class="tag ta">黄</span></td></tr>
+    </table>
+
+    <h3>2.2 利润化妆排查：账面干净，但有一处"结构性化妆"嫌疑</h3>
+    <p>应计利润率本身不刺眼（OCF/NI 0.88），SBC温和，浮盈占比小。<b>真正的灰色地带是循环融资（vendor finance）</b>：英伟达承诺<b>2032年前认购CoreWeave未售出的部分算力</b>，同时CoreWeave是英伟达的大客户、被投企业、订单背书者三合一——英伟达用资产负债表给自己的收入流提供最终担保。这与1984年的IBM/租赁公司循环异曲同工：景气期放大收入，退潮期变成自己的坏账。规模目前可控（相对NVDA体量），但<b>这是"利润质量=客户质量"的第一观察项</b>。</p>
+
+    <p><b>第二步结论：</b>三表交叉基本健康——现金流真、杠杆近乎零、无商誉雷。<b>通过，但挂两项黄牌：应收质量（neocloud敞口）与循环融资结构。</b></p>
+  </section>
+
+  <!-- ================= STEP 3 ================= -->
+  <section id="s3">
+    <h2><span class="stepno">STEP 3</span>估值：历史分位定位 + 三档目标价 + 反推隐含假设</h2>
+
+    <h3>3.1 当前估值定位</h3>
+    <table>
+      <tr><th>口径</th><th>数值</th><th>定位</th></tr>
+      <tr><td>PE(TTM)</td><td class="r num">27.1x（TTM EPS≈$8.0）</td><td>自身近5年区间（约25–65x）的<b>最低档</b>；近1年分位51.8%（Wind，窗口太短仅参考）</td></tr>
+      <tr><td>PE(前瞻, FY27E)</td><td class="r num">≈21–24x（FY27E EPS $9–10，由Q3指引$2.47/季外推）</td><td>2022年以来最便宜的前瞻档；对比：AMD约35x+、博通约30x+、台积电约20x+（约数）</td></tr>
+      <tr><td>PB / 股息率</td><td class="r num">Wind实时PB无值 / 0.24%</td><td>资产极轻+全现金回报靠回购，PB与股息率对本案无意义</td></tr>
+      <tr><td>市值/运行率收入</td><td class="r num">$5.24T / ~$3,850亿(年化) ≈ 13.6x PS</td><td>对50%+净利率公司不算离谱，但对"峰值利润"公司要打折看</td></tr>
+    </table>
+
+    <h3>3.2 周期股铁律：跨周期常态利润检验（本案估值的核心分歧）</h3>
+    <p>半导体行业常态净利率约15–25%，英伟达现在是<b>55.8%</b>——三倍于行业常态。用常态利润重算当前$217的价格：</p>
+    <table>
+      <tr><th>情景</th><th>假设</th><th>常态净利</th><th>对应PE</th><th>结论</th></tr>
+      <tr><td>当前利润=常态</td><td class="r num">TTM净利$1,930亿维持</td><td class="r num">$1,930亿</td><td class="r num"><b>27x</b></td><td>便宜</td></tr>
+      <tr><td>温和常态化</td><td class="r num">营收$3,500亿 × 净利率45%</td><td class="r num">$1,580亿</td><td class="r num"><b>33x</b></td><td>中性偏贵</td></tr>
+      <tr><td>周期回归</td><td class="r num">营收$3,000亿 × 净利率40%</td><td class="r num">$1,200亿</td><td class="r num"><b>44x</b></td><td>贵</td></tr>
+    </table>
+    <p><b>读法：27x TTM的"便宜"是条件便宜的——条件是AI资本开支不进入下行周期。</b>这与"周期股用峰值利润低PE估值是幻觉"的经典教训（低PE恰是周期顶信号）必须并列陈列。</p>
+
+    <h3>3.3 三档目标价（3年退出 · FY2030为终点 · 退出倍数法交叉检验）</h3>
+    <div class="grid3">
+      <div class="tier t-bull"><h4>乐观 · 20%概率</h4><div class="px num">$400</div><div class="up pos">+84%</div>
+        <ul><li>超级周期延至2030：SK海力士口径"缺货到2030"、14家客户LTA锁产能</li><li>FY30营收~$7,000亿（+30/+20/+15%），净利率55%守住</li><li>FY30净利$3,850亿，回购缩股至233亿股 → EPS≈$16.5</li><li>退出25x → <b>$412</b>，取整$400</li></ul></div>
+      <div class="tier t-base"><h4>中性 · 55%概率</h4><div class="px num">$264</div><div class="up pos">+22%</div>
+        <ul><li>FY28 +20%（云厂capex仍在增但减速）→ FY29 +12% → FY30 +8%</li><li>净利率55%→50%（HBM成本+ASIC竞价侵蚀）</li><li>FY30净利$2,850亿，EPS≈$12.0</li><li>退出22x → <b>$264</b>；3年年化~7%+回购≈10%</li></ul></div>
+      <div class="tier t-bear"><h4>悲观 · 25%概率</h4><div class="px num">$103</div><div class="up neg">-53%</div>
+        <ul><li>Gartner情景兑现：融资渠道2027收紧，neocloud八成出局</li><li>FY28持平 → FY29 −15% → FY30 −10%，营收~$3,050亿</li><li>净利率压至45%，EPS≈$5.7</li><li>退出18x → <b>$103</b></li></ul></div>
+    </div>
+    <p>概率加权期望值 ≈ 0.20×400 + 0.55×264 + 0.25×103 = <b class="num">$254（+17%）</b>——正期望、但左尾极肥。<b>当前价买入的赔率结构：赚1倍要靠乐观档，亏一半只需要悲观档。</b></p>
+
+    <h3>3.4 反推：$217 隐含了什么假设？</h3>
+    <p>市值$5.24万亿 / 运行率FCF约$2,000亿 = <b>FCF收益率3.8%</b>。以10%折现率倒算，当前价格隐含：<b>未来5年~12%复合增长、之后放缓至名义GDP量级</b>——即市场定价的是"超级周期持续到2028–29、然后正常化"，既没定价崩塌、也没定价加速。换句话说：<b>当前价没有安全边际，只有"假设兑现"</b>；真正的便宜要等悲观预期上价（对应170–190区间），真正的贵在乐观兑现（240+）。</p>
+  </section>
+
+  <!-- ================= STEP 4 ================= -->
+  <section id="s4">
+    <h2><span class="stepno">STEP 4</span>风险与证伪：空头论点 × 可观测信号 × 触发器</h2>
+
+    <h3>4.1 空头论点清单（每条配信号与动作）</h3>
+    <table>
+      <tr><th>#</th><th>空头论点</th><th>现状评估</th><th>可观测信号</th><th>触发器 → 动作</th></tr>
+      <tr><td class="c">1</td><td><b>AI基建融资断裂</b>（Gartner：2030年前$3.5万亿AI基建面临减值、八成neocloud出局）</td>
+        <td><span class="tag tr">活跃</span>CoreWeave 2032无担保债&lt;80美分、收益率15–16%；总债务$500亿；大空头原型Seawolf公开做空（2027 FCF缺口论）</td>
+        <td>CRWV债价/收益率；neocloud IPO窗口（Nscale已申请、Lambda或明年）</td>
+        <td>CRWV债<b>&lt;70美分或收益率&gt;16%持续两周</b>，或再有大型neocloud撤IPO → <b>停止加仓（非价格停止线）</b>；同时≥$0.80 → 融资渠道未断</td></tr>
+      <tr><td class="c">2</td><td><b>云厂capex见顶</b>（ hyperscaler资本开支=NVDA收入的直接先行量）</td>
+        <td><span class="tag ta">本周裁决</span>MSFT/META/GOOGL/AMZN财报季进行中</td>
+        <td>四大云厂capex指引的环比变化</td>
+        <td><b>≥2家指引环比持平或下调</b> → 估值直接切到悲观档、清仓不等待</td></tr>
+      <tr><td class="c">3</td><td><b>毛利率见顶回落</b>（HBM 2027年预涨超一倍——麦格理；内存已占AI数据中心成本1/3）</td>
+        <td><span class="tag ta">在途</span>SK海力士DRAM/HBM产能售罄至2029、对14家客户锁LTA，涨价有供给端支撑</td>
+        <td>11/18季报毛利率指引；2027 HBM定价谈判落地</td>
+        <td>毛利率指引<b>&lt;72%</b>或连续两季下滑 → 中性档EPS下修10–15%，<b>减半</b></td></tr>
+      <tr><td class="c">4</td><td><b>推理端被ASIC蚕食</b>（"训练用NVDA、推理用自研"：TPU/Trainium/博通×OpenAI 10GW）</td>
+        <td><span class="tag ta">缓慢发生</span>份额92%→80–85%；AMD MI450向甲骨文交付5万颗</td>
+        <td>博通AI收入run-rate增速 vs NVDA DC增速；AMD实际交付量（非订单传闻）</td>
+        <td>博通AI增速<b>持续2个季度&gt;</b>NVDA DC增速 → 份额叙事破位，估值中枢下移</td></tr>
+      <tr><td class="c">5</td><td><b>循环收入/vendor finance</b>（NVDA承诺认购CRWV未售算力=给自己担保需求）</td>
+        <td><span class="tag ta">结构存在</span>规模尚可控</td>
+        <td>应收增速vs收入增速；CRWV占DC收入比重（财报电话会追问点）</td>
+        <td>应收增速<b>&gt;收入增速10pct以上</b> → 利润质量降级，停止加仓</td></tr>
+      <tr><td class="c">6</td><td><b>中国已失守+出口管制反复</b>（份额34%、出货-44%，国产2026年占90%）</td>
+        <td><span class="tag tg">基本price in</span>市场已按"无中国"定价</td>
+        <td>H20类牌照/新制裁新闻</td>
+        <td>反向期权：若管制放松属纯增量，不作为持仓依据</td></tr>
+      <tr><td class="c">7</td><td><b>宏观二元事件串</b>（加息周期：12月加息基本锁定）</td>
+        <td><span class="tag tr">本周起连环</span>FOMC 10/27–28进行中 → 选举11/3 → CPI 11/10 → 财报11/18</td>
+        <td>10Y美债、港汇7.85（亚洲资金总闸口）</td>
+        <td>事件前仓位减半的原则：11/18前<b>只建第一档的一半</b></td></tr>
+    </table>
+
+    <h3>4.2 供给日历（NVDA无解禁/配售/CB，供给=事件与生态资金面）</h3>
+    <ul class="cal">
+      <li><span class="dt">本周–11月初</span><span class="what">四大云厂财报+capex指引（MSFT/META/GOOGL/AMZN）</span><span class="why">——需求侧第一变量，权重高于NVDA自身财报</span></li>
+      <li><span class="dt">11/03</span><span class="what">美国中期选举</span><span class="why">——管制/财政方向</span></li>
+      <li><span class="dt">11/10</span><span class="what">10月CPI（9月3.7%双超在前）</span><span class="why">——12月加息定价</span></li>
+      <li><span class="dt">11/18</span><span class="what"><b>NVDA FY27Q3财报</b>（EPS一致预期≈$2.47）</span><span class="why">——四大观察点：①Q4指引（=Rubin斜率）②毛利率≥72%？③DC增速vs云capex增速（低于=丢份额）④应收/CRWV敞口披露</span></li>
+      <li><span class="dt">11月内</span><span class="what">CoreWeave下次业绩电话会（CEO承诺"陈述事实"回应空头）</span><span class="why">——高收益债渠道生死状</span></li>
+      <li><span class="dt">12月</span><span class="what">FOMC（加息？）；博通财报（AI收入run-rate）</span><span class="why">——ASIC蚕食速度的量化锚</span></li>
+      <li><span class="dt">2027/3</span><span class="what">GTC 2027（Rubin Ultra/Cyber Cab节奏）</span><span class="why">——产品周期接力</span></li>
+      <li><span class="dt">2027 H1</span><span class="what">HBM4 2027年度定价谈判落地；Nscale/Lambda IPO定价</span><span class="why">——毛利率与融资渠道双裁决</span></li>
+    </ul>
+
+    <h3>4.3 需求侧的反方证据（诚实陈列）：SK海力士 10/28 财报</h3>
+    <p>本周最重磅的交叉验证：SK海力士Q3营收<b>₩104.6万亿（同比+328%）</b>、营业利润率<b>80%</b>、DRAM/HBM产能<b>实质售罄至2029</b>、需求超供给2倍+、与14家核心客户签LTA锁定2027–28产能50%以上，公司口径"缺货到2030"，并宣布2026年股东回报₩100万亿。对NVDA是<b>双面信号</b>：需求真实性得到上游最硬核的确认（绿）；但内存已占AI数据中心成本1/3、HBM 2027年预涨超一倍=NVDA毛利率的确定挤压（黄）。<b>上游赚走暴利的同时，说明AI基建的"账单"正在通胀——最终买单人的ROI压力更大。</b></p>
+  </section>
+
+  <!-- ================= STEP 5 ================= -->
+  <section id="s5">
+    <h2><span class="stepno">STEP 5</span>价格纪律：分档 × 安全边际 × 仓位 × 先写出场</h2>
+
+    <h3>5.1 技术结构：三重底成立</h3>
+    <p>207–211区域<b>三次测试三次守住</b>：8/24低$207.02（财报前恐慌）→ 8/27财报+8.7%放量脱离；9/14低$208.93；10/23低$210.18（费半8连跌最深处）→ 连弹四日收$217。10/6高点$243.37=52周高，自高点回撤最深-13.3%（蒸发市值约$8,000亿）。<b>你此前定的205在三次低点下方均未触及</b>——它属于"三重底跌破后的空气层"，到205=结构破位，逻辑意义变了。</p>
+
+    <h3>5.2 分档买入计划（对齐你的"210买一丢丢、跌狠逐渐加、仓位控制总风险"框架）</h3>
+    <table>
+      <tr><th>档位</th><th>价格区</th><th>仓位</th><th>依据</th><th>前提条件（不满足则跳过该档）</th></tr>
+      <tr><td><b>第一档</b></td><td class="r num"><b>209–211</b></td><td class="r">1.5%（11/18财报前只投一半=0.75%）</td><td>三重底+一致预期PE(TTM)~26x</td><td>云厂capex无两家下调；CRWV债≥70美分</td></tr>
+      <tr><td><b>第二档</b></td><td class="r num"><b>195–200</b></td><td class="r">+2%</td><td>9月空气区上沿；对应悲观档目标价的一倍上行空间消失前最后买点</td><td>同上，且毛利率未连续下滑</td></tr>
+      <tr><td><b>第三档</b></td><td class="r num"><b>175–180</b></td><td class="r">+1.5%</td><td>52周低163.9上方缓冲；对应跨周期常态44x PE的估值支撑区</td><td>仅当下跌由宏观/情绪驱动、且四大证伪线无一条亮红灯</td></tr>
+      <tr><td class="warn"><b>205你的原始档</b></td><td class="r num">≈205</td><td class="r">—</td><td colspan="2">位于三重底下方：到205=破位信号而非买点，<b>触发后重估而非机械执行</b></td></tr>
+    </table>
+
+    <h3>5.3 仓位与组合约束（比个股纪律更重要）</h3>
+    <p>你的现有持仓<b>腾讯+阿里+智谱+（观察中）海力士</b>与NVDA同属"AI/流动性"单因子。若加NVDA：<b>AI贝塔合计敞口设硬上限</b>；海力士与NVDA二选一（NVDA无韩国折价问题、是更干净的AI算力工具；海力士的优势是10x PE+₩100万亿回报的周期股赔率）。NVDA总仓位上限<b>5%</b>——它的高波动（3年+438%的另一面是52周内163.9–243.4的47%振幅）决定了卫星仓属性。</p>
+
+    <h3>5.4 出场条件（进场前写好，触发即执行）</h3>
+    <table>
+      <tr><th>出场线</th><th>条件</th><th>动作</th></tr>
+      <tr><td><b>证伪出场（不看价格）</b></td><td>①≥2家云厂capex指引环比下调；或②CRWV债&lt;70美分持续两周+再一家neocloud撤IPO；或③NVDA毛利率连续两季下滑且&lt;70%</td><td>任一成立：<b>全部清仓</b>，不摊平、不等反弹</td></tr>
+      <tr><td><b>减半线</b></td><td>11/18财报Q4指引低于一致预期，或DC增速首次低于云厂capex增速（=丢份额）</td><td>减半，余仓按第二/三档逻辑重估</td></tr>
+      <tr><td><b>止盈线</b></td><td>触及中性档$264且无新信息上修 → 兑现一半；触及$340+（中性与乐观之间）→ 只留利润仓</td><td>分批兑现，回落三重底可回补</td></tr>
+      <tr><td><b>时间止损</b></td><td>持有12个月仍未触及中性档且证伪线无一触发（=逻辑钝化）</td><td>降仓至1/3，资金让位给新机会</td></tr>
+    </table>
+  </section>
+
+  <!-- ================= ONE PAPER ================= -->
+  <section class="paper" id="paper">
+    <h2>📄 一页纸投资论点：英伟达 NVDA @ $217.28（2026-10-29）</h2>
+    <div class="pgrid">
+      <div class="pcol pro"><h4>论点（为什么可能值得买）</h4>
+        <ul>
+          <li><b>事实垄断的生意</b>：AI加速器80–85%份额、毛利率75%、ROE 119%、ROIC十年最低值仍是WACC的1.8倍——教科书级护城河（CUDA+NVLink+MGX生态）</li>
+          <li><b>需求有上游铁证</b>：SK海力士DRAM/HBM售罄至2029、"缺到2030"；B+R平台2025–27累计$1万亿营收指引；Rubin Q4起全面量产、GTC柏林后从卖芯片升级为卖AI工厂（DSX POD）</li>
+          <li><b>估值在自身历史最低档</b>：PE(TTM) 27x / 前瞻约21–24x，五年区间下沿；207–211三重底、当前价距第一档仅~3%</li>
+          <li><b>财报是真现金</b>：FCF $609亿（年报库口径）/运行率~$2,000亿，净现金堡垒，回购缩股中</li>
+        </ul>
+      </div>
+      <div class="pcol con"><h4>反论点（空头为什么可能对）</h4>
+        <ul>
+          <li><b>利润率三倍于半导体常态</b>（55.8% vs 行业15–25%）：若按跨周期常态利润重估，当前价=33–44x，并不便宜——低PE可能是周期顶幻觉</li>
+          <li><b>边际买家靠垃圾债</b>：CoreWeave收益率15–16%、总债$500亿、2026收入仅$130亿；Gartner测算$3.5万亿AI基建面临减值、八成neocloud出局；NVDA还承诺认购其未售算力（循环收入嫌疑）</li>
+          <li><b>毛利率确定性受挤压</b>：HBM 2027预涨超一倍、内存已占AI数据中心成本1/3；推理端被ASIC蚕食（博通/OpenAI 10GW）、中国已事实上失守（份额34%）</li>
+          <li><b>事件风险密集</b>：FOMC→选举→CPI→11/18财报四连，12月加息基本锁定</li>
+        </ul>
+      </div>
+      <div class="pcol trg"><h4>触发器（何时买/何时跑）</h4>
+        <ul>
+          <li><b>买</b>：209–211第一档1.5%（财报前半仓）；195–200加2%；175–180加1.5%——每档前提=证伪线无红灯</li>
+          <li><b>裁决点1（本周–11月初）</b>：云厂capex指引——≥2家下调=直接清仓条件</li>
+          <li><b>裁决点2（11/18）</b>：Q4指引（Rubin斜率）、毛利率≥72%、DC增速vs云capex、CRWV应收敞口</li>
+          <li><b>非价格停止线</b>：CRWV债&lt;70美分两周或再一家neocloud撤IPO → 停止加仓</li>
+          <li><b>卖</b>：证伪出场全清；$264兑现一半；$340+只留利润仓</li>
+          <li><b>仓位</b>：上限5%，与海力士二选一，AI贝塔总敞口设组合级硬上限</li>
+        </ul>
+      </div>
+    </div>
+    <div class="final"><b>底牌一句话：</b>用1.5%的仓位在三重底买一个"世界上最赚钱的生意是否见顶"的期权，用CoreWeave债价和云厂capex做免费的风控员——错了亏小钱知道为什么，对了有$264–400的路径。<b>当前位置不追（距第一档仅3%，且四事件未过），计划等价格来找我。</b></div>
+  </section>
+
+  <footer>
+    数据来源：Wind实时行情与财务库（2026-10-28收盘）；同花顺美股接口（无值字段已如实标注）；新闻流——Wind资讯（SK海力士Q3财报2026-10-28、CoreWeave系列10/14–28、GTC柏林10/21、Rubin架构7/23、Vera Rubin量产5/21、OCP峰会10/15）；2026-10-22竞争格局研究（份额、中国、FY2026 DC口径）；用户2026-10-17定稿的"205计划"与2026-10-14五步框架母版。财报预期EPS≈$2.47为此前整理口径。<br>
+    三档目标价为退出倍数法估算（FY2030终点），概率权重为主观判断；ROIC历史值为约值。<b>本文件为个人研究笔记，非投资建议。</b> 生成：ZCode · 2026-10-29
+  </footer>
+</div>
+</body>
+</html>

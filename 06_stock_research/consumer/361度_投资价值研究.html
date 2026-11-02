@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>361度投资价值研究 · 五步框架</title>
+<style>
+:root{--background:#f6f6f7;--foreground:#18181b;--card:#ffffff;--card-foreground:#18181b;
+--muted:#f0f0f2;--muted-foreground:#6f6f78;--border:#e4e4e7;
+--green:#15803d;--red:#dc2626;--yellow:#b45309;--blue:#1d4ed8;
+--viz-series-1:#1d4ed8;--viz-series-2:#7c3aed;--gold:#b8860b}
+@media (prefers-color-scheme: dark){
+:root{--background:#131316;--foreground:#ececf1;--card:#1c1c21;--card-foreground:#ececf1;
+--muted:#232329;--muted-foreground:#9d9da8;--border:#2c2c33;
+--green:#4ade80;--red:#f87171;--yellow:#facc15;--blue:#60a5fa;
+--viz-series-1:#60a5fa;--viz-series-2:#c084fc;--gold:#eab308}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--background);color:var(--foreground);
+font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Segoe UI",sans-serif;
+line-height:1.65;font-size:15px}
+.page{max-width:980px;margin:0 auto;padding:28px 22px 48px}
+h2{font-size:1.45rem;margin:6px 0 6px;font-weight:600}
+h3{font-size:1.12rem;margin:24px 0 6px;font-weight:600}
+hr{border:none;border-top:1px solid var(--border);margin:18px 0}
+.card{background:var(--card);color:var(--card-foreground);border:1px solid var(--border);
+border-radius:12px;padding:13px 16px;margin:10px 0}
+.viz-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px;margin:12px 0}
+.viz-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:6px 0}
+.viz-stat-value{font-size:1.28rem;font-weight:600;margin:2px 0}
+.text-small{font-size:.82rem}
+.text-muted{color:var(--muted-foreground)}
+.tabular-nums{font-variant-numeric:tabular-nums}
+.table{width:100%;border-collapse:collapse;margin:10px 0}
+.table th,.table td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
+.table thead th{color:var(--muted-foreground);font-weight:500;font-size:.8rem}
+.table-sm th,.table-sm td{padding:5px 8px}
+b{font-weight:600}
+#td-iv .chk{font-weight:500;white-space:nowrap}
+#td-iv .chk-pass{color:var(--green)}
+#td-iv .chk-warn{color:var(--yellow)}
+#td-iv .chk-fail{color:var(--red)}
+#td-iv svg text{fill:var(--foreground);font-size:12px}
+#td-iv svg .axis{stroke:var(--border);stroke-width:1}
+#td-iv svg .muted-lab{fill:var(--muted-foreground)}
+#td-iv .thesis-tag{font-weight:500}
+#td-iv .thesis-thesis .thesis-tag{color:var(--green)}
+#td-iv .thesis-anti .thesis-tag{color:var(--red)}
+#td-iv .thesis-trigger .thesis-tag{color:var(--blue)}
+</style>
+</head>
+<body>
+<div class="page">
+<div id="td-iv">
+
+  <h2>361度投资价值研究 · 生意 × 价格 × 风险</h2>
+  <div class="viz-row text-small">
+    <span>1361.HK 4.925港元（10-16收盘 +6.5%，今日四强最大涨幅；<b class="chk chk-warn">YTD -12.7%</b>）· 市值107亿港元 · <b>PE(TTM) 6.7x</b> · <b>PB 0.82x</b> · <b>股息率6.8%</b></span>
+    <span>· 数据截至 2026-10-16</span>
+    <span>· 基于 FY2025年报（3-24）+ 2026中报（8-18）+ Wind + 上证报/界面/澎湃/每经核验</span>
+  </div>
+
+  <div class="card" style="border-left:4px solid var(--green)">
+    <div class="text-small text-muted">ⓘ 研究时点快照 — 四强里的「息率+成长」双料小盘</div>
+    <div class="text-small">
+      FY25收入111亿（+10.6%）、净利13亿（+14%）——<b>连续五年收入/净利双位数增长</b>（收入CAGR 17%）；H1'26再增8%/8%，且是四强中<b>唯一主品牌增速第一</b>的（Q1约+10%、Q2中高单位数，对比李宁Q2转负、特步Q2转负、安踏主品牌+4.8%）。经营现金流从2024年的1.6亿跃升至2025年8.2亿、H1'26又+17%。市场给6.7x PE、0.82x PB、6.8%息率（连续三年超5%）。这是一个「被盘子大小埋没」的基本面：业务质量介于李宁与安踏之间，估值却是四强最低档。
+    </div>
+  </div>
+
+  <div class="viz-grid">
+    <div class="card"><div class="text-small text-muted">生意好不好</div><div class="viz-stat-value">大众性价比+儿童双引擎</div><div class="text-small">连续五年双位数净利增长是四强唯一；主品牌流水增速2026年国产第一。商业模式=「专业科技下沉到300-600元价格带」——正是耐克让出的消费降级受益带。ROE 8.8%→13.5%五年上行，<span class="chk chk-pass">通过连续性标准（方向向上）</span></div></div>
+    <div class="card"><div class="text-small text-muted">价格便不便宜</div><div class="viz-stat-value">四强最低：6.7x/0.82x</div><div class="text-small">PB<1=市场按净资产打82折买一个五年双位数增长的公司；6.8%息率有45%派息率+改善中的现金流背书。折价主要来自：流通盘小（市值107亿）、家族控股、机构覆盖少——是「流动性折价」不是「基本面折价」</div></div>
+    <div class="card"><div class="text-small text-muted">风险拿得住</div><div class="viz-stat-value">业务拿得住，筹码要打折</div><div class="text-small">经营层面是四强最稳的一档（全渠道全品类正增长、折扣反而收窄到7.1折）；风险在交易层面：小盘低流动性、大股东家族控制、儿童业务的长期竞争。仓位天然受限</div></div>
+  </div>
+
+  <h3>① 生意质量</h3>
+  <div class="viz-grid">
+    <div class="card"><div class="text-small text-muted">收入结构（H1'26：61.6亿 +8%）</div><div class="viz-stat-value">成人74% · 儿童22% · 配件4%</div><div class="text-small">成人鞋27.2亿（+5.7%）/成人服18.1亿（+13.2%）；<b>儿童业务13.5亿（鞋+11.7%），占总收益~22%</b>——儿童是「第二根曲线」：父母复购+换码周期+赛事资源（361°Kids连续两季中高单位数增长）</div></div>
+    <div class="card"><div class="text-small text-muted">利润引擎</div><div class="viz-stat-value">性价比带+低费用率</div><div class="text-small">毛利率41.8%（+0.3pp，批量锁价对冲原料）；经营溢利率19.5%；<b>销售费用率连续五年行业最低</b>——不打广告仗，靠赛事资源（连续五届亚运会+约基奇/戈登NBA签约）做低成本曝光</div></div>
+    <div class="card"><div class="text-small text-muted">增长亮点：海外</div><div class="viz-stat-value">流水+80%</div><div class="text-small">H1'26海外零售流水+80%、跨境电商+140%（FY25全年+125%/+200%），海外1,167个网点，马来西亚/柬埔寨超品店落地——低基数但方向陡峭</div></div>
+  </div>
+
+  <svg viewBox="0 0 760 225" role="img" aria-label="361度H1'26各业务增速对比：成人鞋+5.7%、成人服+13.2%、儿童鞋+11.7%、电商流水+9.5%、海外流水+80%" style="width:100%; max-width:760px; height:auto">
+    <title>361度增速矩阵（H1'26）</title>
+    <text x="30" y="16" class="muted-lab">同比增速：全业务正增长；海外与儿童是陡峭的两极</text>
+    <line x1="30" y1="185" x2="740" y2="185" class="axis"/>
+    <g class="tabular-nums" text-anchor="middle">
+      <g><rect x="55"  y="158.5" width="44" height="26.5" rx="2" fill="var(--viz-series-1)"/><text x="77"  y="152">+5.7%</text><text x="77"  y="201" class="muted-lab">成人鞋</text></g>
+      <g><rect x="185" y="132"  width="44" height="53"  rx="2" fill="var(--viz-series-1)"/><text x="207" y="126">+13.2%</text><text x="207" y="201" class="muted-lab">成人服</text></g>
+      <g><rect x="315" y="138.5" width="44" height="46.5" rx="2" fill="var(--viz-series-2)"/><text x="337" y="132">+11.7%</text><text x="337" y="201" class="muted-lab">儿童鞋</text></g>
+      <g><rect x="445" y="148"  width="44" height="37"  rx="2" fill="var(--viz-series-1)"/><text x="467" y="142">+9.5%</text><text x="467" y="201" class="muted-lab">电商流水</text></g>
+      <g><rect x="575" y="25"   width="44" height="160" rx="2" fill="var(--gold)" opacity="0.8"/><text x="597" y="19">+80%</text><text x="597" y="201" class="muted-lab">海外流水</text></g>
+    </g>
+    <text x="30" y="220" class="muted-lab">对照：同期李宁Q2流水转负、特步主品牌Q2中单位数下跌——361°是唯一主品牌增速国产第一</text>
+  </svg>
+
+  <table class="table table-sm">
+    <thead><tr><th>护城河维度</th><th>判定</th><th>证据</th></tr></thead>
+    <tbody>
+      <tr><td>提价能力</td><td><span class="chk chk-warn">△ 弱（性价比定位）</span></td><td>毛利率41.8%为四强最低——它赚的是「效率钱」不是「品牌钱」；但折扣管控在收窄（线下7.1折、环比改善），靠产品力而非降价换量</td></tr>
+      <tr><td>市占率</td><td class="chk chk-pass">✓ 在抢份额</td><td>主品牌流水增速国产第一；占位300-600元带恰是耐克让出的降级带（Pegasus 949→770元的对照面）；儿童22%占比是对安踏儿童/L宁YOUNG的差异化</td></tr>
+      <tr><td>转换成本</td><td class="chk chk-warn">△ 低</span></td><td>大众定位品牌粘性弱；儿童业务有家庭复购粘性加成</td></tr>
+      <tr><td>ROIC</td><td class="chk chk-pass">✓ 五年上行</td><td>ROE 8.8%（FY21）→13.5%（FY25）单调上行；经营现金流2024年1.6亿→2025年8.2亿→H1'26同比+17%——盈利质量和现金质量同向改善，罕见的小盘正面轨迹</td></tr>
+    </tbody>
+  </table>
+
+  <h3>② 财务体检</h3>
+  <table class="table table-sm tabular-nums">
+    <thead><tr><th>亿元</th><th>FY24</th><th>FY25</th><th>H1'26</th></tr></thead>
+    <tbody>
+      <tr><td>营业收入</td><td>100.4</td><td>111.0（+10.6%）</td><td>61.6（+8%）</td></tr>
+      <tr><td>归母净利</td><td>11.4</td><td>13.0（+14%）</td><td>9.26（+8%）</td></tr>
+      <tr><td>经营现金流</td><td>1.6</td><td>8.2（+1067%）</td><td>6.1（+17%）</td></tr>
+      <tr><td>毛利率</td><td>41.5%</td><td>41.5%</td><td>41.8%</td></tr>
+    </tbody>
+  </table>
+  <div class="text-small text-muted">注：FY21-23年Wind年度字段缺失，用FY24/25+公司披露口径；连续五年双位数净利增长（公司口径，上证报核验）。2024年现金流异常低（1.6亿）与2025年暴增源于营运资金科目摆动——中位数视角现金流质量在改善通道。库存库销比4.5-5个月（行业健康水位）、折扣收窄、无并购无商誉。</div>
+  <div class="viz-grid">
+    <div class="card"><div class="text-small text-muted">资产负债表</div><div class="viz-stat-value">PB 0.82x的含金量</div><div class="text-small">净资产约120亿RMB（含现金类资产）对107亿港元市值打折出售；无并购、无商誉、报表简单——丁伍号家族控股、治理结构简单是小盘折价来源也是风险来源</div></div>
+    <div class="card"><div class="text-small text-muted">股东回报</div><div class="viz-stat-value">45%派息率 · 息6.8%</div><div class="text-small">FY25全年派息31.7港仙（中期22.2+末期11.3附近）；连续三年股息率超5%；若派息率提至50%+回购，工具箱还有空间</div></div>
+  </div>
+
+  <h3>③ 估值</h3>
+  <div class="viz-grid">
+    <div class="card" style="border-left:4px solid var(--red)"><div class="text-small text-muted">悲观档</div><div class="viz-stat-value tabular-nums">≈ HK$3.5（-29%）</div><div class="text-small">增长停（净利持平12.5亿）+小盘折价加深：5.5x。消费二次探底情形</div></div>
+    <div class="card" style="border-left:4px solid var(--blue)"><div class="text-small text-muted">中性档</div><div class="viz-stat-value tabular-nums">≈ HK$6.0（+22%）</div><div class="text-small">FY26E净利14.3亿（+10%）×8x（增速10%的消费品合理带）+息率仍4.5%+</div></div>
+    <div class="card" style="border-left:4px solid var(--green)"><div class="text-small text-muted">乐观档</div><div class="viz-stat-value tabular-nums">≈ HK$7.4（+50%）</div><div class="text-small">儿童+海外双击、净利15.5亿×10x——小盘一旦被南下资金/指数纳入发现，重估可以很陡（52周高6.75只是中继）</div></div>
+  </div>
+  <div class="text-small text-muted">反推现价：6.7x×「五年双位数增长+6.8%息」的隐含假设是「增长瞬间归零且永不重估」——与其基本面轨迹（全渠道正增长+海外陡峭）矛盾。折价的真实来源是流动性与覆盖度，这两项在港股通增配小盘消费的周期里会被动改善。</div>
+
+  <h3>④ 风险与证伪</h3>
+  <table class="table table-sm">
+    <thead><tr><th>空头论点</th><th>信号</th><th>动作</th></tr></thead>
+    <tbody>
+      <tr><td><b>性价比带被围剿</b>：安踏主品牌下探+李宁降价回防</td><td>主品牌流水转负或折扣加深（跌破7折）</td><td class="chk chk-fail">减半</td></tr>
+      <tr><td><b>儿童业务失速</b>：安踏儿童/李宁YOUNG反攻</td><td>儿童收入连续两季&lt;+5%</td><td class="chk chk-warn">盯</td></tr>
+      <tr><td><b>现金流反复</b>：2024年的异常重现</td><td>全年OCF/净利&lt;0.5</td><td class="chk chk-fail">减半</td></tr>
+      <tr><td><b>治理/流动性</b>：家族决策小盘，机构进出踩踏</td><td>关联交易/大股东动作公告</td><td class="chk chk-fail">清仓</td></tr>
+      <tr><td><b>派息率下调</b></td><td>全年派息率&lt;40%</td><td class="chk chk-fail">减半</td></tr>
+    </tbody>
+  </table>
+  <div class="card"><div class="text-small"><b>供给日历</b>：季度流水披露（Q3'26约10月中）→ 2027-3月FY26年报+末期息。无解禁/无CB。注意：港股通持仓变动与指数审议是这类小盘的被动催化源。</div></div>
+
+  <h3>⑤ 价格纪律</h3>
+  <table class="table table-sm tabular-nums">
+    <thead><tr><th>档位</th><th>区间HK$</th><th>对应</th><th>仓位</th></tr></thead>
+    <tbody>
+      <tr><td>第一档</td><td>4.7-5.0（现价区）</td><td>6.7x · 息6.8%</td><td>1/3</td></tr>
+      <tr><td>第二档</td><td>4.2-4.5</td><td>~5.8x · 息7.6%</td><td>1/3</td></tr>
+      <tr><td>第三档</td><td>3.7-4.0（52周低3.76）</td><td>~5.2x · 息8%+</td><td>1/3</td></tr>
+    </tbody>
+  </table>
+  <div class="viz-grid">
+    <div class="card" style="border-left:4px solid var(--red)"><div class="text-small text-muted">证伪线</div><div class="text-small">主品牌流水转负 / 派息率&lt;40% / 治理事件——任一成立离场或减半</div></div>
+    <div class="card" style="border-left:4px solid var(--green)"><div class="text-muted text-small">兑现线</div><div class="text-small">≥HK$6（8x）儿童与海外未接棒→减半；被指数/港股通显著增配且基本面同步→让利润跑</div></div>
+  </div>
+  <div class="text-small text-muted">仓位上限：2-3%（小盘流动性约束，仓位天然小于其他三家）。角色=「息率卫星仓」。</div>
+
+  <h3>一页纸投资论点</h3>
+  <div class="viz-grid" style="grid-template-columns:1fr">
+    <div class="card thesis-thesis"><div class="thesis-tag">论点</div><div class="text-small">四强中唯一「五年连续双位数增长+主品牌增速第一+6.8%息+6.7x PE+0.82x PB」的组合：基本面在改善通道（ROE五年上行、现金流修复、折扣收窄、海外+80%），估值却是板块最低——折价来自流动性与覆盖度而非生意。儿童22%+性价比带占位（耐克让出的降级带）是两个差异化引擎。</div></div>
+    <div class="card thesis-anti"><div class="thesis-tag">反论点</div><div class="text-small">①性价比定位=低毛利率41.8%、无定价权，安踏/李宁一旦下探价格带即遭围剿；②107亿港元小盘+家族控股，流动性折价可能长期不修复；③儿童业务面对安踏儿童的资源碾压；④2024年现金流曾异常到1.6亿，营运资金管理有前科；⑤H2若消费二次探底（7月服装零售-1%），8%增速也保不住。</div></div>
+    <div class="card thesis-trigger"><div class="thesis-tag">触发器</div><div class="text-small">分档4.7-5.0/4.2-4.5/3.7-4.0各1/3，仓位上限2-3%；证伪=主品牌流水转负/派息率&lt;40%/治理事件；季度流水+年报派息是主线；6.8%息是持有底薪。</div></div>
+  </div>
+
+  <hr>
+  <div class="text-small text-muted">信源：FY25年报（<a href="https://www.cnstock.com/commonDetail/655475">上证报</a>/<a href="http://www.zqrb.cn/gscy/gongsi/2026-03-24/A1774350569567.html">证券日报</a>/<a href="https://www.nbd.com.cn/articles/2026-03-26/4309257.html">每经</a>）；H1'26中报（<a href="https://www.thepaper.cn/newsDetail_forward_33805443">澎湃</a>/<a href="https://m.jiemian.com/article/14946970.html">界面</a>/<a href="https://www.nbd.com.cn/articles/2026-08-20/4547502.html">每经</a>）；行业对比（<a href="https://www.jiemian.com/article/15009602.html">界面·四大品牌中报盘点</a>）；行情：Wind（10-16）。免责：个人研究笔记非投资建议。</div>
+
+</div>
+</div>
+</body>
+</html>

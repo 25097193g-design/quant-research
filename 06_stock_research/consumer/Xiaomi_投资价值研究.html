@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>小米集团投资价值研究 · 五步框架</title>
+<style>
+:root{--background:#f6f6f7;--foreground:#18181b;--card:#ffffff;--card-foreground:#18181b;
+--muted:#f0f0f2;--muted-foreground:#6f6f78;--border:#e4e4e7;
+--green:#15803d;--red:#dc2626;--yellow:#b45309;--blue:#1d4ed8;
+--viz-series-1:#1d4ed8;--viz-series-2:#7c3aed;}
+@media (prefers-color-scheme: dark){
+:root{--background:#131316;--foreground:#ececf1;--card:#1c1c21;--card-foreground:#ececf1;
+--muted:#232329;--muted-foreground:#9d9da8;--border:#2c2c33;
+--green:#4ade80;--red:#f87171;--yellow:#facc15;--blue:#60a5fa;
+--viz-series-1:#60a5fa;--viz-series-2:#c084fc;}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--background);color:var(--foreground);
+font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Segoe UI",sans-serif;
+line-height:1.65;font-size:15px}
+.page{max-width:980px;margin:0 auto;padding:28px 22px 48px}
+h2{font-size:1.45rem;margin:6px 0 6px;font-weight:600}
+h3{font-size:1.12rem;margin:24px 0 6px;font-weight:600}
+h4{font-size:.95rem;margin:14px 0 4px;font-weight:500}
+hr{border:none;border-top:1px solid var(--border);margin:18px 0}
+.card{background:var(--card);color:var(--card-foreground);border:1px solid var(--border);
+border-radius:12px;padding:13px 16px;margin:10px 0}
+.viz-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px;margin:12px 0}
+.viz-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:6px 0}
+.viz-stat-value{font-size:1.28rem;font-weight:600;margin:2px 0}
+.text-small{font-size:.82rem}
+.text-muted{color:var(--muted-foreground)}
+.text-end{text-align:right}
+.text-nowrap{white-space:nowrap}
+.tabular-nums{font-variant-numeric:tabular-nums}
+.table{width:100%;border-collapse:collapse;margin:10px 0}
+.table th,.table td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
+.table thead th{color:var(--muted-foreground);font-weight:500;font-size:.8rem}
+.table-sm th,.table-sm td{padding:5px 8px}
+b{font-weight:600}
+</style>
+</head>
+<body>
+<div class="page">
+<div id="xm-iv-research">
+  <style>
+    #xm-iv-research .chk { font-weight: 500; white-space: nowrap; }
+    #xm-iv-research .chk-pass { color: var(--green); }
+    #xm-iv-research .chk-warn { color: var(--yellow); }
+    #xm-iv-research .chk-fail { color: var(--red); }
+    #xm-iv-research svg text { fill: var(--foreground); font-size: 12px; }
+    #xm-iv-research svg .axis { stroke: var(--border); stroke-width: 1; }
+    #xm-iv-research svg .muted-lab { fill: var(--muted-foreground); }
+    #xm-iv-research .thesis-tag { font-weight: 500; }
+    #xm-iv-research .thesis-thesis .thesis-tag { color: var(--green); }
+    #xm-iv-research .thesis-anti .thesis-tag { color: var(--red); }
+    #xm-iv-research .thesis-trigger .thesis-tag { color: var(--blue); }
+    #xm-iv-research h3 { margin-bottom: 6px; }
+    #xm-iv-research h4 { margin: 14px 0 4px; font-weight: 500; }
+  </style>
+
+  <h2>小米集团投资价值研究 · 生意 × 价格 × 风险</h2>
+  <div class="viz-row text-small">
+    <span>1810.HK 26.38港元 · 市值6,805亿港元</span>
+    <span>· 数据截至 2026-10-14</span>
+    <span>· 基于 FY2025年报（4-28）+ 2026中期报告（9-23）原文</span>
+  </div>
+
+  <div class="viz-grid">
+    <div class="card"><div class="text-small text-muted">生意好不好</div><div class="viz-stat-value">生态混合体，接近复利机器</div><div class="text-small">互联网（毛利76.5%）是年金、硬件是流量底盘、EV是新引擎；ROIC七年五年&gt;9%且升至16%——<span class="chk chk-pass">比比亚迪更达标</span>，但手机毛利率10.9%说明核心仍是效率生意</div></div>
+    <div class="card"><div class="text-small text-muted">价格便不便宜</div><div class="viz-stat-value">悲观与中性之间</div><div class="text-small">SOTP悲观档27.3 ≈ 现价；DCF中性上沿27.1 ≈ 现价。PE-TTM 17.9x处近5年<span class="chk chk-pass">20%分位</span>，YTD -33%腰斩后，隐含~14%五年CAGR</div></div>
+    <div class="card"><div class="text-small text-muted">风险拿得住</div><div class="viz-stat-value">资产负债表最厚一档</div><div class="text-small">净现金720亿（gearing -21.3%）+广义现金2,326亿+回购127亿港元注销；无股息，2026下行中（H1调整净利-43%），波动靠净现金和纪律承受</div></div>
+  </div>
+
+  <h3>① 生意质量 — 收入结构与利润引擎</h3>
+  <div class="viz-grid">
+    <div class="card"><div class="text-small text-muted">收入结构（FY25 总4,573亿 +25%）</div><div class="viz-stat-value">手机40.8% · EV 23.2%</div><div class="text-small">手机1,864亿(-2.8%) / IoT 1,232亿(+18.3%) / 互联网374亿(+9.7%) / <b>EV等1,061亿(+223.8%)</b></div></div>
+    <div class="card"><div class="text-small text-muted">毛利池四足鼎立</div><div class="viz-stat-value">各占约1/4</div><div class="text-small">互联网28.6亿(76.5% GM)、IoT 28.5亿(23.1%)、<b>EV 25.8亿(24.3%)</b>、手机20.3亿(10.9%)——EV三年从0干到毛利第四极</div></div>
+    <div class="card"><div class="text-small text-muted">EV引擎</div><div class="viz-stat-value">41.1万辆 +200%</div><div class="text-small">ASP 25.1万元(+7.1%)；SU7列20万+纯电轿车销冠；<b>YU7一年保值率82.8%全行业第一</b>=定价权最硬证据；FY25分部经营利润首次转正(+9亿)</div></div>
+  </div>
+  <table class="table table-sm">
+    <thead><tr><th>护城河维度</th><th>判定</th><th>证据（数字）</th></tr></thead>
+    <tbody>
+      <tr><td>提价能力</td><td><span class="chk chk-fail">手机✗</span> / <span class="chk chk-pass">EV✓</span></td><td>手机毛利率10.9%→H1-26 9.3%历史低位（新兴市场占比升+竞争）；EV ASP+7.1%、保值率第一——同一公司两种定价权状态</td></tr>
+      <tr><td>市占率</td><td class="chk chk-pass">✓ 强</td><td>手机全球TOP3连续5年（13.3%，Omdia），中国大陆+4.1% vs 行业-0.8%；AIoT连接设备10.79亿台(+19.3%)；MAU 7.54亿创新高</td></tr>
+      <tr><td>转换成本</td><td class="chk chk-pass">✓ 高</td><td>人×车×家生态锁定：MiMo大模型（OpenRouter周token用量第一）、Miloco 2.0开源家居、机器人基础模型（两项benchmark第一）</td></tr>
+      <tr><td>规模与研发</td><td class="chk chk-pass">✓ 强</td><td>研发331亿(+37.8%)，五年累计1,055亿；研发人员25,457人；47,000+全球专利</td></tr>
+    </tbody>
+  </table>
+  <h4>ROIC 七年 vs 资金成本（%）</h4>
+  <svg viewBox="0 0 760 250" role="img" aria-label="小米2019至2025年ROIC柱状图：除2022年1.5%外均高于约9.5%的资金成本线，2025年达16%，2023至2025连续上行" style="width:100%; max-width:760px; height:auto">
+    <title>小米 ROIC 2019–2025 与资金成本线</title>
+    <text x="70" y="20" class="muted-lab">柱=ROIC；红色虚线=资金成本≈9.5%</text>
+    <line x1="60" y1="210" x2="740" y2="210" class="axis"/>
+    <line x1="60" y1="30" x2="60" y2="210" class="axis"/>
+    <line x1="60" y1="129" x2="740" y2="129" stroke="var(--red)" stroke-width="1.5" stroke-dasharray="5 4"/>
+    <text x="738" y="124" text-anchor="end" style="fill:var(--red)">资金成本 ≈9.5%</text>
+    <g fill="var(--viz-series-1)">
+      <rect x="70" y="116" width="56" height="94" rx="2"/><rect x="160" y="66" width="56" height="144" rx="2"/>
+      <rect x="250" y="102" width="56" height="108" rx="2"/><rect x="340" y="197" width="56" height="13" rx="2"/>
+      <rect x="430" y="127" width="56" height="83" rx="2"/><rect x="520" y="112" width="56" height="98" rx="2"/>
+      <rect x="610" y="74" width="56" height="136" rx="2"/>
+    </g>
+    <g class="tabular-nums" text-anchor="middle">
+      <text x="98" y="110">11.1</text><text x="188" y="60">17.0</text><text x="278" y="96">12.7</text>
+      <text x="368" y="191">1.5</text><text x="458" y="121">9.7</text><text x="548" y="106">11.5</text><text x="638" y="68">16.0</text>
+    </g>
+    <g class="muted-lab tabular-nums" text-anchor="middle">
+      <text x="98" y="228">2019</text><text x="188" y="228">2020</text><text x="278" y="228">2021</text>
+      <text x="368" y="228">2022</text><text x="458" y="228">2023</text><text x="548" y="228">2024</text><text x="638" y="228">2025</text>
+    </g>
+  </svg>
+  <div class="text-small text-muted">结论：七年中五年跑赢资金成本（仅2022手机寒冬+印度减值失手），且2023→2025连续上行（9.7→11.5→16.0%）。<b>接近但尚未完全满足「连续5-10年」硬标准</b>；生态收入占比提升是ROIC上行的结构原因。</div>
+
+  <h3>② 财务体检 — 三表交叉验证</h3>
+  <table class="table table-sm">
+    <thead><tr><th>年度</th><th class="text-end">营收(亿)</th><th class="text-end">调整后净利(亿)</th><th class="text-end">IFRS归母(亿)</th><th class="text-end">毛利率</th><th class="text-end">经营现金流(亿)</th><th class="text-end">OCF/调整净利</th><th class="text-end">ROIC</th></tr></thead>
+    <tbody class="tabular-nums">
+      <tr><td>2021</td><td class="text-end">3,283</td><td class="text-end">220.4</td><td class="text-end">193.4</td><td class="text-end">17.7%</td><td class="text-end">97.9</td><td class="text-end">0.44x</td><td class="text-end">12.7%</td></tr>
+      <tr><td>2022</td><td class="text-end">2,800</td><td class="text-end">85.2</td><td class="text-end">24.7</td><td class="text-end">17.0%</td><td class="text-end chk-fail">-43.9</td><td class="text-end">负</td><td class="text-end chk-fail">1.5%</td></tr>
+      <tr><td>2023</td><td class="text-end">2,710</td><td class="text-end">192.7</td><td class="text-end">174.8</td><td class="text-end">21.2%</td><td class="text-end">413.0</td><td class="text-end">2.14x</td><td class="text-end">9.7%</td></tr>
+      <tr><td>2024</td><td class="text-end">3,659</td><td class="text-end">272.3</td><td class="text-end">236.6</td><td class="text-end">20.9%</td><td class="text-end">393.0</td><td class="text-end">1.44x</td><td class="text-end">11.5%</td></tr>
+      <tr><td>2025</td><td class="text-end">4,573</td><td class="text-end">391.7</td><td class="text-end">416.4</td><td class="text-end">22.3%</td><td class="text-end">341.4</td><td class="text-end">0.87x</td><td class="text-end">16.0%</td></tr>
+      <tr><td><b>H1-26</b></td><td class="text-end">2,081 <span class="chk-fail">(-8.4%)</span></td><td class="text-end chk-fail">122.9 (-42.8%)</td><td class="text-end">142.0 (-37.7%)</td><td class="text-end">20.9%</td><td class="text-end">—</td><td class="text-end">—</td><td class="text-end">—</td></tr>
+    </tbody>
+  </table>
+  <div class="viz-grid">
+    <div class="card"><div class="text-small text-muted">利润成色</div><div class="text-small">
+      <span class="chk chk-warn">△ IFRS(416亿) &gt; 调整后(392亿)</span>：差额=投资公允价值收益等非核心项——估值必须用调整后口径；H1-26公允变动已-60亿（股市下行反噬）<br>
+      <span class="chk chk-pass">✓ 无资本化式化妆</span>：研发费用化331亿全入利润表；SBC约50亿/年是真实成本（调整后口径已剔除）<br>
+      <span class="chk chk-warn">△ EV分部扭亏反复</span>：FY25 +9亿 → H1-26 -57亿（价格战+行业-20%），拐点未稳</div></div>
+    <div class="card"><div class="text-small text-muted">资产负债表与股东回报</div><div class="text-small">
+      <span class="chk chk-pass">✓ 净现金</span>：gearing -21.3%，广义现金资源2,326亿；2025-03配售募资约390亿元<br>
+      <span class="chk chk-pass">✓ 轻资产FCF</span>：OCF 341亿 − 资本开支&lt;50亿 ≈ <b>+290亿自由现金流</b>（对比比亚迪-977亿）<br>
+      <span class="chk chk-warn">△ 无股息</span>：回报全靠回购——2025.9至2026.4购回127.1亿港元全部注销（53.2→30.5港元越跌越买）</div></div>
+  </div>
+
+  <h3>③ 估值 — 分位 · 同业 · SOTP/DCF三档</h3>
+  <div class="viz-grid">
+    <div class="card"><div class="text-small text-muted">历史分位（近5年）</div><div class="viz-stat-value">PE-TTM 17.9x = 20.1%分位</div><div class="text-small">PB 2.19x；YTD -32.9%，52周21.3-49.9港元（距高点-47%）</div></div>
+    <div class="card"><div class="text-small text-muted">调整后口径</div><div class="viz-stat-value">TTM adj PE 20.8x</div><div class="text-small">常态调整净利286亿（2023-25均值）→ 21.8x——IFRS含浮盈，须用调整后</div></div>
+    <div class="card"><div class="text-small text-muted">反推隐含增长</div><div class="viz-stat-value">≈14% 五年CAGR</div><div class="text-small">与比亚迪H股(14.6%)相当，但小米在自身区间低端、BYD在高端——同样的增长假设，赔率结构不同</div></div>
+  </div>
+  <table class="table table-sm">
+    <thead><tr><th>同业（PE-TTM / YTD）</th><th class="text-end">小米</th><th class="text-end">苹果</th><th class="text-end">美的</th><th class="text-end">腾讯</th><th class="text-end">比亚迪A</th><th class="text-end">理想</th></tr></thead>
+    <tbody class="tabular-nums">
+      <tr><td class="text-muted">倍数 / 涨跌</td><td class="text-end">17.9x / -32.9%</td><td class="text-end">38.6x / +25.9%</td><td class="text-end">14.4x / +12.4%</td><td class="text-end">14.2x / -28.5%</td><td class="text-end">25.2x / -16.4%</td><td class="text-end">亏损 / -30.2%</td></tr>
+    </tbody>
+  </table>
+  <h4>SOTP与DCF三档 vs 现价（港元）</h4>
+  <svg viewBox="0 0 760 330" role="img" aria-label="小米估值三档图：DCF区间悲观14.7至18.3、中性21.3至27.1、乐观27.1至34.9港元；SOTP点值悲观27.3、中性32.2、乐观39.8港元；现价26.38港元" style="width:100%; max-width:760px; height:auto">
+    <title>SOTP与DCF三档 vs 现价</title>
+    <line x1="70" y1="295" x2="740" y2="295" class="axis"/>
+    <g class="axis"><line x1="70" y1="295" x2="70" y2="300"/><line x1="245" y1="295" x2="245" y2="300"/><line x1="420" y1="295" x2="420" y2="300"/><line x1="595" y1="295" x2="595" y2="300"/></g>
+    <g class="muted-lab tabular-nums" text-anchor="middle"><text x="70" y="316">10</text><text x="245" y="316">20</text><text x="420" y="316">30</text><text x="595" y="316">40</text></g>
+    <text x="70" y="20" class="muted-lab">蓝条=DCF区间（WACC9.5%）· 紫点=SOTP（AIoT×PE+EV×PS+净现金720亿）</text>
+    <line x1="341" y1="32" x2="341" y2="295" stroke="var(--foreground)" stroke-width="1.5"/>
+    <text x="341" y="46" text-anchor="middle">现价 26.38港元</text>
+    <text x="70" y="64" class="muted-lab">悲观：手机GM失守+EV亏损失控（FY26E adj 240亿，零增长）</text>
+    <g fill="var(--viz-series-1)" opacity="0.45"><rect x="122" y="70" width="63" height="14" rx="3"/></g>
+    <text x="192" y="82" class="tabular-nums">DCF 14.7–18.3</text>
+    <g stroke="var(--viz-series-2)" stroke-width="3"><line x1="350" y1="92" x2="357" y2="92"/></g>
+    <text x="363" y="96" class="tabular-nums">SOTP 27.3</text>
+    <text x="70" y="144" class="muted-lab">中性：2027拐点恢复+EV放量（FY26E adj 280亿，5年CAGR≈8%）</text>
+    <g fill="var(--viz-series-1)" opacity="0.45"><rect x="253" y="150" width="102" height="14" rx="3"/></g>
+    <text x="360" y="162" class="tabular-nums">DCF 21.3–27.1</text>
+    <g stroke="var(--viz-series-2)" stroke-width="3"><line x1="410" y1="172" x2="417" y2="172"/></g>
+    <text x="423" y="176" class="tabular-nums">SOTP 32.2</text>
+    <text x="70" y="224" class="muted-lab">乐观：EV年销60万+生态变现（FY26E adj 310亿，5年CAGR≈12%）</text>
+    <g fill="var(--viz-series-1)" opacity="0.45"><rect x="354" y="230" width="137" height="14" rx="3"/></g>
+    <text x="496" y="242" class="tabular-nums">DCF 27.1–34.9</text>
+    <g stroke="var(--viz-series-2)" stroke-width="3"><line x1="543" y1="252" x2="550" y2="252"/></g>
+    <text x="556" y="256" class="tabular-nums">SOTP 39.8</text>
+  </svg>
+  <div class="text-small text-muted">判读：现价26.38正卡在<b>SOTP悲观档（27.3）之下、DCF中性上沿（27.1）之下</b>——市场按"EV不值钱+手机不修复"定价。上行期权：EV按1.2-1.8x PS重估+手机毛利率回到12%；下行保护：净现金720亿+持续回购。若EV业务按单车估值交叉验证：SOTP隐含1.9-5.2万元/辆，vs 比亚迪整车约1.5万元/辆、理想约2.7万元/辆。</div>
+
+  <h3>④ 风险与证伪 — 空头论点 × 可观测信号 × 动作</h3>
+  <table class="table table-sm">
+    <thead><tr><th>#</th><th>空头论点</th><th>可观测信号（触发器）</th><th>动作</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>手机基本盘失血</td><td>手机毛利率连续两季&lt;9%（H1-26已到9.3%）</td><td class="chk-warn">减1/3</td></tr>
+      <tr><td>2</td><td>EV竞争失速、亏损失控</td><td>EV交付同比连续两季负增长，或全年分部亏损&gt;150亿</td><td class="chk-warn">减半</td></tr>
+      <tr><td>3</td><td>2026下行周期延长</td><td>Q3-26调整净利仍同比-30%以上</td><td class="chk-warn">减1/3</td></tr>
+      <tr><td>4</td><td>投资组合浮亏反噬利润表</td><td>IFRS与调整净利之差转负且&gt;50亿/年</td><td class="chk-warn">盯梢重估</td></tr>
+      <tr><td>5</td><td>AI/机器人烧钱无回报</td><td>研发增速&gt;30%而营收增速&lt;5%持续两年</td><td class="chk-warn">重估长期论点</td></tr>
+      <tr><td>6</td><td>治理与回报结构折价</td><td>WVR同股不同权、无股息、RSU年稀释~3%</td><td>已反映在估值分位</td></tr>
+    </tbody>
+  </table>
+  <h4>供给日历</h4>
+  <table class="table table-sm">
+    <tbody>
+      <tr><td class="text-nowrap">2026-11中</td><td><b>Q3季报</b>（H1-26基数：调整净利122.9亿——同比转正即拐点信号）</td></tr>
+      <tr><td class="text-nowrap">持续</td><td><b>回购授权生效中（正面供给）</b>：2025.9-2026.4已购127.1亿港元并全部注销，月度回购公告需跟踪</td></tr>
+      <tr><td class="text-nowrap">存量</td><td>2025年发行可转债（利息2.4亿/年），潜在转股稀释1.75亿股(0.7%)；RSU/期权加权稀释8.6亿股(~3%)</td></tr>
+      <tr><td class="text-nowrap">无悬顶</td><td>WVR老股全流通无解禁；2025-03配售（约390亿元）已完成无锁定</td></tr>
+    </tbody>
+  </table>
+
+  <h3>⑤ 价格纪律 — 先写出场，再谈进场（1810.HK）</h3>
+  <table class="table table-sm">
+    <thead><tr><th>档位</th><th class="text-end">买入价</th><th class="text-end">仓位</th><th>对应含义</th></tr></thead>
+    <tbody class="tabular-nums">
+      <tr><td>第一档</td><td class="text-end">≤25港元</td><td class="text-end">30%</td><td>DCF中性上沿下方留8%边际——SOTP悲观档内开始有赔率</td></tr>
+      <tr><td>第二档</td><td class="text-end">≤21港元</td><td class="text-end">30%</td><td>52周低点区（21.30），DCF中性中枢</td></tr>
+      <tr><td>第三档</td><td class="text-end">≤17港元</td><td class="text-end">40%</td><td>DCF悲观中枢，市场按"EV归零+手机衰退"定价时下重手</td></tr>
+      <tr><td class="chk chk-warn">现价 26.38港元</td><td class="text-end">—</td><td class="text-end">0-观察仓</td><td>距第一档仅5%——挂条件单等待，<b>不为5%的差距破坏纪律</b></td></tr>
+    </tbody>
+  </table>
+  <div class="viz-grid">
+    <div class="card"><div class="text-small text-muted">仓位纪律</div><div class="text-small">生态平台型+资产负债表厚 → 组合上限 <b>10%</b>；与腾讯持仓同属"港股科技"风格盒，注意风格集中度（腾讯YTD -28.5%说明这盒子2026年很挤）</div></div>
+    <div class="card"><div class="text-small text-muted">出场条件（进场前立好）</div><div class="text-small">①任一证伪触发器命中→按④表执行；②建仓后跌破档位价−15%且无新信息→强制检视；③时间检查：2027-06若EV年化交付未达45万辆或分部未扭亏→降档</div></div>
+  </div>
+
+  <h3>一页纸投资论点</h3>
+  <div class="card thesis-thesis"><span class="thesis-tag">【论点】</span>人×车×家生态是港股稀缺的"平台×制造"混合体：7.54亿MAU、10.79亿IoT设备、手机全球前三（13.3%）、EV三年从0到41万辆/年且保值率全行业第一（真实定价权证据）。FY25营收+25%、调整净利+44%、ROIC升至16%；YTD-33%后17.9x PE处5年20%分位，净现金720亿+127亿回购托底——SOTP口径现价已按悲观情景定价。</div>
+  <div class="card thesis-anti"><span class="thesis-tag">【反论点】</span>2026全面下行进行中：H1营收-8.4%、调整净利-43%、毛利率22.7→20.9%；EV分部刚扭亏又亏57亿（中国乘用车零售-20%的行业逆风）；手机毛利率9.3%历史新低、印度收缩；IFRS利润含投资浮盈（H1-26公允-60亿开始反噬）；无股息+WVR+年3%RSU稀释，回报全押回购与增长兑现。</div>
+  <div class="card thesis-trigger"><span class="thesis-tag">【触发器】</span><b>买入</b>：25/21/17港元三档（30/30/40%，上限10%），现价26.38挂单等待不追。<b>确认</b>：11月中Q3季报调整净利同比转正+EV分部亏损收窄→拐点成立持有至2027产能检查点。<b>证伪</b>：EV交付连续两季负增长 / 手机GM连续两季&lt;9% / Q3调整净利仍-30%以上 → 按风险表减仓，不讨价还价。</div>
+
+  <hr>
+  <div class="text-small text-muted">数据来源：小米2025年报+2026中报（HKEXnews原文PDF）、Wind、同花顺（2026-10-14收盘）。DCF/SOTP为简化模型，假设明示于图中；FY2026E为情景假设非预测。本页为研究笔记，非投资建议。</div>
+</div>
+</div>
+</body>
+</html>

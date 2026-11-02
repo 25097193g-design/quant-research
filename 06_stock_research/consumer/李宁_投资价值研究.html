@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>李宁投资价值研究 · 五步框架</title>
+<style>
+:root{--background:#f6f6f7;--foreground:#18181b;--card:#ffffff;--card-foreground:#18181b;
+--muted:#f0f0f2;--muted-foreground:#6f6f78;--border:#e4e4e7;
+--green:#15803d;--red:#dc2626;--yellow:#b45309;--blue:#1d4ed8;
+--viz-series-1:#1d4ed8;--viz-series-2:#7c3aed;--gold:#b8860b}
+@media (prefers-color-scheme: dark){
+:root{--background:#131316;--foreground:#ececf1;--card:#1c1c21;--card-foreground:#ececf1;
+--muted:#232329;--muted-foreground:#9d9da8;--border:#2c2c33;
+--green:#4ade80;--red:#f87171;--yellow:#facc15;--blue:#60a5fa;
+--viz-series-1:#60a5fa;--viz-series-2:#c084fc;--gold:#eab308}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--background);color:var(--foreground);
+font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Segoe UI",sans-serif;
+line-height:1.65;font-size:15px}
+.page{max-width:980px;margin:0 auto;padding:28px 22px 48px}
+h2{font-size:1.45rem;margin:6px 0 6px;font-weight:600}
+h3{font-size:1.12rem;margin:24px 0 6px;font-weight:600}
+hr{border:none;border-top:1px solid var(--border);margin:18px 0}
+.card{background:var(--card);color:var(--card-foreground);border:1px solid var(--border);
+border-radius:12px;padding:13px 16px;margin:10px 0}
+.viz-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px;margin:12px 0}
+.viz-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:6px 0}
+.viz-stat-value{font-size:1.28rem;font-weight:600;margin:2px 0}
+.text-small{font-size:.82rem}
+.text-muted{color:var(--muted-foreground)}
+.tabular-nums{font-variant-numeric:tabular-nums}
+.table{width:100%;border-collapse:collapse;margin:10px 0}
+.table th,.table td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
+.table thead th{color:var(--muted-foreground);font-weight:500;font-size:.8rem}
+.table-sm th,.table-sm td{padding:5px 8px}
+b{font-weight:600}
+#ln2-iv .chk{font-weight:500;white-space:nowrap}
+#ln2-iv .chk-pass{color:var(--green)}
+#lnln2-iv .chk-warn,#ln2-iv .chk-warn{color:var(--yellow)}
+#ln2-iv .chk-fail{color:var(--red)}
+#ln2-iv svg text{fill:var(--foreground);font-size:12px}
+#ln2-iv svg .axis{stroke:var(--border);stroke-width:1}
+#ln2-iv svg .muted-lab{fill:var(--muted-foreground)}
+#ln2-iv .thesis-tag{font-weight:500}
+#ln2-iv .thesis-thesis .thesis-tag{color:var(--green)}
+#ln2-iv .thesis-anti .thesis-tag{color:var(--red)}
+#ln2-iv .thesis-trigger .thesis-tag{color:var(--blue)}
+</style>
+</head>
+<body>
+<div class="page">
+<div id="ln2-iv">
+
+  <h2>李宁投资价值研究 · 生意 × 价格 × 风险</h2>
+  <div class="viz-row text-small">
+    <span>2331.HK 13.40港元（10-16收盘 +4.9%；<b class="chk chk-fail">YTD -24.8%</b>）· 市值346亿港元 · PE(TTM) 10.0x · <b>PB 1.05x</b> · 股息率5.0%</span>
+    <span>· 数据截至 2026-10-16</span>
+    <span>· 基于 FY2025年报 + 2026中报（8-20）+ Wind五年财务 + 证券时报/上证报/每经核验</span>
+  </div>
+
+  <div class="card" style="border-left:4px solid var(--yellow)">
+    <div class="text-small text-muted">ⓘ 研究时点快照 — 一张资产负债表在撑股价</div>
+    <div class="text-small">
+      H1'26收入152.4亿（+2.8%）、归母18.2亿（+4.5%）——增收不增势的第四年；Q2零售流水已从Q1的中单位数增长<b>转为低单位数下降</b>。但期末<b>净现金193.9亿元（含定存），占市值约61%</b>：扣除现金后，市场对这门年赚30亿的生意的要价只有约124亿元，<b>约4.1x</b>。这是四强中最极端的「资产型防御」：股价的一半以上是现金托底，期权是「单品牌战略重新跑起来」。买李宁=买现金+免费期权，不是买增长。
+    </div>
+  </div>
+
+  <div class="viz-grid">
+    <div class="card"><div class="text-small text-muted">生意好不好</div><div class="viz-stat-value">好生意的下行段</div><div class="text-small">毛利率50.9%（+0.9pp）证明品牌仍在高端带；专业跑鞋半年卖1,480万双、库里品牌长约、中国奥委会资源都在。<span class="chk chk-warn">但收入增速四年降速（26%→3%）、ROE从26.9%滑到10.9%——连续性标准边缘</span>，2022年时尚化误判后一直没回到牌桌中央</div></div>
+    <div class="card"><div class="text-small text-muted">价格便不便宜</div><div class="viz-stat-value">现金之外几乎白送</div><div class="text-small">PB 1.05x（历史区间约2-8x的谷底）；表观PE 10x，<b>扣现金仅~4.1x</b>；息率5.0%由50%派息率支撑。市场定价隐含「盈利永续萎缩」——29亿净利+194亿现金卖318亿</div></div>
+    <div class="card"><div class="text-small text-muted">风险拿得住</div><div class="viz-stat-value">拿得住（现金托底），但要防价值陷阱</div><div class="text-small">净现金61%市值是四强最厚安全垫，跌到现金附近有物理支撑；H1'26经营现金流仅9.5亿（净利18.2亿）需盯——若现金开始被战略性投入吞噬，防御逻辑受损</div></div>
+  </div>
+
+  <h3>① 生意质量 — 单品牌的天花板与底牌</h3>
+  <div class="viz-grid">
+    <div class="card"><div class="text-small text-muted">五年轨迹</div><div class="viz-stat-value">收入+31%，净利-27%</div><div class="text-small">FY21→FY25：收入225.7→296.0亿，归母40.1→29.4亿——2021国潮峰值后，2022时尚化误判+渠道去库存把净利率从17.8%打到10%平台。H1'26的+2.8%是企稳不是复苏</div></div>
+    <div class="card"><div class="text-small text-muted">品类结构（H1'26）</div><div class="viz-stat-value">服装+11.8%撑场，鞋类+0.6%</div><div class="text-small">服装58.1亿（占38.1%、+3pp）——户外/金标/女子功能服装是新亮点；鞋类82.8亿停滞（碳板跑鞋红利被特步/361°/国货内卷摊薄）；器材配件-17.7%。渠道：直营+4.2%/电商+5.1%/经销+1.7%</div></div>
+    <div class="card"><div class="text-small text-muted">底牌：专业资源卡位</div><div class="viz-stat-value">库里 + 中国奥委会</div><div class="text-small">与NBA球星库里个人品牌达成长期战略合作（中国品牌罕见拿到现役顶级后卫资源）；米兰冬奥中国代表团领奖装备；䨻科技平台下探大众价位。门店7,579家（净-30家）在收缩保健康</div></div>
+  </div>
+
+  <svg viewBox="0 0 760 235" role="img" aria-label="李宁FY21至H1'26收入与归母净利：收入225.7增至296亿，净利40.1降至29.4亿，ROE从26.9%降至10.9%" style="width:100%; max-width:760px; height:auto">
+    <title>李宁收入与净利五年轨迹</title>
+    <text x="30" y="16" class="muted-lab">蓝=收入（亿元，左轴视觉）　灰=归母净利　净利率从17.8%滑至~10%</text>
+    <line x1="30" y1="190" x2="740" y2="190" class="axis"/>
+    <g class="tabular-nums" text-anchor="middle">
+      <g><rect x="60"  y="42"  width="52" height="148" rx="2" fill="var(--viz-series-1)" opacity="0.85"/><rect x="116" y="130" width="26" height="60" rx="2" fill="var(--muted)" stroke="var(--border)"/><text x="92" y="36">225.7</text><text x="129" y="124">40.1</text><text x="92" y="208" class="muted-lab">FY21</text></g>
+      <g><rect x="195" y="32"  width="52" height="158" rx="2" fill="var(--viz-series-1)" opacity="0.85"/><rect x="251" y="130" width="26" height="60" rx="2" fill="var(--muted)" stroke="var(--border)"/><text x="227" y="26">258.0</text><text x="264" y="124">40.6</text><text x="227" y="208" class="muted-lab">FY22</text></g>
+      <g><rect x="330" y="24"  width="52" height="166" rx="2" fill="var(--viz-series-1)" opacity="0.85"/><rect x="386" y="142" width="26" height="48" rx="2" fill="var(--muted)" stroke="var(--border)"/><text x="362" y="18">276.0</text><text x="399" y="136">31.9</text><text x="362" y="208" class="muted-lab">FY23</text></g>
+      <g><rect x="465" y="20"  width="52" height="170" rx="2" fill="var(--viz-series-1)" opacity="0.85"/><rect x="521" y="144" width="26" height="46" rx="2" fill="var(--muted)" stroke="var(--border)"/><text x="497" y="14">286.8</text><text x="534" y="138">30.1</text><text x="497" y="208" class="muted-lab">FY24</text></g>
+      <g><rect x="600" y="15"  width="52" height="175" rx="2" fill="var(--viz-series-1)" opacity="0.85"/><rect x="656" y="147" width="26" height="43" rx="2" fill="var(--muted)" stroke="var(--border)"/><text x="632" y="9">296.0</text><text x="669" y="141">29.4</text><text x="632" y="208" class="muted-lab">FY25</text></g>
+    </g>
+    <text x="30" y="230" class="muted-lab">ROE：26.9% → 17.9% → 13.1% → 11.9% → 10.9%（趋势向下但绝对值仍高于资金成本；剔除194亿现金后经营ROIC≈35%+）</text>
+  </svg>
+
+  <table class="table table-sm">
+    <thead><tr><th>护城河维度</th><th>判定</th><th>证据</th></tr></thead>
+    <tbody>
+      <tr><td>提价能力</td><td><span class="chk chk-warn">△ 中等</span></td><td>毛利率50.9%（+0.9pp）稳住高端带；但2022年提价过猛丢失大众客群的教训还在——现在靠服装混搭提客单而非硬提价</td></tr>
+      <tr><td>市占率</td><td class="chk chk-warn">△ 从第二滑向第三</td><td>安踏收入已是其2.7倍；跑步鞋份额被特步/361°蚕食（碳板内卷）；品牌势能2021峰值后未回归。库里资源是翻盘筹码但需2-3年兑现</td></tr>
+      <tr><td>转换成本</td><td class="chk chk-warn">△ 低</span></td><td>单品牌无矩阵对冲——李宁的品牌周期就是公司周期，这是它与安踏的结构性差距</td></tr>
+      <tr><td>ROIC</td><td class="chk chk-warn">△ 经营高、趋势弱</td><td>剔除现金后经营性ROIC约35-40%（生意本身极轻极赚）；含现金ROE 10.9%且五年下行——<b>问题不在生意在资产配置</b>：194亿现金趴账上只赚存款利息</td></tr>
+    </tbody>
+  </table>
+
+  <h3>② 财务体检</h3>
+  <div class="table-responsive">
+  <table class="table table-sm tabular-nums">
+    <thead><tr><th>亿元</th><th>FY21</th><th>FY22</th><th>FY23</th><th>FY24</th><th>FY25</th><th>H1'26</th></tr></thead>
+    <tbody>
+      <tr><td>营业收入</td><td>225.7</td><td>258.0</td><td>276.0</td><td>286.8</td><td>296.0</td><td>152.4</td></tr>
+      <tr><td>归母净利</td><td>40.1</td><td>40.6</td><td>31.9</td><td>30.1</td><td>29.4</td><td>18.2</td></tr>
+      <tr><td>经营现金流</td><td>65.3</td><td>39.1</td><td>46.9</td><td>52.7</td><td>48.5</td><td>9.5</td></tr>
+      <tr><td>OCF÷净利</td><td>1.63</td><td>0.96</td><td>1.47</td><td>1.75</td><td>1.65</td><td class="chk chk-warn">0.52</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="text-small text-muted">H1'26现金流偏弱（费用与税费付现增加+定存增加），季节性+投入性叠加，需H2验证回收；全年口径五年OCF/净利均值1.5x——利润是真金白银，无化妆（无并购、无商誉、无有息负债，是四强报表最干净的一家）。</div>
+  <div class="viz-grid">
+    <div class="card"><div class="text-small text-muted">资产负债表（6-30）</div><div class="viz-stat-value">净现金193.9亿</div><div class="text-small">现金及等价物130.0亿+定存；<b>零有息负债</b>；库销比4个月、周转65天、CCC 35天（+4天）——库存纪律延续多年</div></div>
+    <div class="card"><div class="text-small text-muted">股东回报</div><div class="viz-stat-value">息率5.0% + 回购</div><div class="text-small">中期息RMB0.3512（+4.5%），全年派息率50%锚定；2025年以来持续回购。FY26E全年股息约HK$0.62-0.66</div></div>
+  </div>
+
+  <h3>③ 估值 — 现金之外白送</h3>
+  <div class="viz-grid">
+    <div class="card" style="border-left:4px solid var(--red)"><div class="text-small text-muted">悲观档</div><div class="viz-stat-value tabular-nums">≈ HK$9.5（-29%）</div><div class="text-small">盈利滑向25亿（净利率8.5%）+市场彻底按现金+清算逻辑定价：净现金206亿港元×0.8折+业务5x≈HK$9.5。物理底在现金附近</div></div>
+    <div class="card" style="border-left:4px solid var(--blue)"><div class="text-small text-muted">中性档</div><div class="viz-stat-value tabular-nums">≈ HK$17（+27%）</div><div class="text-small">FY26E净利30亿企稳+50%派息持续+估值修复到扣现金6x：业务值180亿+现金194亿≈374亿RMB≈HK$408亿/25.85亿股。对应PB~1.3x</div></div>
+    <div class="card" style="border-left:4px solid var(--green)"><div class="text-small text-muted">乐观档</div><div class="viz-stat-value tabular-nums">≈ HK$22（+64%）</div><div class="text-small">库里品牌+户外第二曲线兑现，净利回到35亿、PB 1.5x——即52周高22.36。需要品牌叙事重启配合</div></div>
+  </div>
+  <div class="text-small text-muted">反推现价：13.40港元=市值318亿RMB，减净现金194亿=对经营业务出价124亿，除以FY26E净利~30亿=<b>4.1x</b>——隐含「净利永续腰斩后再腰斩」或「现金永远不返还股东」。前者与50%派息率矛盾，后者与持续回购矛盾。价值陷阱的唯一成立方式=现金流恶化（H1'26的0.52x是唯一警讯）。</div>
+
+  <h3>④ 风险与证伪</h3>
+  <table class="table table-sm">
+    <thead><tr><th>空头论点</th><th>信号</th><th>动作</th></tr></thead>
+    <tbody>
+      <tr><td><b>价值陷阱</b>：增长停滞常态化，4x永远不修复</td><td>零售流水连续两季负增长且降幅扩大（Q2已转负）</td><td class="chk chk-fail">减半</td></tr>
+      <tr><td><b>现金被滥用</b>：大额收购/资本开支侵蚀安全垫</td><td>公告重大投资/并购；净现金占市值比跌破45%</td><td class="chk chk-fail">清仓</td></tr>
+      <tr><td><b>现金流恶化</b>：H1'26 OCF/净利0.52x若成趋势</td><td>全年OCF/净利&lt;0.8</td><td class="chk chk-fail">减半</td></tr>
+      <tr><td><b>份额继续流失</b>：鞋类停滞被特步/361°蚕食</td><td>鞋类收入连续两季负增长</td><td class="chk chk-warn">盯</td></tr>
+    </tbody>
+  </table>
+  <div class="card"><div class="text-small"><b>供给日历</b>：季度流水披露（Q3'26约10月中）→ 2027-3月FY26年报+末期息（50%派息锚）→ 库里品牌产品落地节点。无解禁/无CB/无并购预期——<b>供给日历干净本身是防御属性</b>。</div></div>
+
+  <h3>⑤ 价格纪律</h3>
+  <table class="table table-sm tabular-nums">
+    <thead><tr><th>档位</th><th>区间HK$</th><th>对应</th><th>仓位</th></tr></thead>
+    <tbody>
+      <tr><td>第一档</td><td>12.5-13.5（现价区）</td><td>扣现金~4.1x · 息5.0%</td><td>1/3</td></tr>
+      <tr><td>第二档</td><td>11.0-12.0（52周低12.04上沿）</td><td>扣现金~3x</td><td>1/3</td></tr>
+      <tr><td>第三档</td><td>9.5-10.5</td><td>市值≈净现金×1.2</td><td>1/3</td></tr>
+    </tbody>
+  </table>
+  <div class="viz-grid">
+    <div class="card" style="border-left:4px solid var(--red)"><div class="text-small text-muted">证伪线</div><div class="text-small">流水两季负增长扩大 / 净现金占市值跌破45% / 全年OCF÷净利&lt;0.8——任一成立，现金托底逻辑重检，离场或减半</div></div>
+    <div class="card" style="border-left:4px solid var(--green)"><div class="text-muted text-small">兑现线</div><div class="text-small">≥HK$17（扣现金6x）流水未回正→减半；≥HK$22基本面同步→持有。每年5%息是等待报酬</div></div>
+  </div>
+  <div class="text-small text-muted">仓位上限：4-5%。角色=「现金期权型防御」——与安踏（质量防御）互补而非互斥；若组合只放一家运动股，选安踏，李宁是第二只的候选。</div>
+
+  <h3>一页纸投资论点</h3>
+  <div class="viz-grid" style="grid-template-columns:1fr">
+    <div class="card thesis-thesis"><div class="thesis-tag">论点</div><div class="text-small">净现金193.9亿占市值61%+零负债+50%派息+持续回购：13.40港元的李宁=用4.1x买一门毛利率50.9%、经营ROIC 35%+的单品牌生意，另送库里品牌/中国奥委会/户外新品的免费期权。资产负债表干净到无并购无商誉无有息负债，是港股消费里罕见的「物理底」标的。</div></div>
+    <div class="card thesis-anti"><div class="thesis-tag">反论点</div><div class="text-small">收入增速四年从26%降到3%、Q2流水转负、鞋类停滞、ROE五连降——市场给4x的理由是「这家公司不知道怎么用194亿现金，也不知道怎么找回增长」。若H1'26的现金流恶化（OCF/净利0.52x）成为趋势，连50%派息的可持续性都要打折；价值陷阱在港股的半衰期可以很长。</div></div>
+    <div class="card thesis-trigger"><div class="thesis-tag">触发器</div><div class="text-small">分档12.5-13.5/11-12/9.5-10.5各1/3；证伪=流水两季负增长扩大、净现金占比跌破45%、OCF÷净利&lt;0.8；季度流水与年报派息是主线；每年5%息是底薪。</div></div>
+  </div>
+
+  <hr>
+  <div class="text-small text-muted">信源：李宁2026中报（8-20，<a href="https://stcn.com/article/detail/4095681.html">证券时报</a>/<a href="https://www.cnstock.com/commonDetail/765450">上证报</a>/<a href="https://www.jiemian.com/article/14960481.html">界面</a>/<a href="https://www.nbd.com.cn/articles/2026-08-21/4550827.html">每经</a>）；行业分化（<a href="https://www.stcn.com/article/detail/4060678.html">证券时报</a>）；行情/五年财务：Wind（10-16）。免责：个人研究笔记非投资建议。</div>
+
+</div>
+</div>
+</body>
+</html>

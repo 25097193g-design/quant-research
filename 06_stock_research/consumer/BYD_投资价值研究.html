@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>比亚迪投资价值研究 · 五步框架</title>
+<style>
+:root{--background:#f6f6f7;--foreground:#18181b;--card:#ffffff;--card-foreground:#18181b;
+--muted:#f0f0f2;--muted-foreground:#6f6f78;--border:#e4e4e7;
+--green:#15803d;--red:#dc2626;--yellow:#b45309;--blue:#1d4ed8;
+--viz-series-1:#1d4ed8;--viz-series-2:#7c3aed;}
+@media (prefers-color-scheme: dark){
+:root{--background:#131316;--foreground:#ececf1;--card:#1c1c21;--card-foreground:#ececf1;
+--muted:#232329;--muted-foreground:#9d9da8;--border:#2c2c33;
+--green:#4ade80;--red:#f87171;--yellow:#facc15;--blue:#60a5fa;
+--viz-series-1:#60a5fa;--viz-series-2:#c084fc;}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--background);color:var(--foreground);
+font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Segoe UI",sans-serif;
+line-height:1.65;font-size:15px}
+.page{max-width:980px;margin:0 auto;padding:28px 22px 48px}
+h2{font-size:1.45rem;margin:6px 0 6px;font-weight:600}
+h3{font-size:1.12rem;margin:24px 0 6px;font-weight:600}
+h4{font-size:.95rem;margin:14px 0 4px;font-weight:500}
+hr{border:none;border-top:1px solid var(--border);margin:18px 0}
+.card{background:var(--card);color:var(--card-foreground);border:1px solid var(--border);
+border-radius:12px;padding:13px 16px;margin:10px 0}
+.viz-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px;margin:12px 0}
+.viz-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:6px 0}
+.viz-stat-value{font-size:1.28rem;font-weight:600;margin:2px 0}
+.text-small{font-size:.82rem}
+.text-muted{color:var(--muted-foreground)}
+.text-end{text-align:right}
+.text-nowrap{white-space:nowrap}
+.tabular-nums{font-variant-numeric:tabular-nums}
+.table{width:100%;border-collapse:collapse;margin:10px 0}
+.table th,.table td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
+.table thead th{color:var(--muted-foreground);font-weight:500;font-size:.8rem}
+.table-sm th,.table-sm td{padding:5px 8px}
+b{font-weight:600}
+</style>
+</head>
+<body>
+<div class="page">
+<div id="byd-iv-research">
+  <style>
+    #byd-iv-research .verdict-chip { display:inline-flex; align-items:center; gap:6px; padding:2px 10px; border-radius:999px; font-weight:500; }
+    #byd-iv-research .chip-pass { background: color-mix(in srgb, var(--green) 16%, transparent); color: var(--green); }
+    #byd-iv-research .chip-warn { background: color-mix(in srgb, var(--yellow) 18%, transparent); color: var(--yellow); }
+    #byd-iv-research .chip-fail { background: color-mix(in srgb, var(--red) 14%, transparent); color: var(--red); }
+    #byd-iv-research .chk { font-weight: 500; white-space: nowrap; }
+    #byd-iv-research .chk-pass { color: var(--green); }
+    #byd-iv-research .chk-warn { color: var(--yellow); }
+    #byd-iv-research .chk-fail { color: var(--red); }
+    #byd-iv-research svg text { fill: var(--foreground); font-size: 12px; }
+    #byd-iv-research svg .axis { stroke: var(--border); stroke-width: 1; }
+    #byd-iv-research svg .muted-lab { fill: var(--muted-foreground); }
+    #byd-iv-research .thesis-tag { font-weight: 500; }
+    #byd-iv-research .thesis-thesis .thesis-tag { color: var(--green); }
+    #byd-iv-research .thesis-anti .thesis-tag { color: var(--red); }
+    #byd-iv-research .thesis-trigger .thesis-tag { color: var(--blue); }
+    #byd-iv-research h3 { margin-bottom: 6px; }
+    #byd-iv-research h4 { margin: 14px 0 4px; font-weight: 500; }
+  </style>
+
+  <h2>比亚迪投资价值研究 · 生意 × 价格 × 风险</h2>
+  <div class="viz-row text-small">
+    <span>002594.SZ 81.44元 · 1211.HK 72.85港元（折价18%）</span>
+    <span>· 数据截至 2026-10-14</span>
+    <span>· 基于 FY2025 年报（2026-03-28）+ 2026中报/产销快报</span>
+  </div>
+
+  <div class="viz-grid">
+    <div class="card"><div class="text-small text-muted">生意好不好</div><div class="viz-stat-value">好生意，非伟大生意</div><div class="text-small">看得懂的制造业；规模+垂直整合护城河强，但<span class="chk chk-fail">无定价权</span>，ROIC 十年仅 3 年高于资金成本</div></div>
+    <div class="card"><div class="text-small text-muted">价格便不便宜</div><div class="viz-stat-value">A股偏贵 · H股中性偏贵</div><div class="text-small">A股 81.44元隐含 ~19.5% 五年盈利CAGR；H股隐含 ~14.6%。DCF中性区间 50–66元，现价已进入乐观档</div></div>
+    <div class="card"><div class="text-small text-muted">风险拿得住</div><div class="viz-stat-value">中等，靠纪律不靠分红</div><div class="text-small">负债率70.7%下行、商誉仅0.5%、净现金≈0；但 FCF 十年首负（−977亿）+ 股息率0.4%，波动须靠仓位管理承受</div></div>
+  </div>
+
+  <h3>① 生意质量 — 拆解收入与利润引擎</h3>
+  <div class="viz-grid">
+    <div class="card"><div class="text-small text-muted">收入结构</div><div class="viz-stat-value">汽车 80.7%</div><div class="text-small">6,487亿（毛利率20.5%）；手机部件 19.3% / 1,552亿（6.3%）；境外占比 38.7%（+10pct/年）</div></div>
+    <div class="card"><div class="text-small text-muted">利润引擎</div><div class="viz-stat-value">汽车贡献93%毛利</div><div class="text-small">汽车毛利1,329亿 / 总毛利1,427亿；单车归母净利 7,088元（2023峰值9,933，两年−29%）</div></div>
+    <div class="card"><div class="text-small text-muted">市占率</div><div class="viz-stat-value">全球NEV四连冠</div><div class="text-small">2025销量460万辆(+7.7%)，纯电首超特斯拉居全球第一；国内NEV份额约1/4仍第一但优势收窄</div></div>
+  </div>
+  <table class="table table-sm">
+    <thead><tr><th>护城河维度</th><th>判定</th><th>证据（数字）</th></tr></thead>
+    <tbody>
+      <tr><td>提价能力</td><td class="chk chk-fail">✗ 无</td><td>价格战发起者角色；ASP 12.0万/辆下行，境内毛利率 16.66%（−3.52pct）；高端三品牌仅占销量~9%，是提价的尝试而非能力</td></tr>
+      <tr><td>市占率</td><td class="chk chk-pass">✓ 强</td><td>460万辆全球NEV第一；出口100万辆+140%列中国车企NEV出口榜首；储能出货全球双冠之一</td></tr>
+      <tr><td>转换成本</td><td class="chk chk-warn">△ 产业链端有</td><td>消费者端≈0（换车无成本）；但电池−电机−电控−功率半导体全自供，研发634亿/年摊到460万辆=1.38万元/辆，成本曲线对手难复制</td></tr>
+      <tr><td>规模与生态</td><td class="chk chk-pass">✓ 强</td><td>第1,500万辆下线（全球首家）；2万座闪充站计划+256万辆辅助驾驶车队数据；12万工程师、专利申请超7.1万项</td></tr>
+    </tbody>
+  </table>
+  <h4>ROIC 十年 vs 资金成本（%）</h4>
+  <svg viewBox="0 0 760 250" role="img" aria-label="比亚迪2016至2025年ROIC柱状图，资金成本9%参考线：2016-2021年在4-8%区间低于资金成本，2022-2024年12-19%高于资金成本，2025年回落至10.7%" style="width:100%; max-width:760px; height:auto">
+    <title>比亚迪 ROIC 2016–2025 与资金成本线</title>
+    <text x="60" y="20" class="muted-lab">柱=ROIC；红色虚线=资金成本≈9%（WACC）</text>
+    <line x1="50" y1="210" x2="740" y2="210" class="axis"/>
+    <line x1="50" y1="30" x2="50" y2="210" class="axis"/>
+    <line x1="50" y1="129" x2="740" y2="129" stroke="var(--red)" stroke-width="1.5" stroke-dasharray="5 4"/>
+    <text x="738" y="124" text-anchor="end" style="fill:var(--red)">资金成本 ≈9%</text>
+    <g fill="var(--viz-series-1)">
+      <rect x="60" y="139" width="44" height="71" rx="2"/><rect x="126" y="153" width="44" height="57" rx="2"/>
+      <rect x="192" y="166" width="44" height="44" rx="2"/><rect x="258" y="177" width="44" height="33" rx="2"/>
+      <rect x="324" y="151" width="44" height="59" rx="2"/><rect x="390" y="175" width="44" height="35" rx="2"/>
+      <rect x="456" y="101" width="44" height="109" rx="2"/><rect x="522" y="51" width="44" height="159" rx="2"/>
+      <rect x="588" y="42" width="44" height="168" rx="2"/><rect x="654" y="113" width="44" height="97" rx="2"/>
+    </g>
+    <g class="tabular-nums" text-anchor="middle">
+      <text x="82" y="133">7.9</text><text x="148" y="147">6.3</text><text x="214" y="160">4.8</text>
+      <text x="280" y="171">3.6</text><text x="346" y="145">6.6</text><text x="412" y="169">3.9</text>
+      <text x="478" y="95">12.1</text><text x="544" y="45">17.7</text><text x="610" y="36">18.6</text><text x="676" y="107">10.7</text>
+    </g>
+    <g class="muted-lab tabular-nums" text-anchor="middle">
+      <text x="82" y="228">2016</text><text x="148" y="228">2017</text><text x="214" y="228">2018</text>
+      <text x="280" y="228">2019</text><text x="346" y="228">2020</text><text x="412" y="228">2021</text>
+      <text x="478" y="228">2022</text><text x="544" y="228">2023</text><text x="610" y="228">2024</text><text x="676" y="228">2025</text>
+    </g>
+  </svg>
+  <div class="text-small text-muted">结论：ROIC 连续 5–10 年 &gt; 资金成本这一硬标准<span class="chk chk-fail">不满足</span>——2016–2021 长期在 4–8%，仅 2022–2024 达标，2025 回落至 10.7%。商业模式看得懂（规模经济型制造），但本质是「周期成长」而非复利机器，估值须按跨周期常态利润而非峰值利润。</div>
+
+  <h3>② 财务体检 — 三表交叉验证</h3>
+  <table class="table table-sm">
+    <thead><tr><th>年度</th><th class="text-end">归母净利(亿)</th><th class="text-end">经营现金流(亿)</th><th class="text-end">资本开支(亿)</th><th class="text-end">FCF(亿)</th><th class="text-end">OCF/净利</th><th class="text-end">毛利率</th><th class="text-end">负债率</th></tr></thead>
+    <tbody class="tabular-nums">
+      <tr><td>2020</td><td class="text-end">42.3</td><td class="text-end">453.9</td><td class="text-end">117.7</td><td class="text-end">+336.2</td><td class="text-end">10.7x</td><td class="text-end">—</td><td class="text-end">—</td></tr>
+      <tr><td>2021</td><td class="text-end">30.5</td><td class="text-end">654.7</td><td class="text-end">373.4</td><td class="text-end">+281.2</td><td class="text-end">21.5x</td><td class="text-end">13.0%</td><td class="text-end">64.8%</td></tr>
+      <tr><td>2022</td><td class="text-end">166.2</td><td class="text-end">1,408.4</td><td class="text-end">974.6</td><td class="text-end">+433.8</td><td class="text-end">8.5x</td><td class="text-end">17.0%</td><td class="text-end">75.4%</td></tr>
+      <tr><td>2023</td><td class="text-end">300.4</td><td class="text-end">1,697.3</td><td class="text-end">1,220.9</td><td class="text-end">+476.3</td><td class="text-end">5.6x</td><td class="text-end">20.2%</td><td class="text-end">77.9%</td></tr>
+      <tr><td>2024</td><td class="text-end">402.5</td><td class="text-end">1,334.5</td><td class="text-end">973.6</td><td class="text-end">+360.9</td><td class="text-end">3.3x</td><td class="text-end">19.4%</td><td class="text-end">74.6%</td></tr>
+      <tr><td>2025</td><td class="text-end">326.2</td><td class="text-end">591.4</td><td class="text-end">1,568.1</td><td class="text-end chk-fail">−976.7</td><td class="text-end">1.8x</td><td class="text-end">17.7%</td><td class="text-end">70.7%</td></tr>
+    </tbody>
+  </table>
+  <div class="viz-grid">
+    <div class="card"><div class="text-small text-muted">利润成色（应计视角）</div><div class="text-small">
+      <span class="chk chk-pass">✓ 现金含量高</span> 应计利润率为负（OCF&gt;净利），无「纸面利润」<br>
+      <span class="chk chk-warn">△ 但OCF/净利长期3–21x的真相</span>：靠占用供应商浮存（应付账款周转154天），2025年账期压缩至116天→OCF腰斩是挤水分不是恶化<br>
+      <span class="chk chk-warn">△ 化妆点</span>：研发资本化率 1.8%→8.6%（+45亿增厚税前）；政府补助25亿非经常+其他收益138亿；无投资浮盈、SBC式拖累小（员工持股41亿分三年）</div></div>
+    <div class="card"><div class="text-small text-muted">资产负债表异动</div><div class="text-small">
+      <span class="chk chk-warn">△ 有息负债 238→1,330亿</span>（短借385+票据225+长借607+债券50），净现金+1,194亿→约0<br>
+      <span class="chk chk-pass">✓ 商誉仅44亿</span>（占总资产0.5%）<br>
+      <span class="chk chk-pass">✓ 应收370亿 −40.6%</span>、周转17天；<span class="chk chk-warn">△ 存货1,384亿 +19.3%</span>需盯梢<br>
+      <span class="chk chk-pass">✓ 合同负债515亿 +17.7%</span>（经销商预付，需求正信号）</div></div>
+  </div>
+
+  <h3>③ 估值 — 分位 · 同业 · DCF三档 · 隐含假设</h3>
+  <div class="viz-grid">
+    <div class="card"><div class="text-small text-muted">历史分位（近5年）</div><div class="viz-stat-value">PE-TTM 25.2x = 37.5%分位</div><div class="text-small">PB 3.09x；A股贴52周低点+5%，H股+2%几乎就是低点</div></div>
+    <div class="card"><div class="text-small text-muted">跨周期常态利润</div><div class="viz-stat-value">299亿（2022–25均值）</div><div class="text-small">常态PE：A股24.8x / H股20.4x——用峰值402亿算是自欺，用常态看才诚实</div></div>
+    <div class="card"><div class="text-small text-muted">反推隐含增长</div><div class="viz-stat-value">A股≈19.5% · H股≈14.6%</div><div class="text-small">当前价格隐含的FY27–31盈利CAGR（WACC 9%、终值g 3%、FCF转化率爬升至75%）</div></div>
+  </div>
+  <table class="table table-sm">
+    <thead><tr><th>同业（PE-TTM）</th><th class="text-end">比亚迪H</th><th class="text-end">比亚迪A</th><th class="text-end">吉利</th><th class="text-end">长城A</th><th class="text-end">上汽</th><th class="text-end">赛力斯</th><th class="text-end">理想</th><th class="text-end">小鹏</th><th class="text-end">特斯拉</th></tr></thead>
+    <tbody class="tabular-nums">
+      <tr><td class="text-muted">倍数</td><td class="text-end chk-warn">20.6x</td><td class="text-end">25.2x</td><td class="text-end chk-pass">8.6x</td><td class="text-end">19.7x</td><td class="text-end">13.4x</td><td class="text-end">65.8x</td><td class="text-end">亏损</td><td class="text-end">亏损</td><td class="text-end">389.6x</td></tr>
+    </tbody>
+  </table>
+  <div class="text-small text-muted">新势力理想/小鹏2026年TTM亏损（价格战牺牲品，反证行业格局之惨烈）；特斯拉定价已与基本面脱钩。比亚迪H 20.6x：比吉利贵2.4倍，买的是全球第一的规模与出海期权。</div>
+  <h4>DCF 三档目标价（WACC 9% · 终值 g=3% ~ PE18x）vs 现价</h4>
+  <svg viewBox="0 0 760 300" role="img" aria-label="DCF三档估值区间图：悲观32-43元、中性50-66元、乐观72-95元；A股现价81.44元落在乐观档、H股折人民币66.7元落在中性上沿" style="width:100%; max-width:760px; height:auto">
+    <title>DCF三档 vs 现价</title>
+    <line x1="90" y1="270" x2="740" y2="270" class="axis"/>
+    <g class="axis">
+      <line x1="90" y1="270" x2="90" y2="275"/><line x1="279" y1="270" x2="279" y2="275"/>
+      <line x1="467" y1="270" x2="467" y2="275"/><line x1="656" y1="270" x2="656" y2="275"/>
+    </g>
+    <g class="muted-lab tabular-nums" text-anchor="middle">
+      <text x="90" y="290">30元</text><text x="279" y="290">50元</text><text x="467" y="290">70元</text><text x="656" y="290">90元</text>
+    </g>
+    <line x1="575" y1="30" x2="575" y2="270" stroke="var(--foreground)" stroke-width="1.5"/>
+    <text x="575" y="22" text-anchor="middle">A股 81.44元</text>
+    <line x1="436" y1="30" x2="436" y2="270" stroke="var(--viz-series-2)" stroke-width="1.5" stroke-dasharray="4 3"/>
+    <text x="436" y="42" text-anchor="middle" style="fill:var(--viz-series-2)">H股72.85港元≈66.7元</text>
+    <g fill="var(--red)" opacity="0.28"><rect x="109" y="62" width="103" height="26" rx="4"/></g>
+    <text x="109" y="56" class="muted-lab">悲观：价格战延续+关税墙（FY26E 260亿，零增长）</text>
+    <text x="222" y="80" class="tabular-nums">32–43元</text>
+    <g fill="var(--yellow)" opacity="0.32"><rect x="279" y="132" width="151" height="26" rx="4"/></g>
+    <text x="279" y="126" class="muted-lab">中性：海外兑现+国内企稳（FY26E 300亿，5年CAGR≈8%）</text>
+    <text x="440" y="150" class="tabular-nums">50–66元</text>
+    <g fill="var(--green)" opacity="0.28"><rect x="486" y="202" width="217" height="26" rx="4"/></g>
+    <text x="486" y="196" class="muted-lab">乐观：出海再造一个比亚迪（FY26E 345亿，5年CAGR≈13%）</text>
+    <text x="590" y="220" class="tabular-nums">72–95元</text>
+  </svg>
+  <div class="text-small text-muted">区间含义：低端=永续增长法，高端=2031年18x退出市盈率。判定——<b>A股81.44元已进入乐观档</b>（相当于预支了出海全面成功）；H股66.7元卡在中性上沿/乐观下沿，隐含~15% CAGR，需要出口持续+40%、毛利率修复到位才兑现。SOTP交叉验证：比亚迪电子65.76%股权≈312亿 + 汽车业务298亿×PE16–24x = 56–82元/股，与DCF中性—乐观档吻合。</div>
+
+  <h3>④ 风险与证伪 — 空头论点 × 可观测信号 × 动作</h3>
+  <table class="table table-sm">
+    <thead><tr><th>#</th><th>空头论点</th><th>可观测信号（触发器）</th><th>动作</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>价格战不止，国内定价权彻底失守</td><td>境内毛利率连续两季&lt;15%，或单车归母&lt;6,000元</td><td class="chk-fail">清仓——论点根基消失</td></tr>
+      <tr><td>2</td><td>海外遇关税/本地化墙，出口失速</td><td>出口月度同比转负；欧盟反补贴再升级</td><td class="chk-warn">减半，按纯内卷标的重估（参考吉利8.6x）</td></tr>
+      <tr><td>3</td><td>2026Q2拐点是回光返照</td><td>Q3-26单季归母&lt;70亿（基数78.2亿）</td><td class="chk-warn">减半</td></tr>
+      <tr><td>4</td><td>插混基本盘被纯电/增程两头挤</td><td>PHEV销量连续两季负增长且BEV增速&lt;20%</td><td class="chk-warn">减1/3</td></tr>
+      <tr><td>5</td><td>现金流血不止，杠杆失控</td><td>FY26经营现金流&lt;600亿，或有息负债&gt;2,000亿</td><td class="chk-warn">减半——资产负债表风险</td></tr>
+      <tr><td>6</td><td>利润化妆加重</td><td>研发资本化率&gt;12%，或扣非/归母&lt;85%</td><td class="chk-warn">减1/3，盈利质量折价</td></tr>
+      <tr><td>7</td><td>技术范式切换（固态电池/智驾代差）</td><td>头部竞对固态电池量产装车；天神之眼装车率下滑</td><td class="chk-warn">重估长期论点</td></tr>
+    </tbody>
+  </table>
+  <h4>供给日历</h4>
+  <table class="table table-sm">
+    <tbody>
+      <tr><td class="text-nowrap">2026-10底</td><td><b>Q3季报</b>（触发器#3的判决日，2025Q3基数78.2亿）</td></tr>
+      <tr><td class="text-nowrap">2026–2028</td><td>员工持股计划三期解锁（41亿元、2.5万名员工，解禁抛压有限但心理层面存在）</td></tr>
+      <tr><td class="text-nowrap">存量</td><td>有息负债1,330亿+永续债187亿（年息约5.5亿）+2025年新发债约200亿；2025-03的56亿美元H股配售已完成、闪电配售无锁定期——<b>当前无解禁悬顶，无在建再融资</b></td></tr>
+      <tr><td class="text-nowrap">被动</td><td>恒生科技指数权重8%（指数资金进出放大波动）</td></tr>
+    </tbody>
+  </table>
+
+  <h3>⑤ 价格纪律 — 先写出场，再谈进场（H股 1211.HK）</h3>
+  <table class="table table-sm">
+    <thead><tr><th>档位</th><th class="text-end">买入价</th><th class="text-end">仓位</th><th>对应含义</th></tr></thead>
+    <tbody class="tabular-nums">
+      <tr><td>第一档</td><td class="text-end">≤65港元</td><td class="text-end">30%</td><td>DCF中性上沿，隐含CAGR回落到~10%——开始有安全边际</td></tr>
+      <tr><td>第二档</td><td class="text-end">≤55港元</td><td class="text-end">30%</td><td>中性中枢（55.1港元），只付「中性 scenario」的钱</td></tr>
+      <tr><td>第三档</td><td class="text-end">≤46港元</td><td class="text-end">40%</td><td>悲观档上沿，市场按「出海失败」定价时下重手</td></tr>
+      <tr><td class="chk chk-fail">现价 72.85港元</td><td class="text-end">—</td><td class="text-end">0%</td><td>隐含~15% CAGR，为乐观路径预支——<b>好公司 ≠ 好价格，不追</b></td></tr>
+    </tbody>
+  </table>
+  <div class="viz-grid">
+    <div class="card"><div class="text-small text-muted">仓位纪律</div><div class="text-small">周期成长类 + 确信度中等 → 组合上限 <b>8%</b>；与现有腾讯/阿里持仓同属「港股大票」风格盒，注意风格集中度</div></div>
+    <div class="card"><div class="text-small text-muted">出场条件（进场前立好）</div><div class="text-small">① 任一证伪触发器命中→按④表执行，不讨价还价；② 建仓后周收盘跌破档位价−15%且无新信息→强制检视；③ 时间止损：2027-06检查点若出口未达200万辆/年→降档</div></div>
+  </div>
+
+  <h3>一页纸投资论点</h3>
+  <div class="card thesis-thesis"><span class="thesis-tag">【论点】</span>全球新能源车成本与规模第一的制造商（460万辆/年、电池—电控—半导体全自供），正把国内练出的成本曲线复制到海外：境外收入+40%、占比38.7%、毛利率反超国内2.8pct且上行，2026Q2单季利润+29.6%初现拐点。H股20.4x常态PE、贴着52周低点、较A股折价18%——赔率比A股好一档。</div>
+  <div class="card thesis-anti"><span class="thesis-tag">【反论点】</span>这是一家没有定价权的制造商：境内毛利率−3.5pct、单车净利两年−29%；ROIC十年仅3年跑赢资金成本；FCF十年首次−977亿、分红率砍到10%、股息率0.4%；当前H股价已隐含~15%盈利CAGR、A股隐含~20%——乐观路径被预支；插混基本盘正被纯电与增程两头挤压；关税是出海故事的阿喀琉斯之踵。</div>
+  <div class="card thesis-trigger"><span class="thesis-tag">【触发器】</span><b>买入</b>：H股≤65/55/46港元三档建仓（30/30/40，上限8%），现价不动作。<b>确认</b>：Q3-26单季归母≥85亿 + 出口占比站稳40% → 拐点成立，持有至2027产能检查点。<b>证伪</b>：Q3单季&lt;70亿 / 境内毛利率连续两季&lt;15% / 出口同比转负 / FY26经营现金流&lt;600亿 → 按风险表执行对应减仓或清仓。</div>
+
+  <hr>
+  <div class="text-small text-muted">数据来源：比亚迪FY2025年报（巨潮，2026-03-28）、2026产销快报、同花顺/Wind（2026-10-14收盘）。DCF为简化FCFE两段模型（假设明示于图中）；FY2026E为情景假设非预测。本页为研究笔记，非投资建议。</div>
+</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Intel (INTC) 五步投资研究 · 2026-10-30 财报夜暴跌</title>
+<style>
+  :root{
+    --ink:#1a2030; --sub:#5a6478; --line:#e3e7ef; --bg:#f6f7fa; --card:#ffffff;
+    --blue:#1a56db; --red:#c92a2a; --green:#157347; --amber:#9a6700; --chip:#eef2f9;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{font-family:-apple-system,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif; background:var(--bg); color:var(--ink); line-height:1.7; font-size:15px;}
+  .wrap{max-width:1060px; margin:0 auto; padding:28px 20px 80px;}
+  header.hero{background:linear-gradient(135deg,#0b1226 0%,#16264d 60%,#1d3a6e 100%); color:#fff; border-radius:14px; padding:34px 34px 26px; margin-bottom:22px;}
+  header.hero h1{font-size:26px; letter-spacing:.5px;}
+  header.hero .sub{color:#b8c6e2; font-size:13.5px; margin-top:6px;}
+  .kpis{display:flex; flex-wrap:wrap; gap:12px; margin-top:18px;}
+  .kpi{background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15); border-radius:10px; padding:10px 16px; min-width:130px;}
+  .kpi .k{font-size:12px; color:#a9b8d8;}
+  .kpi .v{font-size:19px; font-weight:700; margin-top:2px;}
+  .kpi .v.up{color:#ff8f8f;} .kpi .v.dn{color:#7be0a8;}
+  .notice{background:#fff8e6; border:1px solid #f0dc9a; border-radius:10px; padding:12px 16px; font-size:13.5px; color:#6b5400; margin-bottom:22px;}
+  section{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:26px 30px; margin-bottom:22px;}
+  h2{font-size:20px; margin-bottom:4px; color:#0f1a33;}
+  h2 .stepno{display:inline-block; background:var(--blue); color:#fff; border-radius:6px; font-size:13px; padding:2px 9px; vertical-align:3px; margin-right:8px;}
+  h3{font-size:15.5px; margin:20px 0 8px; color:#16264d;}
+  p{margin:8px 0;}
+  .lead{color:var(--sub); font-size:13px; margin-bottom:14px;}
+  table{width:100%; border-collapse:collapse; margin:12px 0 6px; font-size:13.5px;}
+  th{background:#f0f3f9; text-align:right; padding:7px 10px; font-weight:600; color:#3b4a66; white-space:nowrap;}
+  td{padding:7px 10px; border-bottom:1px solid var(--line); text-align:right; font-variant-numeric:tabular-nums;}
+  th:first-child, td:first-child{text-align:left;}
+  tr:last-child td{border-bottom:none;}
+  .pos{color:var(--red); font-weight:600;} .neg{color:var(--green); font-weight:600;}
+  .warn{color:var(--amber); font-weight:600;}
+  .grid2{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
+  @media(max-width:760px){.grid2{grid-template-columns:1fr;}}
+  .verdict{display:grid; grid-template-columns:repeat(5,1fr); gap:10px; margin-top:14px;}
+  @media(max-width:760px){.verdict{grid-template-columns:repeat(2,1fr);}}
+  .vcard{border:1px solid var(--line); border-radius:10px; padding:12px 14px; background:#fbfcfe;}
+  .vcard .t{font-size:12px; color:var(--sub);}
+  .vcard .g{font-size:17px; font-weight:700; margin-top:3px;}
+  .g.a{color:#157347;} .g.b{color:#9a6700;} .g.c{color:#c92a2a;}
+  .callout{border-left:4px solid var(--blue); background:#f4f7fd; border-radius:0 10px 10px 0; padding:12px 16px; margin:14px 0; font-size:13.5px;}
+  .callout.red{border-color:var(--red); background:#fdf3f3;}
+  .callout.green{border-color:var(--green); background:#f1f9f4;}
+  .tag{display:inline-block; background:var(--chip); color:#3b4a66; border-radius:5px; font-size:12px; padding:1px 8px; margin:0 4px 4px 0;}
+  ul,ol{margin:8px 0 8px 22px;}
+  li{margin:5px 0;}
+  .foot{font-size:12px; color:#8a93a8; border-top:1px dashed var(--line); margin-top:18px; padding-top:12px;}
+  .onepager{background:#0e1630; color:#dbe4f7; border-radius:14px; padding:30px 34px;}
+  .onepager h2{color:#fff;}
+  .onepager h3{color:#9db4e8; border-top:1px solid rgba(255,255,255,.14); padding-top:16px; margin-top:18px;}
+  .onepager .foot{color:#7286ad; border-color:rgba(255,255,255,.14);}
+  .ladder{display:flex; gap:0; margin:16px 0 6px; align-items:stretch;}
+  .rung{flex:1; border:1px solid var(--line); padding:10px 8px; text-align:center; font-size:12.5px; position:relative;}
+  .rung b{display:block; font-size:15px;}
+  .rung.now{background:#fff8e6; border-color:#e6c96a; font-weight:600;}
+  .rung.r1{background:#f4f7fd;} .rung.r2{background:#eef4fb;} .rung.r3{background:#e6eefb;}
+  .srcs{font-size:12px; color:#8a93a8; line-height:1.8;}
+  .srcs a{color:#5b7bb4; text-decoration:none;}
+  .small{font-size:12.5px; color:var(--sub);}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <h1>Intel 英特尔（NASDAQ: INTC）五步投资研究</h1>
+  <div class="sub">生意好不好 × 价格便不便宜 × 风险拿得住 ｜ 数据截至 2026-10-30（财报夜盘前）· 未持仓 · 研究基准价 $68.71（盘前，10-29收盘 $92.07）</div>
+  <div class="kpis">
+    <div class="kpi"><div class="k">盘前价 10-30</div><div class="v dn">$68.71（−25.4%）</div></div>
+    <div class="kpi"><div class="k">市值</div><div class="v">~$3,610亿</div></div>
+    <div class="kpi"><div class="k">52周区间</div><div class="v">$32.89 – $142.35</div></div>
+    <div class="kpi"><div class="k">距7月峰值</div><div class="v dn">−51.7%</div></div>
+    <div class="kpi"><div class="k">YTD（跌完后）</div><div class="v up">仍约 +86%</div></div>
+    <div class="kpi"><div class="k">PE（TTM non-GAAP）</div><div class="v">~50x</div></div>
+    <div class="kpi"><div class="k">股息</div><div class="v">停发（24Q4起）</div></div>
+  </div>
+</header>
+
+<div class="notice">🔔 <b>10-30 更新：Q3'26 财报夜已核（10-29 美东盘后发布）。</b>一句话：<b>Q3 本身是 beat（连续第 8 季超指引），崩掉的是 Q4 指引和 2027 现金流表态</b>——Q4 营收指引 $150-160 亿 vs 共识 $170.5 亿（miss −9%）、调整后 EPS $0.25 vs $0.43（−42%）、毛利率 38% vs 42.8%（−480bp）；叠加以色列 Kiryat Gat 工厂事故（两季 −$6 亿营收、Q4 毛利率 −200bp）与 CFO 原话「2027 是投资年，可能没有正自由现金流」。盘后 −23%、10-30 盘前 $68.71（−25.4%），<b>恰好跌回 4 月行情启动平台（$62-70）</b>。本文按五步框架回答一个问题：这是黄金坑，还是动量坟场？</div>
+
+<section>
+  <h2>总评</h2>
+  <p class="lead">一句话：<b>好产品的真实翻身 + 还在流血的工厂 + 一个把成功已经计完价的股价。暴跌 25% 消化的是真利空，但没有跌出安全边际——放进观察池，不放进场内。</b></p>
+  <div class="verdict">
+    <div class="vcard"><div class="t">① 生意质量</div><div class="g c">C+</div><div class="small">产品业务 B+（x86 双寡头+DCAI 41% 分部利润率），工厂业务 D（每季亏 $18.5 亿）；合并 ROIC 五年不及格</div></div>
+    <div class="vcard"><div class="t">② 财务体检</div><div class="g c">C+</div><div class="small">OCF 回暖但 FCF 连亏四年、2027 再转负；GAAP 被政府股份公允价值搅成噪音；净债 ~$208 亿；零股息零回购</div></div>
+    <div class="vcard"><div class="t">③ 价格</div><div class="g c">D</div><div class="small">~50x TTM / ~30x+ 2027E / 4.2x PB（历史 ~80 分位）；现价隐含「转型成功」为基准情形，无安全边际</div></div>
+    <div class="vcard"><div class="t">④ 风险</div><div class="g c">C</div><div class="small">β=2.2；政治持股+三股东浮盈 3 倍的潜在抛压；以色列地缘工厂；动量拥挤度未出清；触发器全部可观测</div></div>
+    <div class="vcard"><div class="t">⑤ 建议动作</div><div class="g">不接飞刀</div><div class="small">观察 → $55-60 起分三档、总仓 ≤3%；裁决日在 1 月底 Q4 财报</div></div>
+  </div>
+</section>
+
+<!-- ================ CRASH ANATOMY ================ -->
+<section style="border:2px solid #c92a2a;">
+  <h2 style="color:#c92a2a;">🔴 暴跌解剖：-25% 到底在跌什么</h2>
+  <p class="lead">先分清「事实」与「定价」：Q3 是 beat，崩的是前瞻。把利空拆成三层，逐层判断是「一次性」还是「周期性」还是「结构杀」。</p>
+
+  <h3>Q3'26 实绩 vs 共识：本季全面超预期</h3>
+  <table>
+    <tr><th>指标</th><th>Q3'26 实绩</th><th>共识</th><th>判定</th></tr>
+    <tr><td>营收</td><td>$165.1 亿（+21%）</td><td>$165.4 亿</td><td>符合（连续第 8 季超自家指引）</td></tr>
+    <tr><td>调整后 EPS</td><td><b>$0.52</b>（去年同期 $0.23，+126%）</td><td>$0.41</td><td class="pos">大超 +27%</td></tr>
+    <tr><td>调整后毛利率</td><td>44.1%（去年同期 40%）</td><td>42.1%</td><td class="pos">超</td></tr>
+    <tr><td>调整后经营利润</td><td>$32.3 亿（利润率 19.6% vs 去年 11.2%）</td><td>$27.0 亿</td><td class="pos">超</td></tr>
+    <tr><td>其中 DCAI（数据中心+AI）</td><td><b>$73.2 亿，+78%，15 年最快</b>；分部营业利润 ~$30 亿（利润率 ~41%）</td><td>—</td><td class="pos">超强（CPU 供给只够 ~50% 需求）</td></tr>
+    <tr><td>其中 CCPG（客户端/PC）</td><td>$81.0 亿，<b>−5%</b>（AI PC +35% 独木难支）</td><td>—</td><td class="neg">转弱</td></tr>
+    <tr><td>其中 Intel Foundry（代工）</td><td>$67.0 亿，+58%；营业亏损 <b>−$18.5 亿</b>（Q2 为 −$20.9 亿）</td><td>—</td><td class="warn">增收减亏但仍是失血点</td></tr>
+    <tr><td>调整后 FCF</td><td>+$16.4 亿（+83%）</td><td>$29.8 亿</td><td class="neg">为正但低于预期</td></tr>
+  </table>
+
+  <h3>Q4'26 指引 vs 共识：炸点全在前瞻</h3>
+  <table>
+    <tr><th>指标</th><th>Q4 指引</th><th>共识</th><th>缺口</th></tr>
+    <tr><td>营收</td><td>$150-160 亿（中值 155）</td><td>$170.5 亿（部分 &gt;$180）</td><td class="neg">−9% ~ −13%</td></tr>
+    <tr><td>调整后 EPS</td><td>$0.25</td><td>$0.43-0.45</td><td class="neg">−42%</td></tr>
+    <tr><td>调整后毛利率</td><td>38%</td><td>42.8%</td><td class="neg">−480bp</td></tr>
+    <tr><td>2027 表态</td><td>capex 从 2026 年 $200 亿「大幅增加」；<b>CFO：2027 无正 FCF</b></td><td>原预期 FCF 转正</td><td class="neg">叙事级逆转</td></tr>
+  </table>
+
+  <h3>三层利空定性</h3>
+  <ul>
+    <li><b>一次性（可修复）</b>：以色列 Kiryat Gat（Fab 28）运营事故——两季合计 −$6 亿营收（Q4 −$3 亿、2027Q1 −$3 亿）+ 毛利率 −200bp。产能事故通常 1-2 季修复，<b>但工厂在中东战区（本时间线美伊战争进行中），地理集中是结构性暴露</b>。</li>
+    <li><b>周期性（2027 全年压制）</b>：存储芯片超级周期推高 PC BOM 成本，笔电/台式厂砍单，PC 低迷「至少持续到 2027」（陈立武原话：存储涨价「到 2027 年会是全行业的严重问题」）。同时 DCAI 供不应求=有需求交付不出，收入被动受限。</li>
+    <li><b>结构杀（估值框架级）</b>：2026 capex $200 亿 → 2027「大幅增加」+ 2027 无正 FCF = <b>「现金毁灭机」标签重新贴回</b>。今年 4-7 月涨 3 倍的核心逻辑是「DCAI 拐点 + 减 capex → FCF 转正 → 重估」，CFO 一句话把这个故事的兑现时点推迟到 2028——杀的是估值框架，不是单季利润。</li>
+  </ul>
+
+  <div class="callout red"><b>价格弧线（周线，Wind）：</b>2025-11 低点 <b>$32.89</b> → 2026 年 4 月初 $44 起步 → 6 周 3 倍（4/24 当周 $82.5、5/8 当周 $124.9）→ 7/2 当周峰 <b>$142.35</b> → 7/23 Q2 财报后第一波 −42%（$81.79）→ 9 月反弹 $123 → 10 月阴跌一个月（$87 收盘进财报）→ 财报夜二次崩塌，盘前 $68.71。<b>距峰值 −52%，但 YTD 仍 +86%</b>；周换手率峰值 14-17%——这是典型的动量往返，不是价值股腰斩。$68.71 恰好落回 4 月启动平台（$62-70），下一个技术参照：$50（4 月初）、$43（启动前基底）。</div>
+
+  <div class="callout"><b>同夜背景（不是英特尔一家的锅）：</b>亚马逊同夜盘后 −7~12%（Q3 资本开支 $770 亿/季、FCF −$424 亿），路透标题直接写「Amazon、Intel 引发 AI 烧钱恐惧」；GOOGL 前夜 −9.8% 后 10-29 再跌 −12.6%。本周是 <b>AI 交易整体去杠杆 + 12 月 FOMC 加息预期（10-27/28 会议已重申抗通胀）</b>的组合环境，高 β（2.2）的英特尔挨的是双份打。</div>
+</section>
+
+<!-- ================ STEP 1 ================ -->
+<section>
+  <h2><span class="stepno">第1步</span>生意质量：一家公司，两门生意——收租的 CPU 和烧钱的工厂</h2>
+  <p class="lead">收入拆分 → 利润引擎 → 护城河 → ROIC 检验。商业模式一句话讲得清：<b>卖 CPU/加速器收租（赚钱）+ 建晶圆厂赌美国制造国运（烧钱）</b>。看得懂，不放弃；但两门生意必须拆开估值，合着看会两头都看错。</p>
+
+  <h3>1.1 收入结构（Wind 口径，2026 年前三季动态）</h3>
+  <table>
+    <tr><th>分部</th><th>占比*</th><th>Q3'26</th><th>动态</th><th>性质</th></tr>
+    <tr><td>CCPG 客户端+物理 AI（PC/笔记本）</td><td>~56%</td><td>$81.0 亿（−5%）</td><td>Q2 还 +13%，Q3 转负；AI PC +35% 对冲不了大盘</td><td>萎缩中的现金牛</td></tr>
+    <tr><td>DCAI 数据中心+AI（服务器 CPU/GPU/NPU）</td><td>~38%</td><td><b>$73.2 亿（+78%）</b></td><td>15 年最快增速；分部利润率 41%；供给只够 50% 需求；AI 基建的 CPU 需求真实</td><td><b>新主引擎</b></td></tr>
+    <tr><td>Intel Foundry 代工（对外+内部）</td><td>~38%（含内部抵消 −36%）</td><td>$67.0 亿（+58%）</td><td>18A 量产 Panther Lake；外部大客户仍只有微软/亚马逊（2024 年单）；每季营业亏损 −$18.5 亿</td><td>烧钱的国家战略期权</td></tr>
+    <tr><td>其他（Mobileye/Altera 保留权益等）</td><td>~4%</td><td>—</td><td>2024-25 已大量变现/出表回血</td><td>残值</td></tr>
+  </table>
+  <p class="small">* Wind 主营构成占比含分部间抵消，相加 &gt;100% 属正常（代工收入大部分来自内部晶圆）。</p>
+
+  <h3>1.2 护城河：真的有，但在变窄而非变宽</h3>
+  <ul>
+    <li><b>转换成本（强）</b>：x86 双寡头之一（与 AMD），企业级服务器软件栈/采购认证/运维惯性极深——这是 DCAI 能在 AI 基建里被当成「必要配件」的原因。</li>
+    <li><b>市占率（守势）</b>：服务器 CPU 份额被 AMD EPYC 持续蚕食多年；PC 端高通 X 系列为首的 ARM 阵营在高通量机型渗透。<b>+78% 的 DCAI 增速里有 2025 年服务器库存出清后的低基数回补成分，不可线性外推。</b></li>
+    <li><b>提价能力（弱）</b>：CPU 是标品竞价市场，英特尔过去五年没有提价权，只有成本周期。</li>
+    <li><b>政策壁垒（独一份）</b>：美国唯一本土先进逻辑代工 + 商务部持股 9.9% + CHIPS $5.7B + Secure Enclave $3.2B——政府用真金白银把它变成「国家冠军」。这既是护城河也是枷锁（见第 4 步）。</li>
+  </ul>
+
+  <h3>1.3 ROIC 检验（五步框架的硬门槛）：<b>不及格</b></h3>
+  <table>
+    <tr><th>年度</th><th>营收（亿美元）</th><th>净利润</th><th>毛利率</th><th>ROE</th><th>判定</th></tr>
+    <tr><td>FY2021</td><td>790</td><td class="pos">+199</td><td>55.4%</td><td>22.5%</td><td>远超资金成本（最后的黄金年代）</td></tr>
+    <tr><td>FY2022</td><td>631</td><td class="pos">+80</td><td>42.6%</td><td>8.1%</td><td class="warn">跌破 ~9% 资金成本线</td></tr>
+    <tr><td>FY2023</td><td>542</td><td class="pos">+17</td><td>40.0%</td><td>1.6%</td><td class="neg">深度不及格</td></tr>
+    <tr><td>FY2024</td><td>531</td><td class="neg">−188</td><td>32.7%</td><td>−18.3%</td><td class="neg">大洗澡年（减值+重组）</td></tr>
+    <tr><td>FY2025</td><td>529</td><td class="neg">−3</td><td>34.8%</td><td>−0.25%</td><td class="neg">盈亏线挣扎</td></tr>
+  </table>
+  <p><b>结论：连续 4-5 年 ROIC 低于资金成本，框架第 1 步的硬性标准明确不过关。</b>这不是「差生意」，是「好产品业务被重资产工厂的资本回报拖进深渊」的结构：产品分部（CCPG+DCAI）2026E 营业利润 ~$190 亿，被代工每季 −$18.5 亿和 $200 亿/年 capex 吃掉大半。按框架本该「直接放弃」，但两点让它留在观察池：① 产品业务的翻身是真实的（连续 8 季超指引）；② 工厂期权有政府兜底结构。所以降级处理——<b>只按「产品现金牛 + 工厂免费期权」给它定价，绝不为工厂的营收增长付钱。</b></p>
+</section>
+
+<!-- ================ STEP 2 ================ -->
+<section>
+  <h2><span class="stepno">第2步</span>财务体检：现金毁灭正在收敛，但 2027 年又要踩一脚油门</h2>
+  <p class="lead">三表交叉验证 → FCF 终极检验 → 利润化妆识别。GAAP 净利在这家公司基本没有阅读价值，必须用「non-GAAP + 现金流」双轨看。</p>
+
+  <h3>2.1 五年现金流表（Wind，亿美元）</h3>
+  <table>
+    <tr><th>年度</th><th>经营现金流 OCF</th><th>资本开支 Capex</th><th>FCF = OCF − Capex</th><th>解读</th></tr>
+    <tr><td>FY2021</td><td class="pos">300</td><td>187</td><td class="pos">+113</td><td>最后的 FCF 正年</td></tr>
+    <tr><td>FY2022</td><td>154</td><td>248</td><td class="neg">−94</td><td>扩产开始</td></tr>
+    <tr><td>FY2023</td><td>115</td><td>258</td><td class="neg">−143</td><td>IDM 2.0 capex 顶峰</td></tr>
+    <tr><td>FY2024</td><td>83</td><td>239</td><td class="neg">−156</td><td>最深亏口</td></tr>
+    <tr><td>FY2025</td><td>97</td><td>146</td><td class="neg">−49</td><td>SCF 补贴+砍 capex，收敛</td></tr>
+    <tr><td>FY2026E</td><td>~190-200</td><td>~200（公司口径）</td><td class="warn">≈打平（Q3 单季 +$16.4 亿）</td><td>刚摸到盈亏平衡</td></tr>
+    <tr><td><b>FY2027E（公司指引）</b></td><td>?</td><td><b>「大幅增加」</b></td><td class="neg"><b>CFO：无正 FCF</b></td><td><b>再度转负——本次暴跌核心</b></td></tr>
+  </table>
+  <p><b>四年累计 FCF 烧掉 ~$442 亿（2022-2025）</b>，靠卖 Altera/Mobileye 股权、SCIP 合资、政府注资、发债撑过来。2026 年眼看要打平，管理层选择在 2027 年再踩一脚 capex 油门（为 AI 服务器 CPU 扩产）——从股东现金流角度，<b>翻身叙事被自己推迟了两年</b>。</p>
+
+  <h3>2.2 利润化妆识别：三个非现金搅拌器</h3>
+  <ul>
+    <li><b>政府托管股份公允价值变动（±$100 亿级，纯会计噪音）</b>：商务部 9.9% 股权的衍生负债按季盯市——<b>股价涨→账面亏，股价跌→账面赚</b>。Q2'26 股价 $95→$123，确认 <b>−$125 亿</b> 公允价值损失（当季 GAAP 净亏 −$110 亿）；Q3'26 股价回落，GAAP EPS $0.60 反而<b>高于</b> non-GAAP $0.52。<b>读英特尔财报，GAAP 单季数字直接扔掉。</b></li>
+    <li><b>商誉减值</b>：Q1'26 已计 $39 亿（余额仍有 $205 亿——代工若继续不及预期，还有减值弹药）。</li>
+    <li><b>一次性处置收益/重组</b>：2024 年 −$188 亿大洗澡；2025Q3 有 +$54.5 亿资产剥离收益垫高基数（今年 Q3 GAAP −18% 同比全是它造成的口径假象）。</li>
+    <li><b>OCF/净利 交叉验证（通过）</b>：Q3'26 OCF $32 亿 ≈ 调整后净利 $28 亿，比值 ~1.1 ✓；2026 上半年 OCF $81 亿 vs 去年同期 $29 亿，真实经营改善。注意 Q2 调整后 FCF −$84 亿被 SCIP 合资回购（净 −$122 亿）扭曲，非经营恶化。</li>
+  </ul>
+
+  <h3>2.3 资产负债表与股东回报</h3>
+  <table>
+    <tr><th>项目（2026-06-27，Q2 财报）</th><th>数值</th><th>点评</th></tr>
+    <tr><td>现金+短期投资</td><td>$297 亿</td><td>尚厚，但相对 capex 计划偏薄</td></tr>
+    <tr><td>总债务（短+长）</td><td>$505 亿</td><td>Q2 新发 $130 亿定期债、偿 $90 亿</td></tr>
+    <tr><td>净债务</td><td>~$208 亿</td><td class="warn">2027 投资年若再举债 → $300 亿+路径</td></tr>
+    <tr><td>PP&E 净额</td><td>$1,057 亿</td><td>重资产帝国的本体，折旧压力长期存在</td></tr>
+    <tr><td>商誉 / 存货</td><td>$205 亿 / $125 亿</td><td class="warn">商誉减值弹药；存货季环比上升</td></tr>
+    <tr><td>股东权益（归属）</td><td>$875 亿</td><td>每股账面 ~$16.8</td></tr>
+    <tr><td>员工数</td><td>82.3K</td><td>一年前 101.4K、2024 年 125K+——陈立武瘦身 ~1/3</td></tr>
+    <tr><td>股息 / 回购</td><td class="neg">停发（24Q4 起）/ 授权剩 $72.4 亿未动</td><td><b>没有任何 yield 托底，跌起来没有买家护盘</b></td></tr>
+  </table>
+</section>
+
+<!-- ================ STEP 3 ================ -->
+<section>
+  <h2><span class="stepno">第3步</span>估值：跌完 25% 还是不便宜——当前价隐含「转型成功」</h2>
+  <p class="lead">PE 分位 + 同业定位 + 三档目标价 + 反推隐含假设。周期股警告：DCAI +78% 是低基数回补+AI 周期早段的峰值增速，不能拿它当常态利润乘低 PE。</p>
+
+  <h3>3.1 当前估值坐标（基准 $68.71，市值 ~$3,610 亿）</h3>
+  <table>
+    <tr><th>口径</th><th>数值</th><th>对照/判定</th></tr>
+    <tr><td>PE（TTM non-GAAP，EPS ~$1.38）</td><td>~50x</td><td class="neg">贵</td></tr>
+    <tr><td>PE（2026E，EPS ~$1.48 = 0.29+0.42+0.52+0.25）</td><td>~46x</td><td class="neg">贵</td></tr>
+    <tr><td>PE（2027E 共识下调后 ~$2.0-2.3，本报告估算）</td><td>~30-34x</td><td class="warn">不便宜</td></tr>
+    <tr><td>PB</td><td>4.2x</td><td class="neg">自身十年区间 ~1.5-5x、中位 ~2.7x → 约 80 分位以上</td></tr>
+    <tr><td>同业</td><td>NVDA ~27x TTM / TSMC ~18-20x / AMD ~25-30x fwd</td><td class="neg">一个 FCF 为负的转型股贵过印钞机们</td></tr>
+    <tr><td>卖方对照（暴跌前）</td><td>42 家：13 买/25 持/4 卖，平均目标价 $111</td><td>10-30 已见：Jefferies 降至持有 $85、GS 持有 $100——卖方公允带 $85-100 仍高于本报告中性档（原因见下）</td></tr>
+  </table>
+
+  <h3>3.2 SOTP：市值里工厂卖的是什么价</h3>
+  <ul>
+    <li><b>产品业务</b>（CCPG+DCAI，2026E 营业利润 ~$190 亿、净利 ~$100-110 亿）：给 20-25x（成长型 CPU 双寡头）→ $2,100-2,600 亿。</li>
+    <li><b>代工+其他</b>（每季亏 $18.5 亿、18A 无新大客户、14A 窗口仅 ~18 个月）：战略价值法给 $500-800 亿（政府背书+本土唯一+亚利桑那/以色列/俄勒冈产能）——这已是慷慨定价，TSMC 同行按利润定价它一分不值。</li>
+    <li><b>合计公允区间：$2,600-3,400 亿 = $49-64/股</b>。<b>当前 $3,610 亿市值 → 市场给工厂+期权定价 ~$1,000-1,500 亿，比慷慨估值还多付一截。</b></li>
+  </ul>
+
+  <h3>3.3 三档目标价（12-18 个月）</h3>
+  <table>
+    <tr><th>情景</th><th>关键假设</th><th>盈利路径</th><th>目标价</th><th>vs 现价</th></tr>
+    <tr><td><b>悲观</b></td><td>PC 2027 再 −8%（存储 BOM 冲击）、DCAI 基数效应消失回落 +15-20%、以色列修复拖延、毛利率卡 38-40%、foundry 亏损重新扩大</td><td>2027E EPS ~$1.5-1.7 × 18-20x；PB 2.2x</td><td><b>$28-36</b></td><td class="neg">−48% ~ −59%</td></tr>
+    <tr><td><b>中性</b></td><td>2027H1 受压（以色列+存储）H2 恢复；DCAI +35%；foundry 亏损缩至 ~$40 亿；2028 FCF 转正；capex 2028 见顶</td><td>2027E EPS $2.1-2.3 × 22-24x；或 2028E ~$3.1 × 18x</td><td><b>$48-60</b></td><td class="neg">−13% ~ −30%</td></tr>
+    <tr><td><b>乐观</b></td><td>14A 拿下苹果/AMD 级大客户（UBS 称正接洽）；DCAI 2027 +50%（供给瓶颈解除）；foundry 2027 底盈亏平衡；2027E EPS $2.8-3.0</td><td>× 28-30x；2028E $4.2+ × 25x</td><td><b>$95-115</b></td><td class="pos">+38% ~ +67%</td></tr>
+  </table>
+  <p><b>注意中性档在现价下方——这就是「跌完仍不便宜」的量化表达。</b>现价 $68.71 要么落在中性偏上、要么是「乐观的打折价」，没有悲观情形的补偿。卖方公允带（$85-100）与我的差异在于：他们对 foundry 给了更高的战略溢价、对产品业务给 28-30x——按本框架（不确定的工厂只给期权价）我给不了。</p>
+
+  <h3>3.4 反推：$68.71 隐含了什么假设</h3>
+  <ul>
+    <li>市值 $3,610 亿，若要求 10% 年化回报、5 年后需 ~$5,800 亿市值 → 按 20x PE 需 2031 年净利 <b>~$290 亿</b>（vs 2026E ~$75 亿）→ <b>净利五年复合 ~30%</b>。可行但这是「一切顺遂」路径：DCAI 超级周期不中断 + foundry 2028 转正后迅速上量。</li>
+    <li>等价读法：现价 = 2028E 中性 EPS ~$3.1 × 21x，<b>即市场已把「2028 年 FCF 转正」当作基准情形计价</b>——而 CFO 三天前刚说 2027 没有正 FCF，转正本身还是个承诺。</li>
+    <li><b>周期股警告（框架原文适用）</b>：2021 年英特尔也曾「峰值利润 $199 亿 × 低 PE」看起来便宜，随后四年利润归零再转负。今天 DCAI +78% 就是这个对称位置——<b>峰值增速给高 PE 是双重付费</b>。</li>
+  </ul>
+</section>
+
+<!-- ================ STEP 4 ================ -->
+<section>
+  <h2><span class="stepno">第4步</span>风险与证伪：每条空头论点配一个可观测信号</h2>
+  <p class="lead">先写好出场条件再进场——本节先列风险与触发器，第 5 步才给买价。</p>
+
+  <table>
+    <tr><th>#</th><th>空头论点</th><th>可观测信号（触发器）</th><th>动作</th></tr>
+    <tr><td>1</td><td>2027 投资年 cash burn 重启，若 AI capex 周期退潮，净债 $208 亿 → $350 亿+</td><td>Q4 财报（1 月底）给出 2027 capex &gt;$280 亿 且 DCAI 增速 &lt;+30%</td><td>不入场 / 已持仓清仓</td></tr>
+    <tr><td>2</td><td>存储超级周期杀 PC：BOM 涨价压制换机，CCPG 持续失血（CEO：问题持续到 2027）</td><td>CCPG 同比连续两季 &lt;−5%</td><td>中性档下修一档</td></tr>
+    <tr><td>3</td><td>以色列 Kiryat Gat 地缘集中风险（美伊战争进行中）；事故已计 −$6 亿，战争升级=更多</td><td>再爆工厂事故/断供/保险不覆盖新闻</td><td>直接按悲观档处理</td></tr>
+    <tr><td>4</td><td>18A 至今无新增大客户（微软/亚马逊是 2024 老单）；14A 窗口仅 ~18 个月，苹果/AMD 只是传闻</td><td>2027 年中前无新大客户官宣 → foundry 按零估值</td><td>目标价降 $10-15</td></tr>
+    <tr><td>5</td><td>股本与政治供给：政府 9.9%（成本 ~$20.5）+软银 2%（$23）+英伟达 4%（$23.28）<b>全部浮盈 ~3 倍且无明确锁仓</b>；政府持股=政治定价与回购约束</td><td>任何一方减持公告；政府干预经营的人事/定价新闻</td><td>短期承压，等供给出清再评估</td></tr>
+    <tr><td>6</td><td>DCAI +78% 的基数幻觉：2025 服务器库存出清后回补 + AMD 份额战未停</td><td>DCAI 同比连续两季 &lt;+25%</td><td><b>论点失效，清仓</b>（这是多头论点的命门）</td></tr>
+    <tr><td>7</td><td>宏观流动性：12 月 FOMC 加息基本锁定、11/3 中期选举；β=2.2 的拥挤交易在收紧期双杀</td><td>12 月 FOMC 加息落地 + 长端利率 &gt;5%</td><td>用档位等它，不抢跑</td></tr>
+  </table>
+
+  <h3>供给/事件日历</h3>
+  <table>
+    <tr><th>时间</th><th>事件</th><th>意义</th></tr>
+    <tr><td>10-30 晚 21:30（HKT）</td><td><b>美股 regular session 正式开盘消化缺口</b></td><td>盘前 $68.71 不是定盘价；动量平仓未完，开盘可能更低</td></tr>
+    <tr><td>11-03</td><td>美国中期选举</td><td>政府持股政策的政治变量</td></tr>
+    <tr><td>11-10</td><td>10 月 CPI</td><td>12 月加息的最后一道确认</td></tr>
+    <tr><td>12 月中</td><td>FOMC（加息基本锁定）</td><td>高 β 成长股流动性考验</td></tr>
+    <tr><td><b>2027-01 底</b></td><td><b>Q4'26 财报 = 主裁决日</b></td><td>三问：以色列修复没？2027 capex 具体多少？PC 见底没？DCAI 增速是否 &gt;+30%</td></tr>
+    <tr><td>2027 Q1</td><td>以色列事故二段损失（−$3 亿）落地</td><td>毛利率低基数，Q1 报表仍难看</td></tr>
+    <tr><td>2027 年中</td><td>14A 大客户窗口关闭线</td><td>有官宣=乐观档激活；没有=foundry 归零估值</td></tr>
+  </table>
+</section>
+
+<!-- ================ STEP 5 ================ -->
+<section>
+  <h2><span class="stepno">第5步</span>价格纪律：不接飞刀，用档位等它</h2>
+  <p class="lead">结论先行：<b>今晚才正式开盘，缺口未定形；动量往返（4.3 倍涨上来）通常需要时间+换手出清；基本面裁决在 1 月底。</b>现在入场的赔率是「中性 −13%~−30% / 乐观 +38%~+67% / 悲观 −48%~−59%」——期望值不平，安全边际为零。</p>
+
+  <div class="ladder">
+    <div class="rung now"><b>$68.71</b>现价（盘前）<br>≈中性档上沿<br>零安全边际</div>
+    <div class="rung r1"><b>档① $55-60</b><br>仓位 1%<br>条件：Q4 财报确认 DCAI &gt;+30% 且 foundry 环比减亏</div>
+    <div class="rung r2"><b>档② $45-48</b><br>加至 2%<br>中性档下沿 = 2027E $2.2 × 21x</div>
+    <div class="rung r3"><b>档③ $33-38</b><br>加至 3% 封顶<br>4 月启动带 + 悲观档上沿，PB ~2x</div>
+  </div>
+
+  <h3>进场前先写好的出场条件（持仓期间任一触发即执行）</h3>
+  <ol>
+    <li><b>论点命门</b>：DCAI 同比增速连续两季 &lt;+25% → <b>清仓</b>（AI 服务器 CPU 叙事证伪）；</li>
+    <li><b>盈利质量</b>：non-GAAP 毛利率指引连续两季 &lt;40% → <b>清仓</b>；</li>
+    <li><b>转型倒退</b>：foundry 营业亏损连续两季环比扩大 → <b>清仓</b>；</li>
+    <li><b>现金流承诺再跳票</b>：2028 FCF 转正路径被管理层推迟 → <b>清仓</b>；</li>
+    <li><b>硬价格线</b>：持仓期间周收盘 &lt; 档③下沿 $33 → <b>先减半再研究</b>（跌破 4 月平台=动量出清升级为基本面恶化）。</li>
+  </ol>
+  <div class="callout green"><b>仓位纪律：</b>总仓 ≤3%（高不确定转型股 + β 2.2），不加杠杆，档位不满足条件不机械补——价格到位+基本面确认双门槛，宁可不建仓。若 1 月底 Q4 财报三问全过而股价仍在 $60 上方，可容忍「错过」：错过不是亏损，接飞刀才是。</div>
+</section>
+
+<!-- ================ ONE PAGER ================ -->
+<section class="onepager">
+  <h2>一页纸投资论点 · Intel（INTC）</h2>
+  <p class="lead" style="color:#8fa5d4;">基准 $68.71（10-30 盘前）· 市值 ~$3,610 亿 · 未持仓 · 2026-10-30</p>
+
+  <h3>论点（为什么它值得留在观察池）</h3>
+  <ul>
+    <li>x86 双寡头 + AI 基建的真实第二引擎：<b>DCAI +78%（15 年最快）、分部利润率 41%、CPU 供给只够 ~50% 需求</b>——需求真实到交付不出来，2026E 产品业务净利 ~$100-110 亿且连续 8 季超指引。</li>
+    <li>连续 8 季 beat + 一年裁员 1/3 + capex 从 $258 亿砍到 $146 亿（2025），执行力回归是可验证的事实，不是叙事。</li>
+    <li>政府 9.9% 持股 + CHIPS 资金 + 本土唯一先进代工 = 别人买不到的政策护城河；若 2028 FCF 转正兑现，$55-60 以下买入者拿的是「产品现金牛 + 工厂近似免费」。</li>
+  </ul>
+
+  <h3>反论点（空头各配信号，见第 4 步表）</h3>
+  <ul>
+    <li><b>现金毁灭未停</b>：2022-25 累计 FCF −$442 亿，CFO 刚确认 2027 再转负、capex「大幅增加」——翻身叙事推迟两年，这是 -25% 的主因，且 1 月底才给具体数字。</li>
+    <li><b>PC 垮 + 存储成本冲击到 2027</b>：Q4 毛利率指引 38%，CCPG 已 −5%，CEO 原话存储问题是全行业级的。</li>
+    <li><b>foundry 无新大客户</b>：18A 外部主力还是 2024 年的微软/亚马逊，每季仍烧 $18.5 亿；苹果/AMD 只是接洽传闻，14A 窗口 18 个月。</li>
+    <li><b>三重股东浮盈 3 倍（政府 $20.5/软银 $23/英伟达 $23.28 成本）+ 政治定价</b>——上方随时有供给，下方没有股息/回购托底。</li>
+    <li><b>估值不补偿风险</b>：~50x TTM / ~30x 2027E / 4.2x PB，比 NVDA/TSMC 都贵，现价隐含 2028 转正为基准情形；DCAI +78% 是峰值增速，按框架「峰值利润×高 PE 是双重付费」。</li>
+  </ul>
+
+  <h3>触发器（先写好再进场）</h3>
+  <ul>
+    <li><b>入场</b>：$55-60（档①，1% 仓）且 1 月底 Q4 财报通过三问（以色列修复/2027 capex ≤$280 亿/DCAI &gt;+30%）；$45-48 加档②；$33-38 加档③封顶 3%。</li>
+    <li><b>证伪清仓</b>：DCAI 连续两季 &lt;+25%；或毛利率指引连续两季 &lt;40%；或 foundry 亏损连续两季扩大；或 2028 FCF 路径再跳票；或周收盘 &lt;$33 先减半。</li>
+    <li><b>时间裁决</b>：10-30 开盘定形缺口 → 11/3 选举 → 11/10 CPI → 12 月 FOMC（加息）→ <b>2027-01 底 Q4 财报（主裁决）</b> → 2027 年中 14A 客户窗口。</li>
+  </ul>
+
+  <div class="foot">研究方法：五步框架（生意×价格×风险）· 数据源：Intel Q2'26/Q3'26 新闻稿、Wind、Google Finance 实时、21 经济/证券时报/一财经/央视财经财报报道、MarketBeat、Fool、AP。本文为个人研究笔记，非投资建议。生成于 2026-10-30 16:30 HKT，美股尚未开盘，盘前价与开盘价可能有重大差异。</div>
+</section>
+
+<section>
+  <h2>数据来源</h2>
+  <div class="srcs">
+    · Intel Q2'26 新闻稿（intc.com detail/1776：托管股份 −$12.5B、SCIP、资产负债表、Investor Deck）· Intel Q3'26 新闻稿（10-29 16:01 ET 发布）·
+    <a href="https://egs.stcn.com/news/detail/2358128.html">证券时报：Q4 指引大幅逊色 盘后跌超 23%</a> ·
+    <a href="https://www.yicai.com/news/103417665.html">第一财经：盘后大跌 23%（分部数据/津斯纳 2027 投资年）</a> ·
+    <a href="https://m.21jingji.com/article/20261030/herald/6eab1e1577893ff065e72a24302777c8.html">21 经济报道：盘后重挫（指引明细）</a> ·
+    <a href="https://m.21jingji.com/article/20261030/herald/af9e17f5ca796cc97cefb1755b079633.html">21 经济报道：美股复盘（GAAP 口径）</a> ·
+    <a href="https://stcn.com/article/detail/4304476.html">证券时报：美股全线收跌（同夜亚马逊/谷歌背景）</a> ·
+    Wind（INTC.O 五年财报、周 K 线、实时指标）· Google Finance（盘前 $68.71 −25.38%、分析师 42 家分布）·
+    Fool.com 2026-10-06（股息停发/回购授权）· AP/Fast Company/Investopedia/Yahoo（2025 年政府 9.9%/软银 $2B@$23/英伟达 $5B@$23.28 入股）·
+    Globe and Mail 2026-01 / TechPowerUp 2026-04 / Futurum（18A 量产、14A 18 个月窗口、苹果/AMD 接洽）· Seeking Alpha / Benzinga / MarketBeat（Q3 beat、盘后跌幅、分析师动向）
+  </div>
+</section>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>甲骨文 ORCL 五步投资研究 | 2026-10-27</title>
+<style>
+  :root{
+    --ink:#1a2332; --sub:#5a6a7e; --line:#dde4ec; --bg:#f5f7fa; --card:#ffffff;
+    --red:#c0392b; --green:#1e7d4f; --amber:#b26a00; --blue:#1f5fa8; --gold:#8a6d1a;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:-apple-system,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+       background:var(--bg);color:var(--ink);line-height:1.65;font-size:14.5px;}
+  .wrap{max-width:1020px;margin:0 auto;padding:28px 20px 60px;}
+  /* header */
+  .hdr{background:linear-gradient(135deg,#16233a 0%,#24405f 100%);color:#fff;border-radius:12px;
+       padding:26px 30px;margin-bottom:20px;}
+  .hdr .tick{display:flex;flex-wrap:wrap;align-items:baseline;gap:12px;}
+  .hdr h1{font-size:26px;font-weight:700;letter-spacing:.5px;}
+  .hdr .muted{color:#a9bcd4;}
+  .hdr .verdict{margin-top:12px;background:rgba(255,255,255,.10);border-left:4px solid #e8c35a;
+                padding:10px 14px;border-radius:0 8px 8px 0;font-size:15px;}
+  .quotegrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-top:16px;}
+  .qitem{background:rgba(255,255,255,.08);border-radius:8px;padding:8px 12px;}
+  .qitem .k{font-size:11.5px;color:#a9bcd4;}
+  .qitem .v{font-size:16.5px;font-weight:700;color:#fff;}
+  .qitem .v.red{color:#ff9d94;} .qitem .v.grn{color:#8fe3b0;} .qitem .v.amb{color:#f4c86a;}
+  /* score strip */
+  .scores{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:20px;}
+  .score{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;}
+  .score h3{font-size:13px;color:var(--sub);font-weight:600;margin-bottom:6px;}
+  .score .grade{font-size:26px;font-weight:800;}
+  .score p{font-size:12.5px;color:var(--sub);margin-top:4px;}
+  .gA{color:var(--green);} .gB{color:var(--blue);} .gC{color:var(--amber);} .gD{color:var(--red);}
+  /* sections */
+  section{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px 26px;margin-bottom:20px;}
+  h2{font-size:18.5px;font-weight:700;padding-bottom:10px;border-bottom:2px solid var(--line);margin-bottom:14px;}
+  h2 .step{display:inline-block;background:#16233a;color:#fff;font-size:12px;border-radius:5px;
+           padding:2px 8px;margin-right:8px;vertical-align:2px;font-weight:600;}
+  h3{font-size:15px;font-weight:700;margin:16px 0 8px;color:#16233a;}
+  p{margin:8px 0;}
+  ul,ol{margin:6px 0 6px 22px;}
+  li{margin:4px 0;}
+  table{width:100%;border-collapse:collapse;margin:10px 0;font-size:13px;}
+  th{background:#eef2f7;text-align:left;padding:7px 9px;font-weight:600;border:1px solid var(--line);white-space:nowrap;}
+  td{padding:6px 9px;border:1px solid var(--line);vertical-align:top;}
+  tr:nth-child(even) td{background:#fafbfd;}
+  .num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;}
+  .pos{color:var(--green);font-weight:600;} .neg{color:var(--red);font-weight:600;} .warnc{color:var(--amber);font-weight:600;}
+  .note{font-size:12px;color:var(--sub);}
+  .callout{border-radius:8px;padding:12px 14px;margin:12px 0;font-size:13.5px;}
+  .co-red{background:#fdf0ee;border-left:4px solid var(--red);}
+  .co-grn{background:#eef7f1;border-left:4px solid var(--green);}
+  .co-amb{background:#fdf6e9;border-left:4px solid var(--amber);}
+  .co-blu{background:#eef3fa;border-left:4px solid var(--blue);}
+  .tag{display:inline-block;font-size:11px;border-radius:4px;padding:1px 7px;margin-right:5px;font-weight:600;vertical-align:1px;}
+  .t-red{background:#fdecea;color:var(--red);} .t-grn{background:#e9f5ee;color:var(--green);}
+  .t-amb{background:#fdf3e3;color:var(--amber);} .t-blu{background:#eaf1fa;color:var(--blue);}
+  /* price ladder */
+  .ladder{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin:12px 0;}
+  .rung{border:1px solid var(--line);border-radius:10px;padding:12px 14px;background:#fafbfd;}
+  .rung .p{font-size:20px;font-weight:800;}
+  .rung .d{font-size:12px;color:var(--sub);margin-top:4px;}
+  /* one-pager */
+  .onepager{border:2px solid #16233a;background:#fffdf5;border-radius:12px;padding:24px 28px;}
+  .onepager h2{border-bottom:2px solid #16233a;}
+  .op-block{margin-bottom:14px;}
+  .op-block h3{margin:0 0 6px;font-size:15px;}
+  .op-thesis{color:var(--green);} .op-anti{color:var(--red);} .op-trig{color:var(--blue);}
+  .op-block ul{margin-left:20px;}
+  footer{font-size:12px;color:var(--sub);margin-top:26px;line-height:1.8;}
+  footer a{color:var(--blue);text-decoration:none;word-break:break-all;}
+  @media print{ body{background:#fff;} section,.hdr{box-shadow:none;} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- ================= HEADER ================= -->
+<div class="hdr">
+  <div class="tick">
+    <h1>甲骨文 Oracle（NYSE: ORCL）</h1>
+    <span class="muted">五步投资研究 · 生意好不好 × 价格便不便宜 × 风险拿得住</span>
+  </div>
+  <div class="muted" style="margin-top:4px;font-size:13px;">数据截至 2026-10-27（盘中） · 财年截至5月31日：FY2026=2025/6–2026/5，最新披露=FY2027 Q1（截至2026/8/31）</div>
+  <div class="verdict">
+    <b>一句话：</b>数据库护城河完好、OCI 订单爆发是真的（RPO $6,640亿），但公司已从"轻资产软件商"变形为"高杠杆算力地产商"——债务 $1,253亿、FCF 连续为负、单一客户占积压近半。16x 前瞻 PE 表面便宜，本质是<b>周期性资本开支股的事件驱动机会，不是复利型持仓</b>。裁决日：2026-12-10 前后的 Q2 财报（capex 指引 + FCF 缺口路径）。结论：<b>观察 / 小仓分批（≤3%），不满足三个条件不加仓</b>。
+  </div>
+  <div class="verdict" style="margin-top:10px;background:rgba(111,208,143,.14);border-left-color:#6fd08f;">
+    <b>📌 10-28 盘后更新（投资者日）：</b>管理层给出 FY2030 收入 ≥$2,250亿（隐含 ~35%/年 CAGR）、<b>FCF 于 FY28 下半年转正</b>、capex FY27–28 见顶回落 + 融资计划透明化——正是本文"升级核心仓三条件"的前两条，但<b>目前是指引而非兑现</b>（转正时点距今 ~19 个月，期间 FCF 仍负、融资继续）。股价当晚 <b>+10.6% 收 $144.34</b>（盘中 +13.7%，成交 $69亿），前瞻 PE 抬至 17.8x FY27E。<b>档① $118 未成交 = 放弃不追</b>；距中性 $180 仅 +25%、距悲观 $95 −34%，赔率较 $130 时变差。12-10 Q2 财报从"裁决日"变为"验证日"：确认 capex 不再上修 + FCF 单季缺口收窄至 &lt;$30亿，回补 $128–132 缺口区或验证日确认后再考虑介入。
+  </div>
+  <div class="quotegrid">
+    <div class="qitem"><div class="k">现价（10/27盘中）</div><div class="v">$130.25 <span style="font-size:12px;color:#8fe3b0;">+3.3%</span></div></div>
+    <div class="qitem"><div class="k">市值</div><div class="v">$3,949亿</div></div>
+    <div class="qitem"><div class="k">PE（TTM GAAP）</div><div class="v">21.1x</div></div>
+    <div class="qitem"><div class="k">前瞻 PE（FY27E $8.10）</div><div class="v">16.1x</div></div>
+    <div class="qitem"><div class="k">距峰值 $345.72</div><div class="v red">−62%</div></div>
+    <div class="qitem"><div class="k">52周区间</div><div class="v">$114 – $282</div></div>
+  </div>
+</div>
+
+<!-- ================= SCORES ================= -->
+<div class="scores">
+  <div class="score"><h3>① 生意质量</h3><div class="grade gB">B+（正在降级中）</div>
+    <p>数据库转换成本+提价能力仍顶级；但商业模式被 AI 资本开支重构，增量资本回报率已滑向资金成本。</p></div>
+  <div class="score"><h3>② 财务健康</h3><div class="grade gC">C</div>
+    <p>利润表漂亮、资产负债表危险：FCF 两年为负、有息债 $1,253亿、折旧 +134%、经营现金流一半靠客户预付。</p></div>
+  <div class="score"><h3>③ 价格</h3><div class="grade gB">B</div>
+    <p>16x 前瞻 / 11.8x FY28E 一致预期，处于自身历史带下沿、大幅折价同业；但便宜的理由（杠杆+集中度）真实存在。</p></div>
+  <div class="score"><h3>④⑤ 风险可控 × 纪律</h3><div class="grade gC">C+</div>
+    <p>二元结局（AI 信用周期），波动 52 周 −60%~+147%，必须小仓分档、先写出场条件再进场。</p></div>
+</div>
+
+<!-- ================= STEP 1 ================= -->
+<section>
+<h2><span class="step">STEP 1</span>生意质量：护城河仍在，但生意正在变形</h2>
+
+<h3>收入结构与利润引擎（FY2027 Q1，截至2026/8/31）</h3>
+<table>
+<tr><th>业务线</th><th class="num">季度收入</th><th class="num">占比</th><th class="num">同比</th><th>角色</th></tr>
+<tr><td><b>云基础设施 IaaS（OCI）</b></td><td class="num">$73.9亿</td><td class="num">38%</td><td class="num pos">+121%</td><td>新引擎：AI 算力出租，年化已达 ~$296亿</td></tr>
+<tr><td>云应用 SaaS（Fusion/NetSuite）</td><td class="num">$42.2亿</td><td class="num">22%</td><td class="num">+10%</td><td>旧引擎之一：增速平庸，双位数出头</td></tr>
+<tr><td>软件许可+支持（License Support）</td><td class="num">$55.5亿</td><td class="num">29%</td><td class="num neg">−3%</td><td>现金牛：数据库支持合同，开始失速</td></tr>
+<tr><td>硬件</td><td class="num">$7.7亿</td><td class="num">4%</td><td class="num">+15%</td><td>边缘</td></tr>
+<tr><td>服务</td><td class="num">$14.1亿</td><td class="num">7%</td><td class="num">+5%</td><td>边缘</td></tr>
+<tr><td><b>合计</b></td><td class="num"><b>$193.5亿</b></td><td class="num">100%</td><td class="num pos"><b>+30%</b></td><td>GAAP 营业利润率 35%（non-GAAP 42%）</td></tr>
+</table>
+<p class="note">FY2026 全年：收入 $673.6亿(+17%)，其中云 $409.5亿(+27%)、软件许可 $231.8亿(−4%)。RPO 轨迹：$455B（25/9）→ $523B → $553B → $638B（FY26末）→ <b>$664B</b>（26/9，同比+$2,090亿）。</p>
+
+<h3>护城河检验</h3>
+<ul>
+<li><b>转换成本：仍在。</b>全球核心银行/电信/政府的账本和交易系统跑在 Oracle 数据库上，迁移=数年工程。多云战略（Oracle DB@Azure/AWS/GCP）当季同比 <b>+404%</b>——护城河不但没被云厂商锁死，反而借对方渠道放量，这是本季最强的质量证据。</li>
+<li><b>提价能力：仍在但弱化。</b>License Support 是历史利润引擎（毛利率 ~90%+），本季软件线 −3% 说明存量客户在向云迁移/砍支持费，提价空间被 "上云否则被替代" 的博弈压缩。</li>
+<li><b>市占率：数据库仍第一，IaaS 是老四追赶者。</b>OCI 份额个位数，靠"不跟超大客户抢模型主权 + 性价比 + 私有部署"切走 OpenAI/xAI/Meta 这批自建派。</li>
+</ul>
+
+<div class="callout co-amb">
+<b>ROIC 检验——框架的第①步在这里报警。</b>历史上 Oracle 完全合格：轻资产软件模型下 FY16–FY25 ROIC 估 ~15–25%，远高于 ~8% 的资金成本。但 FY25 起资本开支爆炸（FY26 capex $557亿 > 全年经营现金流 $320亿），投入资本从 ~$900亿膨胀到 ~$1,900亿（债务+权益+租赁−现金），NOPAT 估 ~$200亿 → <b>ROIC ≈ 10%，且还在下行；增量资本早期回报 6–8%，≈ 资金成本（10Y 美债 ~5%，Oracle 新发债成本 6–7%）</b>。按"ROIC 连续高于 WACC"的前瞻口径，这门生意<b>正在从 A 级降级</b>——不是护城河塌了，是护城河外的新城（数据中心）暂时不赚钱。
+</div>
+
+<p><b>商业模式看得懂吗？</b>一半看得懂：数据库/Support/SaaS 是经典高粘性软件生意。另一半在变形：OCI 大单 = 客户预付硬件、Oracle 垫建机房、按年确认收入——本质是<b>"AI 收费公路 + 设备租赁"</b>，周期、杠杆、客户信用全都进来了。按框架规则，变形后的部分够不上"看不懂直接放弃"，但够得上"仓位打折"。</p>
+</section>
+
+<!-- ================= STEP 2 ================= -->
+<section>
+<h2><span class="step">STEP 2</span>财务体检：利润表在化妆，资产负债表在充血</h2>
+
+<h3>终极检验：FCF = 经营现金流 − 资本开支</h3>
+<table>
+<tr><th>指标</th><th class="num">FY2025</th><th class="num">FY2026</th><th class="num">FY2027 Q1</th><th>解读</th></tr>
+<tr><td>经营现金流</td><td class="num">$208亿</td><td class="num">$320亿 (+54%)</td><td class="num">$231亿 (+184%)</td><td>表面极佳 ⚠️</td></tr>
+<tr><td>　其中：客户预付款（含融资成分）</td><td class="num">—</td><td class="num">n/a</td><td class="num">$113.6亿</td><td><span class="warnc">本季 OCF 一半靠它</span></td></tr>
+<tr><td>资本开支</td><td class="num">$212亿</td><td class="num">$557亿 (+162%)</td><td class="num">$285亿</td><td>单季≈去年同期的3.4倍</td></tr>
+<tr><td><b>自由现金流</b></td><td class="num">≈ 0</td><td class="num neg">−$237亿</td><td class="num neg">−$54亿</td><td><b>连续两年为负</b></td></tr>
+</table>
+<p class="note">剔除预付款后的 Q1 "原生" OCF ≈ $117亿，对应原生 FCF ≈ <b>−$168亿/季</b>。客户预付（AI 合同累计 $750亿预付+客户自带硬件）本质是<b>类债务融资</b>：先进钱、后欠算力，不改变生意的资本强度。</p>
+
+<h3>利润化妆识别（应计/一次性项目）</h3>
+<ul>
+<li><b>GAAP 与 non-GAAP 的双向剪刀差。</b>FY26 GAAP EPS $5.83(+37%) <i>快于</i> non-GAAP $7.63(+15%)——反常！GAAP 被投资收益化妆：Ampere 并购收益 $16.8亿（Q2FY26）、Bloom Energy 股票收益 $4.6亿（Q3FY26），以及 CoreWeave 持仓的市值波动。这些一次性项不产生经营现金流。</li>
+<li><b>SBC</b> ~$11亿/季（年化 ~$43亿），non-GAAP EPS $8.10 里没扣。</li>
+<li><b>重组/裁员</b>：Q4FY26 一次性 $8.23亿"效率行动"，同时研发与销售费用被压——利润加速部分来自"挤奶存量业务喂 AI 建设"，持续性质疑。</li>
+<li><b>折旧时间炸弹（最危险的一条）</b>：Q1 折旧 $31.6亿，同比 <span class="neg">+134%</span>。GPU 按系统 5–6 年折旧，而算力硬件 3 年一代——未来利润表面临"折旧追赶收入"，减值风险后置。</li>
+</ul>
+
+<h3>资产负债表与异动扫描（2026/8/31）</h3>
+<table>
+<tr><th>项目</th><th class="num">金额</th><th>异动与含义</th></tr>
+<tr><td>有息债务</td><td class="num neg">$1,253亿</td><td>一年前 ~$960亿；FY26 发债 $430亿 + FY27Q1 已定 $200亿 ATM 股权</td></tr>
+<tr><td>现金+短期证券</td><td class="num">$371亿</td><td>净债务 ~$882亿；另有经营租赁 ~$323亿</td></tr>
+<tr><td>固定资产净额（PP&E）</td><td class="num">$1,278亿</td><td>两年前仅 ~$390亿 → 资产端三年 3.3 倍</td></tr>
+<tr><td>商誉</td><td class="num warnc">$623亿</td><td>历史并购（Cerner 等）遗留，占市值 16%，非本轮风险源但无变现力</td></tr>
+<tr><td>应收账款</td><td class="num">$114亿</td><td>随收入+30%同比例，暂无异动；需盯 OpenAI 类客户账期</td></tr>
+<tr><td>利息费用（季）</td><td class="num neg">$14.3亿 (+55%)</td><td>年化 ~$57亿，再融资成本 6–7%；利息/营业利润覆盖 ~5.7x（尚可、趋势向下）</td></tr>
+<tr><td>股本</td><td class="num">30.0亿股（摊薄）</td><td>ATM $199亿已完成，<b>股本同比 +6%</b>；FY27 计划再融资 ~$400亿（含已发）</td></tr>
+</table>
+<p class="note">OCF/净利润 = $231/$47 ≈ 4.9，看似"现金流远好于利润"，但拆开是预付款驱动——<b>现金流质量比利润质量更能说明这轮扩张的融资本质</b>。</p>
+</section>
+
+<!-- ================= STEP 3 ================= -->
+<section>
+<h2><span class="step">STEP 3</span>估值：16x 是便宜还是陷阱？</h2>
+
+<h3>定位</h3>
+<ul>
+<li><b>自身历史带</b>：FY19–FY24（增速 6–9% 的旧 Oracle）前瞻 PE 中枢 ~19x（15–25x 带）；2025/9 AI 泡沫顶点 >50x；现在 16.1x（FY27E）/<b>11.8x（FY28E 一致预期 $11.00）</b>——回到旧模型下沿，等于市场对 $6,640亿 RPO 定价≈0。</li>
+<li><b>同业</b>：微软 ~30x、SAP ~35x、Salesforce ~20x、谷歌 ~22x 前瞻。Oracle 折价 40–50%——市场按"高杠杆公用事业+交易对手风险"而非"软件股"给它定价。</li>
+<li><b>卖方一致</b>：Buy，目标价均值 $236–251（区间 $110–400，分歧极大本身就是信号）。</li>
+</ul>
+
+<h3>三档目标价（锚 FY2028，截至2028/5）</h3>
+<table>
+<tr><th>情景</th><th class="num">FY28E 收入</th><th class="num">FY28E adj EPS</th><th class="num">倍数</th><th class="num">目标价</th><th class="num">空间</th><th>核心假设</th></tr>
+<tr><td><span class="tag t-red">悲观</span></td><td class="num">~$1,000亿</td><td class="num">$8.0–8.5</td><td class="num">11–12x</td><td class="num neg">$95</td><td class="num neg">−27%</td><td>AI 信用周期逆转：OpenAI 重组/砍单，增速掉到个位数，利息+折旧吞噬利润，FCF 缺口 FY28 仍 >$150亿</td></tr>
+<tr><td><span class="tag t-blu">中性</span></td><td class="num">~$1,150亿</td><td class="num">$10.5–11.0</td><td class="num">17x</td><td class="num"><b>$180</b></td><td class="num pos">+38%</td><td>RPO 按计划转化（一半四年内确认），FCF 缺口逐季收窄、FY28 转正路径可见，重估回软件股估值带下沿</td></tr>
+<tr><td><span class="tag t-grn">乐观</span></td><td class="num">~$1,320亿</td><td class="num">$11.0+</td><td class="num">22x</td><td class="num pos">$240</td><td class="num pos">+85%</td><td>预付模式跑通（$750亿→继续扩大），capex/收入 FY27 见顶，FY28 FCF 转正，"AI 收费公路"叙事成立（≈卖方一致目标）</td></tr>
+</table>
+
+<div class="callout co-blu">
+<b>反推当前 $130 隐含什么？</b>$130 = 16.1×FY27E $8.10。对照：旧 Oracle 增速 6–9% 时市场给 19x；现在指引 +34% 只给 16x。等价于市场定价：<b>"FY28 一致预期 $11 只值 11.8x"——即一半概率 $11 兑现、兑现了也只当普通公用事业卖</b>。多空分水岭就一句话：信不信 $11、以及兑现时是不是真现金。若把 $8.10 按"零增长重资产公用事业" 12x 极端压价 = $97（≈悲观档），当前价距悲观档仅剩 −25% 缓冲，距中性 +38%——赔率结构对小仓买方有利，但胜率必须靠 Q2 财报验证。
+</div>
+<p class="note">周期性修正：本股估值必须锚 <b>FCF 转正后的正常化利润</b>而非当前 PE——当前低 PE 是"capex 峰值期利润被利息与折旧双重挤压前"的读数，PE 陷阱典型形态。</p>
+</section>
+
+<!-- ================= STEP 4 ================= -->
+<section>
+<h2><span class="step">STEP 4</span>风险与证伪：空头论点 × 可观测信号 × 动作</h2>
+
+<h3>空头论点与触发器</h3>
+<table>
+<tr><th>#</th><th>空头论点</th><th>可观测信号（数据源）</th><th>触发器 → 动作</th></tr>
+<tr><td>1</td><td><b>OpenAI 集中度 ~45%</b>：RPO $6,640亿中约 $3,000亿绑定 OpenAI/Stargate，其自身融资依赖 Nvidia 循环投资+高收益债，未经历一轮信用检验</td><td>OpenAI 融资轮/发债条款；RPO 环比（已放缓：+15%→+6%→+15%→+4%）；10-K 风险因子措辞</td><td>RPO 环比转负或披露合同取消/重组 → <span class="neg">无条件离场</span></td></tr>
+<tr><td>2</td><td><b>循环交易网</b>：Nvidia→投 OpenAI；OpenAI→签 Oracle；Oracle→既是 CoreWeave 大交易对手又持仓其股票；卖算力给客户、客户用融资的钱付租</td><td>CoreWeave CDS/债券收益率（10/14 已到 ~16%、隐含5年违约概率 ~63%）；Oracle 自身 CDS（已成"AI 崩盘对冲工具"）</td><td>CoreWeave 实质违约或 Oracle CDS 利差翻倍 → <span class="neg">减半仓→清仓</span></td></tr>
+<tr><td>3</td><td><b>FCF 转正推迟</b>：capex 无顶（Q1 单季 $285亿，FY27 可能 >$900亿），每拖一年多付 ~$40亿利息</td><td>季度 FCF 缺口；capex 指引 vs 收入</td><td>连续两季缺口扩大，或 FY28 capex 指引再上台阶而 FCF 仍负 → <span class="neg">离场</span></td></tr>
+<tr><td>4</td><td><b>折旧/减值炸弹</b>：GPU 5–6年折旧 vs 3年换代，$1,278亿 PP&E 里埋着减值</td><td>折旧同比（现在 +134%）；"impairment/restructuring" 科目；GPU 二手价格（如 eBay H100 走势）</td><td>任何大额 GPU 减值或折旧年限调整披露 → <span class="neg">立即减仓</span></td></tr>
+<tr><td>5</td><td><b>融资依赖+稀释</b>：FY27 还要 raise ~$400亿；12月加息基本锁定（10Y ~5%），新债 6–7%</td><td>发债定价利差（2027 年初窗口）；新 ATM 公告；稀释比例</td><td>新发债利差 >300bp 或再推大额 ATM 而股价不涨 → <span class="warnc">减半仓</span></td></tr>
+<tr><td>6</td><td><b>旧引擎熄火</b>：软件许可 −3%、SaaS 仅 +10%，被 Postgres/Snowflake/Databricks 及云厂商原生库夹击</td><td>多云数据库增速（现在 +404%，是反证）；SaaS 增速；Support 续约率</td><td>多云 DB 增速跌到 <100% 且软件线连续三季负增长 → <span class="warnc">降级为纯周期仓</span></td></tr>
+</table>
+
+<h3>供给/事件日历</h3>
+<table>
+<tr><th>时间</th><th>事件</th><th>看什么</th></tr>
+<tr><td><b>2026-12-09/10（预计）</b></td><td><b>Q2 FY27 财报 —— 本案的裁决日</b></td><td>①capex 指引是否见顶 ②FCF 缺口 vs Q1 的 −$54亿 ③RPO 环比与 AI 新签 ④多云 DB 增速</td></tr>
+<tr><td>2026-12</td><td>FOMC（加息基本锁定）</td><td>新债成本；成长股折现率</td></tr>
+<tr><td>2027-01 ~ 03</td><td>Oracle 恢复发债窗口（承诺 2026 日历年不再发债；FY27 尚余 ~$200亿融资）</td><td>定价利差 = 信用市场对 AI 资产负债表的公投</td></tr>
+<tr><td>持续</td><td>OpenAI 融资轮 / CoreWeave 再融资墙</td><td>交易对手信用：任何一角断裂都先打 ORCL 股价</td></tr>
+<tr><td>季度</td><td>股息 $0.50/季（年化 ~$20亿）</td><td>覆盖无忧，不是信号位</td></tr>
+</table>
+</section>
+
+<!-- ================= STEP 5 ================= -->
+<section>
+<h2><span class="step">STEP 5</span>价格纪律：分档、仓位、先写出场</h2>
+
+<div class="ladder">
+  <div class="rung"><div class="p" style="color:var(--blue);">$118 ± 3</div><div class="d"><b>档①（1/3仓）</b><br>15x FY27E；52周低 $114 上方缓冲。仅事件驱动小仓启用。</div></div>
+  <div class="rung"><div class="p" style="color:var(--amber);">$103 ± 3</div><div class="d"><b>档②（1/3仓）</b><br>12.7x FY27E / 9.4x FY28E；接近 2025/4 OpenAI 担忧低点区。</div></div>
+  <div class="rung"><div class="p" style="color:var(--red);">$92 ± 4</div><div class="d"><b>档③（1/3仓）</b><br>悲观档中枢；只有"利空落地但生意未坏"才到得了——到价先核对触发器再执行。</div></div>
+</div>
+
+<ul>
+<li><b>总仓位 ≤3%</b>（事件驱动/投机级；非核心持仓）。理由：框架第①步前瞻 ROIC≈WACC，不满足核心仓标准。</li>
+<li><b>出场条件（进场前写好）：</b>
+<ol>
+<li>OpenAI 违约/大规模砍单披露 → 无条件全出，不等档位；</li>
+<li>周收盘 &lt; $88（悲观全兑现）→ 全出；</li>
+<li>连续两季 FCF 缺口扩大，或大额 GPU 减值 → 全出；</li>
+<li>新增 &gt;$200亿 ATM 或发债利差 &gt;300bp → 减半；</li>
+<li>Q2 财报若 capex 指引见顶 + FCF 缺口收窄 → 持有并可上移止损至成本。</li>
+</ol></li>
+<li><b>升级为核心仓的条件（三者同时满足）</b>：FCF 单季转正；capex/收入指引见顶回落；OpenAI 收入占比开始透明披露。届时可放宽至 5–6%。</li>
+<li><b>时间止损</b>：若 4 个季度（至 FY27 Q4）FCF 仍未转正，无论价格，降仓一半——资金机会成本按无风险 ~5% 计。</li>
+</ul>
+</section>
+
+<!-- ================= ONE PAGER ================= -->
+<section class="onepager">
+<h2>📜 一页纸投资论点 · ORCL @ $130.25（2026-10-27）</h2>
+
+<div class="op-block">
+<h3 class="op-thesis">◆ 论点（为什么可能赚 38%+）</h3>
+<ul>
+<li>护城河没坏：数据库转换成本顶级，多云 Oracle DB +404% 借对手渠道放量；OCI 年化 ~$296亿、+121%，是真实订单（RPO $6,640亿，管理层口径一半四年内确认）。</li>
+<li>价格把增长定价为零：16.1x FY27E / 11.8x FY28E，低于旧 Oracle 低增长时代的中枢 19x，折价微软/SAP 40%+。若 FCF 在 FY28 转正，市场把"AI 负债 buildout"重估为"AI 收费公路"，回中性 $180（+38%）；卖方一致 $236–251。</li>
+<li>融资结构比表面安全：$750亿客户预付+自带硬件在替 Oracle 垫资，利息覆盖尚有 ~5.7x，2026 日历年已承诺不再发新债。</li>
+</ul>
+</div>
+
+<div class="op-block">
+<h3 class="op-anti">◆ 反论点（为什么可能再跌 27%）</h3>
+<ul>
+<li>增长是借来的：两年内债务 $960亿→$1,253亿、股本稀释 +6%、FCF −$237亿（FY26）；增量资本回报 ≈ 资金成本，利润加速部分靠裁员与一次性投资收益。</li>
+<li>单一客户 ~45% 的 RPO 集中在一家靠循环融资输血的公司（OpenAI）身上；CoreWeave CDS 已入困境区（10/14 单日 ORCL −9% 只是预演）。</li>
+<li>折旧 +134% 的期限错配未爆；GPU 3年换代 vs 5–6年折旧，$1,278亿 PP&E 是后置的减值库；SaaS +10%/软件 −3% 的旧引擎失速同步发生。</li>
+</ul>
+</div>
+
+<div class="op-block">
+<h3 class="op-trig">◆ 触发器（何时买、何时跑）</h3>
+<ul>
+<li><b>裁决日 2026-12-10 前后 Q2 财报</b>：capex 指引见顶 + FCF 缺口收窄（Q2 缺口 &lt; $30亿为合格）+ RPO 不缩 → 档① $118 建仓；三项有两项不合格 → 继续观察。</li>
+<li><b>买</b>：$118 / $103 / $92 三档各 1/3，总仓 ≤3%。</li>
+<li><b>跑</b>：OpenAI 信用事件或 RPO 环比转负；周收 &lt; $88；连续两季 FCF 缺口扩大；大额 GPU 减值披露——任一出现按上表动作执行，不讨价还价。</li>
+<li><b>升级</b>：FCF 单季转正 + capex 见顶 + 集中度透明化 → 可升至核心仓 5–6%。</li>
+</ul>
+</div>
+<p class="note" style="margin-top:6px;">结论一句话：<b>好生意正在做一笔赌注极大的转型，价格已把大部分失败概率计进去；用小仓、分档、带触发器的方式参与，把"判断对错"交给 12 月财报和 2027 年初发债定价，而不是交给信仰。</b></p>
+</section>
+
+<footer>
+<b>数据来源：</b>Oracle FY26 Q4 与 FY27 Q1 业绩公告（<a href="https://www.sec.gov/Archives/edgar/data/1341439/000119312526265848/orcl-ex99_1.htm">8-K EX-99.1, 2026-06-10</a>；<a href="https://www.sec.gov/Archives/edgar/data/1341439/000119312526387905/orcl-ex99_1.htm">8-K EX-99.1, 2026-09-10</a>）；FY2026 10-K（2026-06-22）与 FY27 Q1 10-Q（2026-09-11）；行情与估值（Wind，2026-10-27 盘中）；CoreWeave 信用事件（<a href="https://www.cnbc.com/2026/10/15/coreweave-credit-default-swaps-hit-distress-levels-as-investors-sour-on-ai-debt.html">CNBC 2026-10-15</a>、<a href="https://www.reuters.com/legal/transactional/coreweave-shares-bonds-slide-further-ai-debt-fears-mount-2026-10-15">Reuters</a>、<a href="https://www.nytimes.com/2026/10/17/business/ai-debt-coreweave-oracle-softbank.html">NYT 2026-10-17</a>）；OpenAI 占 RPO 比例为媒体估算（Reuters/Investing.com）；FY28 一致预期 $131.7B 收入 / $11.00 EPS、目标价均值 $236–251（StockAnalysis/TipRanks/MarketBeat，2026-10）。ROIC/中性目标价为作者估算。<br>
+<b>免责：</b>个人研究笔记，非投资建议。作者未持仓 ORCL。
+</footer>
+
+</div>
+</body>
+</html>

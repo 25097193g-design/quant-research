@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>耐克投资价值研究 · 五步框架</title>
+<style>
+:root{--background:#f6f6f7;--foreground:#18181b;--card:#ffffff;--card-foreground:#18181b;
+--muted:#f0f0f2;--muted-foreground:#6f6f78;--border:#e4e4e7;
+--green:#15803d;--red:#dc2626;--yellow:#b45309;--blue:#1d4ed8;
+--viz-series-1:#1d4ed8;--viz-series-2:#7c3aed;--gold:#b8860b}
+@media (prefers-color-scheme: dark){
+:root{--background:#131316;--foreground:#ececf1;--card:#1c1c21;--card-foreground:#ececf1;
+--muted:#232329;--muted-foreground:#9d9da8;--border:#2c2c33;
+--green:#4ade80;--red:#f87171;--yellow:#facc15;--blue:#60a5fa;
+--viz-series-1:#60a5fa;--viz-series-2:#c084fc;--gold:#eab308}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--background);color:var(--foreground);
+font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Segoe UI",sans-serif;
+line-height:1.65;font-size:15px}
+.page{max-width:980px;margin:0 auto;padding:28px 22px 48px}
+h2{font-size:1.45rem;margin:6px 0 6px;font-weight:600}
+h3{font-size:1.12rem;margin:24px 0 6px;font-weight:600}
+h4{font-size:.95rem;margin:14px 0 4px;font-weight:500}
+hr{border:none;border-top:1px solid var(--border);margin:18px 0}
+.card{background:var(--card);color:var(--card-foreground);border:1px solid var(--border);
+border-radius:12px;padding:13px 16px;margin:10px 0}
+.viz-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px;margin:12px 0}
+.viz-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:6px 0}
+.viz-stat-value{font-size:1.28rem;font-weight:600;margin:2px 0}
+.text-small{font-size:.82rem}
+.text-muted{color:var(--muted-foreground)}
+.text-end{text-align:right}
+.tabular-nums{font-variant-numeric:tabular-nums}
+.table{width:100%;border-collapse:collapse;margin:10px 0}
+.table th,.table td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
+.table thead th{color:var(--muted-foreground);font-weight:500;font-size:.8rem}
+.table-sm th,.table-sm td{padding:5px 8px}
+b{font-weight:600}
+#nk-iv .chk { font-weight:500; white-space:nowrap; }
+#nk-iv .chk-pass { color:var(--green); }
+#nk-iv .chk-warn { color:var(--yellow); }
+#nk-iv .chk-fail { color:var(--red); }
+#nk-iv svg text { fill:var(--foreground); font-size:12px; }
+#nk-iv svg .axis { stroke:var(--border); stroke-width:1; }
+#nk-iv svg .muted-lab { fill:var(--muted-foreground); }
+#nk-iv .thesis-tag { font-weight:500; }
+#nk-iv .thesis-thesis .thesis-tag { color:var(--green); }
+#nk-iv .thesis-anti .thesis-tag { color:var(--red); }
+#nk-iv .thesis-trigger .thesis-tag { color:var(--blue); }
+#nk-iv h3 { margin-bottom:6px; }
+</style>
+</head>
+<body>
+<div class="page">
+<div id="nk-iv">
+
+  <h2>耐克投资价值研究 · 生意 × 价格 × 风险</h2>
+  <div class="viz-row text-small">
+    <span>NKE.N 37.14美元（10-15收盘，当日+5.2%；<b class="chk chk-fail">YTD -40.2%，2026年道指最差</b>，麦当劳-19%只能排第二）· 市值551亿美元 ≈ 4,300亿港元</span>
+    <span>· 数据截至 2026-10-15</span>
+    <span>· 基于 FY2026年报（6-30 8-K，财年截至5-31）+ Q1 FY2027业绩（10-1发布）+ Wind行情 + SEC/公司公告/主流财经媒体核验</span>
+  </div>
+
+  <div class="card" style="border-left:4px solid var(--red)">
+    <div class="text-small text-muted">⚠ 研究时点快照 — 转型第四年，仍在探底</div>
+    <div class="text-small">
+      Elliott Hill 2024-10-14临危复出，任内股价-56%；2026年-40.2%创十三年新低（8月跌破$35、10月初最低$31.97），跑输标普500的幅度为<b>25年之最</b>。刚出的Q1 FY27（6-8月）：收入112.1亿美元（-4%，miss）、净利7.12亿（-2%）、毛利率42.8%（+60bps），并指引<b>FY27全年收入高个位数下滑</b>——收入已从FY24峰值514亿跌向~430亿。行业背景同样血腥：LULU年内-52%、On -24%、Deckers -16%，整条运动赛道在被系统性去估值。研究要回答：<b>这是"品牌王者的周期性深坑"，还是"运动品牌之王的永久跌落"？</b>与麦当劳不同，这个问题的答案尚未在数据里出现。
+    </div>
+  </div>
+
+  <div class="viz-grid">
+    <div class="card"><div class="text-small text-muted">生意好不好</div><div class="viz-stat-value">顶级品牌，但护城河在验证期</div><div class="text-small">Nike Brand年收入452亿≈两个阿迪达斯；资本回报率即便在谷底仍有~15-18%（资本极轻）。但EPS从FY22峰值$3.75跌至FY26核心~$1.58（<b>-58%</b>）：跑步输给On/Hoka、中国连跌7季、经典款砍$20亿——<span class="chk chk-warn">护城河宽度正被真实侵蚀，不能按"无争议好生意"对待</span></div></div>
+    <div class="card"><div class="text-small text-muted">价格便不便宜</div><div class="viz-stat-value">价格历史极值，盈利在谷底</div><div class="text-small">股息率<b>4.4%</b>=上市以来最高区、PB 3.6x（历史8-15x）、PS~1.2x（历史2-3.5x）；但核心TTM PE≈23.6x——<b>便宜的是"价"，不便宜的是"谷底盈利"</b>。现价=9.5x常态化EPS（~$3.9），隐含"王座永久跌落成平庸品牌"</div></div>
+    <div class="card"><div class="text-small text-muted">风险拿得住</div><div class="viz-stat-value">拿不住大仓位，这是左侧接刀</div><div class="text-small">转型第4年仍指引负增长；FY26分红24亿>自由现金流~26亿、<b>回购从年均30-40亿骤停到1.2亿</b>（现金保卫战）；下一个证伪/证实节点是<b>11月投资者日+股息决议</b>。高赔率（中性+56%）高不确定性（悲观-38%）——只配事件驱动小仓</div></div>
+  </div>
+
+  <h3>① 生意质量 — 收入结构与利润引擎</h3>
+  <div class="viz-grid">
+    <div class="card"><div class="text-small text-muted">收入结构（FY2026：464.0亿美元，报告口径持平/固定汇率-2%）</div><div class="viz-stat-value">北美44% · EMEA 27% · 大中华13% · APLA 13% · Converse 3%</div><div class="text-small">北美205.1亿（+5%）是唯一引擎；EMEA 125.7亿（+3%/-3%汇率）；<b>大中华58.5亿（-11%）连续7季下滑</b>、公司主动收缩清库存；Converse 11.7亿（-31%）已边缘化。渠道：批发275亿（+6%，Hill修复批发关系的成绩）vs NIKE直营177亿（-6%，数字业务-12%）</div></div>
+    <div class="card"><div class="text-small text-muted">利润引擎与一次性拆穿</div><div class="viz-stat-value">FY26报表EPS $2.10，核心仅~$1.58</div><div class="text-small">2026-02-20最高法院裁定IEEPA关税非法，公司确认<b>9.86亿美元关税返还收益（约$0.52/股，Q4毛利率虚增900bps至49.2%）</b>。剔除后FY26核心EPS~$1.58（-27%），真实毛利率~40.8%（清仓折扣压制）。Q1 FY27毛利率42.8%+60bps是<b>关税成本消失后的第一个干净读数</b></div></div>
+    <div class="card"><div class="text-small text-muted">品牌资产仍在的证据</div><div class="viz-stat-value">#1规模 + 顶级体育IP垄断</div><div class="text-small">Nike Brand 452亿 vs 阿迪达斯~240亿 vs Lulu 106亿 vs On~35亿美元；NBA/顶级运动员合约与奥运/世界杯营销资源（2026世界杯6-7月刚办完）无可替代；Jordan品牌年收入约70亿美元量级（市场估算）≈阿迪的1/3。规模采购+Air等IP库=真实进入壁垒</div></div>
+  </div>
+
+  <svg viewBox="0 0 760 250" role="img" aria-label="耐克FY21至FY26摊薄EPS柱状图：从3.75峰值跌至2.10，其中FY26含0.52关税返还、核心仅1.58" style="width:100%; max-width:760px; height:auto">
+    <title>耐克摊薄EPS FY21-FY26（美元）</title>
+    <text x="30" y="16" class="muted-lab">蓝=报表EPS；紫段=FY26一次性关税返还$0.52；红线=核心盈利趋势</text>
+    <line x1="30" y1="210" x2="740" y2="210" class="axis"/>
+    <g class="tabular-nums" text-anchor="middle">
+      <g><rect x="55"  y="66"  width="60" height="144" rx="2" fill="var(--viz-series-1)"/><text x="85"  y="60">$3.56</text><text x="85"  y="228" class="muted-lab">FY21</text></g>
+      <g><rect x="175" y="54"  width="60" height="156" rx="2" fill="var(--viz-series-1)"/><text x="205" y="48">$3.75</text><text x="205" y="228" class="muted-lab">FY22</text></g>
+      <g><rect x="295" y="85"  width="60" height="125" rx="2" fill="var(--viz-series-1)"/><text x="325" y="79">$3.23</text><text x="325" y="228" class="muted-lab">FY23</text></g>
+      <g><rect x="415" y="56"  width="60" height="154" rx="2" fill="var(--viz-series-1)"/><text x="445" y="50">$3.73</text><text x="445" y="228" class="muted-lab">FY24</text></g>
+      <g><rect x="535" y="128" width="60" height="82"  rx="2" fill="var(--viz-series-1)"/><text x="565" y="122">$2.16</text><text x="565" y="228" class="muted-lab">FY25</text></g>
+      <g><rect x="655" y="133" width="60" height="77"  rx="2" fill="var(--viz-series-1)"/><rect x="655" y="133" width="60" height="21" rx="2" fill="var(--viz-series-2)"/>
+         <text x="685" y="127">$2.10</text><text x="685" y="228" class="muted-lab">FY26</text>
+         <text x="685" y="143" style="fill:#fff" >$0.52</text></g>
+    </g>
+    <line x1="205" y1="54" x2="685" y2="154" stroke="var(--red)" stroke-width="1.5" stroke-dasharray="5,4"/>
+    <text x="430" y="140" style="fill:var(--red)" text-anchor="middle">核心EPS -58%：$3.75 → ~$1.58</text>
+  </svg>
+
+  <table class="table table-sm">
+    <thead><tr><th>护城河维度</th><th>判定</th><th>证据（数字）</th></tr></thead>
+    <tbody>
+      <tr><td>提价能力</td><td><span class="chk chk-fail">✗ 当前无</span></td><td>毛利率44.0%（FY22峰值46.0%）→ 40.8%（FY26核心）；为清库存被迫加大折扣，中国区以收缩换出清。定价权要让位于"库存纪律"——品牌被侵蚀的直接财务证据</td></tr>
+      <tr><td>市占率</td><td class="chk chk-warn">△ 仍是第一，但在流失</td><td>全球运动服饰收入第一（452亿）；但跑步品类输给On（+高增长）与Hoka；美国批发货架份额被New Balance等切走；大中华区让给安踏/李宁+主动去库存。市占率曲线方向向下——这是本案核心争议</td></tr>
+      <tr><td>转换成本</td><td class="chk chk-warn">△ 消费者低 / 渠道中度</td><td>鞋服无转换成本，热度和款式主导；但批发伙伴关系重建后货架有粘性（FY26批发+6%是信任回归的证据）；Jordan文化资产与运动员合约是难以复制的"情感转换成本"</td></tr>
+      <tr><td>ROIC vs 资金成本</td><td class="chk chk-warn">△ 资本口径过、盈利口径败</td><td>资本极轻：净现金~11亿+权益~155亿，即使核心净利23亿，ROIC也有~15% > WACC~8%；<b>但真正塌的是"品牌资产的盈利能力"</b>——EPS从$3.75跌到~$1.58，相当于品牌资产负债表外的减值。<span class="chk chk-warn">连续性标准（连续5-10年超额）在FY25-27被打断，形式上不满足</span></td></tr>
+    </tbody>
+  </table>
+  <div class="text-small text-muted">
+    商业模式判定：看得懂——设计-营销-代工-全渠道的品牌授权机器，不碰重资产制造。但"看得懂"与"看得好"是两回事：<b>耐克的生意本质=对文化热度的杠杆，热度在则利润率44%+，热度退则收入以每年-10%的速度融化</b>。当前处于"热度退潮后的重建期"，这决定它不能按麦当劳式的"无争议好生意"给确定性。
+  </div>
+
+  <h3>② 财务体检 — 三表交叉验证</h3>
+  <div class="table-responsive">
+  <table class="table table-sm tabular-nums">
+    <thead><tr><th>亿美元</th><th>FY21</th><th>FY22</th><th>FY23</th><th>FY24</th><th>FY25</th><th>FY26</th><th>判定</th></tr></thead>
+    <tbody>
+      <tr><td>营业收入</td><td>445.4</td><td>467.1</td><td>512.2</td><td>513.6</td><td>463.1</td><td>464.0</td><td class="text-muted">FY27指引再-高个位数→~430</td></tr>
+      <tr><td>净利润</td><td>57.3</td><td>60.5</td><td>50.7</td><td>57.0</td><td>32.2</td><td>31.1</td><td class="text-muted">FY26含9.9亿关税返还</td></tr>
+      <tr><td>摊薄EPS($)</td><td>3.56</td><td>3.75</td><td>3.23</td><td>3.73</td><td>2.16</td><td>2.10</td><td class="chk chk-fail">核心~1.58，较峰值-58%</td></tr>
+      <tr><td>毛利率</td><td>44.8%</td><td>46.0%</td><td>43.5%</td><td>44.6%</td><td>42.7%</td><td>42.9%</td><td class="text-muted">核心~40.8%；Q1 FY27回升至42.8%</td></tr>
+      <tr><td>经营现金流</td><td>~59</td><td>~59</td><td>~58</td><td>74.3</td><td>~53</td><td>~36*</td><td class="chk chk-warn">△ FY26断崖（含3亿关税返现）</td></tr>
+      <tr><td>自由现金流</td><td>~52</td><td>~52</td><td>~48</td><td>66.2</td><td>~43</td><td>~26*</td><td class="chk chk-fail">✗ FY26≈分红24亿，零盈余</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div class="text-small text-muted">*FY26 OCF/FCF为推算：8-K披露"现金及短投90亿基本持平（-1亿），经营现金流（含IEEPA返现~3亿）不足以覆盖分红+资本开支"；FY21-23 OCF为10-K口径约数。FY21-24年报数经Wind各财年Q1数据交叉验证一致。</div>
+
+  <div class="viz-grid">
+    <div class="card"><div class="text-small text-muted">利润化妆检查</div><div class="viz-stat-value">一处大化妆，已拆穿</div><div class="text-small"><b>FY26报表EPS $2.10含$0.52一次性关税返还（+33%）</b>——不看这层会误判"盈利只降3%"；核心-27%。反向化妆也有：FY25含重组费用（裁员）压制。SBC约9亿美元/年，在谷底盈利下占比~38%（核心口径）——真实股东成本被低估，股本年稀释~0.5-1%但被回购暂停放大</div></div>
+    <div class="card"><div class="text-small text-muted">资产负债表（2026-05-31）</div><div class="viz-stat-value">净现金~11亿 · 存货持平</div><div class="text-small">现金+短投90.3亿 vs 有息负债~79.4亿（长期债59.4亿同比-25%+一年内20亿）——<b>净现金状态</b>，是股息的最后防线。存货75.0亿同比持平（收入下降背景下=周数略升），但大中华库存同比双位数下降、清理有进度。无商誉黑洞、应收与渠道规模匹配</div></div>
+    <div class="card"><div class="text-small text-muted">股东回报机器熄火</div><div class="viz-stat-value">回购30-40亿/年 → 1.2亿</div><div class="text-small">FY26：分红24亿（+5%，每股$1.63）+回购仅1.23亿（180万股）≈25亿，而FY24是"分红22亿+回购43亿"。管理层把每一美元现金都用于保股息与净现金——<b>这是防御姿态的自白</b>。24年连续增息纪录（2025-11-20第24次：$0.40→$0.41）下一个考验在2026年11月</div></div>
+    <div class="card"><div class="text-small text-muted">股息压力测试</div><div class="viz-stat-value">股息率4.4%，payout>100%</div><div class="text-small">年化$1.64 ÷ 核心EPS $1.58 = <b>104%</b>——谷底盈利盖不住股息，靠净现金垫。对标常态EPS~$3.5则payout 47%健康。Dealroom等已点名"25年纪录承压"。<b>11月若冻结或下调=管理层自己承认修复无期，届时论点作废</b></div></div>
+  </div>
+
+  <h3>③ 估值 — 价格历史极值，盈利在谷底</h3>
+  <table class="table table-sm tabular-nums">
+    <thead><tr><th>公司</th><th>价格$</th><th>市值$亿</th><th>PE(TTM)</th><th>YTD</th><th>备注</th></tr></thead>
+    <tbody>
+      <tr><td><b>耐克 NKE</b></td><td>37.14</td><td>551</td><td><b>17.8x</b><br><span class="text-muted">(核心~23.6x)</span></td><td class="chk chk-fail">-40.2%</td><td>道指最差；报表PE被关税返还要素压低</td></tr>
+      <tr><td>露露乐蒙 LULU</td><td>99.09</td><td>105</td><td>7.4x</td><td class="chk chk-fail">-52.3%</td><td>增长崩塌型；论"便宜"比耐克更极端</td></tr>
+      <tr><td>Deckers DECK</td><td>86.58</td><td>118</td><td>11.6x</td><td class="chk chk-warn">-16.5%</td><td>Hoka/UGG；On的母体对手</td></tr>
+      <tr><td>昂跑 ONON</td><td>35.19</td><td>117</td><td>23.9x</td><td class="chk chk-warn">-24.3%</td><td>高增长溢价仍在，但也被杀</td></tr>
+    </tbody>
+  </table>
+  <div class="text-small text-muted">同业口径：Wind全球行情快照 2026-10-15。<b>整条赛道在被系统性去估值</b>（消费降级+运动休闲退潮），耐克跌最深是因为叠加了自身中国+指引问题。注意一个被市场忽视的边际变化：最高法院2月裁定IEEPA关税非法，全行业关税成本已消失+退款回流——LULU/DECK/ONON同享，但股价没反映，说明当前定价的是"需求恶化"而非关税。</div>
+
+  <svg viewBox="0 0 760 225" role="img" aria-label="PE锚点对比：LULU 7.4x、DECK 11.6x、NKE FY27E 18.6x、ONON 23.9x、NKE核心TTM 23.6x、NKE十年均值约28x" style="width:100%; max-width:760px; height:auto">
+    <title>PE锚点地图（运动服饰）</title>
+    <text x="30" y="16" class="muted-lab">PE锚点：紫=NKE自身口径，灰=同业；当前FY27E 18.6x但核心盈利口径23.6x</text>
+    <line x1="30" y1="180" x2="740" y2="180" class="axis"/>
+    <g class="tabular-nums" text-anchor="middle">
+      <rect x="55"  y="156.5" width="36" height="23.5" rx="2" fill="var(--muted)" stroke="var(--border)"/><text x="73"  y="151">7.4x</text><text x="73"  y="196" class="muted-lab">LULU</text>
+      <rect x="175" y="142.5" width="36" height="37.5" rx="2" fill="var(--muted)" stroke="var(--border)"/><text x="193" y="137">11.6x</text><text x="193" y="196" class="muted-lab">DECK</text>
+      <rect x="295" y="119.5" width="40" height="60.5" rx="2" fill="var(--viz-series-1)"/><text x="315" y="114" style="fill:var(--viz-series-1)">18.6x</text><text x="315" y="196" class="muted-lab">NKE FY27E</text>
+      <rect x="415" y="101.5" width="36" height="78.5" rx="2" fill="var(--viz-series-2)"/><text x="433" y="96" style="fill:var(--viz-series-2)">23.6x</text><text x="433" y="196" class="muted-lab">NKE核心TTM</text>
+      <rect x="535" y="101"   width="36" height="79"  rx="2" fill="var(--muted)" stroke="var(--border)"/><text x="553" y="96">23.9x</text><text x="553" y="196" class="muted-lab">ONON</text>
+      <rect x="655" y="88"    width="36" height="92"  rx="2" fill="var(--yellow)" opacity="0.7"/><text x="673" y="83">28x</text><text x="673" y="196" class="muted-lab">NKE十年均值</text>
+    </g>
+    <text x="30" y="222" class="muted-lab">另：PB 3.6x（历史8-15x）· PS~1.2x（历史2-3.5x）· 股息率4.4%（历史1-1.3%）——三个口径同处上市以来最便宜区域</text>
+  </svg>
+
+  <div class="viz-grid">
+    <div class="card" style="border-left:4px solid var(--red)"><div class="text-small text-muted">悲观档</div><div class="viz-stat-value tabular-nums">≈ $23（-38%）</div><div class="text-small">修复失败：FY28收入再-3%、中国继续失血、热度不回头，EPS~$1.8×13x（落入LULU式"增长已死"定价带）；11月股息冻结坐实。股息4.4%是唯一缓冲</div></div>
+    <div class="card" style="border-left:4px solid var(--blue)"><div class="text-small text-muted">中性档</div><div class="viz-stat-value tabular-nums">≈ $58（+56%）</div><div class="text-small">FY28收入+3%企稳、毛利率回44%（关税已消失+折扣收敛+SG&A裁1400人兑现）、EPS~$2.9×20x。路径：批发+中国出清完成+性能产品(Vomero/结构系列)接棒</div></div>
+    <div class="card" style="border-left:4px solid var(--green)"><div class="text-small text-muted">乐观档</div><div class="viz-stat-value tabular-nums">≈ $85（+129%）</div><div class="text-small">品牌热度回归：FY28 EPS~$3.4（回到FY24盈利中枢88%）×25x（十年均值下方）。收入重回500亿、Jordan与跑步份额企稳、中国转正</div></div>
+  </div>
+
+  <div class="card">
+    <div class="text-small text-muted">反推现价隐含假设 — 当前37.14美元在定价什么</div>
+    <div class="text-small">
+      以FY27E EPS~$2.0计，现价18.6x；以"品牌回到FY24盈利中枢"的常态EPS~$3.9计，现价仅<b>9.5x</b>——市场在定价「耐克的盈利中枢永久性腰斩、从44%毛利率的成长品牌变成平庸品牌」。这个隐含假设的历史对照：耐克2017-18转型低谷（批发+数字渠道阵痛）EPS~$1.9-2.0，两年后回到$2.5+并开启三年牛市；反例是安德玛——热度退潮后<b>再也没回去</b>（至今市值仅为峰值的1/5）。<span class="chk chk-warn">△ 与麦当劳的差别在于：MCD现价隐含的悲观假设（客流停滞）只需要"不再恶化"即证伪，而NKE需要"实质性好转"才兑现——左边接刀与右侧确认的区别，赔率好、概率不确定</span>。
+    </div>
+  </div>
+
+  <h3>④ 风险与证伪 — 每条空头论点配可观测信号</h3>
+  <table class="table table-sm">
+    <thead><tr><th>空头论点</th><th>事实基础</th><th>可观测信号（触发器）</th><th>动作</th></tr></thead>
+    <tbody>
+      <tr><td><b>1. 转型失败/管理层动荡</b></td><td>Hill任内股价-56%；FY27指引-高个位数=转型第4年仍无增长；媒体已在讨论其去留</td><td><b>2026年11月投资者日</b>：无量化FY28-30收入/利润率路径，或CFO/CEO变动</td><td class="chk chk-fail">清仓</td></tr>
+      <tr><td><b>2. 股息不可持续</b></td><td>FY26分红24亿>FCF~26亿边缘、payout(核心口径)104%、回购已停摆；24年连续增息纪录靠净现金垫</td><td><b>2026年11月中旬股息决议</b>：冻结或下调（第25年纪录断）</td><td class="chk chk-fail">清仓</td></tr>
+      <tr><td><b>3. 中国永久性失守</b></td><td>大中华FY26 -11%（58.5亿，占比已降至13%）、连跌7季；安踏/李宁+国潮分流；公司主动收缩清库存</td><td>中国收入降幅连续两季未收窄，或库存去化后收入仍-10%以上</td><td class="chk chk-fail">减半</td></tr>
+      <tr><td><b>4. 品牌热度结构性流失</b></td><td>跑步份额被On/Hoka拿走；经典款（AF1/Dunk）FY26主动砍超$20亿收入；年轻客群黏性下降</td><td>批发sell-through与订货会指标持续负增长；性能新品（Vomero/赛训系列）无起色；Q2 FY27（假日季）收入大幅miss指引</td><td class="chk chk-fail">减半</td></tr>
+      <tr><td><b>5. 成本与毛利率再探底</b></td><td>核心毛利率40.8%已在历史低位；若需更大折扣清库存将继续下探</td><td>关税消失背景下毛利率跌回&lt;42%（Q1 FY27为42.8%的回落）</td><td class="chk chk-warn">盯+不加仓</td></tr>
+      <tr><td><b>6. 价值陷阱/机会成本</b></td><td>若FY27-28持续负增长，4.4%息撑不住机会成本；同赛道LULU 7.4x更便宜</td><td>2027年9月-2028年2月的季度收入仍未转正</td><td class="chk chk-fail">机会成本离场</td></tr>
+    </tbody>
+  </table>
+
+  <div class="viz-grid">
+    <div class="card"><div class="text-small text-muted">供给日历（无解禁/无CB；事件密集在Q4）</div><div class="text-small">
+      <b class="tabular-nums">2026-11</b>：<b>投资者日（make-or-break）</b>——FY28-30路线图+资本回报框架，媒体已定性为"Hill的生死考"<br>
+      <b class="tabular-nums">2026-11中旬</b>：股息决议（第25年增息与否）<br>
+      <b class="tabular-nums">2026-12中旬</b>：Q2 FY27财报——假日季=全年最大收入季，批发sell-through最关键读数<br>
+      <b>持续</b>：IEEPA退款~10亿美元FY27分批回流现金 · 2026世界杯（6-7月）营销投入已沉没，效果看FY27-Q2起的双位数搜索/热度指标</div></div>
+    <div class="card"><div class="text-small text-muted">本轮下跌归因（杀什么）</div><div class="text-small">
+      杀预期+杀盈利双杀：收入从峰值-16%（指引后）、核心EPS-58%、FCF腰斩。<b>资产负债表没杀（净现金11亿）</b>——这与2008金融股或地产股的深坑本质不同，破产/流动性尾部风险≈0。<br>
+      行业β与个股α各半：赛道整体-16%~-52%，耐克-40%居中偏深。给"修复"定价比给"崩塌"定价更容易出错的年代，<b>先用事件（11月）做确认，再用分档做布局</b></div></div>
+  </div>
+
+  <h3>⑤ 价格纪律 — 分档买入与出场条件（先写好再进场）</h3>
+  <table class="table table-sm tabular-nums">
+    <thead><tr><th>档位</th><th>区间$</th><th>对应估值</th><th>仓位</th><th>逻辑</th></tr></thead>
+    <tbody>
+      <tr><td><b>试探档</b></td><td>35-38（现价区）</td><td>PS~1.2x · 息率4.4%</td><td>1/4</td><td>十三年估值底+净现金+4.4%息；但盈利未企稳，只配试探仓——本质是给11月投资者日买"彩票"+收息等</td></tr>
+      <tr><td><b>第二档</b></td><td>32-34</td><td>52周低31.97一线 · 息率~5%</td><td>1/4</td><td>恐慌极值区；若因宏观（非公司）跌破32，历史极值价格+5%息</td></tr>
+      <tr><td><b>确认档</b></td><td>事件后决定<br>（非价格档）</td><td>—</td><td>1/2</td><td><b>核心仓位等右侧</b>：11月投资者日给出可信FY28-30路径+股息安全 → 即使价格在$42-45也加（买确认不贪便宜）；反之0</td></tr>
+    </tbody>
+  </table>
+  <div class="viz-grid">
+    <div class="card" style="border-left:4px solid var(--red)"><div class="text-small text-muted">证伪线（事件优先）</div><div class="text-small"><b>11月投资者日无量化路径或管理层变动</b>，或<b>股息冻结/下调</b>——任一成立，论点整体作废离场，不与转型股谈恋爱。次级：中国降幅两季未收窄、Q2 FY27大幅miss、毛利率跌回42%下方→各对应减半</div></div>
+    <div class="card" style="border-left:4px solid var(--yellow)"><div class="text-small text-muted">价格线（周收盘判定）</div><div class="text-small">跌破$32（52周低）且<b>无公司利空</b>=宏观冲击加仓区；跌破$32且伴随证伪信号=清仓。不设机械止损，设条件止损——$23悲观档(-38%)是压力测试的下沿，不是操作线</div></div>
+    <div class="card" style="border-left:4px solid var(--green)"><div class="text-small text-muted">兑现线（反向出场）</div><div class="text-small">≥$55-60（中性档）而收入季度环比仍负→修复计价抢跑，减半；≥$68（52周高）且收入转正→持有让利润跑。持有期内每年4.4%息是等待成本的全部补偿——<b>息停即离场</b></div></div>
+  </div>
+  <div class="text-small text-muted">仓位上限：组合3-5%（低于麦当劳的5-8%）——理由：麦当劳是"好生意+便宜+等一个变量不恶化"，耐克是"好品牌+深谷+等一场修复兑现"，确定性与可验证性差一档。<b>框架纪律：ROIC连续性标准形式上不满足的标的，仓位上限自动降档</b>。机会成本自觉：同赛道LULU 7.4x/DECK 11.6x更"便宜"，选耐克买的是品牌王座+事件路径，不是估值最低。</div>
+
+  <h3>一页纸投资论点</h3>
+  <div class="viz-grid" style="grid-template-columns:1fr">
+    <div class="card thesis-thesis">
+      <div class="thesis-tag">论点（为什么看）</div>
+      <div class="text-small">
+      全球第一运动品牌（Nike Brand 452亿美元≈两个阿迪）正以历史极值价格出售：股息率4.4%（历史1-1.3%）、PB 3.6x（历史8-15x）、PS 1.2x（历史2-3.5x）、十三年股价低位，且资产负债表无雷（净现金11亿、存货纪律恢复、无解禁无CB）。FY26批发+6%证明渠道关系在修复、Q1 FY27毛利率+60bps证明成本结构在改善、IEEPA关税被裁非法消除了行业成本逆风。现价=9.5x常态EPS（~$3.9），市场定价"王座永久跌落"；若只是又一次耐克式周期低谷（2017-18先例），中性档$58对应+56%。11月投资者日是低成本验证点。
+      </div>
+    </div>
+    <div class="card thesis-anti">
+      <div class="thesis-tag">反论点（为什么可能是错的）</div>
+      <div class="text-small">
+      ① 转型第4年（2024-10换帅至今）FY27仍指引收入-高个位数，"Win Now"被分析师预期拖累到FY28——增长从未回来；② 核心EPS较峰值-58%、毛利率定价权实质丧失（清库存折扣+经典款砍$20亿）；③ 中国连跌7季且让位国产，可能是永久性份额转移而非周期；④ 分红24亿>FCF、payout(核心)104%、回购停摆——25年增息纪录11月见分晓，冻结即自证修复无期；⑤ On/Hoka/New Balance的份额侵蚀是结构性的：跑步品类的热度奖项一旦易主，历史上只有安德玛式的一去不回。最硬的一条：<b>这轮-40%中行业β与个股α各半，即使赛道回暖，耐克也要先赢回自己的执行</b>。
+      </div>
+    </div>
+    <div class="card thesis-trigger">
+      <div class="thesis-tag">触发器（什么时候验证/离场）</div>
+      <div class="text-small">
+      <b>近期</b>：2026-11投资者日（FY28-30量化路径=make-or-break）→ 11月中旬股息决议（第25年增息与否）→ 12月中旬Q2 FY27财报（假日季批发sell-through）。<br>
+      <b>买入</b>：试探档35-38（1/4）→ 32-34（1/4）→ 其余1/2等11月事件确认后右侧加（买确认不贪便宜）；仓位上限组合3-5%。<br>
+      <b>证伪即走</b>：投资者日无路径/管理层动荡、或股息冻结下调——任一成立无条件清仓；次级信号（中国、Q2 miss、毛利率）各对应减半。<br>
+      <b>兑现</b>：$55-60未伴随收入转正→减半；≥$68且收入转正→持有。息停即离场，每年4.4%息是等待的全部补偿。
+      </div>
+    </div>
+  </div>
+
+  <hr>
+  <div class="text-small text-muted">
+    数据与信源：FY2026 Q4/全年业绩 <a href="https://www.sec.gov/Archives/edgar/data/320187/000032018726000076/q4fy26exhibit991er.htm">8-K Exhibit 99.1（SEC，2026-06-30）</a>；
+    <a href="https://about.nike.com/en/newsroom/releases/nike-inc-reports-fiscal-2027-first-quarter-results">Q1 FY2027业绩（公司，2026-10-01）</a>；
+    <a href="https://www.cnbc.com/2026/10/01/nike-nke-q1-2027-earnings.html">CNBC Q1 FY2027</a>；
+    <a href="https://www.reuters.com/business/retail-consumer/nike-third-quarter-sales-beat-estimates-2026-03-31">Reuters（中国收缩与库存清理，2026-03/04）</a>；
+    <a href="https://investors.nike.com/news-events/press-releases/detail/556/nike-inc-declares-0-41-quarterly-dividend">Nike投资者关系（第24年增息至$0.41，2025-11-20）</a>；
+    <a href="https://app.dealroom.co/news/feed/nike-s-25-year-dividend-streak-at-risk-as-2-4b-payout-exceeds-free-cash-flow">Dealroom（股息vs自由现金流）</a>；
+    <a href="https://www.forbes.com/sites/jimosman/2026/09/25/mcdonalds-stock-fell-29-its-turnaround-plan-could-make-things-worse">Forbes/Motley Fool（道指最差两席：耐克与麦当劳，2026-09-25）</a>；行情/财务/同业：Wind（2026-10-15收盘）。<br>
+    免责声明：个人研究笔记，非投资建议。三档目标价为简化情景推演；FY21-23现金流为10-K约数、FY26 OCF/FCF为基于8-K披露的推算值；常态EPS为假设性修复情景，非盈利预测。
+  </div>
+
+</div>
+</div>
+</body>
+</html>
