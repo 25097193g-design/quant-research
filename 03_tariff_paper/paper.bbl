@@ -1,0 +1,77 @@
+\begin{thebibliography}{13}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Abadie(2021)]{abadie2021}
+Alberto Abadie.
+\newblock Using synthetic controls: Feasibility, data requirements, and methodological aspects.
+\newblock \emph{Journal of Economic Literature}, 59\penalty0 (2):\penalty0 391--425, 2021.
+
+\bibitem[Abadie et~al.(2010)Abadie, Diamond, and Hainmueller]{abadie2010}
+Alberto Abadie, Alexis Diamond, and Jens Hainmueller.
+\newblock Synthetic control methods for comparative case studies: Estimating the effect of california's tobacco control program.
+\newblock \emph{Journal of the American Statistical Association}, 105\penalty0 (490):\penalty0 493--505, 2010.
+
+\bibitem[Baker et~al.(2016)Baker, Bloom, and Davis]{baker2016}
+Scott~R. Baker, Nicholas Bloom, and Steven~J. Davis.
+\newblock Measuring economic policy uncertainty.
+\newblock \emph{Quarterly Journal of Economics}, 131\penalty0 (4):\penalty0 1593--1636, 2016.
+
+\bibitem[Ben-Michael et~al.(2021)Ben-Michael, Feller, and Rothstein]{benmichael2021}
+Eli Ben-Michael, Avi Feller, and Jesse Rothstein.
+\newblock The augmented synthetic control method.
+\newblock \emph{Journal of the American Statistical Association}, 116\penalty0 (536):\penalty0 1789--1803, 2021.
+
+\bibitem[Bown and Kolb(2025)]{bownkolb2025}
+Chad~P. Bown and Melinda Kolb.
+\newblock Trump's trade war timeline: Date guide.
+\newblock PIIE Trade and Investment Policy Watch, 2025.
+\newblock Continuously updated; accessed 2026-07.
+
+\bibitem[Brodersen et~al.(2015)Brodersen, Gallusser, Koehler, Remy, and Scott]{brodersen2015}
+Kay~H. Brodersen, Fabian Gallusser, Jim Koehler, Nicolas Remy, and Steven~L. Scott.
+\newblock Inferring causal impact using bayesian structural time-series models.
+\newblock \emph{Annals of Applied Statistics}, 9\penalty0 (1):\penalty0 247--274, 2015.
+
+\bibitem[Doudchenko and Imbens(2016)]{doudchenko2016}
+Nikolay Doudchenko and Guido~W. Imbens.
+\newblock Balancing, regression, difference-in-differences and synthetic control methods: A synthesis.
+\newblock NBER Working Paper 22791, National Bureau of Economic Research, 2016.
+
+\bibitem[Imai et~al.(2010)Imai, Keele, and Tingley]{imai2010}
+Kosuke Imai, Luke Keele, and Dustin Tingley.
+\newblock A general approach to causal mediation analysis.
+\newblock \emph{Psychological Methods}, 15\penalty0 (4):\penalty0 309--334, 2010.
+
+\bibitem[MacKinlay(1997)]{mackinlay1997}
+A.~Craig MacKinlay.
+\newblock Event studies in economics and finance.
+\newblock \emph{Journal of Economic Literature}, 35\penalty0 (1):\penalty0 13--39, 1997.
+
+\bibitem[{Office of the United States Trade Representative}(2026)]{section301investigations2026}
+{Office of the United States Trade Representative}.
+\newblock Ustr makes findings and proposes action: 60 section 301 investigations.
+\newblock USTR Press Release, 2026.
+\newblock Investigations initiated Mar.\ 12, 2026 as successor authority to the expiring Section 122 tariffs; findings June 2026, public comment closed Jul.\ 6, 2026. \url{https://ustr.gov/about/policy-offices/press-office/press-releases/2026/june/ustr-makes-findings-and-proposes-action-60-section-301-investigations-relating-failures-take-action}.
+
+\bibitem[{Supreme Court of the United States}(2026)]{learningresources2026}
+{Supreme Court of the United States}.
+\newblock Learning resources, inc. v. trump, no. 24-1287.
+\newblock Supreme Court opinion (Roberts, C.J.), 2026.
+\newblock Decided Feb 20, 2026. Held: IEEPA does not authorize the President to impose tariffs. Available at \url{https://www.supremecourt.gov/opinions/25pdf/24-1287_4gcj.pdf}.
+
+\bibitem[{The White House}(2026)]{section122tariffs2026}
+{The White House}.
+\newblock Imposing a temporary import surcharge to address fundamental international payments problems (presidential proclamation).
+\newblock Federal Register (Doc.\ 2026-03824), Feb.\ 25, 2026, 2026.
+\newblock Section 122 of the Trade Act of 1974; 10\% global surcharge effective Feb.\ 24, 2026; statutory cap 15\%/150 days, expires Jul.\ 24, 2026 absent congressional extension. \url{https://www.federalregister.gov/documents/2026/02/25/2026-03824/imposing-a-temporary-import-surcharge-to-address-fundamental-international-payments-problems}.
+
+\bibitem[{U.S. Court of International Trade}(2026)]{citsection1222026}
+{U.S. Court of International Trade}.
+\newblock Section 122 tariffs held unlawful (2--1), 2026.
+\newblock Decided May 7, 2026: a trade deficit is not the ``fundamental international payments deficit'' that \S122 requires; injunctive relief limited to plaintiff importers. CAFC administrative stay (May 2026) left CBP collecting. Analyses: Skadden, ``U.S.\ Trade Court Strikes Down Section 122 Tariffs'' (2026); ASIL, ``The U.S.\ CIT Invalidates Trump's 10\% Global Tariff'' (2026). Formal case caption to be inserted on filing.
+
+\end{thebibliography}

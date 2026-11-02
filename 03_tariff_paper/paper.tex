@@ -1,0 +1,1027 @@
+% !TEX program = pdflatex
+% ---------------------------------------------------------------------------
+% Global Shocks, Contaminated Controls (M1 rev.2)
+% English manuscript -- reframed as a failure-diagnosis paper
+% Compile: latexmk -pdf paper.tex   (bibtex handled automatically)
+% ---------------------------------------------------------------------------
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage[round]{natbib}
+\PassOptionsToPackage{hyphens}{url}% allow long URLs in bibliography to break
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+
+\renewcommand{\arraystretch}{1.15}
+
+% Author info -- adjust before submission
+\newcommand{\authorname}{Changhao Li}
+\newcommand{\authoremail}{(email to be inserted on submission)}
+\newcommand{\authoraffil}{The Hong Kong Polytechnic University}
+
+\title{\textbf{Global Shocks, Contaminated Controls:\\
+Diagnosing Counterfactual Failure in Trump's 2018 and 2025 Tariff Events\thanks{%
+Working paper, September 2026 (rev.~2). Replication code and data acquisition
+scripts are available at the companion repository
+\texttt{quant\_strategy/notebooks/paper\_tariff/}; all data are from Yahoo
+Finance via \texttt{yfinance}. Comments welcome.}}}
+
+\author{\authorname\thanks{\authoremail. \ \authoraffil}}
+\date{September 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\noindent
+We study what counterfactual methods can and cannot deliver when a policy
+shock treats every candidate control at once. On Donald Trump's April 2025
+``Liberation Day'' the S\&P~500 fell 12.1\% over the four trading sessions
+from April 3 to April 8 before rebounding on the April~9 pause; every
+candidate control---U.S.\ sector ETFs
+(slices of the treated index) and overseas indices (all sharply down over
+the same window)---was itself treated. We diagnose the consequences rather
+than report effects. Placebo tests have no power by construction when donors
+are homogeneous slices of the treated unit; synthetic weights concentrate on
+the single best pre-period tracker; and counterfactual gaps order
+monotonically with how tightly the counterfactual is bound to its
+donors---near zero under the tightest binding, approaching the raw return as
+binding loosens. The spread across specifications therefore measures control
+construction, not treatment effects, and the various ``gaps'' are different
+estimands rather than one quantity with uncertainty. A mediation-style
+attribution of the crash to a VIX ``fear channel'' fails on two counts:
+sequential ignorability is violated, and VIX is the implied volatility of
+S\&P~500 options, so the exercise measures mechanical contemporaneous
+covariation, not a channel. What survives without any donor is descriptive:
+VIX rose about 140\% from its pre-announcement close to its April 8 peak
+in the 2025 crash and decayed
+with a one-day half-life, while the comparable 2018 node produced no
+immediate VIX reaction---a contrast consistent with, but not identified
+as, market learning. We distill these diagnostics into a checklist for
+synthetic-control applications to global financial shocks.
+
+\medskip
+\noindent\textbf{Keywords:} synthetic control; contaminated controls; event
+study; tariff shock; identification failure; volatility \\
+\noindent\textbf{JEL:} G14, G18, F13, C54
+
+\end{abstract}
+
+\newpage
+\tableofcontents
+\newpage
+
+% ===========================================================================
+\section{Introduction}\label{sec:intro}
+
+The tariff policies of Trump's two presidencies constitute the largest
+American trade intervention in a century, and they arrived in two delivery
+mechanisms: the gradual 2018--19 escalation through Section~232 and four
+Section~301 lists (roughly \$370 billion of goods cumulatively), and the
+shock of April 2, 2025 (``Liberation Day''), when a universal baseline plus
+reciprocal rates were announced against virtually all trading partners at
+once. A natural question for market participants and policy evaluators
+alike: what did these shocks do to the S\&P~500 relative to the
+counterfactual of no tariff war?
+
+This paper's answer is that the question cannot be answered by the standard
+toolkit in this setting, and that the reasons are instructive. The synthetic
+control method of \citet{abadie2010} and its Bayesian-regression cousin
+\citep{brodersen2015} require controls untouched by the intervention. A
+global tariff shock treats every candidate control simultaneously: U.S.\
+sector ETFs are components of the treated index; every overseas developed
+market fell sharply over the same event window. Once this is recognized,
+the interesting research question shifts from ``what is the effect?'' to
+``what do these estimators produce when their identifying assumption fails
+in a known direction, and how can a researcher tell?''
+
+We therefore reframe the exercise as a \emph{failure diagnosis with a
+surviving descriptive core}. Across two tariff rounds, two donor families,
+and a battery of estimators (convex SCM, augmented SCM with ridge
+regularization, BSTS regression, linear and neural-network maps), we
+document four systematic facts and one set of donor-free findings:
+
+\begin{enumerate}
+  \item \textbf{No power by construction.} When donors are homogeneous
+  slices of the treated unit, the synthetic control reconstructs the
+  treated series and the gap tends to zero regardless of the intervention;
+  permutation placebos are then uninformative ($p=100\%$: the realized gap
+  is the \emph{smallest} in absolute value among all units).
+  \item \textbf{Weight concentration.} In the overseas pool, SCM loads
+  0.76 on a single index (Canada) and parallel trends fail outright;
+  enlarging the pool does not dilute the concentration.
+  \item \textbf{Gaps order with donor-binding tightness.} Across an
+  augmented-SCM ridge sweep, the gap moves monotonically from the convex
+  bound (near zero) to the raw return itself as regularization loosens the
+  donors' grip on the counterfactual. A statistic that orders with a
+  tuning parameter of the control construction is not measuring the
+  treatment.
+  \item \textbf{Different estimands masquerading as one interval.} The
+  spread of long-window statistics across specifications (roughly two
+  orders of magnitude) is sometimes presented as an ``uncertainty
+  boundary.'' It is better described as a collection of different
+  estimands---S\&P~500 minus sector-synthetic, S\&P~500 minus an
+  overseas-predicted path, nonlinear prediction errors---none of which is a
+  tariff effect.
+\end{enumerate}
+
+What survives without any control group is descriptive: the volatility
+signature. VIX rose from its eve-of-announcement close of 21.8 (April 1)
+to 52.3 at the April 8 trough of the 2025
+crash (+140\%) and decayed with a one-day half-life after the April~9
+pause; the comparable 2018 node (List~1) produced no immediate VIX
+reaction at all. We present this contrast as a descriptive fact and
+explicitly decline the causal reading (``markets learned'') because
+treatment magnitude, surprise, and macro background all differ across
+rounds.
+
+A further negative result concerns a tempting exercise: decomposing the
+crash into a VIX-mediated ``fear channel'' and a residual direct effect, in
+the style of \citet{imai2010}. The exercise fails identification twice.
+Sequential ignorability is violated (VIX responds to the equity decline
+itself), and---more fundamentally---VIX is the implied volatility of
+S\&P~500 options: regressing index returns on $\Delta$VIX is a mechanical
+contemporaneous covariation (the leverage/volatility-feedback relation),
+not the measurement of a channel. We report the decomposition only as a
+descriptive covariation account, with its fragilities stated.
+
+\paragraph{Contributions.}
+\begin{enumerate}
+  \item \textbf{A diagnosis protocol} for counterfactual methods under
+  globally contaminated controls: constructive no-power placebos,
+  weight-concentration checks, and a binding-tightness ordering
+  (augmented-SCM ridge sweep) that reveals whether a gap tracks the
+  control construction rather than the treatment---demonstrated on the
+  two-round tariff design and calibrated on a clean-control positive
+  control (California Proposition~99).
+  \item \textbf{Donor-free descriptive volatility facts} for the two
+  rounds, with three competing interpretations (learning; shock magnitude
+  and surprise; background conditions) stated and left unresolved.
+  \item \textbf{Explicitly non-causal relative accounting}: S\&P~500
+  relative to an overseas-predicted path (BSTS, with its
+  contaminated-covariate assumption disclosed), and a beta decomposition of
+  the sector cross-section showing that raw ``which sector fell most''
+  rankings are dominated by market beta. These are descriptions of relative
+  performance, not tariff effects.
+\end{enumerate}
+
+\paragraph{What we do not claim.} We do not estimate the effect of tariffs
+on the S\&P~500; we do not interpret any SCM/BSTS gap as causal; we do not
+claim a fear ``channel'' share; and we do not claim evidence of market
+learning. The paper's value is in showing precisely why each of these
+claims would fail, and what can be said instead.
+
+The remainder proceeds as follows. Section~\ref{sec:background} lays out
+the institutional timeline, including the 2026 litigation aftermath.
+Section~\ref{sec:data} describes the data. Section~\ref{sec:method} sets
+out the estimators and the diagnostic uses to which we put them.
+Section~\ref{sec:results} presents the diagnosis. Section~\ref{sec:protocol}
+distills the diagnostics into a pre-reporting protocol and demonstrates it
+on a clean-control positive control. Section~\ref{sec:discussion} discusses
+interpretation and limitations, and Section~\ref{sec:conclusion} concludes.
+
+% ===========================================================================
+\section{Institutional Background}\label{sec:background}
+
+\subsection{Two tariff rounds}
+
+Table~\ref{tab:timeline} summarizes the key dates. The essential difference
+is the delivery mechanism: \textbf{2018 was gradual}---tariffs arrived in
+batches over eighteen months and markets priced each step as it came;
+\textbf{2025 was a shock}---a single announcement covering all major
+partners at once, followed by a crash and an equally fast partial reversal.
+Our focal events are 2018-07-06 (List~1, the largest single node of round
+one) and 2025-04-02 (Liberation Day).
+
+\begin{table}[htbp]
+\centering
+\caption{Tariff timeline, 2018--2026 (selected events; compiled from
+\citealp{bownkolb2025} and Federal Register and court records)}
+\label{tab:timeline}
+\small
+\begin{tabular}{@{}llp{9.0cm}@{}}
+\toprule
+Round & Date & Event \\
+\midrule
+2018 & Mar 08 & Section 232 steel (25\%) and aluminum (10\%) tariffs signed \\
+2018 & Mar 22 & Section 301 China memorandum signed \\
+2018 & Jul 06 & \textbf{List 1 effective, 25\% (\$34B)} --- round-1 focal event \\
+2018 & Aug 23 & List 2 effective, 25\% (\$16B) \\
+2018 & Dec 01 & G20 Buenos Aires truce (90 days) \\
+2019 & May 10 & List 3 raised 10\%$\to$25\% (\$200B) \\
+2019 & Sep 01 & List 4A effective, 15\% (\$112B) \\
+\midrule
+2025 & Feb 01 & China +10\%, Canada/Mexico +25\% (IEEPA/fentanyl) \\
+2025 & Apr 02 & \textbf{Liberation Day reciprocal tariffs} --- round-2 focal event \\
+2025 & Apr 09 & 90-day pause on reciprocals; China rate raised to 125\% \\
+\midrule
+2026 & Feb 20 & \emph{Learning Resources v.\ Trump}: Supreme Court (6--3,
+Roberts, C.J.) holds IEEPA does not authorize the tariffs \\
+2026 & Feb 24 & Government pivots to Section 122 (Trade Act of 1974): 10\%
+global surcharge (statutory cap 15\%, sunset 150 days) \\
+2026 & May 07 & Court of International Trade (2--1) holds Section 122
+unlawful; CAFC administrative stay; CBP keeps collecting \\
+2026 & Jul 24 & Section 122 statutory expiry; 60 Section 301 investigations
+(initiated Mar 12) take over as successor authority \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{The 2026 legal aftermath}
+
+The legal foundation of the 2025 tariffs collapsed within a year of the
+event we study: the Supreme Court held in \emph{Learning Resources, Inc.\
+v.\ Trump} that IEEPA does not authorize presidential tariff imposition
+\citep{learningresources2026}; the administration immediately pivoted to a
+Section~122 surcharge \citep{section122tariffs2026}, which the Court of
+International Trade invalidated \citep{citsection1222026} before its
+150-day statutory expiry, with Section~301 investigations
+\citep{section301investigations2026} standing by as the third legal basis
+in twelve months. This relay matters for our interpretation: it is direct
+evidence that tariff policy in this period was a moving target whose legal
+durability was unknown at each moment---economic policy uncertainty in the
+classic sense of \citet{baker2016}---and hence background condition, not
+object, of our analysis.
+
+% ===========================================================================
+\section{Data}\label{sec:data}
+
+All price data are daily closes from Yahoo Finance via \texttt{yfinance},
+2017-01-01 through 2025-12-30. Table~\ref{tab:data} lists the panels.
+
+\begin{table}[htbp]
+\centering
+\caption{Data panels}
+\label{tab:data}
+\small
+\begin{tabular}{@{}lp{5.4cm}p{7.4cm}@{}}
+\toprule
+Panel & Instruments & Role \\
+\midrule
+us\_index & \^{}GSPC \^{}DJI \^{}IXIC & Treated unit (S\&P~500) \\
+sector\_etf & XLY \ldots{} XLRE (11 ETFs) & Candidate donor pool 1 \\
+overseas\_index & 15 developed markets\textsuperscript{a} & Candidate donor
+pool 2 (extended 2026-07-12) \\
+macro & \^{}VIX, GC=F, \^{}TNX, DX-Y.NYB & Covariates \\
+\bottomrule
+\end{tabular}
+
+\vspace{2pt}
+\noindent\textsuperscript{a}\small \^{}N225, \^{}GDAXI, \^{}FTSE, \^{}FCHI,
+\^{}AXJO, \^{}GSPTSE, \^{}STOXX50E, \^{}SSMI, \^{}N100, VGK, EZU, EWJ, EPP,
+EWA, EWC; EEM (emerging) and HSI (China-linked) excluded.
+\normalsize
+\end{table}
+
+\paragraph{Limitations of the data.} \texttt{yfinance} covers currently
+listed tickers; sector-ETF survivorship is mild but nonzero. XLC (listed
+2018-06) and XLRE (2018-10) lack pre-period data for the 2018 round, so the
+two-round comparison (Section~\ref{sec:tworound}) uses the 9 common donors.
+Sector China-exposure figures (Section~\ref{sec:exposure}) are PIIE/BEA-based
+proxies. VIX futures term-structure data are not reliably available from
+free sources, so all volatility statements use spot VIX. A GDELT news panel
+(1{,}416 items over 2025-04-01--15) was collected for an auxiliary sentiment
+dimension whose finance-specific tone proved weak (contemporaneous
+correlation with S\&P~500 returns $+0.06$); it is excluded from the
+analysis and documented in Appendix~\ref{app:repro} only.
+
+% ===========================================================================
+\section{Methods and Their Diagnostic Uses}\label{sec:method}
+
+The estimators below are standard; what is unusual is the use we put them
+to. Because the central assumption of every one of them (untreated
+controls) fails in a known direction, we treat each estimator's output as a
+\emph{diagnostic statistic} whose behavior under contamination we document,
+rather than as an effect estimate.
+
+\subsection{Synthetic control}\label{sec:scm}
+
+Following \citet{abadie2010}, with pre-treatment period $T_0$ we solve for
+donor weights $w$:
+\begin{equation}
+\min_{w} \;\sum_{v} V_v\Bigl(X_{1v}-\sum_{j} w_j X_{jv}\Bigr)^{2}
++\bigl\lVert Z_1 - Z_0 w\bigr\rVert^{2}
+\qquad \text{s.t.}\;\; w_j\ge 0,\;\; \textstyle\sum_j w_j = 1 ,
+\label{eq:scm}
+\end{equation}
+where $V_v$ weights the predictors. We report both equal $V$ and the
+data-driven choice of \citet{abadie2021} (\texttt{pysyncon}), because
+Section~\ref{sec:vsens} shows the gap is sensitive to it. Weights are
+estimated with \texttt{cvxpy} (CLARABEL) and cross-checked against
+\texttt{pysyncon}. Gaps are computed on cumulative log returns.
+
+\subsection{Inference tools read as power diagnostics}\label{sec:inference}
+
+The \emph{permutation placebo} \citep{abadie2021} iteratively treats each
+donor as the treated unit; the permutation $p$-value is the share of
+placebo gaps at least as extreme as the realized one. Under donor
+homogeneity this test has no power by construction, and a $p$-value of
+100\% is itself the diagnostic finding. \emph{Leave-one-out} (LOO)
+re-estimation exposes dependence on any single donor. \emph{In-time
+placebos} move the intervention date into the pre-period and locate the
+realized statistic in the resulting null distribution; we report these
+quantiles as calibration statistics, not as significance tests of an
+effect.
+
+\subsection{Bayesian structural time series as relative accounting}
+\label{sec:bsts}
+
+\citet{brodersen2015} fit a state-space model (local level plus covariate
+regression) on the pre-period and forecast a counterfactual. We implement
+the frequency-domain equivalent with \texttt{statsmodels}
+\texttt{UnobservedComponents}. Two assumptions fail here: the covariates
+(overseas indices) are treated, and---unlike convex SCM---the regression
+extrapolates without simplex constraints, so contamination passes through
+coefficients rather than being averaged. We therefore read its output
+exclusively as \emph{relative-performance accounting}: where the S\&P~500
+stood relative to an overseas-predicted path over the same window.
+
+\subsection{Event study and its limits}\label{sec:es-method}
+
+Following \citet{mackinlay1997}, the market model
+$R_{it} = \alpha_i + \beta_i R_{mt} + \varepsilon_{it}$ is estimated over
+an estimation window and abnormal returns cumulated over the event window.
+In a market-wide shock, however, the market factor is itself the treated
+variable and contains each sector's own return; residuals therefore
+describe \emph{relative} performance, not causal abnormal returns. We use
+the event study for one descriptive purpose: decomposing the sector
+cross-section into a beta component and a residual component
+(Section~\ref{sec:cross-section}).
+
+\subsection{Volatility-covariation accounting (not mediation)}
+\label{sec:covar-method}
+
+For any return series we estimate, over the pre-period,
+\begin{equation}
+R_{t} = \alpha + \beta\, \Delta VIX_{t} + \varepsilon_{t},
+\qquad \Delta VIX_t = \text{VIX log return},
+\label{eq:vixreg}
+\end{equation}
+and use it two ways. First, an \emph{orthogonalized SCM}: treated and every
+donor are purged with their own pre-estimated $\beta$ (out of sample over
+the event window), and the SCM re-run on the purified paths. Second, a
+\emph{descriptive decomposition} of the event-window cumulative return:
+$\sum_{t\in E} R_t = \hat\beta \sum_{t\in E}\Delta VIX_t
++ \sum_{t\in E}\hat\varepsilon_t$, the first term measuring contemporaneous
+covariation with the volatility state.
+
+Three properties of this exercise must be stated before any number is
+read. (i) $\Delta$VIX is contemporaneous, and VIX is the implied volatility
+of S\&P~500 options: the return--$\Delta$VIX relation embeds the
+leverage/volatility-feedback mechanics, so covariation shares are close to
+re-descriptions of the decline itself. (ii) $\hat\beta$ is estimated on a
+calm pre-period and extrapolated across a regime shift
+(Section~\ref{sec:garch}). (iii) Sequential ignorability, required for
+causal mediation \citep{imai2010}, fails outright. We therefore do not use
+the language of channels, mediation, or causal shares anywhere in the
+results.
+
+\subsection{GARCH and VIX paths (donor-free)}
+
+For each round we fit a GARCH(1,1) with an event dummy in the variance
+equation,
+\begin{equation}
+\sigma_t^2 = \omega + \alpha\,\varepsilon_{t-1}^2 + \beta\,\sigma_{t-1}^2
++ \gamma\, D_t ,
+\label{eq:garch}
+\end{equation}
+and, more importantly, read the shape of the VIX path (level change, time
+to peak, half-life). Neither statistic uses a control group; both are
+descriptive.
+
+\subsection{Augmented SCM as a binding-tightness dial}\label{sec:ascm-method}
+
+The convex hull constraint of equation~\eqref{eq:scm} confines the
+counterfactual to the donor simplex. The augmented SCM of
+\citet{benmichael2021} (see also \citealp{doudchenko2016}) replaces convex
+weights with ridge regression, anchored at the convex-SCM benchmark and
+level-anchored at the event date, so results remain comparable to SCM cumlog
+gaps. We use the ridge penalty sweep $\alpha\in[0.01,100]$ as a dial that
+moves the counterfactual continuously from ``fully bound to donors''
+(convex) to ``essentially unbound'' (level line). If the gap orders
+monotonically along this dial, it tracks the control construction; the
+script \texttt{ascm\_sweep.py} reproduces Table~\ref{tab:ascm}.
+
+\subsection{Neural-network maps as extrapolation-error probes}
+
+MLP and LSTM models map donor returns plus VIX to S\&P~500 returns
+(pre-period training, event-period out-of-sample application; 5 seeds;
+window lengths 3/5/10). Their outputs are \emph{prediction errors of a
+nonlinear pre-period map}---structurally contaminated in the same way as
+SCM---and we report them only to document the magnitude and instability of
+nonlinear extrapolation error, never as gaps.
+
+% ===========================================================================
+\section{Results: The Diagnosis}\label{sec:results}
+
+\subsection{The Liberation Day window}\label{sec:narrative}
+
+The reciprocal tariffs were announced after the close on 2025-04-02
+(close: 5{,}671). Over the following four trading sessions (April 3, 4, 7,
+and 8) the S\&P~500 fell to a trough close of 4{,}983 on April 8
+($-12.1\%$); the April~9 pause triggered a
+$+9.52\%$ single-day rebound. The sector cross-section ranged from XLE
+(energy) $-18.8\%$ to XLP (staples) $-6.4\%$. Every overseas index in the
+donor pool fell over the same window ($-7.6\%$ to $-13.3\%$). Two
+properties of this window drive everything that follows: the shock was
+global (no market was untreated), and the domestic ``controls'' are
+components of the treated index.
+
+\subsection{Sector SCM: homogeneity by construction}\label{sec:vsens}
+
+Over the pre-period 2024-06--2025-04, the equal-$V$ SCM loads XLK 0.36,
+XLY 0.18, XLV 0.17, XLF 0.09 (top four: 79.8\%); the pre-trend statistic
+is $p=0.957$ (Newey--West)---though, as Section~\ref{sec:placebo} shows,
+this design has no power, so a high pre-trend $p$-value is uninformative
+rather than reassuring. Realized gaps: short window (4/2$\to$4/8)
+$-0.04\%$; long window (4/2$\to$6/30) $+0.68\%$. The near-zero gaps are
+not evidence that tariffs were harmless; they are what this construction
+must produce when donors are slices of the treated index---the synthetic
+control approximately \emph{reconstructs} the S\&P~500, weight-fitting
+details aside. Switching to data-driven $V$
+\citep{abadie2021} disperses the weights and moves the long-window gap to
+$+7.45\%$: an 11$\times$ spread from the equal-$V$ benchmark attributable
+to the weight matrix alone. A statistic that moves by an order of
+magnitude with a defensible nuisance choice is not measuring the treatment.
+
+\subsection{Placebo and leave-one-out: no power by construction}
+\label{sec:placebo}
+
+The permutation test returns $p=100\%$: the realized short-window gap
+($-0.04\%$) has the smallest absolute value among all 12 units, against
+placebo gaps ranging $-6.24\%$ to $+4.69\%$. This is the constructive
+no-power result announced in the introduction: with homogeneous donors,
+synthetic $\approx$ treated and the gap is pinned near zero
+\emph{irrespective of the intervention}; the test cannot reject anything,
+ever, in this design. One caveat on interpretation: a smallest-of-all
+realized gap is observationally consistent with two readings---the
+homogeneity artifact we emphasize, or genuine treatment heterogeneity in
+which the cap-weighted, globally diversified index is simply the least
+tariff-exposed unit in the pool while concentrated sector funds absorb
+larger shocks. Our design cannot separate the two, and nothing downstream
+depends on choosing between them. LOO gaps span $[-0.49\%, +0.69\%]$%
+---stable, for the same reason: every donor subset still reconstructs the
+index. Stability here is a symptom of the design, not a robustness
+property of an estimate.
+
+\subsection{Overseas controls: SCM unusable, BSTS as relative accounting}
+\label{sec:overseas}
+
+With the overseas pool at 15 developed markets, SCM weights concentrate on
+Canada (0.76) and Australia (0.21) --- tickers \^{}GSPTSE and \^{}AXJO ---
+and pre-trends fail outright ($p=0.000$); the long-window statistic
+($+2.43\%$) is uninterpretable and we discard it. Extending the pool did not dilute
+concentration (an earlier pool put 0.99 on EEM): in any overseas family
+there is always one index that tracked the S\&P~500 best pre-event, and
+convex SCM gives it the weight.
+
+The BSTS regression of the S\&P~500 on the equal-weighted overseas basket
+is retained only as relative accounting: the S\&P~500 closed the short
+window $3.54\%$ below its overseas-predicted path and the long window
+$4.35\%$ above it (posterior tail-area statistics 60\% and 8.2\%; in-time
+placebo quantiles 10\% and 60\%). These numbers describe where the U.S.\
+market stood relative to a (treated) world basket---a descriptive
+comparison across contaminated markets, in which the U.S.\ policy reversal
+of April~9 plausibly plays a role. They are not tariff effects, and we do
+not pool them with SCM statistics (Section~\ref{sec:map}).
+
+\subsection{Two rounds: realized reactions versus constructed gaps}
+\label{sec:tworound}
+
+Table~\ref{tab:tworound} compares the rounds on the 9 common donors. The
+windows deliberately follow each round's natural rhythm---2018: short =
+event to $+2$ months (2018-09-06), long = to year-end; 2025: short =
+event to $+4$ sessions (2025-04-08), long = to June 30---because the
+delivery mechanisms differ; the notebook records this as design, not
+oversight. Because the realized cells therefore confound shock with
+window length, we re-ran both rounds at \emph{aligned} horizons of $+4$,
+$+20$, and $+60$ sessions (\texttt{aligned\_windows.py}). Three readings
+follow. (i)~At $+4$ sessions the crash contrast is intact: $+1.4\%$
+(2018) versus $-12.1\%$ (2025). (ii)~By $+20$ sessions it has largely
+dissipated ($+2.9\%$ versus $-1.2\%$), and at $+60$ both rounds are
+positive ($+6.0\%$ versus $+9.4\%$): the dramatic long-window contrast in
+Table~\ref{tab:tworound} ($-9.2\%$ versus $+9.4\%$) is
+manufactured by unequal windows---the 2018 long cell runs six months and
+absorbs the Q4 2018 drawdown, while at the aligned three-month point
+(October 1) the 2018 return stood at $+6.0\%$. (iii)~In every aligned
+cell the SCM statistic stays below 1\% (range $-0.09\%$ to $+0.91\%$),
+consistent with the construction story of Section~\ref{sec:vsens}. The
+price cells---realized or synthetic---are not the carrier of the
+between-round difference; anything substantive lives in the volatility
+signature (Section~\ref{sec:garch}). Note also that the 2025 short-window
+statistic here ($-0.09\%$) uses the 9-donor pool and therefore differs
+slightly from the 11-donor figure of Section~\ref{sec:vsens}
+($-0.04\%$); both are reported, neither is an effect.
+
+\begin{table}[htbp]
+\centering
+\caption{Two-round comparison (9 common donors; windows follow each
+round's rhythm, see text; descriptive---no cell is an effect)}
+\label{tab:tworound}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+Round & Realized (short / long) & SCM statistic (short / long) & MSPE &
+Pre-trend \\
+\midrule
+2018--19 (List~1) & $+4.3\%$ / $-9.2\%$ & $+0.03\%$ / $-0.69\%$ & 7.2
+& $p=0.727$ \\
+2025 (Liberation Day) & $-12.1\%$ / $+9.4\%$ & $-0.09\%$ / $+0.91\%$ & 4.7
+& $p=0.775$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Volatility signatures: the donor-free facts}\label{sec:garch}
+
+These statistics use no control group and are therefore the only findings
+in this paper that do not inherit contamination; they are, accordingly,
+descriptive statements about realized paths (Figure~\ref{fig:vixpaths}):
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.92\textwidth]{fig_vix_paths.png}
+\caption{VIX around each focal node, $\pm$60 trading sessions, calendar
+axes (a shared relative-event axis would visually compress 2018's null
+reaction against 2025's spike). Upper: List~1 (2018-07-06)---the eve
+close (15.0) is never exceeded afterward (window peak 14.9). Lower:
+Liberation Day (2025-04-02)---eve close 21.8, peak 52.3 on April 8
+(+140\%), half-life about one day after the April~9 pause.
+Generated by \texttt{make\_vix\_figure.py}.}
+\label{fig:vixpaths}
+\end{figure}
+
+\begin{itemize}
+  \item \textbf{2025 Liberation Day:} VIX closed at 21.8 on the eve of
+  the announcement (April 1) and peaked at 52.3 on April 8, four sessions
+  into the crash ($+140\%$), then a half-life of about one day---the
+  April~9 pause unwound the spike almost immediately.
+  \item \textbf{2018 List 1 (Jul 06):} VIX closed at 15.0 on the eve of
+  the node (July 5) and never exceeded that level over the following 60
+  sessions (window peak 14.9)---no immediate reaction at the node; VIX
+  climbed only as nodes
+  accumulated into Q4.
+\end{itemize}
+
+The GARCH(1,1) fits are secondary: both rounds show high persistence
+($\alpha+\beta>0.96$) over $\pm$120-day windows, and the event-dummy
+regression is coarse ($\gamma_{18}$ significantly negative, $\gamma_{25}$
+insignificant---an ordering built on one insignificant coefficient is not
+worth interpreting). We rest nothing on the parameters; the path shapes
+carry the content. Three interpretations of the contrast
+are live---market learning across rounds; larger and more surprising
+treatment in 2025; different rate/inflation/AI-cycle backgrounds---and our
+design cannot separate them (Section~\ref{sec:learning}).
+
+\subsection{Volatility-covariation accounting}\label{sec:covar}
+
+Applying equation~\eqref{eq:vixreg}: the treated pre-period coefficient is
+$\hat\beta=-0.079$. The orthogonalized SCM (treated and all donors purged,
+both with pre-estimated coefficients) moves the statistics only slightly:
+short $-0.04\%\to-0.09\%$, long $+0.68\%\to+0.86\%$
+(Table~\ref{tab:covar})---the contemporaneous covariation largely cancels
+in the treated-minus-synthetic difference because it hits both sides. The
+descriptive decomposition of the event-window return attributes a
+$-6.85$-point fitted covariation component to the short-window cumulative
+move of $-12.27\%$ (residual component $-5.41$; a covariation share of
+roughly 56\%; long window $+0.79$ of $+7.64$, residual $+6.85$). Given the three properties stated in
+Section~\ref{sec:covar-method}---mechanical contemporaneous link, regime
+extrapolation of $\hat\beta$, failed ignorability---this share should be
+read as a descriptive statistic about how tightly the decline co-moved
+with the options market's repricing of volatility, nothing more. It is not
+a channel, not causal, and its precision is illusory; we flag that any
+study regressing index returns on their own implied volatility will
+``recover'' a large share by construction.
+
+\begin{table}[htbp]
+\centering
+\caption{SCM statistic before and after VIX-orthogonalization (both
+treated and donors purged with pre-period coefficients)}
+\label{tab:covar}
+\small
+\begin{tabular}{@{}lccc@{}}
+\toprule
+Window & Raw SCM statistic & Purified & Difference \\
+\midrule
+Short (4/2$\to$4/8) & $-0.04\%$ & $-0.09\%$ & $-0.05$pp \\
+Long (4/2$\to$6/30) & $+0.68\%$ & $+0.86\%$ & $+0.18$pp \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Sector cross-section: beta dominates raw rankings}
+\label{sec:cross-section}
+
+Over 4/2$\to$4/8 the raw sector ranking (XLE $-18.8\%$ worst) and the
+market-model residual ranking differ sharply: on residuals, XLE stands at
+$-15.16$ points and XLK at $+5.19$ points, while XLK's raw return was the
+worst ($-14.22\%$) against a fitted $\beta$ of 1.59. The cross-sectional
+correlation between raw returns and residual ranks is only 0.24: raw
+``which sector fell most'' league tables are dominated by market beta
+rather than sector-specific exposure. We stop the claim there. Because the
+market factor is the treated index and contains the sectors themselves,
+residuals cannot be read as causal ``abnormal'' performance; the
+$+5.19$-point residual for XLK reflects both its genuine relative strength
+during the rebound and the mechanical absorption of its own weight in the
+market factor. The usable output is the descriptive decomposition, not a
+label of winners and losers.
+
+\subsection{The XLK mechanism}\label{sec:exxlk}
+
+If the near-zero sector-SCM statistic is a homogeneity artifact, removing
+the dominant homogeneous donor should break it. It does: excluding XLK
+moves the long-window statistic from $+0.68\%$ to $+7.51\%$ (XLK's
+contribution $-6.83$ points; post-exclusion weights XLY 0.48, XLV 0.31,
+then XLB/XLE; pre-trend $p=0.207$). The mechanism is transparent: with
+XLK in the pool the synthetic control inherits the post-event tech-led
+rebound and tracks the treated unit; without XLK it misses that rally.
+The data-driven-$V$ result of Section~\ref{sec:vsens} ($+7.45\%$) works
+through the same channel---both stop matching the pre-period AI rally
+with XLK---so the two numbers are one mechanism observed twice, not
+independent corroboration.
+
+\subsection{Augmented SCM: gaps order with binding tightness}
+\label{sec:ascm}
+
+Table~\ref{tab:ascm} reports the ridge sweep. As $\alpha\to0$ the ridge
+approaches unconstrained donor fitting and the statistic approaches the
+convex SCM; as $\alpha\to\infty$ coefficients shrink to zero, the
+``counterfactual'' degenerates to an anchored level line, and the statistic
+converges to the raw return itself ($\alpha=100$: $-11.88\%$ vs.\ realized
+$-12.1\%$ short; $+9.40\%$ vs.\ $+9.4\%$ long). At $\alpha=1$ the ridge
+coefficients sum to 0.574 (vs.\ 1.0 under convexity): the construction is
+part donor, part extrapolation.
+
+\begin{table}[htbp]
+\centering
+\caption{Augmented SCM: statistic by ridge penalty $\alpha$ (cumlog
+metric, event-date anchored; \texttt{ascm\_sweep.py})}
+\label{tab:ascm}
+\small
+\begin{tabular}{@{}lcccccc@{}}
+\toprule
+Window & SCM (convex) & $\alpha{=}0.01$ & $\alpha{=}0.1$ & $\alpha{=}1$ &
+$\alpha{=}10$ & $\alpha{=}100$ \\
+\midrule
+Short (4/2$\to$4/8) & $-0.04\%$ & $-1.13\%$ & $-2.09\%$ & $-5.06\%$ &
+$-9.56\%$ & $-11.88\%$ \\
+Long (4/2$\to$6/30) & $+0.68\%$ & $+0.32\%$ & $+1.37\%$ & $+4.19\%$ &
+$+7.75\%$ & $+9.40\%$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The monotone ordering is the finding. The statistic sweeps continuously
+from the convex bound to the raw return as the dial loosens the donors'
+grip: it is a function of the control construction, and there is no
+setting of $\alpha$ at which it can be claimed as a treatment effect. The
+near-zero convex value is not ``tariffs were harmless''; it is ``under the
+tightest binding the design cannot see the shock.''
+
+\subsection{Nonlinear extrapolation error}\label{sec:dl}
+
+The neural maps produce large, unstable numbers: MLP $+10.29\% \pm 7.02$pp
+and LSTM $+16.18\% \pm 9.39$pp across 5 seeds (a linear map
+gives $+0.16\%$); window sensitivity runs $+15\%$, $+18\%$, and $+21\%$
+for $w=3$, $5$, $10$, and single seeds reach $+35\%$. Validation/train
+loss ratios
+near 1.2 over a more volatile validation segment confirm overfitting. We
+draw no inference from these magnitudes beyond what they demonstrate: a
+nonlinear pre-period map extrapolated into a regime shift yields errors
+two orders of magnitude above the linear map's, unstable across seeds.
+These are prediction errors, not counterfactual gaps, and they are
+excluded from Table~\ref{tab:map}.
+
+\subsection{Specification map}\label{sec:map}
+
+Table~\ref{tab:map} collects the long-window statistics grouped by what
+each actually measures. The grouping is the point: rows within the first
+block are one nominal estimand fractured by construction choices; the
+second block is a different estimand (relative to a treated world
+basket); the third block is not a gap at all. Presenting such a
+collection as an ``uncertainty interval'' over one quantity would be a
+category error.
+
+\begin{table}[htbp]
+\centering
+\caption{Specification map: long-window statistics by estimand. No row is
+a tariff effect; within-block spread orders with donor-binding tightness
+(Sections~\ref{sec:vsens}--\ref{sec:ascm}).}
+\label{tab:map}
+\small
+\begin{tabular}{@{}llc@{}}
+\toprule
+Estimand & Specification & Long-window statistic \\
+\midrule
+\multirow{6}{*}{\begin{tabular}[c]{@{}l@{}}S\&P minus\\sector-synthetic\end{tabular}}
+ & Convex SCM, equal $V$ & $+0.68\%$ \\
+ & Convex SCM, data-driven $V$ & $+7.45\%$ \\
+ & Exclude XLK & $+7.51\%$ \\
+ & VIX-purified (equal $V$) & $+0.86\%$ \\
+ & Linear donor map & $+0.16\%$ \\
+ & Augmented SCM, $\alpha\in[0.01,100]$ & $+0.32\%$ to $+9.40\%$ \\
+\midrule
+\multirow{2}{*}{\begin{tabular}[c]{@{}l@{}}S\&P minus\\overseas-predicted path\end{tabular}}
+ & Overseas SCM & $+2.43\%$ (discarded, pre-trend failure) \\
+ & BSTS regression & $+4.35\%$ (relative accounting) \\
+\midrule
+\multirow{2}{*}{\begin{tabular}[c]{@{}l@{}}Extrapolation error\\(not a gap)\end{tabular}}
+ & MLP, 5 seeds & $+10.29\%\pm7.02$pp \\
+ & LSTM, 5 seeds & $+16.18\%\pm9.39$pp \\
+\midrule
+Reference & Realized return & $+9.4\%$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Reading the SCM weights: China exposure}\label{sec:exposure}
+
+Why did the equal-$V$ SCM load 36\% on XLK? Not tariff exposure: XLK's
+China-exposure proxy ($\sim$20\%) exceeds the index's ($\sim$7.5\%), and
+the weighted synthetic exposure ($\sim$11.3\%) is \emph{higher} than the
+actual index's. The weights reflect pre-period path coincidence (the AI
+rally), which is exactly the homogeneity mechanism of
+Section~\ref{sec:exxlk}. The exposure lens clarifies the weights'
+economic content and nothing about any gap.
+
+% ===========================================================================
+\section{A Pre-Reporting Diagnostic Protocol, with a Positive Control}
+\label{sec:protocol}
+
+The tariff analysis is a failure case: every diagnostic fired. For the
+diagnostics to be a protocol rather than a post-mortem, a reader must also
+see what \emph{passing} looks like. This section states the protocol and
+runs it end-to-end on the canonical clean-control application---California
+Proposition~99 in \citet{abadie2010}---as a positive control.
+
+\subsection{The checklist}\label{sec:checklist}
+
+Before any synthetic-control gap is reported as an effect for a
+market-wide or cross-sectional shock:
+
+\begin{enumerate}
+  \item \textbf{Donor--treatment homogeneity.} Compute the pre-period
+  correlation between the treated unit's path and each donor's path
+  (returns or first differences, not levels). If donors are slices of the
+  treated unit or correlations are extreme, the synthetic control will
+  reconstruct the treated series and the gap is pinned near zero by
+  construction. \emph{Tariff case:} max correlation 0.91 (XLK), donors
+  are index components $\Rightarrow$ fail
+  (Sections~\ref{sec:vsens}, \ref{sec:exxlk}).
+  \item \textbf{Placebo power.} Run permutation placebos and ask whether
+  the realized gap is \emph{extreme} among them. If the realized gap is
+  the smallest in absolute value, the test has no power against any
+  alternative, and neither significance nor insignificance is
+  interpretable. \emph{Tariff case:} $p=100\%$, smallest of 12 units
+  $\Rightarrow$ fail (Section~\ref{sec:placebo}).
+  \item \textbf{Weight concentration and pre-trends.} Inspect the weight
+  vector (nonzero count, top share) and the pre-trend statistic.
+  Single-donor domination and pre-trend failure disqualify the
+  construction. \emph{Tariff case:} overseas pool top weight 0.76
+  (Canada), pre-trend $p=0.000$ $\Rightarrow$ fail
+  (Section~\ref{sec:overseas}); note that a \emph{high} pre-trend
+  $p$-value is equally uninformative under step-2 failure.
+  \item \textbf{Binding-tightness sweep.} Sweep a regularization dial
+  (augmented-SCM ridge penalty) from fully donor-bound to unbound. If the
+  gap orders monotonically along the dial---from the convex bound to the
+  raw return---it tracks the control construction, not the treatment.
+  \emph{Tariff case:} $+0.68\%\to+9.40\%$ monotone in $\alpha$
+  $\Rightarrow$ fail (Section~\ref{sec:ascm}).
+\end{enumerate}
+
+A gap may be reported as an effect only when step 2 shows power and step 4
+is flat. The tariff events fail all four steps in known directions, which
+is why Section~\ref{sec:results} reports a diagnosis rather than
+estimates.
+
+\subsection{Positive control: California Proposition 99}\label{sec:poscontrol}
+
+We apply the same four diagnostics to the classic clean-control case:
+California's 1988 tobacco program, with 38 untreated donor states and
+annual cigarette sales per capita, 1970--2000
+(\texttt{positive\_control.py}; the ADH predictor set via \texttt{pysyncon};
+data mirrored alongside the script). This is an environment the protocol
+is supposed to pass: donors are other states, not slices of California,
+and a large published effect exists against which the diagnostics can be
+calibrated. Table~\ref{tab:poscontrol} reports all four steps side by
+side with the tariff case.
+
+The convex SCM recovers the published effect: California's 2000 gap is
+$-25.5$ packs per capita, within the range reported by \citet{abadie2010}
+(roughly $-18$ to $-25$ across specifications). Around that estimate the
+diagnostics behave as a protocol should:
+
+\begin{itemize}
+  \item \textbf{Homogeneity.} State-level co-movement is not trivial
+  (max first-difference correlation 0.84, mean 0.58), so high correlation
+  \emph{alone} is not disqualifying. What the tariff case has and this
+  case lacks is \emph{containment}: no donor state is a component of
+  California, whereas XLK (correlation 0.91) is a component of the
+  treated index, and the synthetic control reconstructs it.
+  \item \textbf{Placebo power.} On the naive terminal-gap statistic the
+  test is still weak (California ranks 7th of 39, $p=0.179$)---a useful
+  reminder that raw terminal gaps are noisy even in the canonical case.
+  On the ADH-style post/pre RMSPE ratio, California is the single most
+  extreme unit of 39 (ratio 9.2, permutation $p=0.026$). The contrast
+  with the tariff case is photographic: there the realized gap is the
+  \emph{smallest} of all units ($p=1.00$).
+  \item \textbf{Concentration.} Weights spread over 9 of 38 donors
+  (top-1 0.31, top-3 0.66), versus 0.76 on a single index in the tariff
+  overseas pool.
+  \item \textbf{Binding tightness.} The effect exists under the tightest
+  binding (convex: $-25.5$); the ridge dial varies its magnitude within
+  the same regime ($-19.5$ to $-33.8$ over $\alpha\in[0.01,100]$)
+  without approaching the raw change ($-48.5$) or collapsing to zero.
+  Here the dial adjusts the estimate; in the tariff case the dial
+  \emph{was} the estimate.
+\end{itemize}
+
+\begin{table}[htbp]
+\centering
+\caption{The four diagnostics: tariff events (failure case) versus
+California Proposition 99 (positive control). Positive-control numbers
+from \texttt{positive\_control.py}.}
+\label{tab:poscontrol}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}p{2.9cm}p{5.4cm}p{5.7cm}@{}}
+\toprule
+Diagnostic & 2018/2025 tariff events & California Prop.\ 99 \\
+\midrule
+Donor homogeneity & max corr 0.91; donors are components of the treated
+index & max corr 0.84, no containment (donors are other states; mean
+0.58) \\
+Placebo power & realized gap smallest of 12 units, $p=1.00$ & RMSPE-ratio
+most extreme of 39 units, $p=0.026$ (terminal-gap $p=0.179$) \\
+Weight concentration & overseas top-1 0.76 (Canada) & 9 of 38 nonzero,
+top-1 0.31, top-3 0.66 \\
+Binding-tightness sweep & monotone: convex $+0.68\%$ $\to$ raw
+$+9.40\%$ & effect present at every $\alpha$ ($-19.5$ to $-33.8$);
+convex $-25.5$; raw change $-48.5$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% ===========================================================================
+\section{Discussion}\label{sec:discussion}
+
+\subsection{One contaminated world, many fractured estimands}
+\label{sec:estimands}
+
+The classical SCM application (California tobacco vs.\ other states)
+assumes untreated donors. A global tariff shock violates this for every
+financial asset simultaneously, in the same direction: all controls fall
+with the treated unit, pulling every synthetic path down and compressing
+every treated-minus-synthetic statistic toward zero relative to whatever
+the unobservable counterfactual would have been. The dispersion across
+specifications in Table~\ref{tab:map} measures how differently the various
+constructions propagate that contamination---it is not uncertainty about
+one quantity. A synthetic-control statistic in this setting is best
+understood as a well-defined linear functional of (treated, donors)
+paths whose causal content is nil.
+
+\subsection{Why market adjustment cannot isolate sector effects here}
+\label{sec:es-discussion}
+
+In firm-level event studies the market model removes common noise because
+the event is firm-specific. In a market-wide treatment the market factor
+is the treatment, and each sector's own return sits inside it
+(XLK is the largest weight in the S\&P~500). Residuals therefore mix
+genuine relative strength with mechanical own-weight absorption.
+Cross-sectional statements of the form ``sector X was abnormally
+resilient'' are unavailable in this design; what is available is the
+descriptive decomposition of rankings into beta and residual components.
+
+\subsection{Two rounds, three interpretations}\label{sec:learning}
+
+The volatility contrast (immediate spike, one-day half-life in 2025; no
+immediate reaction in 2018) admits at least three readings: the market
+learned the escalation template between rounds; the 2025 treatment was
+larger and more surprising than any single 2018 node; the background
+(rates, inflation, AI cycle) differed. Treatment intensity differs by an
+order of magnitude across the focal dates, so nothing identifies the
+learning channel. We present the contrast as fact and the interpretations
+as open.
+
+\subsection{Limitations}\label{sec:limitations}
+
+\begin{enumerate}
+  \item \textbf{No clean control}: every candidate donor is treated;
+  this is the paper's subject and its boundary.
+  \item \textbf{Survivorship}: \texttt{yfinance} covers listed tickers;
+  mild for sector ETFs, nonzero.
+  \item \textbf{2018 simplification}: one focal node represents a
+  seven-node escalation.
+  \item \textbf{VIX mechanical identity}: any return-on-$\Delta$VIX
+  exercise is contemporaneously mechanical; covariation shares are
+  descriptive only, and $\hat\beta$ is extrapolated across a regime
+  shift.
+  \item \textbf{$V$--$w$ coupling}: the data-driven predictor weights are
+  chosen on pre-period outcomes and then interact with the weight
+  estimation; optimizing pre-fit can worsen post-period validity. This
+  known SCM critique is visible here as the 11$\times$ spread of
+  Section~\ref{sec:vsens}.
+  \item \textbf{Estimand discipline}: no statistic in
+  Table~\ref{tab:map} is an effect; we have flagged each block's actual
+  content.
+  \item \textbf{China exposure is a proxy} (PIIE/BEA synthesis), used
+  only to interpret weights.
+  \item \textbf{Learning not identified}: treatment magnitude, surprise,
+  and background all differ across rounds.
+\end{enumerate}
+
+% ===========================================================================
+\section{Conclusion}\label{sec:conclusion}
+
+This paper asked what counterfactual methods deliver when a policy shock
+treats every candidate control, and answered with a diagnosis. Four
+findings define the limits. Placebo tests have no power when donors are
+homogeneous slices of the treated unit; convex SCM concentrates overseas
+weights on a single best tracker and fails pre-trends; counterfactual
+statistics order monotonically with a binding-tightness dial (the
+augmented-SCM ridge sweep) that has nothing to do with the treatment; and
+the apparent spread of ``estimates'' across methods is a collection of
+different estimands, none causal. A mediation-style decomposition of the
+crash through VIX was shown to be mechanically flawed---VIX is the
+implied volatility of the treated index's own options---and was retained
+only as descriptive covariation accounting.
+
+The firm empirical content that survives is donor-free and descriptive:
+around the 2025 Liberation Day announcement, VIX rose about 140\% from
+its pre-announcement close to its April 8 peak and decayed with a
+one-day half-life after the April~9 pause,
+while the comparable 2018 node produced no immediate VIX reaction; and
+the sector cross-section's raw decline rankings are dominated by market
+beta. The 2026 legal collapse of the tariff authorities (IEEPA struck
+down; Section~122 expired under injunction; Section~301 pending)
+underlines the environment these markets were pricing: policy as a
+moving target.
+
+For practitioners, Section~\ref{sec:protocol} distills the diagnosis into
+a four-step pre-reporting protocol---homogeneity, placebo power, weight
+concentration, binding-tightness sweep---calibrated on a clean-control
+positive control. A gap may be reported as an effect only when placebos
+have power and the statistic is invariant to the dial. In the two tariff
+rounds studied here---and, we suspect, in many applications to
+synchronized market shocks---those conditions fail, and the responsible
+output is the diagnosis itself.
+
+% ===========================================================================
+\bibliographystyle{plainnat}
+\bibliography{references}
+
+\appendix
+\section{Reproducibility}\label{app:repro}
+
+All results are generated by fifteen Jupyter notebooks, each produced by a
+\texttt{generate\_0X\_*.py} script and sharing the library
+\texttt{paper\_lib.py} (SCM and augmented SCM via \texttt{cvxpy}, BSTS via
+\texttt{statsmodels}, event study, covariation accounting, placebo/LOO,
+GARCH via \texttt{arch}). Data are pulled by
+\texttt{download\_tariff\_data.py} (with
+\texttt{download\_overseas\_standalone.py} as a rate-limit fallback). The
+augmented-SCM sweep of Table~\ref{tab:ascm} is reproduced by
+\texttt{python ascm\_sweep.py}; the positive control of
+Section~\ref{sec:poscontrol} by \texttt{python positive\_control.py}
+(California panel mirrored as \texttt{smoking\_california.csv}; the 39
+placebo fits run once and are cached, so re-runs are instant); the
+aligned-horizon comparison of Section~\ref{sec:tworound} by
+\texttt{python aligned\_windows.py}. An
+auxiliary GDELT news panel (1{,}416
+items, 2025-04-01--15; notebook \texttt{nlp\_01}) was explored for a
+sentiment dimension; its finance-specific tone proved weak and it is not
+part of the analysis. Table~\ref{tab:notebooks} maps sections to
+notebooks.
+
+\begin{table}[htbp]
+\centering
+\caption{Notebook map}
+\label{tab:notebooks}
+\small
+\begin{tabular}{@{}ll@{}}
+\toprule
+Notebook & Section \\
+\midrule
+01--02 data exploration / event EDA & \ref{sec:narrative} \\
+03 sector SCM + $V$ sensitivity & \ref{sec:vsens} \\
+04 CausalImpact + in-time placebo & \ref{sec:overseas} \\
+05 event study residuals & \ref{sec:cross-section} \\
+06 placebo / LOO & \ref{sec:placebo} \\
+07 overseas SCM (discarded) & \ref{sec:overseas} \\
+08 two-round comparison & \ref{sec:tworound} \\
+09 retrospective & \ref{sec:results} (overview) \\
+10 VIX orthogonalization & \ref{sec:covar} \\
+11 GARCH regimes & \ref{sec:garch} \\
+12 MLP/LSTM extrapolation errors & \ref{sec:dl} \\
+13 covariation decomposition & \ref{sec:covar} \\
+14 China exposure & \ref{sec:exposure} \\
+15 exclude-XLK mechanism & \ref{sec:exxlk} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\end{document}
